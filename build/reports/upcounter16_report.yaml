@@ -1,9 +1,151 @@
+spec_source_type: yaml
 spec_source: examples\specs\upcounter16.yaml
 top_module: upcounter16
 design_kind: counter
+final_classification: functionally_verified
+ambiguity_findings:
+unsupported_findings:
+extracted_semantics:
+  module_name: upcounter16
+  ports:
+    -
+      name: clk
+      dir: input
+      width: 1
+      description: rising-edge clock
+    -
+      name: rst_n
+      dir: input
+      width: 1
+      description: active-low reset
+    -
+      name: en
+      dir: input
+      width: 1
+      description: count enable
+    -
+      name: count
+      dir: output
+      width: 16
+      kind: reg
+      description: running counter value
+  clock: clk
+  reset:
+    signal: rst_n
+    active: low
+    mode: async
+  state:
+    -
+      name: count
+      width: 16
+      reset: 0
+  behavior_keys:
+    - counter
+  design_kind_hint: counter
+candidate_analysis:
+  candidate_count: 1
+  selected_candidate: cand_1
+  candidates:
+    -
+      candidate_id: cand_1
+      title: structured_document
+      score: 10.1
+      classification: functionally_verified
+      assumptions:
+      ambiguity_count: 0
+      unsupported_count: 0
+      internal_checks:
+        - module name present
+        - port list present
+        - clock semantics present
+      compile_ok: true
+      simulation_ok: true
+      evidence_level: functional
+      oracle_independent: true
+      attempts_used: 2
+      extracted_semantics:
+        module_name: upcounter16
+        ports:
+          -
+            name: clk
+            dir: input
+            width: 1
+            description: rising-edge clock
+          -
+            name: rst_n
+            dir: input
+            width: 1
+            description: active-low reset
+          -
+            name: en
+            dir: input
+            width: 1
+            description: count enable
+          -
+            name: count
+            dir: output
+            width: 16
+            kind: reg
+            description: running counter value
+        clock: clk
+        reset:
+          signal: rst_n
+          active: low
+          mode: async
+        state:
+          -
+            name: count
+            width: 16
+            reset: 0
+        behavior_keys:
+          - counter
+        design_kind_hint: counter
 artifacts:
   rtl: rtl\upcounter16.v
   testbench: tb\tb_upcounter16.sv
+repair_loop:
+  enabled: true
+  max_attempts: 3
+  attempts_used: 2
+  injected_fault: counter_hold_when_enabled
+  repaired_after_feedback: true
+  unrepaired_after_retry_limit: false
+  attempts:
+    -
+      attempt: 1
+      strategy: direct
+      rtl_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\upcounter16\cand_1\attempt_1\upcounter16.v"
+      testbench_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\upcounter16\cand_1\attempt_1\tb_upcounter16.sv"
+      compile_command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\upcounter16\cand_1\upcounter16.v"
+      simulation_command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\upcounter16_sim.out"
+      compile_status: pass
+      simulation_status: fail
+      compile_stdout: ""
+      compile_stderr: ""
+      simulation_stdout: |-
+        FATAL: D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\upcounter16\cand_1\tb_upcounter16.sv:27: increment failed
+               Time: 26000  Scope: tb_upcounter16
+      simulation_stderr: ""
+      diagnosis_summary: testbench reported that the counter did not increment when enable was asserted
+      next_regeneration_changes:
+        - remove the injected counter hold-on-enable bug so the counter increments again
+    -
+      attempt: 2
+      strategy: direct
+      rtl_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\upcounter16\cand_1\attempt_2\upcounter16.v"
+      testbench_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\upcounter16\cand_1\attempt_2\tb_upcounter16.sv"
+      compile_command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\upcounter16\cand_1\upcounter16.v"
+      simulation_command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\upcounter16_sim.out"
+      compile_status: pass
+      simulation_status: pass
+      compile_stdout: ""
+      compile_stderr: ""
+      simulation_stdout: |-
+        PASS tb_upcounter16
+        D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\upcounter16\cand_1\tb_upcounter16.sv:32: $finish called at 36000 (1ps)
+      simulation_stderr: ""
+      diagnosis_summary: simulation passed after applying prior repair feedback
+      next_regeneration_changes:
 verification:
   support_status: supported
   requested_mode: sim
@@ -21,17 +163,22 @@ verification:
   limitations:
   notes:
   partial_verification_reasons:
+  assumptions:
   conclusion: functional verification passed with independent evidence
   compile:
-    attempt: 1
+    attempt: 2
     ok: true
     message: compile ok
-    command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\rtl\upcounter16.v"
+    command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\upcounter16\cand_1\upcounter16.v"
   simulation:
-    attempt: 1
+    attempt: 2
     ok: true
     message: |-
       PASS tb_upcounter16
-      D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\tb\tb_upcounter16.sv:32: $finish called at 36000 (1ps)
+      D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\upcounter16\cand_1\tb_upcounter16.sv:32: $finish called at 36000 (1ps)
     command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\upcounter16_sim.out"
   retry_history:
+    -
+      attempt: 1
+      action: simulation_feedback
+      reason: testbench reported that the counter did not increment when enable was asserted

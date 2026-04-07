@@ -1,0 +1,42 @@
+module:
+  name: fsm_handshake
+
+ports:
+  - {name: clk, dir: input, width: 1}
+  - {name: rst_n, dir: input, width: 1}
+  - {name: start, dir: input, width: 1}
+  - {name: done, dir: input, width: 1}
+  - {name: busy, dir: output, width: 1, kind: reg}
+  - {name: valid, dir: output, width: 1, kind: reg}
+
+timing:
+  clock: clk
+  reset:
+    signal: rst_n
+    active: low
+    mode: async
+
+design:
+  kind: fsm
+  behavior:
+    fsm:
+      state_signal: state_q
+      states: [IDLE, RUN, DONE]
+      reset_state: IDLE
+      transitions:
+        - {src: IDLE, dst: RUN, condition: start}
+        - {src: RUN, dst: DONE, condition: done}
+        - {src: DONE, dst: IDLE}
+      outputs:
+        - {state: IDLE, assignments: {busy: 0, valid: 0}}
+        - {state: RUN, assignments: {busy: 1, valid: 0}}
+        - {state: DONE, assignments: {busy: 0, valid: 1}}
+
+verification:
+  tb:
+    enabled: true
+    level: functional
+    checks:
+      - start transitions IDLE to RUN
+      - done transitions RUN to DONE
+      - outputs match each state

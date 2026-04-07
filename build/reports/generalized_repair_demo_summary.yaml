@@ -1,0 +1,36 @@
+demo_runs:
+  - spec: examples/specs/upcounter16.yaml
+    top: upcounter16
+    fault: counter_hold_when_enabled
+    returncode: 0
+    report: build\reports\upcounter16_report.yaml
+  - spec: examples/specs/register8.yaml
+    top: register8
+    fault: register_hold_when_enabled
+    returncode: 0
+    report: build\reports\register8_report.yaml
+  - spec: examples/specs/shift_left4.yaml
+    top: shift_left4
+    fault: shift_reverse_direction
+    returncode: 0
+    report: build\reports\shift_left4_report.yaml
+  - spec: examples/specs/fsm_handshake.yaml
+    top: fsm_handshake
+    fault: fsm_force_self_loop
+    returncode: 0
+    report: build\reports\fsm_handshake_report.yaml
+  - spec: examples/specs/comb_adder8.yaml
+    top: comb_adder8
+    fault: zero_output:y
+    returncode: 0
+    report: build\reports\comb_adder8_report.yaml
+  - spec: examples/specs/sum_stage.yaml
+    top: sum_stage
+    fault: zero_output:sum_out
+    returncode: 0
+    report: build\reports\sum_stage_report.yaml
+  - spec: examples/specs/text_counter.txt
+    top: text_counter
+    fault: zero_output:count
+    returncode: 0
+    report: build\reports\text_counter_report.yaml

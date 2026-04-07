@@ -68,7 +68,19 @@ def verify_design(
     top_name: str,
     attempt: int = 1,
 ) -> VerificationResult:
-    iverilog, vvp = ensure_iverilog_tools()
+    try:
+        iverilog, vvp = ensure_iverilog_tools()
+    except FileNotFoundError as exc:
+        return VerificationResult(
+            mode=mode,
+            succeeded=False,
+            returncode=1,
+            command="",
+            stdout="",
+            stderr="",
+            message=str(exc),
+            attempt=attempt,
+        )
     if mode == "compile":
         return compile_with_iverilog(rtl_path, iverilog, attempt=attempt)
     if tb_path is None:

@@ -1,0 +1,36 @@
+module:
+  name: shift_left4
+
+ports:
+  - {name: clk, dir: input, width: 1}
+  - {name: rst_n, dir: input, width: 1}
+  - {name: en, dir: input, width: 1}
+  - {name: serial_in, dir: input, width: 1}
+  - {name: shreg, dir: output, width: 4, kind: reg}
+
+timing:
+  clock: clk
+  reset:
+    signal: rst_n
+    active: low
+    mode: async
+
+design:
+  kind: shift_register
+  state:
+    - {name: shreg, width: 4, reset: 0}
+  behavior:
+    shift_register:
+      target: shreg
+      serial_in: serial_in
+      enable: en
+      direction: left
+
+verification:
+  tb:
+    enabled: true
+    level: functional
+    checks:
+      - reset clears state
+      - shifts left on enabled cycles
+      - holds state while disabled

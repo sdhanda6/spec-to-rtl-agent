@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Literal
+from typing import Any, Literal
 
 
 Direction = Literal["input", "output"]
@@ -9,6 +9,8 @@ DesignKind = Literal["counter", "register", "shift_register", "fsm", "combinatio
 VerificationLevel = Literal["none", "smoke", "functional"]
 CombOperator = Literal["expr", "buf", "not", "and", "or", "xor", "add", "sub", "mux", "eq", "lt", "gt"]
 StmtKind = Literal["assign", "if"]
+SpecSourceType = Literal["yaml", "text"]
+FinalClassification = Literal["functionally_verified", "compile_and_smoke_verified", "partially_supported", "unsupported_or_ambiguous"]
 
 
 @dataclass
@@ -163,6 +165,38 @@ class VerificationIntentIR:
 
 
 @dataclass
+class AmbiguityFindingIR:
+    code: str
+    message: str
+    severity: Literal["info", "warning", "error"] = "warning"
+    inferred_value: str | None = None
+
+
+@dataclass
+class NormalizedCandidateIR:
+    candidate_id: str
+    title: str
+    source_type: SpecSourceType
+    document: dict[str, Any]
+    extracted_semantics: dict[str, Any] = field(default_factory=dict)
+    assumptions: list[str] = field(default_factory=list)
+    ambiguities: list[AmbiguityFindingIR] = field(default_factory=list)
+    unsupported: list[str] = field(default_factory=list)
+    internal_checks: list[str] = field(default_factory=list)
+    internal_score: float = 0.0
+
+
+@dataclass
+class SpecParseResultIR:
+    source_type: SpecSourceType
+    raw_text: str
+    normalized_source: dict[str, Any] | None = None
+    extracted_semantics: dict[str, Any] = field(default_factory=dict)
+    findings: list[AmbiguityFindingIR] = field(default_factory=list)
+    candidates: list[NormalizedCandidateIR] = field(default_factory=list)
+
+
+@dataclass
 class VerificationEvidenceIR:
     tb_kind: str = "none"
     achieved_level: VerificationLevel = "none"
@@ -183,6 +217,18 @@ class RepairDecision:
     attempt: int
     action: str
     reason: str
+
+
+@dataclass
+class RepairControlsIR:
+    counter_hold_when_enabled: bool = False
+    counter_ignore_enable: bool = False
+    register_hold_when_enabled: bool = False
+    register_ignore_enable: bool = False
+    shift_reverse_direction: bool = False
+    shift_ignore_enable: bool = False
+    fsm_force_self_loop: bool = False
+    zero_output_targets: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -245,6 +291,7 @@ class ModuleIR:
     processes: list[ProcessIR] = field(default_factory=list)
     verification: VerificationIntentIR = field(default_factory=VerificationIntentIR)
     repairs: list[RepairDecision] = field(default_factory=list)
+    repair_controls: RepairControlsIR = field(default_factory=RepairControlsIR)
 
 
 @dataclass

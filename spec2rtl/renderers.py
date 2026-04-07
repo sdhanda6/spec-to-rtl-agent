@@ -70,11 +70,20 @@ def render_testbench(ir: ModuleIR) -> GeneratedTestbench:
         return GeneratedTestbench(
             text=_render_register_tb(ir),
             evidence=VerificationEvidenceIR(
-                tb_kind="register_smoke",
-                achieved_level="smoke",
+                tb_kind="register_functional",
+                achieved_level="functional",
                 oracle_independent=True,
-                covered_checks=["reset behavior", "single load"],
-                limitations=["register hold and broader transfer scenarios are not fully exercised"],
+                covered_checks=["reset behavior", "single load", "hold when disabled"],
+            ),
+        )
+    if ir.design_kind == "shift_register" and ir.shift_register:
+        return GeneratedTestbench(
+            text=_render_shift_register_tb(ir),
+            evidence=VerificationEvidenceIR(
+                tb_kind="shift_register_functional",
+                achieved_level="functional",
+                oracle_independent=True,
+                covered_checks=["reset behavior", "shift behavior", "hold when disabled"],
             ),
         )
     if ir.design_kind == "fsm" and ir.fsm:
@@ -119,7 +128,7 @@ def _render_processes(ir: ModuleIR) -> list[str]:
     for process in ir.processes:
         if process.kind == "comb":
             lines.append("    always @* begin")
-            lines.extend(_render_statements(process.body, indent="        ", blocking=True))
+            lines.extend(_render_statements(ir, process.body, indent="        ", blocking=True))
             lines.append("    end")
             lines.append("")
             continue
@@ -131,32 +140,32 @@ def _render_processes(ir: ModuleIR) -> list[str]:
             cond = f"!{reset.signal}" if reset.active_low else reset.signal
             lines.append(f"    always @({sensitivity}) begin")
             lines.append(f"        if ({cond}) begin")
-            lines.extend(_render_statements(process.reset_body, indent="            ", blocking=False))
+            lines.extend(_render_statements(ir, process.reset_body, indent="            ", blocking=False))
             lines.append("        end else begin")
-            lines.extend(_render_statements(process.body, indent="            ", blocking=False))
+            lines.extend(_render_statements(ir, process.body, indent="            ", blocking=False))
             lines.append("        end")
             lines.append("    end")
             lines.append("")
         else:
             lines.append(f"    always @(posedge {clk}) begin")
-            lines.extend(_render_statements(process.body, indent="        ", blocking=False))
+            lines.extend(_render_statements(ir, process.body, indent="        ", blocking=False))
             lines.append("    end")
             lines.append("")
     return lines
 
 
-def _render_statements(statements: list[AssignmentIR | IfIR], indent: str, blocking: bool) -> list[str]:
+def _render_statements(ir: ModuleIR, statements: list[AssignmentIR | IfIR], indent: str, blocking: bool) -> list[str]:
     lines: list[str] = []
     for statement in statements:
         if isinstance(statement, AssignmentIR):
             op = "=" if blocking or statement.blocking else "<="
-            lines.append(f"{indent}{statement.target} {op} {render_expr(statement.expr)};")
+            lines.append(f"{indent}{statement.target} {op} {_forced_expr(ir, statement.target, statement.expr)};")
             continue
         lines.append(f"{indent}if ({render_expr(statement.condition)}) begin")
-        lines.extend(_render_statements(statement.then_body, indent + "    ", blocking))
+        lines.extend(_render_statements(ir, statement.then_body, indent + "    ", blocking))
         if statement.else_body:
             lines.append(f"{indent}end else begin")
-            lines.extend(_render_statements(statement.else_body, indent + "    ", blocking))
+            lines.extend(_render_statements(ir, statement.else_body, indent + "    ", blocking))
         lines.append(f"{indent}end")
     return lines
 
@@ -174,7 +183,9 @@ def _render_counter(ir: ModuleIR, strategy: RenderStrategy) -> list[str]:
     lines.append("        end else begin")
     if counter.enable:
         lines.append(f"            if ({counter.enable}) begin")
-        if counter.direction == "down":
+        if ir.repair_controls.counter_hold_when_enabled:
+            lines.append(f"                {target} <= {target};")
+        elif counter.direction == "down":
             if counter.wrap:
                 lines.append(f"                {target} <= {target} - {step};")
             else:
@@ -185,6 +196,11 @@ def _render_counter(ir: ModuleIR, strategy: RenderStrategy) -> list[str]:
             else:
                 lines.append(f"                if ({target} != {max_value}) {target} <= {target} + {step};")
         lines.append("            end")
+        if ir.repair_controls.counter_ignore_enable:
+            op = "-" if counter.direction == "down" else "+"
+            lines.append("            else begin")
+            lines.append(f"                {target} <= {target} {op} {step};")
+            lines.append("            end")
     else:
         op = "-" if counter.direction == "down" else "+"
         lines.append(f"            {target} <= {target} {op} {step};")
@@ -204,9 +220,16 @@ def _render_register(ir: ModuleIR, strategy: RenderStrategy) -> list[str]:
     lines.append("        end else begin")
     if behavior.enable:
         lines.append(f"            if ({behavior.enable}) begin")
-        lines.append(f"                {target} <= {behavior.data};")
+        if ir.repair_controls.register_hold_when_enabled:
+            lines.append(f"                {target} <= {target};")
+        else:
+            lines.append(f"                {target} <= {behavior.data};")
         lines.append("            end")
-        if behavior.hold_value:
+        if ir.repair_controls.register_ignore_enable:
+            lines.append("            else begin")
+            lines.append(f"                {target} <= {behavior.data};")
+            lines.append("            end")
+        elif behavior.hold_value:
             lines.append("            else begin")
             lines.append(f"                {target} <= {behavior.hold_value};")
             lines.append("            end")
@@ -227,18 +250,30 @@ def _render_shift_register(ir: ModuleIR, strategy: RenderStrategy) -> list[str]:
     lines = _seq_header(ir)
     lines.append(f"            {target} <= {reset_value};")
     lines.append("        end else begin")
+    effective_direction = behavior.direction
+    if ir.repair_controls.shift_reverse_direction:
+        effective_direction = "left" if behavior.direction == "right" else "right"
     if behavior.enable:
         lines.append(f"            if ({behavior.enable}) begin")
-    if behavior.direction == "right":
+    if effective_direction == "right":
         lines.append(f"                {target} <= {{{behavior.serial_in}, {target}[{width - 1}:1]}};")
     elif width > 1:
         lines.append(f"                {target} <= {{{target}[{width - 2}:0], {behavior.serial_in}}};")
     else:
         lines.append(f"                {target} <= {behavior.serial_in};")
     if behavior.serial_out:
-        lines.append(f"                {behavior.serial_out} <= {target}[{0 if behavior.direction == 'right' else width - 1}];")
+        lines.append(f"                {behavior.serial_out} <= {target}[{0 if effective_direction == 'right' else width - 1}];")
     if behavior.enable:
         lines.append("            end")
+        if ir.repair_controls.shift_ignore_enable:
+            lines.append("            else begin")
+            if effective_direction == "right":
+                lines.append(f"                {target} <= {{{behavior.serial_in}, {target}[{width - 1}:1]}};")
+            elif width > 1:
+                lines.append(f"                {target} <= {{{target}[{width - 2}:0], {behavior.serial_in}}};")
+            else:
+                lines.append(f"                {target} <= {behavior.serial_in};")
+            lines.append("            end")
     lines.append("        end")
     lines.append("    end")
     lines.append("")
@@ -248,7 +283,9 @@ def _render_shift_register(ir: ModuleIR, strategy: RenderStrategy) -> list[str]:
 def _render_combinational(ir: ModuleIR, strategy: RenderStrategy) -> list[str]:
     lines = ["    always @* begin"]
     for operation in ir.combinational:
-        lines.append(f"        {_target_name(operation.target, strategy)} = {_comb_expr(operation)};")
+        target = _target_name(operation.target, strategy)
+        expr = _literal(_signal_width(ir, operation.target), 0) if _force_zero(ir, operation.target) else _comb_expr(operation)
+        lines.append(f"        {target} = {expr};")
     lines.append("    end")
     lines.append("")
     return lines
@@ -281,11 +318,14 @@ def _render_fsm(ir: ModuleIR, strategy: RenderStrategy) -> list[str]:
         output_behavior = next((item for item in fsm.outputs if item.state == state), None)
         if output_behavior:
             for target, expr in output_behavior.assignments.items():
-                lines.append(f"                {_target_name(target, strategy)} = {expr};")
+                rendered_expr = _literal(_signal_width(ir, target), 0) if _force_zero(ir, target) else expr
+                lines.append(f"                {_target_name(target, strategy)} = {rendered_expr};")
         transitions = [item for item in fsm.transitions if item.src == state]
         if transitions:
             for transition in transitions:
-                if transition.condition:
+                if ir.repair_controls.fsm_force_self_loop:
+                    lines.append(f"                next_{fsm.state_signal} = {fsm.state_signal};")
+                elif transition.condition:
                     lines.append(f"                if ({transition.condition}) next_{fsm.state_signal} = {transition.dst};")
                 else:
                     lines.append(f"                next_{fsm.state_signal} = {transition.dst};")
@@ -306,7 +346,7 @@ def _render_generic(ir: ModuleIR, strategy: RenderStrategy) -> list[str]:
         lines = _seq_header(ir)
         for port in ir.ports:
             if port.direction == "output":
-                lines.append(f"            {_target_name(port.name, strategy)} <= {_literal(port.width, 0)};")
+                lines.append(f"            {_target_name(port.name, strategy)} <= {_forced_or_default_literal(ir, port.name, port.width)};")
         lines.append("        end else begin")
         lines.append("            // TODO: lower richer grammar rules into sequential behavior.")
         lines.append("        end")
@@ -316,7 +356,7 @@ def _render_generic(ir: ModuleIR, strategy: RenderStrategy) -> list[str]:
     lines = ["    always @* begin"]
     for port in ir.ports:
         if port.direction == "output":
-            lines.append(f"        {_target_name(port.name, strategy)} = {_literal(port.width, 0)};")
+            lines.append(f"        {_target_name(port.name, strategy)} = {_forced_or_default_literal(ir, port.name, port.width)};")
     lines.append("    end")
     lines.append("")
     return lines
@@ -421,6 +461,7 @@ def _render_register_tb(ir: ModuleIR) -> str:
         [
             f"        {behavior.data} = {_literal(width, 0)};",
             "        #2;",
+            f"        if ({behavior.target} !== {_literal(width, 0)}) $fatal(1, \"reset failed\");",
             f"        {rst} = {rst_deasserted};",
             f"        {behavior.data} = {_literal(width, 10)};",
         ]
@@ -431,13 +472,81 @@ def _render_register_tb(ir: ModuleIR) -> str:
         [
             f"        @(posedge {clk});",
             f"        #1 if ({behavior.target} !== {_literal(width, 10)}) $fatal(1, \"load failed\");",
-            f"        $display(\"PASS tb_{ir.name}\");",
-            "        $finish;",
-            "    end",
-            "endmodule",
-            "",
         ]
     )
+    if behavior.enable:
+        lines.extend(
+            [
+                f"        {behavior.enable} = 1'b0;",
+                f"        {behavior.data} = {_literal(width, 3)};",
+                f"        @(posedge {clk});",
+                f"        #1 if ({behavior.target} !== {_literal(width, 10)}) $fatal(1, \"hold failed\");",
+            ]
+        )
+    lines.extend([f"        $display(\"PASS tb_{ir.name}\");", "        $finish;", "    end", "endmodule", ""])
+    return "\n".join(lines)
+
+
+def _render_shift_register_tb(ir: ModuleIR) -> str:
+    behavior = ir.shift_register
+    assert behavior is not None
+    width = _signal_width(ir, behavior.target)
+    clk = ir.clock or "clk"
+    rst = ir.reset.signal if ir.reset else "rst"
+    rst_asserted = "1'b0" if ir.reset and ir.reset.active_low else "1'b1"
+    rst_deasserted = "1'b1" if ir.reset and ir.reset.active_low else "1'b0"
+    first_value = _literal(width, 1 if behavior.direction == "left" else 1 << max(width - 1, 0))
+    second_value = _literal(width, 2 if behavior.direction == "left" and width > 1 else (1 << max(width - 2, 0) if behavior.direction == "right" and width > 1 else 0))
+    lines = ["`timescale 1ns/1ps", "", f"module tb_{ir.name};"]
+    for port in ir.ports:
+        decl = "reg" if port.direction == "input" else "wire"
+        lines.append(f"    {decl} {_verilog_range(port.width)}{port.name};")
+    lines.extend(
+        [
+            "",
+            f"    {ir.name} dut (",
+            ",\n".join(f"        .{port.name}({port.name})" for port in ir.ports),
+            "    );",
+            "",
+            f"    always #5 {clk} = ~{clk};",
+            "",
+            "    initial begin",
+            f"        {clk} = 1'b0;",
+            f"        {rst} = {rst_asserted};",
+            f"        {behavior.serial_in} = 1'b0;",
+        ]
+    )
+    if behavior.enable:
+        lines.append(f"        {behavior.enable} = 1'b0;")
+    lines.extend(
+        [
+            "        #2;",
+            f"        if ({behavior.target} !== {_literal(width, 0)}) $fatal(1, \"reset failed\");",
+            f"        {rst} = {rst_deasserted};",
+        ]
+    )
+    if behavior.enable:
+        lines.append(f"        {behavior.enable} = 1'b1;")
+    lines.extend(
+        [
+            f"        {behavior.serial_in} = 1'b1;",
+            f"        @(posedge {clk});",
+            f"        #1 if ({behavior.target} !== {first_value}) $fatal(1, \"shift failed\");",
+            f"        {behavior.serial_in} = 1'b0;",
+            f"        @(posedge {clk});",
+            f"        #1 if ({behavior.target} !== {second_value}) $fatal(1, \"shift failed\");",
+        ]
+    )
+    if behavior.enable:
+        lines.extend(
+            [
+                f"        {behavior.enable} = 1'b0;",
+                f"        {behavior.serial_in} = 1'b1;",
+                f"        @(posedge {clk});",
+                f"        #1 if ({behavior.target} !== {second_value}) $fatal(1, \"hold failed\");",
+            ]
+        )
+    lines.extend([f"        $display(\"PASS tb_{ir.name}\");", "        $finish;", "    end", "endmodule", ""])
     return "\n".join(lines)
 
 
@@ -819,3 +928,19 @@ def _state_reset(ir: ModuleIR, name: str) -> int:
 
 def _literal(width: int, value: int) -> str:
     return f"{width}'d{value}"
+
+
+def _force_zero(ir: ModuleIR, target: str) -> bool:
+    return target in ir.repair_controls.zero_output_targets
+
+
+def _forced_or_default_literal(ir: ModuleIR, target: str, width: int) -> str:
+    if _force_zero(ir, target):
+        return _literal(width, 0)
+    return _literal(width, 0)
+
+
+def _forced_expr(ir: ModuleIR, target: str, expr: object) -> str:
+    if _force_zero(ir, target):
+        return _literal(_signal_width(ir, target), 0)
+    return render_expr(expr)  # type: ignore[arg-type]

@@ -1,0 +1,9 @@
+Design a module named text_counter.
+
+Inputs: clk (1-bit), rst_n (1-bit), enable (1-bit)
+Outputs: count (8-bit)
+
+count is an 8-bit state register.
+
+On each rising edge of clk, if rst_n is low then reset count to 0.
+Otherwise, if enable is high increment count by 1, else hold its value.

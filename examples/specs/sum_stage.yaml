@@ -1,0 +1,53 @@
+module:
+  name: sum_stage
+
+ports:
+  - {name: clk, dir: input, width: 1}
+  - {name: rst_n, dir: input, width: 1}
+  - {name: in_valid, dir: input, width: 1}
+  - {name: a, dir: input, width: 8}
+  - {name: b, dir: input, width: 8}
+  - {name: sum_out, dir: output, width: 9, kind: reg}
+  - {name: valid, dir: output, width: 1, kind: reg}
+
+timing:
+  clock: clk
+  reset:
+    signal: rst_n
+    active: low
+    mode: async
+
+design:
+  kind: generic
+  behavior:
+    processes:
+      - kind: seq
+        clock: clk
+        reset:
+          signal: rst_n
+          active: low
+          mode: async
+        reset_body:
+          - assign: {target: sum_out, expr: 0, blocking: false}
+          - assign: {target: valid, expr: 0, blocking: false}
+        body:
+          - assign: {target: sum_out, expr: a + b, blocking: false}
+          - assign: {target: valid, expr: in_valid, blocking: false}
+
+verification:
+  tb:
+    enabled: true
+    level: functional
+    seq_steps:
+      - name: reset_assert
+        drive: {rst_n: 0, in_valid: 0, a: 0, b: 0}
+        delay: 1
+        expect: {sum_out: 0, valid: 0}
+      - name: load_sum
+        drive: {rst_n: 1, in_valid: 1, a: 12, b: 5}
+        edge: posedge clk
+        expect: {sum_out: 17, valid: 1}
+      - name: drop_valid_hold_sum
+        drive: {in_valid: 0, a: 7, b: 8}
+        edge: posedge clk
+        expect: {sum_out: 15, valid: 0}

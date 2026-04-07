@@ -1,0 +1,195 @@
+spec_source_type: yaml
+spec_source: examples\specs\sum_stage.yaml
+top_module: sum_stage
+design_kind: generic
+final_classification: functionally_verified
+ambiguity_findings:
+unsupported_findings:
+extracted_semantics:
+  module_name: sum_stage
+  ports:
+    -
+      name: clk
+      dir: input
+      width: 1
+    -
+      name: rst_n
+      dir: input
+      width: 1
+    -
+      name: in_valid
+      dir: input
+      width: 1
+    -
+      name: a
+      dir: input
+      width: 8
+    -
+      name: b
+      dir: input
+      width: 8
+    -
+      name: sum_out
+      dir: output
+      width: 9
+      kind: reg
+    -
+      name: valid
+      dir: output
+      width: 1
+      kind: reg
+  clock: clk
+  reset:
+    signal: rst_n
+    active: low
+    mode: async
+  state:
+  behavior_keys:
+    - processes
+  design_kind_hint: generic
+candidate_analysis:
+  candidate_count: 1
+  selected_candidate: cand_1
+  candidates:
+    -
+      candidate_id: cand_1
+      title: structured_document
+      score: 10.1
+      classification: functionally_verified
+      assumptions:
+      ambiguity_count: 0
+      unsupported_count: 0
+      internal_checks:
+        - module name present
+        - port list present
+        - clock semantics present
+      compile_ok: true
+      simulation_ok: true
+      evidence_level: functional
+      oracle_independent: true
+      attempts_used: 2
+      extracted_semantics:
+        module_name: sum_stage
+        ports:
+          -
+            name: clk
+            dir: input
+            width: 1
+          -
+            name: rst_n
+            dir: input
+            width: 1
+          -
+            name: in_valid
+            dir: input
+            width: 1
+          -
+            name: a
+            dir: input
+            width: 8
+          -
+            name: b
+            dir: input
+            width: 8
+          -
+            name: sum_out
+            dir: output
+            width: 9
+            kind: reg
+          -
+            name: valid
+            dir: output
+            width: 1
+            kind: reg
+        clock: clk
+        reset:
+          signal: rst_n
+          active: low
+          mode: async
+        state:
+        behavior_keys:
+          - processes
+        design_kind_hint: generic
+artifacts:
+  rtl: rtl\sum_stage.v
+  testbench: tb\tb_sum_stage.sv
+repair_loop:
+  enabled: true
+  max_attempts: 3
+  attempts_used: 2
+  injected_fault: "zero_output:sum_out"
+  repaired_after_feedback: true
+  unrepaired_after_retry_limit: false
+  attempts:
+    -
+      attempt: 1
+      strategy: direct
+      rtl_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\sum_stage\cand_1\attempt_1\sum_stage.v"
+      testbench_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\sum_stage\cand_1\attempt_1\tb_sum_stage.sv"
+      compile_command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\sum_stage\cand_1\sum_stage.v"
+      simulation_command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\sum_stage_sim.out"
+      compile_status: pass
+      simulation_status: fail
+      compile_stdout: ""
+      compile_stderr: ""
+      simulation_stdout: |-
+        FAIL load_sum: expected sum_out=000010001 got 000000000
+        FATAL: D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\sum_stage\cand_1\tb_sum_stage.sv:31: 
+               Time: 6000  Scope: tb_sum_stage.check_outputs
+      simulation_stderr: ""
+      diagnosis_summary: datapath verification reported an output mismatch on sum_out
+      next_regeneration_changes:
+        - stop forcing sum_out to zero and restore the rendered behavior
+    -
+      attempt: 2
+      strategy: direct
+      rtl_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\sum_stage\cand_1\attempt_2\sum_stage.v"
+      testbench_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\sum_stage\cand_1\attempt_2\tb_sum_stage.sv"
+      compile_command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\sum_stage\cand_1\sum_stage.v"
+      simulation_command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\sum_stage_sim.out"
+      compile_status: pass
+      simulation_status: pass
+      compile_stdout: ""
+      compile_stderr: ""
+      simulation_stdout: |-
+        PASS tb_sum_stage
+        D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\sum_stage\cand_1\tb_sum_stage.sv:70: $finish called at 16000 (1ps)
+      simulation_stderr: ""
+      diagnosis_summary: simulation passed after applying prior repair feedback
+      next_regeneration_changes:
+verification:
+  support_status: supported
+  requested_mode: sim
+  requested_level: functional
+  generated_testbench_kind: verification_steps_functional
+  oracle_independent: true
+  compile_pass: true
+  smoke_sim_pass: false
+  functional_sim_pass: true
+  overall_pass: true
+  covered_checks:
+    - user sequence step reset_assert
+    - user sequence step load_sum
+    - user sequence step drop_valid_hold_sum
+  limitations:
+  notes:
+  partial_verification_reasons:
+  assumptions:
+  conclusion: functional verification passed with independent evidence
+  compile:
+    attempt: 2
+    ok: true
+    message: compile ok
+    command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\sum_stage\cand_1\sum_stage.v"
+  simulation:
+    attempt: 2
+    ok: true
+    message: |-
+      PASS tb_sum_stage
+      D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\sum_stage\cand_1\tb_sum_stage.sv:70: $finish called at 16000 (1ps)
+    command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\sum_stage_sim.out"
+  retry_history:
+    -
+      attempt: 1
+      action: simulation_feedback
+      reason: datapath verification reported an output mismatch on sum_out

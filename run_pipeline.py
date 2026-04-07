@@ -5,8 +5,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from spec2rtl.frontend import load_spec_document
-from spec2rtl.lowering import lower_document_to_ir
+from spec2rtl.spec_ingest import load_spec_source
 
 
 ROOT = Path(__file__).resolve().parent
@@ -18,20 +17,29 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Run the full YAML Spec-to-RTL pipeline")
     parser.add_argument("--spec", type=Path, default=ROOT / "spec.yaml", help="Path to a YAML spec")
     parser.add_argument("--overwrite", action="store_true", help="Overwrite generated outputs")
+    parser.add_argument("--max-passes", type=int, default=3, help="Maximum repair iterations")
+    parser.add_argument(
+        "--inject-fault",
+        type=str,
+        default=None,
+        help="Inject a first-pass RTL bug, for example counter_hold_when_enabled, register_hold_when_enabled, shift_reverse_direction, fsm_force_self_loop, or zero_output:<target>",
+    )
     return parser.parse_args()
 
 
 def resolve_spec(spec: Path) -> Path:
     path = spec if spec.is_absolute() else ROOT / spec
-    if path.suffix.lower() not in {".yaml", ".yml"}:
-        raise ValueError(f"Only YAML specs are supported: {path}")
     return path
 
 
 def infer_top(spec_path: Path) -> str:
-    document = load_spec_document(spec_path)
-    ir = lower_document_to_ir(document)
-    return ir.name
+    parsed = load_spec_source(spec_path)
+    if not parsed.candidates:
+        return spec_path.stem
+    module = parsed.candidates[0].document.get("module", {})
+    if isinstance(module, dict) and module.get("name"):
+        return str(module["name"])
+    return spec_path.stem
 
 
 def run_command(args: list[str]) -> subprocess.CompletedProcess[str]:
@@ -55,7 +63,9 @@ def main() -> int:
     spec_path = resolve_spec(args.spec)
     top = infer_top(spec_path)
 
-    agent_cmd = ["python", "agent.py", "--spec", str(spec_path), "--verify", "sim"]
+    agent_cmd = ["python", "agent.py", "--spec", str(spec_path), "--verify", "sim", "--max-passes", str(args.max_passes)]
+    if args.inject_fault:
+        agent_cmd.extend(["--inject-fault", args.inject_fault])
     if args.overwrite:
         agent_cmd.append("--overwrite")
     agent_proc = run_command(agent_cmd)

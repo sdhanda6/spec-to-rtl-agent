@@ -1,0 +1,35 @@
+module:
+  name: register8
+
+ports:
+  - {name: clk, dir: input, width: 1}
+  - {name: rst_n, dir: input, width: 1}
+  - {name: en, dir: input, width: 1}
+  - {name: d, dir: input, width: 8}
+  - {name: q, dir: output, width: 8, kind: reg}
+
+timing:
+  clock: clk
+  reset:
+    signal: rst_n
+    active: low
+    mode: async
+
+design:
+  kind: register
+  state:
+    - {name: q, width: 8, reset: 0}
+  behavior:
+    register:
+      target: q
+      data: d
+      enable: en
+
+verification:
+  tb:
+    enabled: true
+    level: functional
+    checks:
+      - reset clears q
+      - enabled load captures d
+      - disabled cycle holds q

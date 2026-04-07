@@ -1,0 +1,193 @@
+spec_source_type: yaml
+spec_source: examples\specs\fsm_handshake.yaml
+top_module: fsm_handshake
+design_kind: fsm
+final_classification: functionally_verified
+ambiguity_findings:
+unsupported_findings:
+extracted_semantics:
+  module_name: fsm_handshake
+  ports:
+    -
+      name: clk
+      dir: input
+      width: 1
+    -
+      name: rst_n
+      dir: input
+      width: 1
+    -
+      name: start
+      dir: input
+      width: 1
+    -
+      name: done
+      dir: input
+      width: 1
+    -
+      name: busy
+      dir: output
+      width: 1
+      kind: reg
+    -
+      name: valid
+      dir: output
+      width: 1
+      kind: reg
+  clock: clk
+  reset:
+    signal: rst_n
+    active: low
+    mode: async
+  state:
+  behavior_keys:
+    - fsm
+  design_kind_hint: fsm
+candidate_analysis:
+  candidate_count: 1
+  selected_candidate: cand_1
+  candidates:
+    -
+      candidate_id: cand_1
+      title: structured_document
+      score: 10.1
+      classification: functionally_verified
+      assumptions:
+      ambiguity_count: 0
+      unsupported_count: 0
+      internal_checks:
+        - module name present
+        - port list present
+        - clock semantics present
+      compile_ok: true
+      simulation_ok: true
+      evidence_level: functional
+      oracle_independent: true
+      attempts_used: 2
+      extracted_semantics:
+        module_name: fsm_handshake
+        ports:
+          -
+            name: clk
+            dir: input
+            width: 1
+          -
+            name: rst_n
+            dir: input
+            width: 1
+          -
+            name: start
+            dir: input
+            width: 1
+          -
+            name: done
+            dir: input
+            width: 1
+          -
+            name: busy
+            dir: output
+            width: 1
+            kind: reg
+          -
+            name: valid
+            dir: output
+            width: 1
+            kind: reg
+        clock: clk
+        reset:
+          signal: rst_n
+          active: low
+          mode: async
+        state:
+        behavior_keys:
+          - fsm
+        design_kind_hint: fsm
+artifacts:
+  rtl: rtl\fsm_handshake.v
+  testbench: tb\tb_fsm_handshake.sv
+repair_loop:
+  enabled: true
+  max_attempts: 3
+  attempts_used: 2
+  injected_fault: fsm_force_self_loop
+  repaired_after_feedback: true
+  unrepaired_after_retry_limit: false
+  attempts:
+    -
+      attempt: 1
+      strategy: direct
+      rtl_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\fsm_handshake\cand_1\attempt_1\fsm_handshake.v"
+      testbench_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\fsm_handshake\cand_1\attempt_1\tb_fsm_handshake.sv"
+      compile_command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\fsm_handshake\cand_1\fsm_handshake.v"
+      simulation_command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\fsm_handshake_sim.out"
+      compile_status: pass
+      simulation_status: fail
+      compile_stdout: ""
+      compile_stderr: ""
+      simulation_stdout: |-
+        FAIL transition_IDLE_to_RUN: expected state=1 got=0
+        FATAL: D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\fsm_handshake\cand_1\tb_fsm_handshake.sv:33: 
+               Time: 16000  Scope: tb_fsm_handshake.check_state_outputs
+      simulation_stderr: ""
+      diagnosis_summary: testbench reported an FSM next-state mismatch
+      next_regeneration_changes:
+        - remove the injected FSM self-loop bug so declared transitions can execute
+    -
+      attempt: 2
+      strategy: direct
+      rtl_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\fsm_handshake\cand_1\attempt_2\fsm_handshake.v"
+      testbench_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\fsm_handshake\cand_1\attempt_2\tb_fsm_handshake.sv"
+      compile_command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\fsm_handshake\cand_1\fsm_handshake.v"
+      simulation_command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\fsm_handshake_sim.out"
+      compile_status: pass
+      simulation_status: pass
+      compile_stdout: ""
+      compile_stderr: ""
+      simulation_stdout: |-
+        PASS tb_fsm_handshake
+        D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\fsm_handshake\cand_1\tb_fsm_handshake.sv:83: $finish called at 46000 (1ps)
+      simulation_stderr: ""
+      diagnosis_summary: simulation passed after applying prior repair feedback
+      next_regeneration_changes:
+verification:
+  support_status: supported
+  requested_mode: sim
+  requested_level: functional
+  generated_testbench_kind: fsm_functional
+  oracle_independent: true
+  compile_pass: true
+  smoke_sim_pass: false
+  functional_sim_pass: true
+  overall_pass: true
+  covered_checks:
+    - reset behavior
+    - hold in IDLE when start=0
+    - transition IDLE->RUN
+    - hold in RUN when done=0
+    - transition RUN->DONE
+    - transition DONE->IDLE
+    - outputs in state IDLE
+    - outputs in state RUN
+    - outputs in state DONE
+  limitations:
+  notes:
+  partial_verification_reasons:
+  assumptions:
+  conclusion: functional verification passed with independent evidence
+  compile:
+    attempt: 2
+    ok: true
+    message: compile ok
+    command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\fsm_handshake\cand_1\fsm_handshake.v"
+  simulation:
+    attempt: 2
+    ok: true
+    message: |-
+      PASS tb_fsm_handshake
+      D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\fsm_handshake\cand_1\tb_fsm_handshake.sv:83: $finish called at 46000 (1ps)
+    command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\fsm_handshake_sim.out"
+  retry_history:
+    -
+      attempt: 1
+      action: simulation_feedback
+      reason: testbench reported an FSM next-state mismatch
