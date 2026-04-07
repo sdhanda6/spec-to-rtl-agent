@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+build/*.out
+build/logs/
+*.zip
+ASU-Spec2Tapeout-ICLAD25-Hackathon-main/
