@@ -1,0 +1,56 @@
+module:
+  name: upcounter16
+  language: verilog
+
+ports:
+  - name: clk
+    dir: input
+    width: 1
+    description: rising-edge clock
+  - name: rst_n
+    dir: input
+    width: 1
+    description: active-low reset
+  - name: en
+    dir: input
+    width: 1
+    description: count enable
+  - name: count
+    dir: output
+    width: 16
+    kind: reg
+    description: running counter value
+
+timing:
+  clock: clk
+  reset:
+    signal: rst_n
+    active: low
+    mode: async
+
+design:
+  kind: counter
+  notes:
+    - Implement a 16-bit synchronous upcounter.
+    - Clear count to zero on reset.
+    - Increment when en is high and hold otherwise.
+  state:
+    - name: count
+      width: 16
+      reset: 0
+  behavior:
+    counter:
+      target: count
+      enable: en
+      direction: up
+      step: 1
+      wrap: true
+
+verification:
+  tb:
+    enabled: true
+    level: functional
+    checks:
+      - reset clears count
+      - enable increments count
+      - disable holds count

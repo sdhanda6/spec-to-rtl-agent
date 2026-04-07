@@ -1,0 +1,37 @@
+spec_source: examples\specs\p5.yaml
+top_module: dot_product
+design_kind: generic
+artifacts:
+  rtl: rtl\dot_product.v
+  testbench: tb\tb_dot_product.sv
+verification:
+  support_status: partially_supported
+  requested_mode: sim
+  requested_level: smoke
+  generated_testbench_kind: generic_smoke
+  oracle_independent: false
+  compile_pass: true
+  smoke_sim_pass: true
+  functional_sim_pass: false
+  overall_pass: true
+  covered_checks:
+  limitations:
+    - no independent functional oracle for this design kind
+  notes:
+  partial_verification_reasons:
+    - no independent functional oracle for this design kind
+    - simulation did not meet the requested functional evidence threshold
+  conclusion: simulation passed, but only smoke-level evidence is available
+  compile:
+    attempt: 1
+    ok: true
+    message: compile ok
+    command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\rtl\dot_product.v"
+  simulation:
+    attempt: 1
+    ok: true
+    message: |-
+      PASS tb_dot_product
+      D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\tb\tb_dot_product.sv:27: $finish called at 10000 (1ps)
+    command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\dot_product_sim.out"
+  retry_history:

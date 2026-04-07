@@ -1,0 +1,49 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2009.vpi";
+S_000002667672b000 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_000002667672bce0 .scope module, "tb_fp16_multiplier" "tb_fp16_multiplier" 3 3;
+ .timescale -9 -12;
+v000002667672bf10_0 .var "a", 15 0;
+v0000026676615ab0_0 .var "b", 15 0;
+v0000026676615b50_0 .net "result", 15 0, v000002667672be70_0;  1 drivers
+S_0000026676615920 .scope module, "dut" "fp16_multiplier" 3 8, 4 4 0, S_000002667672bce0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 16 "a";
+    .port_info 1 /INPUT 16 "b";
+    .port_info 2 /OUTPUT 16 "result";
+v00000266767271b0_0 .net "a", 15 0, v000002667672bf10_0;  1 drivers
+v0000026676726d70_0 .net "b", 15 0, v0000026676615ab0_0;  1 drivers
+v000002667672be70_0 .var "result", 15 0;
+E_000002667672cab0 .event "_ivl_0";
+    .scope S_0000026676615920;
+T_0 ;
+    %wait E_000002667672cab0;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_000002667672bce0;
+T_1 ;
+    %pushi/vec4 0, 0, 16;
+    %store/vec4 v000002667672bf10_0, 0, 16;
+    %pushi/vec4 0, 0, 16;
+    %store/vec4 v0000026676615ab0_0, 0, 16;
+    %delay 10000, 0;
+    %vpi_call/w 3 18 "$display", "PASS tb_fp16_multiplier" {0 0 0};
+    %vpi_call/w 3 19 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\tb\tb_fp16_multiplier.sv";
+    "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\rtl\fp16_multiplier.v";

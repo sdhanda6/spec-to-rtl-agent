@@ -1,0 +1,28 @@
+## Agent Command
+python agent.py --spec D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\examples\specs\p5.yaml --verify sim --overwrite
+
+## Agent Output
+Spec source: examples\specs\p5.yaml
+Generated RTL: rtl\dot_product.v
+Generated testbench: tb\tb_dot_product.sv
+Top module: dot_product
+Design kind: generic
+Verification: stage=sim, ok=True, attempt=1, command=C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\dot_product_sim.out, message=PASS tb_dot_product
+D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\tb\tb_dot_product.sv:27: $finish called at 10000 (1ps)
+Ports:
+  - input clk
+  - input rst
+  - input A
+  - input B
+  - output dot_out
+  - output valid
+Verification report: build\reports\dot_product_report.yaml
+
+## Verification Command
+python run_sim.py --mode sim --top dot_product
+
+## Verification Output
+PASS tb_dot_product
+D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\tb\tb_dot_product.sv:27: $finish called at 10000 (1ps)
+PASS tb_dot_product
+D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\tb\tb_dot_product.sv:27: $finish called at 10000 (1ps)

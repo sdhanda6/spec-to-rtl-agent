@@ -1,0 +1,60 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2009.vpi";
+S_000001ebba049590 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_000001ebba0d5c60 .scope module, "tb_seq_detector_0011" "tb_seq_detector_0011" 3 3;
+ .timescale -9 -12;
+v000001ebba11b840_0 .var "clk", 0 0;
+v000001ebba11b8e0_0 .var "data_in", 0 0;
+v000001ebba11b980_0 .net "detected", 0 0, v000001ebba0d5f80_0;  1 drivers
+v000001ebba11ba20_0 .var "reset", 0 0;
+S_000001ebba0d5df0 .scope module, "dut" "seq_detector_0011" 3 9, 4 4 0, S_000001ebba0d5c60;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "reset";
+    .port_info 2 /INPUT 1 "data_in";
+    .port_info 3 /OUTPUT 1 "detected";
+v000001ebba046d80_0 .net "clk", 0 0, v000001ebba11b840_0;  1 drivers
+v000001ebba04bf20_0 .net "data_in", 0 0, v000001ebba11b8e0_0;  1 drivers
+v000001ebba0d5f80_0 .var "detected", 0 0;
+v000001ebba0d6020_0 .net "reset", 0 0, v000001ebba11ba20_0;  1 drivers
+E_000001ebba04c5c0 .event posedge, v000001ebba0d6020_0, v000001ebba046d80_0;
+    .scope S_000001ebba0d5df0;
+T_0 ;
+    %wait E_000001ebba04c5c0;
+    %load/vec4 v000001ebba0d6020_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v000001ebba0d5f80_0, 0;
+T_0.0 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_000001ebba0d5c60;
+T_1 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001ebba11b840_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001ebba11ba20_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001ebba11b8e0_0, 0, 1;
+    %delay 10000, 0;
+    %vpi_call/w 3 21 "$display", "PASS tb_seq_detector_0011" {0 0 0};
+    %vpi_call/w 3 22 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\tb\tb_seq_detector_0011.sv";
+    "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\rtl\seq_detector_0011.v";

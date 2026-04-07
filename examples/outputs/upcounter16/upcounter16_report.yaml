@@ -1,0 +1,37 @@
+spec_source: examples\specs\upcounter16.yaml
+top_module: upcounter16
+design_kind: counter
+artifacts:
+  rtl: rtl\upcounter16.v
+  testbench: tb\tb_upcounter16.sv
+verification:
+  support_status: supported
+  requested_mode: sim
+  requested_level: functional
+  generated_testbench_kind: counter_functional
+  oracle_independent: true
+  compile_pass: true
+  smoke_sim_pass: false
+  functional_sim_pass: true
+  overall_pass: true
+  covered_checks:
+    - reset behavior
+    - count increment
+    - count hold
+  limitations:
+  notes:
+  partial_verification_reasons:
+  conclusion: functional verification passed with independent evidence
+  compile:
+    attempt: 1
+    ok: true
+    message: compile ok
+    command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\rtl\upcounter16.v"
+  simulation:
+    attempt: 1
+    ok: true
+    message: |-
+      PASS tb_upcounter16
+      D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\tb\tb_upcounter16.sv:32: $finish called at 36000 (1ps)
+    command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\upcounter16_sim.out"
+  retry_history:
