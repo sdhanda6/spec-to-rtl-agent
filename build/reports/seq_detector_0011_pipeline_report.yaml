@@ -1,0 +1,273 @@
+input_spec_type: yaml
+input_spec_path: examples/specs/p1.yaml
+parsed_design_class: generic
+top_module: seq_detector_0011
+selected_candidate: cand_1
+ambiguity_findings:
+unsupported_findings:
+rtl_generation_status: pass
+testbench_generation_status: pass
+compile_status: pass
+simulation_status: pass
+synthesis_collateral_generation_status: pass
+openroad_execution_status: pass
+qor_summary:
+  timing_wns_ns: 8.0
+  timing_tns_ns: 0.0
+  area_um2: 5.0
+  power_mw: 0.0
+  cell_count: 1
+  source_reports:
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/final_all.webp
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/6_finish.rpt
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt
+artifacts:
+  generated_rtl_path: rtl/seq_detector_0011.v
+  generated_testbench_path: tb/tb_seq_detector_0011.sv
+  compile_log: build/pipeline/seq_detector_0011/logs/compile.log
+  simulation_log: build/pipeline/seq_detector_0011/logs/simulation.log
+  synthesis_openroad_logs:
+    - build/flow/seq_detector_0011/logs/openroad_openroad_attempt_1.log
+  output_artifacts:
+    - build/flow/seq_detector_0011/design/src/seq_detector_0011.v
+    - build/flow/seq_detector_0011/design/filelist.f
+    - build/flow/seq_detector_0011/design/filelist.tcl
+    - build/flow/seq_detector_0011/design/config.mk
+    - build/flow/seq_detector_0011/design/design_manifest.yaml
+    - build/flow/seq_detector_0011/design/README.md
+    - build/flow/seq_detector_0011/design/constraint.sdc
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/cts_clk.webp
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/final_routing.webp
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/drt_antennas.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/final_all.webp
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/5_route_drc.rpt
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/6_finish.rpt
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/4_cts_final.rpt
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_check.txt
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/final_placement.webp
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/3_global_place.rpt
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/5_global_route.rpt
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/grt_antennas.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/cts_default_clk_layout.webp
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/final_congestion.webp
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/final_ir_drop.webp
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/2_floorplan_final.rpt
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/3_resizer.rpt
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/final_resizer.webp
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/3_detailed_place.rpt
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/final_worst_path.webp
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/final_clocks.webp
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/2_1_floorplan.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/1_1_yosys_canonicalize.rtlil
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/3_place.sdc
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/6_final.gds
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/2_2_floorplan_macro.tcl
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/6_final.spef
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/4_cts.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/4_cts.sdc
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/6_1_fill.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/5_3_fillcell.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/route.guide
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/2_3_floorplan_tapcell.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/2_2_floorplan_macro.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/1_2_yosys.sdc
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/4_before_rsz_lec.v
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/3_2_place_iop.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/5_2_route.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/3_4_place_resized.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/2_floorplan.sdc
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/mem.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/5_route.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/3_2_place_iop.tcl
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/6_final.v
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/2_1_floorplan.sdc
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/1_synth.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/3_5_place_dp.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/4_1_cts.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/2_floorplan.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/6_final.sdc
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/6_final.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/5_1_grt.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/6_1_merged.gds
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/3_place.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/3_1_place_gp_skip_io.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/6_final.def
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/4_after_rsz_lec.v
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/1_2_yosys.v
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/5_route.sdc
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/1_synth.sdc
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/6_1_fill.sdc
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/5_1_grt.sdc
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/3_3_place_gp.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/clock_period.txt
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/2_4_floorplan_pdn.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/6_report.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/3_1_place_gp_skip_io.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/3_4_place_resized.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/2_1_floorplan.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/4_rsz_lec_check.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/1_2_yosys.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/5_3_fillcell.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/3_2_place_iop.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/5_1_grt.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/3_3_place_gp.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/2_1_floorplan.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/5_2_route.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/3_2_place_iop.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/3_4_place_resized.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/2_3_floorplan_tapcell.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/3_5_place_dp.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/2_3_floorplan_tapcell.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/1_synth.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/6_1_fill.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/2_4_floorplan_pdn.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/4_1_cts.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/4_1_cts.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/3_3_place_gp.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/5_2_route.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/1_synth.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/5_3_fillcell.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/6_1_fill.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/2_2_floorplan_macro.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/2_4_floorplan_pdn.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/5_1_grt.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/6_report.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/1_1_yosys_canonicalize.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/2_2_floorplan_macro.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/3_5_place_dp.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/6_1_merge.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/3_1_place_gp_skip_io.log
+    - build/flow/seq_detector_0011/logs/openroad_openroad_attempt_1.log
+  openroad_reports:
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/cts_clk.webp
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/final_routing.webp
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/drt_antennas.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/final_all.webp
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/5_route_drc.rpt
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/6_finish.rpt
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/4_cts_final.rpt
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_check.txt
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/final_placement.webp
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/3_global_place.rpt
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/5_global_route.rpt
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/grt_antennas.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/cts_default_clk_layout.webp
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/final_congestion.webp
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/final_ir_drop.webp
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/2_floorplan_final.rpt
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/3_resizer.rpt
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/final_resizer.webp
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/3_detailed_place.rpt
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/final_worst_path.webp
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/final_clocks.webp
+  openroad_results:
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/2_1_floorplan.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/1_1_yosys_canonicalize.rtlil
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/3_place.sdc
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/6_final.gds
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/2_2_floorplan_macro.tcl
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/6_final.spef
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/4_cts.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/4_cts.sdc
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/6_1_fill.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/5_3_fillcell.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/route.guide
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/2_3_floorplan_tapcell.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/2_2_floorplan_macro.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/1_2_yosys.sdc
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/4_before_rsz_lec.v
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/3_2_place_iop.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/5_2_route.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/3_4_place_resized.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/2_floorplan.sdc
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/mem.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/5_route.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/3_2_place_iop.tcl
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/6_final.v
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/2_1_floorplan.sdc
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/1_synth.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/3_5_place_dp.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/4_1_cts.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/2_floorplan.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/6_final.sdc
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/6_final.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/5_1_grt.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/6_1_merged.gds
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/3_place.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/3_1_place_gp_skip_io.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/6_final.def
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/4_after_rsz_lec.v
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/1_2_yosys.v
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/5_route.sdc
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/1_synth.sdc
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/6_1_fill.sdc
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/5_1_grt.sdc
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/3_3_place_gp.odb
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/clock_period.txt
+    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/2_4_floorplan_pdn.odb
+  openroad_logs:
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/6_report.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/3_1_place_gp_skip_io.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/3_4_place_resized.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/2_1_floorplan.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/4_rsz_lec_check.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/1_2_yosys.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/5_3_fillcell.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/3_2_place_iop.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/5_1_grt.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/3_3_place_gp.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/2_1_floorplan.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/5_2_route.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/3_2_place_iop.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/3_4_place_resized.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/2_3_floorplan_tapcell.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/3_5_place_dp.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/2_3_floorplan_tapcell.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/1_synth.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/6_1_fill.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/2_4_floorplan_pdn.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/4_1_cts.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/4_1_cts.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/3_3_place_gp.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/5_2_route.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/1_synth.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/5_3_fillcell.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/6_1_fill.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/2_2_floorplan_macro.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/2_4_floorplan_pdn.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/5_1_grt.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/6_report.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/1_1_yosys_canonicalize.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/2_2_floorplan_macro.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/3_5_place_dp.json
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/6_1_merge.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/3_1_place_gp_skip_io.log
+  openroad_other_artifacts:
+  qor_report_paths:
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/final_all.webp
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/6_finish.rpt
+    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt
+commands:
+  agent_command: python agent.py --spec /home/sudar762/projects/spec-to-rtl-agent/examples/specs/p1.yaml --verify sim --max-passes 3 --overwrite
+  openroad_command: /usr/bin/make -C /home/sudar762/OpenROAD-flow-scripts/flow DESIGN_CONFIG=/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/design/config.mk finish
+repair_attempts:
+  rtl:
+  downstream:
+downstream_validation:
+  issues:
+  environment_messages:
+final_classification: OpenROAD run passed
+final_outcome:
+  rtl_verified: true
+  synthesis_collateral_generated: true
+  synthesis_run_passed: false
+  openroad_run_passed: true
+  partially_supported: false
+  unsupported: false
+agent_stage:
+  returncode: 0
+  stdout: ""
+  stderr: ""
+  report_path: build/reports/seq_detector_0011_report.yaml
