@@ -1,0 +1,38 @@
+
+20. Printing statistics.
+
+=== upcounter16 ===
+
+        +----------------------------Count including submodules.
+        |        +-------------------Area including submodules.
+        |        |        +----------Local count, excluding submodules.
+        |        |        |        +-Local area, excluding submodules.
+        |        |        |        | 
+       48        -       48        - wires
+       63        -       63        - wire bits
+        4        -        4        - public wires
+       19        -       19        - public wire bits
+        4        -        4        - ports
+       19        -       19        - port bits
+        -        -        -        - memories
+        -        -        -        - memory bits
+        -        -        -        - processes
+       59  701.923       59  701.923 cells
+       16  400.384       16  400.384   sky130_fd_sc_hd__dfrtp_1
+        1   12.512        1   12.512   sky130_fd_sc_hd__ha_1
+        3   11.261        3   11.261   sky130_fd_sc_hd__inv_1
+        1   11.261        1   11.261   sky130_fd_sc_hd__mux2_2
+        7   26.275        7   26.275   sky130_fd_sc_hd__nand2_1
+        1    5.005        1    5.005   sky130_fd_sc_hd__nand3_1
+        5    31.28        5    31.28   sky130_fd_sc_hd__nand4_1
+        1   12.512        1   12.512   sky130_fd_sc_hd__nand4_2
+        6   22.522        6   22.522   sky130_fd_sc_hd__nor2_1
+        1    5.005        1    5.005   sky130_fd_sc_hd__nor3_1
+        1    21.27        1    21.27   sky130_fd_sc_hd__nor4_4
+        1   11.261        1   11.261   sky130_fd_sc_hd__or4_4
+       11   96.342       11   96.342   sky130_fd_sc_hd__xnor2_1
+        4   35.034        4   35.034   sky130_fd_sc_hd__xor2_1
+
+   Chip area for module '\upcounter16': 701.923200
+     of which used for sequential elements: 400.384000 (57.04%)
+

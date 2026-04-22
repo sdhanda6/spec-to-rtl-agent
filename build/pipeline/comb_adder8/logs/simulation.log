@@ -1,0 +1,5 @@
+## Simulation
+command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/comb_adder8_sim.out
+status: pass
+PASS tb_comb_adder8
+/home/sudar762/projects/spec-to-rtl-agent/build/candidates/comb_adder8/cand_1/tb_comb_adder8.sv:45: $finish called at 4000 (1ps)

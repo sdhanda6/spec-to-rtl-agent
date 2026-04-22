@@ -1,0 +1,20 @@
+top: comb_adder8
+design_kind: combinational
+platform: sky130hd
+rtl: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/design/src/comb_adder8.v
+testbench: /home/sudar762/projects/spec-to-rtl-agent/tb/tb_comb_adder8.sv
+clock_port: null
+clock_period_ns: null
+ports:
+  -
+    name: a
+    dir: input
+    width: 8
+  -
+    name: b
+    dir: input
+    width: 8
+  -
+    name: y
+    dir: output
+    width: 8

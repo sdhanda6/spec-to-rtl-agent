@@ -1,0 +1,3 @@
+FAIL hold_idle: expected busy=0 got x
+FATAL: /home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/post_synth/attempt_3/adapted_tb/tb_fsm_handshake.sv:34: 
+       Time: 26000  Scope: tb_fsm_handshake.check_state_outputs

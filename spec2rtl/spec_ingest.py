@@ -45,6 +45,7 @@ def _extract_structured_semantics(document: dict[str, object]) -> dict[str, obje
     timing = document.get("timing", {}) if isinstance(document.get("timing"), dict) else {}
     design = document.get("design", {}) if isinstance(document.get("design"), dict) else {}
     behavior = design.get("behavior", {}) if isinstance(design.get("behavior"), dict) else {}
+    flow = document.get("flow", {}) if isinstance(document.get("flow"), dict) else {}
     return {
         "module_name": module.get("name"),
         "ports": document.get("ports", []),
@@ -53,6 +54,7 @@ def _extract_structured_semantics(document: dict[str, object]) -> dict[str, obje
         "state": design.get("state", []),
         "behavior_keys": sorted(behavior.keys()),
         "design_kind_hint": design.get("kind", "generic"),
+        "flow": flow,
     }
 
 

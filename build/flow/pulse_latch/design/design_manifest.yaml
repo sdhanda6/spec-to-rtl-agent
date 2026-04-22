@@ -1,0 +1,24 @@
+top: pulse_latch
+design_kind: generic
+platform: sky130hd
+rtl: /home/sudar762/projects/spec-to-rtl-agent/build/flow/pulse_latch/design/src/pulse_latch.v
+testbench: /home/sudar762/projects/spec-to-rtl-agent/tb/tb_pulse_latch.sv
+clock_port: clk
+clock_period_ns: 10.0
+ports:
+  -
+    name: clk
+    dir: input
+    width: 1
+  -
+    name: rst_n
+    dir: input
+    width: 1
+  -
+    name: set_pulse
+    dir: input
+    width: 1
+  -
+    name: flag
+    dir: output
+    width: 1

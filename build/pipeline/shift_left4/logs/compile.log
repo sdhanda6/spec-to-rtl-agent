@@ -1,0 +1,3 @@
+## Compile
+command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/shift_left4/cand_1/shift_left4.v
+status: pass

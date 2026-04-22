@@ -1,0 +1,2 @@
+FATAL: /home/sudar762/projects/spec-to-rtl-agent/tb/tb_upcounter16.sv:23: reset failed
+       Time: 2000  Scope: tb_upcounter16

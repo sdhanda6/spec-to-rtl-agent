@@ -1,0 +1,5 @@
+## Simulation
+command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/dot_product_sim.out
+status: pass
+PASS tb_dot_product
+/home/sudar762/projects/spec-to-rtl-agent/build/candidates/dot_product/cand_1/tb_dot_product.sv:27: $finish called at 10000 (1ps)

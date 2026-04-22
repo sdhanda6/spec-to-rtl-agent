@@ -2,6 +2,8 @@ spec_source_type: text
 spec_source: examples\specs\text_counter.txt
 top_module: text_counter
 design_kind: generic
+parsed_design_class: generic
+selected_candidate: cand_1
 final_classification: functionally_verified
 ambiguity_findings:
   -
@@ -59,7 +61,7 @@ candidate_analysis:
     -
       candidate_id: cand_1
       title: text_normalized_primary
-      score: 9.200000000000001
+      score: 9.350000000000001
       classification: functionally_verified
       assumptions:
       ambiguity_count: 2
@@ -72,7 +74,7 @@ candidate_analysis:
       simulation_ok: true
       evidence_level: functional
       oracle_independent: true
-      attempts_used: 2
+      attempts_used: 1
       extracted_semantics:
         module_name: text_counter
         clock: clk
@@ -169,12 +171,15 @@ candidate_analysis:
 artifacts:
   rtl: rtl\text_counter.v
   testbench: tb\tb_text_counter.sv
+generation_status:
+  rtl_generation_status: pass
+  testbench_generation_status: pass
 repair_loop:
   enabled: true
   max_attempts: 3
-  attempts_used: 2
-  injected_fault: "zero_output:count"
-  repaired_after_feedback: true
+  attempts_used: 1
+  injected_fault: null
+  repaired_after_feedback: false
   unrepaired_after_retry_limit: false
   attempts:
     -
@@ -185,25 +190,6 @@ repair_loop:
       compile_command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\text_counter\cand_1\text_counter.v"
       simulation_command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\text_counter_sim.out"
       compile_status: pass
-      simulation_status: fail
-      compile_stdout: ""
-      compile_stderr: ""
-      simulation_stdout: |-
-        FAIL increment_step: expected count=00000001 got 00000000
-        FATAL: D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\text_counter\cand_1\tb_text_counter.sv:24: 
-               Time: 6000  Scope: tb_text_counter.check_outputs
-      simulation_stderr: ""
-      diagnosis_summary: generic sequential verification reported an output mismatch on count
-      next_regeneration_changes:
-        - stop forcing count to zero and restore the rendered behavior
-    -
-      attempt: 2
-      strategy: direct
-      rtl_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\text_counter\cand_1\attempt_2\text_counter.v"
-      testbench_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\text_counter\cand_1\attempt_2\tb_text_counter.sv"
-      compile_command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\text_counter\cand_1\text_counter.v"
-      simulation_command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\text_counter_sim.out"
-      compile_status: pass
       simulation_status: pass
       compile_stdout: ""
       compile_stderr: ""
@@ -211,7 +197,7 @@ repair_loop:
         PASS tb_text_counter
         D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\text_counter\cand_1\tb_text_counter.sv:48: $finish called at 16000 (1ps)
       simulation_stderr: ""
-      diagnosis_summary: simulation passed after applying prior repair feedback
+      diagnosis_summary: simulation passed on the current RTL/testbench pair
       next_regeneration_changes:
 verification:
   support_status: supported
@@ -233,19 +219,15 @@ verification:
   assumptions:
   conclusion: functional verification passed with independent evidence
   compile:
-    attempt: 2
+    attempt: 1
     ok: true
     message: compile ok
     command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\text_counter\cand_1\text_counter.v"
   simulation:
-    attempt: 2
+    attempt: 1
     ok: true
     message: |-
       PASS tb_text_counter
       D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\text_counter\cand_1\tb_text_counter.sv:48: $finish called at 16000 (1ps)
     command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\text_counter_sim.out"
   retry_history:
-    -
-      attempt: 1
-      action: simulation_feedback
-      reason: generic sequential verification reported an output mismatch on count

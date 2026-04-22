@@ -1,0 +1,3 @@
+FAIL reset_assert: expected flag=0 got x
+FATAL: /home/sudar762/projects/spec-to-rtl-agent/tb/tb_pulse_latch.sv:24: 
+       Time: 2000  Scope: tb_pulse_latch.check_outputs

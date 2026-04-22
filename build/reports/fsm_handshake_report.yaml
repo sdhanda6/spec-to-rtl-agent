@@ -1,7 +1,9 @@
 spec_source_type: yaml
-spec_source: examples\specs\fsm_handshake.yaml
+spec_source: examples/specs/fsm_handshake.yaml
 top_module: fsm_handshake
 design_kind: fsm
+parsed_design_class: fsm
+selected_candidate: cand_1
 final_classification: functionally_verified
 ambiguity_findings:
 unsupported_findings:
@@ -43,6 +45,7 @@ extracted_semantics:
   behavior_keys:
     - fsm
   design_kind_hint: fsm
+  flow:
 candidate_analysis:
   candidate_count: 1
   selected_candidate: cand_1
@@ -50,7 +53,7 @@ candidate_analysis:
     -
       candidate_id: cand_1
       title: structured_document
-      score: 10.1
+      score: 10.25
       classification: functionally_verified
       assumptions:
       ambiguity_count: 0
@@ -63,7 +66,7 @@ candidate_analysis:
       simulation_ok: true
       evidence_level: functional
       oracle_independent: true
-      attempts_used: 2
+      attempts_used: 1
       extracted_semantics:
         module_name: fsm_handshake
         ports:
@@ -102,52 +105,37 @@ candidate_analysis:
         behavior_keys:
           - fsm
         design_kind_hint: fsm
+        flow:
 artifacts:
-  rtl: rtl\fsm_handshake.v
-  testbench: tb\tb_fsm_handshake.sv
+  rtl: rtl/fsm_handshake.v
+  testbench: tb/tb_fsm_handshake.sv
+generation_status:
+  rtl_generation_status: pass
+  testbench_generation_status: pass
 repair_loop:
   enabled: true
   max_attempts: 3
-  attempts_used: 2
-  injected_fault: fsm_force_self_loop
-  repaired_after_feedback: true
+  attempts_used: 1
+  injected_fault: null
+  repaired_after_feedback: false
   unrepaired_after_retry_limit: false
   attempts:
     -
       attempt: 1
       strategy: direct
-      rtl_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\fsm_handshake\cand_1\attempt_1\fsm_handshake.v"
-      testbench_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\fsm_handshake\cand_1\attempt_1\tb_fsm_handshake.sv"
-      compile_command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\fsm_handshake\cand_1\fsm_handshake.v"
-      simulation_command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\fsm_handshake_sim.out"
-      compile_status: pass
-      simulation_status: fail
-      compile_stdout: ""
-      compile_stderr: ""
-      simulation_stdout: |-
-        FAIL transition_IDLE_to_RUN: expected state=1 got=0
-        FATAL: D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\fsm_handshake\cand_1\tb_fsm_handshake.sv:33: 
-               Time: 16000  Scope: tb_fsm_handshake.check_state_outputs
-      simulation_stderr: ""
-      diagnosis_summary: testbench reported an FSM next-state mismatch
-      next_regeneration_changes:
-        - remove the injected FSM self-loop bug so declared transitions can execute
-    -
-      attempt: 2
-      strategy: direct
-      rtl_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\fsm_handshake\cand_1\attempt_2\fsm_handshake.v"
-      testbench_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\fsm_handshake\cand_1\attempt_2\tb_fsm_handshake.sv"
-      compile_command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\fsm_handshake\cand_1\fsm_handshake.v"
-      simulation_command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\fsm_handshake_sim.out"
+      rtl_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/fsm_handshake/cand_1/attempt_1/fsm_handshake.v
+      testbench_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/fsm_handshake/cand_1/attempt_1/tb_fsm_handshake.sv
+      compile_command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/fsm_handshake/cand_1/fsm_handshake.v
+      simulation_command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/fsm_handshake_sim.out
       compile_status: pass
       simulation_status: pass
       compile_stdout: ""
       compile_stderr: ""
       simulation_stdout: |-
         PASS tb_fsm_handshake
-        D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\fsm_handshake\cand_1\tb_fsm_handshake.sv:83: $finish called at 46000 (1ps)
+        /home/sudar762/projects/spec-to-rtl-agent/build/candidates/fsm_handshake/cand_1/tb_fsm_handshake.sv:83: $finish called at 46000 (1ps)
       simulation_stderr: ""
-      diagnosis_summary: simulation passed after applying prior repair feedback
+      diagnosis_summary: simulation passed on the current RTL/testbench pair
       next_regeneration_changes:
 verification:
   support_status: supported
@@ -175,19 +163,15 @@ verification:
   assumptions:
   conclusion: functional verification passed with independent evidence
   compile:
-    attempt: 2
+    attempt: 1
     ok: true
     message: compile ok
-    command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\fsm_handshake\cand_1\fsm_handshake.v"
+    command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/fsm_handshake/cand_1/fsm_handshake.v
   simulation:
-    attempt: 2
+    attempt: 1
     ok: true
     message: |-
       PASS tb_fsm_handshake
-      D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\fsm_handshake\cand_1\tb_fsm_handshake.sv:83: $finish called at 46000 (1ps)
-    command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\fsm_handshake_sim.out"
+      /home/sudar762/projects/spec-to-rtl-agent/build/candidates/fsm_handshake/cand_1/tb_fsm_handshake.sv:83: $finish called at 46000 (1ps)
+    command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/fsm_handshake_sim.out
   retry_history:
-    -
-      attempt: 1
-      action: simulation_feedback
-      reason: testbench reported an FSM next-state mismatch

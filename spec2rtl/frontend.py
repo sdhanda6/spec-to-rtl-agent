@@ -49,12 +49,14 @@ def _normalize_benchmark_spec(top_name: str, payload: dict[str, object]) -> dict
     description = payload.get("description")
     if description is not None:
         notes.append(str(description))
+    flow = _normalize_flow_hints(payload)
     return {
         "module": {"name": top_name},
         "ports": normalized_ports,
         "timing": timing,
         "design": {"kind": "generic", "notes": notes, "behavior": {}},
         "verification": {"tb": verification_tb},
+        "flow": flow,
     }
 
 
@@ -99,3 +101,26 @@ def _infer_timing(ports: list[dict[str, object]]) -> dict[str, object]:
             "mode": "async" if reset_name.lower().endswith("_n") else "sync",
         }
     return timing
+
+
+def _normalize_flow_hints(payload: dict[str, object]) -> dict[str, object]:
+    flow: dict[str, object] = {}
+    tech_node = payload.get("tech_node") or payload.get("technology")
+    if tech_node is not None:
+        flow["tech_node"] = str(tech_node)
+        flow["platform"] = _infer_platform(str(tech_node))
+    clock_period = payload.get("clock_period")
+    if clock_period is not None:
+        flow["clock_period"] = str(clock_period)
+    if payload.get("module_signature") is not None:
+        flow["module_signature"] = str(payload.get("module_signature"))
+    return flow
+
+
+def _infer_platform(tech_node: str) -> str:
+    lowered = tech_node.lower()
+    if "130" in lowered or "sky" in lowered:
+        return "sky130hd"
+    if "45" in lowered:
+        return "nangate45"
+    return lowered.replace(" ", "_")

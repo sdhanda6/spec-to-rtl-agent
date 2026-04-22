@@ -1,52 +1,123 @@
-spec_source: examples\specs\pulse_latch.yaml
+spec_source_type: yaml
+spec_source: examples/specs/pulse_latch.yaml
 top_module: pulse_latch
 design_kind: generic
+parsed_design_class: generic
+selected_candidate: cand_1
+final_classification: functionally_verified
+ambiguity_findings:
+unsupported_findings:
+extracted_semantics:
+  module_name: pulse_latch
+  ports:
+    -
+      name: clk
+      dir: input
+      width: 1
+    -
+      name: rst_n
+      dir: input
+      width: 1
+    -
+      name: set_pulse
+      dir: input
+      width: 1
+    -
+      name: flag
+      dir: output
+      width: 1
+      kind: reg
+  clock: clk
+  reset:
+    signal: rst_n
+    active: low
+    mode: async
+  state:
+  behavior_keys:
+    - processes
+  design_kind_hint: generic
+  flow:
+candidate_analysis:
+  candidate_count: 1
+  selected_candidate: cand_1
+  candidates:
+    -
+      candidate_id: cand_1
+      title: structured_document
+      score: 10.25
+      classification: functionally_verified
+      assumptions:
+      ambiguity_count: 0
+      unsupported_count: 0
+      internal_checks:
+        - module name present
+        - port list present
+        - clock semantics present
+      compile_ok: true
+      simulation_ok: true
+      evidence_level: functional
+      oracle_independent: true
+      attempts_used: 1
+      extracted_semantics:
+        module_name: pulse_latch
+        ports:
+          -
+            name: clk
+            dir: input
+            width: 1
+          -
+            name: rst_n
+            dir: input
+            width: 1
+          -
+            name: set_pulse
+            dir: input
+            width: 1
+          -
+            name: flag
+            dir: output
+            width: 1
+            kind: reg
+        clock: clk
+        reset:
+          signal: rst_n
+          active: low
+          mode: async
+        state:
+        behavior_keys:
+          - processes
+        design_kind_hint: generic
+        flow:
 artifacts:
-  rtl: rtl\pulse_latch.v
-  testbench: tb\tb_pulse_latch.sv
+  rtl: rtl/pulse_latch.v
+  testbench: tb/tb_pulse_latch.sv
+generation_status:
+  rtl_generation_status: pass
+  testbench_generation_status: pass
 repair_loop:
   enabled: true
   max_attempts: 3
-  attempts_used: 2
-  injected_fault: "zero_output:flag"
-  repaired_after_feedback: true
+  attempts_used: 1
+  injected_fault: null
+  repaired_after_feedback: false
   unrepaired_after_retry_limit: false
   attempts:
     -
       attempt: 1
       strategy: direct
-      rtl_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\pulse_latch\attempt_1\pulse_latch.v"
-      testbench_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\pulse_latch\attempt_1\tb_pulse_latch.sv"
-      compile_command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\rtl\pulse_latch.v"
-      simulation_command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\pulse_latch_sim.out"
-      compile_status: pass
-      simulation_status: fail
-      compile_stdout: ""
-      compile_stderr: ""
-      simulation_stdout: |-
-        FAIL set_flag: expected flag=1 got 0
-        FATAL: D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\tb\tb_pulse_latch.sv:24: 
-               Time: 6000  Scope: tb_pulse_latch.check_outputs
-      simulation_stderr: ""
-      diagnosis_summary: generic sequential verification reported an output mismatch on flag
-      next_regeneration_changes:
-        - stop forcing flag to zero and restore the rendered behavior
-    -
-      attempt: 2
-      strategy: direct
-      rtl_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\pulse_latch\attempt_2\pulse_latch.v"
-      testbench_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\pulse_latch\attempt_2\tb_pulse_latch.sv"
-      compile_command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\rtl\pulse_latch.v"
-      simulation_command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\pulse_latch_sim.out"
+      rtl_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/pulse_latch/cand_1/attempt_1/pulse_latch.v
+      testbench_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/pulse_latch/cand_1/attempt_1/tb_pulse_latch.sv
+      compile_command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/pulse_latch/cand_1/pulse_latch.v
+      simulation_command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/pulse_latch_sim.out
       compile_status: pass
       simulation_status: pass
       compile_stdout: ""
       compile_stderr: ""
       simulation_stdout: |-
         PASS tb_pulse_latch
-        D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\tb\tb_pulse_latch.sv:48: $finish called at 16000 (1ps)
+        /home/sudar762/projects/spec-to-rtl-agent/build/candidates/pulse_latch/cand_1/tb_pulse_latch.sv:48: $finish called at 16000 (1ps)
       simulation_stderr: ""
-      diagnosis_summary: simulation passed after applying prior repair feedback
+      diagnosis_summary: simulation passed on the current RTL/testbench pair
       next_regeneration_changes:
 verification:
   support_status: supported
@@ -65,21 +136,18 @@ verification:
   limitations:
   notes:
   partial_verification_reasons:
+  assumptions:
   conclusion: functional verification passed with independent evidence
   compile:
-    attempt: 2
+    attempt: 1
     ok: true
     message: compile ok
-    command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\rtl\pulse_latch.v"
+    command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/pulse_latch/cand_1/pulse_latch.v
   simulation:
-    attempt: 2
+    attempt: 1
     ok: true
     message: |-
       PASS tb_pulse_latch
-      D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\tb\tb_pulse_latch.sv:48: $finish called at 16000 (1ps)
-    command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\pulse_latch_sim.out"
+      /home/sudar762/projects/spec-to-rtl-agent/build/candidates/pulse_latch/cand_1/tb_pulse_latch.sv:48: $finish called at 16000 (1ps)
+    command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/pulse_latch_sim.out
   retry_history:
-    -
-      attempt: 1
-      action: simulation_feedback
-      reason: generic sequential verification reported an output mismatch on flag

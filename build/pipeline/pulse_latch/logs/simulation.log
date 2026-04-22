@@ -1,0 +1,5 @@
+## Simulation
+command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/pulse_latch_sim.out
+status: pass
+PASS tb_pulse_latch
+/home/sudar762/projects/spec-to-rtl-agent/build/candidates/pulse_latch/cand_1/tb_pulse_latch.sv:48: $finish called at 16000 (1ps)

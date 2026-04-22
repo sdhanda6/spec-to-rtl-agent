@@ -35,6 +35,7 @@ def lower_document_to_ir(document: dict[str, object]) -> ModuleIR:
         ports=[_lower_port(entry) for entry in _expect_list(document.get("ports", []), "ports")],
         design_kind=str(design.get("kind", "generic")),  # type: ignore[arg-type]
         notes=[str(item) for item in _expect_list(design.get("notes", []), "design.notes")],
+        flow_hints=_expect_map(document.get("flow", {}), "flow"),
         clock=_optional_str(timing.get("clock")),
         reset=_lower_reset(_expect_map(timing.get("reset", {}), "timing.reset")),
         signals=[_lower_signal(entry) for entry in _expect_list(document.get("signals", []), "signals")],

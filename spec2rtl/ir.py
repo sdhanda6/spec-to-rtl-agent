@@ -11,6 +11,7 @@ CombOperator = Literal["expr", "buf", "not", "and", "or", "xor", "add", "sub", "
 StmtKind = Literal["assign", "if"]
 SpecSourceType = Literal["yaml", "text"]
 FinalClassification = Literal["functionally_verified", "compile_and_smoke_verified", "partially_supported", "unsupported_or_ambiguous"]
+PipelineMode = Literal["rtl", "synth", "openroad", "full"]
 
 
 @dataclass
@@ -213,6 +214,26 @@ class GeneratedTestbench:
 
 
 @dataclass
+class QoRSummaryIR:
+    timing_wns_ns: float | None = None
+    timing_tns_ns: float | None = None
+    area_um2: float | None = None
+    power_mw: float | None = None
+    cell_count: int | None = None
+    source_reports: list[str] = field(default_factory=list)
+
+
+@dataclass
+class FlowStageResultIR:
+    name: str
+    status: Literal["not_run", "generated", "pass", "fail", "missing_tool", "partial"] = "not_run"
+    message: str = ""
+    command: str | None = None
+    log_path: str | None = None
+    artifacts: list[str] = field(default_factory=list)
+
+
+@dataclass
 class RepairDecision:
     attempt: int
     action: str
@@ -279,6 +300,7 @@ class ModuleIR:
     ports: list[PortIR]
     design_kind: DesignKind
     notes: list[str] = field(default_factory=list)
+    flow_hints: dict[str, Any] = field(default_factory=dict)
     clock: str | None = None
     reset: ResetIR | None = None
     signals: list[SignalIR] = field(default_factory=list)

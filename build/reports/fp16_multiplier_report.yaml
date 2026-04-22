@@ -1,7 +1,9 @@
 spec_source_type: yaml
-spec_source: examples\specs\p8.yaml
+spec_source: examples/specs/p8.yaml
 top_module: fp16_multiplier
 design_kind: generic
+parsed_design_class: generic
+selected_candidate: cand_1
 final_classification: compile_and_smoke_verified
 ambiguity_findings:
 unsupported_findings:
@@ -31,6 +33,16 @@ extracted_semantics:
   state:
   behavior_keys:
   design_kind_hint: generic
+  flow:
+    tech_node: SkyWater 130HD
+    platform: sky130hd
+    clock_period: 9ns
+    module_signature: |-
+      module fp16_multiplier(
+        input  logic [15:0] a,
+        input  logic [15:0] b,
+        output logic [15:0] result
+      );
 candidate_analysis:
   candidate_count: 1
   selected_candidate: cand_1
@@ -77,9 +89,22 @@ candidate_analysis:
         state:
         behavior_keys:
         design_kind_hint: generic
+        flow:
+          tech_node: SkyWater 130HD
+          platform: sky130hd
+          clock_period: 9ns
+          module_signature: |-
+            module fp16_multiplier(
+              input  logic [15:0] a,
+              input  logic [15:0] b,
+              output logic [15:0] result
+            );
 artifacts:
-  rtl: rtl\fp16_multiplier.v
-  testbench: tb\tb_fp16_multiplier.sv
+  rtl: rtl/fp16_multiplier.v
+  testbench: tb/tb_fp16_multiplier.sv
+generation_status:
+  rtl_generation_status: pass
+  testbench_generation_status: pass
 repair_loop:
   enabled: true
   max_attempts: 3
@@ -91,18 +116,18 @@ repair_loop:
     -
       attempt: 1
       strategy: direct
-      rtl_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\fp16_multiplier\cand_1\attempt_1\fp16_multiplier.v"
-      testbench_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\fp16_multiplier\cand_1\attempt_1\tb_fp16_multiplier.sv"
-      compile_command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\fp16_multiplier\cand_1\fp16_multiplier.v"
-      simulation_command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\fp16_multiplier_sim.out"
+      rtl_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/fp16_multiplier/cand_1/attempt_1/fp16_multiplier.v
+      testbench_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/fp16_multiplier/cand_1/attempt_1/tb_fp16_multiplier.sv
+      compile_command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/fp16_multiplier/cand_1/fp16_multiplier.v
+      simulation_command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/fp16_multiplier_sim.out
       compile_status: pass
       simulation_status: pass
       compile_stdout: ""
       compile_stderr: |-
-        D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\fp16_multiplier\cand_1\fp16_multiplier.v:10: warning: @* found no sensitivities so it will never trigger.
+        /home/sudar762/projects/spec-to-rtl-agent/build/candidates/fp16_multiplier/cand_1/fp16_multiplier.v:10: warning: @* found no sensitivities so it will never trigger.
       simulation_stdout: |-
         PASS tb_fp16_multiplier
-        D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\fp16_multiplier\cand_1\tb_fp16_multiplier.sv:19: $finish called at 10000 (1ps)
+        /home/sudar762/projects/spec-to-rtl-agent/build/candidates/fp16_multiplier/cand_1/tb_fp16_multiplier.sv:19: $finish called at 10000 (1ps)
       simulation_stderr: ""
       diagnosis_summary: simulation passed on the current RTL/testbench pair
       next_regeneration_changes:
@@ -128,13 +153,13 @@ verification:
   compile:
     attempt: 1
     ok: true
-    message: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\fp16_multiplier\cand_1\fp16_multiplier.v:10: warning: @* found no sensitivities so it will never trigger."
-    command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\fp16_multiplier\cand_1\fp16_multiplier.v"
+    message: "/home/sudar762/projects/spec-to-rtl-agent/build/candidates/fp16_multiplier/cand_1/fp16_multiplier.v:10: warning: @* found no sensitivities so it will never trigger."
+    command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/fp16_multiplier/cand_1/fp16_multiplier.v
   simulation:
     attempt: 1
     ok: true
     message: |-
       PASS tb_fp16_multiplier
-      D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\fp16_multiplier\cand_1\tb_fp16_multiplier.sv:19: $finish called at 10000 (1ps)
-    command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\fp16_multiplier_sim.out"
+      /home/sudar762/projects/spec-to-rtl-agent/build/candidates/fp16_multiplier/cand_1/tb_fp16_multiplier.sv:19: $finish called at 10000 (1ps)
+    command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/fp16_multiplier_sim.out
   retry_history:

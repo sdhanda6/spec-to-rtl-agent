@@ -1,0 +1,831 @@
+[
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": null,
+    "candidate_id": null,
+    "candidate_knobs": [],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 2,
+        "logical_um2": 11.2608,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 2,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 11.2608,
+      "metadata": {
+        "clock_period_ns": 1.1,
+        "design_name": "seq_detector_0011",
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/clock_period.txt",
+          "synth_json": "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/1_synth.json",
+          "synth_stats": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt",
+        "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -18.51296,
+    "score_before": -18.51296,
+    "score_delta": 0.0,
+    "spec_name": "p1",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": null,
+    "candidate_id": null,
+    "candidate_knobs": [],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 3,
+        "logical_um2": 18.768,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/dot_product/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/dot_product/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 3,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 18.768,
+      "metadata": {
+        "clock_period_ns": 4.5,
+        "design_name": "dot_product",
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/dot_product/base/clock_period.txt",
+          "synth_json": "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/dot_product/base/1_synth.json",
+          "synth_stats": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/dot_product/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/dot_product/base/synth_stat.txt",
+        "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/dot_product/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -30.0216,
+    "score_before": -30.0216,
+    "score_delta": 0.0,
+    "spec_name": "p5",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "area",
+    "candidate_id": "synth_area_flatten_compact",
+    "candidate_knobs": [
+      "SYNTH_NO_FLAT",
+      "SYNTH_STRATEGY",
+      "SYNTH_SHARE_RESOURCES"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 3,
+        "logical_um2": 18.768,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/dot_product/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/dot_product/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 3,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 18.768,
+      "metadata": {
+        "clock_period_ns": 4.5,
+        "design_name": "dot_product",
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/dot_product/base/clock_period.txt",
+          "synth_json": "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/dot_product/base/1_synth.json",
+          "synth_stats": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/dot_product/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/dot_product/base/synth_stat.txt",
+        "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/dot_product/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -30.0216,
+    "score_before": -30.0216,
+    "score_delta": 0.0,
+    "spec_name": "p5",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "area",
+    "candidate_id": "synth_area_flatten_compact",
+    "candidate_knobs": [
+      "SYNTH_NO_FLAT",
+      "SYNTH_STRATEGY",
+      "SYNTH_SHARE_RESOURCES"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 2,
+        "logical_um2": 11.2608,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 2,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 11.2608,
+      "metadata": {
+        "clock_period_ns": 1.1,
+        "design_name": "seq_detector_0011",
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/clock_period.txt",
+          "synth_json": "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/1_synth.json",
+          "synth_stats": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt",
+        "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -18.51296,
+    "score_before": -18.51296,
+    "score_delta": 0.0,
+    "spec_name": "p1",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "area",
+    "candidate_id": "synth_area_map_area2",
+    "candidate_knobs": [
+      "SYNTH_STRATEGY",
+      "ABC_AREA",
+      "SYNTH_BUFFERING"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 2,
+        "logical_um2": 11.2608,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 2,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 11.2608,
+      "metadata": {
+        "clock_period_ns": 1.1,
+        "design_name": "seq_detector_0011",
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/clock_period.txt",
+          "synth_json": "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/1_synth.json",
+          "synth_stats": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt",
+        "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -18.51296,
+    "score_before": -18.51296,
+    "score_delta": 0.0,
+    "spec_name": "p1",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": false,
+    "bottleneck_classification": "mixed",
+    "candidate_family": null,
+    "candidate_id": null,
+    "candidate_knobs": [],
+    "design_kind": "counter",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 59,
+        "logical_um2": 701.9232,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 59,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 701.9232,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "upcounter16",
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/upcounter16/base/clock_period.txt",
+          "synth_json": "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/upcounter16/base/1_synth.json",
+          "synth_stats": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt",
+        "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/upcounter16/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -1000000.0,
+    "score_before": -1000000.0,
+    "score_delta": 0.0,
+    "spec_name": "upcounter16",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": false,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "area",
+    "candidate_id": "synth_area_flatten_compact",
+    "candidate_knobs": [
+      "SYNTH_NO_FLAT",
+      "SYNTH_STRATEGY",
+      "SYNTH_SHARE_RESOURCES"
+    ],
+    "design_kind": "counter",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 59,
+        "logical_um2": 701.9232,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 59,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 701.9232,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "upcounter16",
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/upcounter16/base/clock_period.txt",
+          "synth_json": "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/upcounter16/base/1_synth.json",
+          "synth_stats": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt",
+        "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/upcounter16/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -1000000.0,
+    "score_before": -1000000.0,
+    "score_delta": 0.0,
+    "spec_name": "upcounter16",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": false,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "structural",
+    "candidate_id": "synth_struct_fanout_rebalance",
+    "candidate_knobs": [
+      "SYNTH_NO_FLAT",
+      "MAX_FANOUT_CONSTRAINT",
+      "SYNTH_BUFFERING",
+      "SYNTH_SHARE_RESOURCES"
+    ],
+    "design_kind": "counter",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 59,
+        "logical_um2": 701.9232,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 59,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 701.9232,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "upcounter16",
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/upcounter16/base/clock_period.txt",
+          "synth_json": "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/upcounter16/base/1_synth.json",
+          "synth_stats": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt",
+        "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/upcounter16/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -1000000.0,
+    "score_before": -1000000.0,
+    "score_delta": 0.0,
+    "spec_name": "upcounter16",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": false,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "power",
+    "candidate_id": "synth_power_area_strategy",
+    "candidate_knobs": [
+      "SYNTH_STRATEGY",
+      "ABC_AREA",
+      "SYNTH_SHARE_RESOURCES"
+    ],
+    "design_kind": "counter",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 59,
+        "logical_um2": 701.9232,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 59,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 701.9232,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "upcounter16",
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/upcounter16/base/clock_period.txt",
+          "synth_json": "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/upcounter16/base/1_synth.json",
+          "synth_stats": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt",
+        "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/upcounter16/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -1000000.0,
+    "score_before": -1000000.0,
+    "score_delta": 0.0,
+    "spec_name": "upcounter16",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": false,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "area",
+    "candidate_id": "synth_area_map_area2",
+    "candidate_knobs": [
+      "SYNTH_STRATEGY",
+      "ABC_AREA",
+      "SYNTH_BUFFERING"
+    ],
+    "design_kind": "counter",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 59,
+        "logical_um2": 701.9232,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 59,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 701.9232,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "upcounter16",
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/upcounter16/base/clock_period.txt",
+          "synth_json": "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/upcounter16/base/1_synth.json",
+          "synth_stats": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt",
+        "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/upcounter16/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -1000000.0,
+    "score_before": -1000000.0,
+    "score_delta": 0.0,
+    "spec_name": "upcounter16",
+    "targets_met": false
+  }
+]

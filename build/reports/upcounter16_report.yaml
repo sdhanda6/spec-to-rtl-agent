@@ -1,7 +1,9 @@
 spec_source_type: yaml
-spec_source: examples\specs\upcounter16.yaml
+spec_source: examples/specs/upcounter16.yaml
 top_module: upcounter16
 design_kind: counter
+parsed_design_class: counter
+selected_candidate: cand_1
 final_classification: functionally_verified
 ambiguity_findings:
 unsupported_findings:
@@ -42,6 +44,7 @@ extracted_semantics:
   behavior_keys:
     - counter
   design_kind_hint: counter
+  flow:
 candidate_analysis:
   candidate_count: 1
   selected_candidate: cand_1
@@ -49,7 +52,7 @@ candidate_analysis:
     -
       candidate_id: cand_1
       title: structured_document
-      score: 10.1
+      score: 10.25
       classification: functionally_verified
       assumptions:
       ambiguity_count: 0
@@ -62,7 +65,7 @@ candidate_analysis:
       simulation_ok: true
       evidence_level: functional
       oracle_independent: true
-      attempts_used: 2
+      attempts_used: 1
       extracted_semantics:
         module_name: upcounter16
         ports:
@@ -100,51 +103,37 @@ candidate_analysis:
         behavior_keys:
           - counter
         design_kind_hint: counter
+        flow:
 artifacts:
-  rtl: rtl\upcounter16.v
-  testbench: tb\tb_upcounter16.sv
+  rtl: rtl/upcounter16.v
+  testbench: tb/tb_upcounter16.sv
+generation_status:
+  rtl_generation_status: pass
+  testbench_generation_status: pass
 repair_loop:
   enabled: true
   max_attempts: 3
-  attempts_used: 2
-  injected_fault: counter_hold_when_enabled
-  repaired_after_feedback: true
+  attempts_used: 1
+  injected_fault: null
+  repaired_after_feedback: false
   unrepaired_after_retry_limit: false
   attempts:
     -
       attempt: 1
       strategy: direct
-      rtl_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\upcounter16\cand_1\attempt_1\upcounter16.v"
-      testbench_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\upcounter16\cand_1\attempt_1\tb_upcounter16.sv"
-      compile_command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\upcounter16\cand_1\upcounter16.v"
-      simulation_command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\upcounter16_sim.out"
-      compile_status: pass
-      simulation_status: fail
-      compile_stdout: ""
-      compile_stderr: ""
-      simulation_stdout: |-
-        FATAL: D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\upcounter16\cand_1\tb_upcounter16.sv:27: increment failed
-               Time: 26000  Scope: tb_upcounter16
-      simulation_stderr: ""
-      diagnosis_summary: testbench reported that the counter did not increment when enable was asserted
-      next_regeneration_changes:
-        - remove the injected counter hold-on-enable bug so the counter increments again
-    -
-      attempt: 2
-      strategy: direct
-      rtl_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\upcounter16\cand_1\attempt_2\upcounter16.v"
-      testbench_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\upcounter16\cand_1\attempt_2\tb_upcounter16.sv"
-      compile_command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\upcounter16\cand_1\upcounter16.v"
-      simulation_command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\upcounter16_sim.out"
+      rtl_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/upcounter16/cand_1/attempt_1/upcounter16.v
+      testbench_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/upcounter16/cand_1/attempt_1/tb_upcounter16.sv
+      compile_command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/upcounter16/cand_1/upcounter16.v
+      simulation_command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/upcounter16_sim.out
       compile_status: pass
       simulation_status: pass
       compile_stdout: ""
       compile_stderr: ""
       simulation_stdout: |-
         PASS tb_upcounter16
-        D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\upcounter16\cand_1\tb_upcounter16.sv:32: $finish called at 36000 (1ps)
+        /home/sudar762/projects/spec-to-rtl-agent/build/candidates/upcounter16/cand_1/tb_upcounter16.sv:32: $finish called at 36000 (1ps)
       simulation_stderr: ""
-      diagnosis_summary: simulation passed after applying prior repair feedback
+      diagnosis_summary: simulation passed on the current RTL/testbench pair
       next_regeneration_changes:
 verification:
   support_status: supported
@@ -166,19 +155,15 @@ verification:
   assumptions:
   conclusion: functional verification passed with independent evidence
   compile:
-    attempt: 2
+    attempt: 1
     ok: true
     message: compile ok
-    command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\upcounter16\cand_1\upcounter16.v"
+    command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/upcounter16/cand_1/upcounter16.v
   simulation:
-    attempt: 2
+    attempt: 1
     ok: true
     message: |-
       PASS tb_upcounter16
-      D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\upcounter16\cand_1\tb_upcounter16.sv:32: $finish called at 36000 (1ps)
-    command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\upcounter16_sim.out"
+      /home/sudar762/projects/spec-to-rtl-agent/build/candidates/upcounter16/cand_1/tb_upcounter16.sv:32: $finish called at 36000 (1ps)
+    command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/upcounter16_sim.out
   retry_history:
-    -
-      attempt: 1
-      action: simulation_feedback
-      reason: testbench reported that the counter did not increment when enable was asserted

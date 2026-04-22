@@ -1,0 +1,2 @@
+PASS tb_register8
+/home/sudar762/projects/spec-to-rtl-agent/build/flow/register8/post_synth/attempt_3/adapted_tb/tb_register8.sv:39: $finish called at 37000 (1ps)

@@ -1,0 +1,28 @@
+top: register8
+design_kind: register
+platform: sky130hd
+rtl: /home/sudar762/projects/spec-to-rtl-agent/build/flow/register8/design/src/register8.v
+testbench: /home/sudar762/projects/spec-to-rtl-agent/tb/tb_register8.sv
+clock_port: clk
+clock_period_ns: 10.0
+ports:
+  -
+    name: clk
+    dir: input
+    width: 1
+  -
+    name: rst_n
+    dir: input
+    width: 1
+  -
+    name: en
+    dir: input
+    width: 1
+  -
+    name: d
+    dir: input
+    width: 8
+  -
+    name: q
+    dir: output
+    width: 8

@@ -1,0 +1,5 @@
+## Simulation
+command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/fsm_handshake_sim.out
+status: pass
+PASS tb_fsm_handshake
+/home/sudar762/projects/spec-to-rtl-agent/build/candidates/fsm_handshake/cand_1/tb_fsm_handshake.sv:83: $finish called at 46000 (1ps)

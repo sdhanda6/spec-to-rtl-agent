@@ -1,7 +1,9 @@
 spec_source_type: yaml
-spec_source: examples\specs\sum_stage.yaml
+spec_source: examples/specs/sum_stage.yaml
 top_module: sum_stage
 design_kind: generic
+parsed_design_class: generic
+selected_candidate: cand_1
 final_classification: functionally_verified
 ambiguity_findings:
 unsupported_findings:
@@ -47,6 +49,7 @@ extracted_semantics:
   behavior_keys:
     - processes
   design_kind_hint: generic
+  flow:
 candidate_analysis:
   candidate_count: 1
   selected_candidate: cand_1
@@ -54,7 +57,7 @@ candidate_analysis:
     -
       candidate_id: cand_1
       title: structured_document
-      score: 10.1
+      score: 10.25
       classification: functionally_verified
       assumptions:
       ambiguity_count: 0
@@ -67,7 +70,7 @@ candidate_analysis:
       simulation_ok: true
       evidence_level: functional
       oracle_independent: true
-      attempts_used: 2
+      attempts_used: 1
       extracted_semantics:
         module_name: sum_stage
         ports:
@@ -110,52 +113,37 @@ candidate_analysis:
         behavior_keys:
           - processes
         design_kind_hint: generic
+        flow:
 artifacts:
-  rtl: rtl\sum_stage.v
-  testbench: tb\tb_sum_stage.sv
+  rtl: rtl/sum_stage.v
+  testbench: tb/tb_sum_stage.sv
+generation_status:
+  rtl_generation_status: pass
+  testbench_generation_status: pass
 repair_loop:
   enabled: true
   max_attempts: 3
-  attempts_used: 2
-  injected_fault: "zero_output:sum_out"
-  repaired_after_feedback: true
+  attempts_used: 1
+  injected_fault: null
+  repaired_after_feedback: false
   unrepaired_after_retry_limit: false
   attempts:
     -
       attempt: 1
       strategy: direct
-      rtl_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\sum_stage\cand_1\attempt_1\sum_stage.v"
-      testbench_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\sum_stage\cand_1\attempt_1\tb_sum_stage.sv"
-      compile_command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\sum_stage\cand_1\sum_stage.v"
-      simulation_command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\sum_stage_sim.out"
-      compile_status: pass
-      simulation_status: fail
-      compile_stdout: ""
-      compile_stderr: ""
-      simulation_stdout: |-
-        FAIL load_sum: expected sum_out=000010001 got 000000000
-        FATAL: D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\sum_stage\cand_1\tb_sum_stage.sv:31: 
-               Time: 6000  Scope: tb_sum_stage.check_outputs
-      simulation_stderr: ""
-      diagnosis_summary: datapath verification reported an output mismatch on sum_out
-      next_regeneration_changes:
-        - stop forcing sum_out to zero and restore the rendered behavior
-    -
-      attempt: 2
-      strategy: direct
-      rtl_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\sum_stage\cand_1\attempt_2\sum_stage.v"
-      testbench_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\sum_stage\cand_1\attempt_2\tb_sum_stage.sv"
-      compile_command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\sum_stage\cand_1\sum_stage.v"
-      simulation_command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\sum_stage_sim.out"
+      rtl_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/sum_stage/cand_1/attempt_1/sum_stage.v
+      testbench_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/sum_stage/cand_1/attempt_1/tb_sum_stage.sv
+      compile_command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/sum_stage/cand_1/sum_stage.v
+      simulation_command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/sum_stage_sim.out
       compile_status: pass
       simulation_status: pass
       compile_stdout: ""
       compile_stderr: ""
       simulation_stdout: |-
         PASS tb_sum_stage
-        D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\sum_stage\cand_1\tb_sum_stage.sv:70: $finish called at 16000 (1ps)
+        /home/sudar762/projects/spec-to-rtl-agent/build/candidates/sum_stage/cand_1/tb_sum_stage.sv:70: $finish called at 16000 (1ps)
       simulation_stderr: ""
-      diagnosis_summary: simulation passed after applying prior repair feedback
+      diagnosis_summary: simulation passed on the current RTL/testbench pair
       next_regeneration_changes:
 verification:
   support_status: supported
@@ -177,19 +165,15 @@ verification:
   assumptions:
   conclusion: functional verification passed with independent evidence
   compile:
-    attempt: 2
+    attempt: 1
     ok: true
     message: compile ok
-    command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\sum_stage\cand_1\sum_stage.v"
+    command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/sum_stage/cand_1/sum_stage.v
   simulation:
-    attempt: 2
+    attempt: 1
     ok: true
     message: |-
       PASS tb_sum_stage
-      D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\sum_stage\cand_1\tb_sum_stage.sv:70: $finish called at 16000 (1ps)
-    command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\sum_stage_sim.out"
+      /home/sudar762/projects/spec-to-rtl-agent/build/candidates/sum_stage/cand_1/tb_sum_stage.sv:70: $finish called at 16000 (1ps)
+    command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/sum_stage_sim.out
   retry_history:
-    -
-      attempt: 1
-      action: simulation_feedback
-      reason: datapath verification reported an output mismatch on sum_out

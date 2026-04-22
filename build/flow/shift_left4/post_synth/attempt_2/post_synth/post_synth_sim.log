@@ -1,0 +1,2 @@
+FATAL: /home/sudar762/projects/spec-to-rtl-agent/tb/tb_shift_left4.sv:26: reset failed
+       Time: 2000  Scope: tb_shift_left4

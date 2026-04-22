@@ -1,7 +1,9 @@
 spec_source_type: yaml
-spec_source: examples\specs\comb_adder8.yaml
+spec_source: examples/specs/comb_adder8.yaml
 top_module: comb_adder8
 design_kind: combinational
+parsed_design_class: combinational
+selected_candidate: cand_1
 final_classification: functionally_verified
 ambiguity_findings:
 unsupported_findings:
@@ -27,6 +29,7 @@ extracted_semantics:
   behavior_keys:
     - operations
   design_kind_hint: combinational
+  flow:
 candidate_analysis:
   candidate_count: 1
   selected_candidate: cand_1
@@ -34,7 +37,7 @@ candidate_analysis:
     -
       candidate_id: cand_1
       title: structured_document
-      score: 9.85
+      score: 10.0
       classification: functionally_verified
       assumptions:
       ambiguity_count: 0
@@ -46,7 +49,7 @@ candidate_analysis:
       simulation_ok: true
       evidence_level: functional
       oracle_independent: true
-      attempts_used: 2
+      attempts_used: 1
       extracted_semantics:
         module_name: comb_adder8
         ports:
@@ -69,53 +72,37 @@ candidate_analysis:
         behavior_keys:
           - operations
         design_kind_hint: combinational
+        flow:
 artifacts:
-  rtl: rtl\comb_adder8.v
-  testbench: tb\tb_comb_adder8.sv
+  rtl: rtl/comb_adder8.v
+  testbench: tb/tb_comb_adder8.sv
+generation_status:
+  rtl_generation_status: pass
+  testbench_generation_status: pass
 repair_loop:
   enabled: true
   max_attempts: 3
-  attempts_used: 2
-  injected_fault: "zero_output:y"
-  repaired_after_feedback: true
+  attempts_used: 1
+  injected_fault: null
+  repaired_after_feedback: false
   unrepaired_after_retry_limit: false
   attempts:
     -
       attempt: 1
       strategy: direct
-      rtl_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\comb_adder8\cand_1\attempt_1\comb_adder8.v"
-      testbench_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\comb_adder8\cand_1\attempt_1\tb_comb_adder8.sv"
-      compile_command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\comb_adder8\cand_1\comb_adder8.v"
-      simulation_command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\comb_adder8_sim.out"
-      compile_status: pass
-      simulation_status: fail
-      compile_stdout: ""
-      compile_stderr: |-
-        D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\comb_adder8\cand_1\comb_adder8.v:10: warning: @* found no sensitivities so it will never trigger.
-      simulation_stdout: |-
-        FAIL zeros: expected y=00000000 got xxxxxxxx
-        FATAL: D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\comb_adder8\cand_1\tb_comb_adder8.sv:20: 
-               Time: 1000  Scope: tb_comb_adder8.check_outputs
-      simulation_stderr: ""
-      diagnosis_summary: combinational verification reported an output mismatch on y
-      next_regeneration_changes:
-        - stop forcing y to zero and restore the rendered behavior
-    -
-      attempt: 2
-      strategy: direct
-      rtl_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\comb_adder8\cand_1\attempt_2\comb_adder8.v"
-      testbench_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\comb_adder8\cand_1\attempt_2\tb_comb_adder8.sv"
-      compile_command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\comb_adder8\cand_1\comb_adder8.v"
-      simulation_command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\comb_adder8_sim.out"
+      rtl_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/comb_adder8/cand_1/attempt_1/comb_adder8.v
+      testbench_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/comb_adder8/cand_1/attempt_1/tb_comb_adder8.sv
+      compile_command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/comb_adder8/cand_1/comb_adder8.v
+      simulation_command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/comb_adder8_sim.out
       compile_status: pass
       simulation_status: pass
       compile_stdout: ""
       compile_stderr: ""
       simulation_stdout: |-
         PASS tb_comb_adder8
-        D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\comb_adder8\cand_1\tb_comb_adder8.sv:45: $finish called at 4000 (1ps)
+        /home/sudar762/projects/spec-to-rtl-agent/build/candidates/comb_adder8/cand_1/tb_comb_adder8.sv:45: $finish called at 4000 (1ps)
       simulation_stderr: ""
-      diagnosis_summary: simulation passed after applying prior repair feedback
+      diagnosis_summary: simulation passed on the current RTL/testbench pair
       next_regeneration_changes:
 verification:
   support_status: supported
@@ -136,19 +123,15 @@ verification:
   assumptions:
   conclusion: functional verification passed with independent evidence
   compile:
-    attempt: 2
+    attempt: 1
     ok: true
     message: compile ok
-    command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\comb_adder8\cand_1\comb_adder8.v"
+    command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/comb_adder8/cand_1/comb_adder8.v
   simulation:
-    attempt: 2
+    attempt: 1
     ok: true
     message: |-
       PASS tb_comb_adder8
-      D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\comb_adder8\cand_1\tb_comb_adder8.sv:45: $finish called at 4000 (1ps)
-    command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\comb_adder8_sim.out"
+      /home/sudar762/projects/spec-to-rtl-agent/build/candidates/comb_adder8/cand_1/tb_comb_adder8.sv:45: $finish called at 4000 (1ps)
+    command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/comb_adder8_sim.out
   retry_history:
-    -
-      attempt: 1
-      action: simulation_feedback
-      reason: combinational verification reported an output mismatch on y

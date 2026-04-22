@@ -1,0 +1,5 @@
+## Simulation
+command: C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\text_counter_sim.out
+status: pass
+PASS tb_text_counter
+D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\text_counter\cand_1\tb_text_counter.sv:48: $finish called at 16000 (1ps)

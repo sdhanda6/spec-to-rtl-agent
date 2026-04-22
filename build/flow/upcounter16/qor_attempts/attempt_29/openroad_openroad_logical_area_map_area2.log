@@ -1,0 +1,41 @@
+make: Entering directory '/home/sudar762/OpenROAD-flow-scripts/flow'
+/home/sudar762/tools/oss-cad-suite/py3bin/python3 /home/sudar762/OpenROAD-flow-scripts/flow/scripts/run_command.py --log /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/upcounter16/base/6_1_merge.log --tee -- \
+        /home/sudar762/OpenROAD-flow-scripts/flow/scripts/klayout.sh -zz -rd design_name=upcounter16 \
+        -rd in_def=./results/sky130hd/upcounter16/base/6_final.def \
+        -rd in_files="/home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/gds/sky130_fd_sc_hd.gds  " \
+        -rd seal_file="" \
+        -rd out_file=./results/sky130hd/upcounter16/base/6_1_merged.gds \
+        -rd tech_file=./objects/sky130hd/upcounter16/base/klayout.lyt \
+        -rd layer_map= \
+        -r /home/sudar762/OpenROAD-flow-scripts/flow/util/def2stream.py
+KLayout 0.30.7
+[INFO] Reporting cells prior to loading DEF ...
+	/home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/gds/sky130_fd_sc_hd.gds
+[INFO] All LEF cells have matching GDS/OAS cells
+[INFO] No orphan cells in the final layout
+cp results/sky130hd/upcounter16/base/6_1_merged.gds results/sky130hd/upcounter16/base/6_final.gds
+./logs/sky130hd/upcounter16/base
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+1_1_yosys_canonicalize             0             55 06f8200436aff59b2d77
+1_2_yosys                          0             57 c38ed9e7ce77e71c1454
+1_synth                            0            118 d1571f61672c201cf016
+2_1_floorplan                      0            139 9d5ab6e097aa0541ea34
+2_2_floorplan_macro                0            117 9d5ab6e097aa0541ea34
+2_3_floorplan_tapcell              0            117 23a84480102975b3bf0c
+2_4_floorplan_pdn                  0            120 d9b12f7d2536da48ff46
+3_1_place_gp_skip_io               0            118 f520b57024343584fbb1
+3_2_place_iop                      0            117 d6bc72751dcee4b86e73
+3_3_place_gp                       1            224 21e960ade0d63c73225e
+3_4_place_resized                  0            137 21e960ade0d63c73225e
+3_5_place_dp                       0            122 337014497f049f414195
+4_1_cts                            1            148 864c64770f18d76ef8f1
+5_1_grt                            3            237 20befd9be87eca7df71c
+5_2_route                          6            634 f52ca6ad6a799b043358
+5_3_fillcell                       0            123 6aac787de30771d4266c
+6_1_fill                           0            119 6aac787de30771d4266c
+6_1_merge                          1            431                  N/A
+6_report                           1            295                  N/A
+Total                             13            634                     
+make: Leaving directory '/home/sudar762/OpenROAD-flow-scripts/flow'
+
+Elapsed time: 0:01.61[h:]min:sec. CPU time: user 1.42 sys 0.19 (99%). Peak memory: 441884KB.

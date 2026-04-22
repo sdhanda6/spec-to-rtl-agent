@@ -182,6 +182,8 @@ def build_report(
         "spec_source": str(spec_path.relative_to(ROOT)),
         "top_module": ir.name,
         "design_kind": ir.design_kind,
+        "parsed_design_class": ir.design_kind,
+        "selected_candidate": candidate.candidate_id,
         "final_classification": final_classification,
         "ambiguity_findings": [
             {
@@ -202,6 +204,10 @@ def build_report(
         "artifacts": {
             "rtl": str(rtl_path.relative_to(ROOT)),
             "testbench": str(tb_path.relative_to(ROOT)) if tb_path and tb_path.exists() else None,
+        },
+        "generation_status": {
+            "rtl_generation_status": "pass" if rtl_path.exists() else "fail",
+            "testbench_generation_status": "pass" if tb_path and tb_path.exists() else "not_generated",
         },
         "repair_loop": {
             "enabled": requested_mode != "none",

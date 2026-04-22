@@ -1,0 +1,28 @@
+top: fir_filter
+design_kind: generic
+platform: sky130hd
+rtl: /home/sudar762/projects/spec-to-rtl-agent/build/flow/fir_filter/design/src/fir_filter.v
+testbench: /home/sudar762/projects/spec-to-rtl-agent/tb/tb_fir_filter.sv
+clock_port: clk
+clock_period_ns: 8
+ports:
+  -
+    name: clk
+    dir: input
+    width: 1
+  -
+    name: rst
+    dir: input
+    width: 1
+  -
+    name: x_in
+    dir: input
+    width: 1
+  -
+    name: h
+    dir: input
+    width: 1
+  -
+    name: y_out
+    dir: output
+    width: 1

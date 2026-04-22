@@ -1,0 +1,24 @@
+top: upcounter16
+design_kind: counter
+platform: sky130hd
+rtl: /home/sudar762/projects/spec-to-rtl-agent/build/flow/upcounter16/design/src/upcounter16.v
+testbench: /home/sudar762/projects/spec-to-rtl-agent/tb/tb_upcounter16.sv
+clock_port: clk
+clock_period_ns: 10.0
+ports:
+  -
+    name: clk
+    dir: input
+    width: 1
+  -
+    name: rst_n
+    dir: input
+    width: 1
+  -
+    name: en
+    dir: input
+    width: 1
+  -
+    name: count
+    dir: output
+    width: 16

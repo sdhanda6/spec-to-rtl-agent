@@ -2,7 +2,6 @@
 // Implement a 16-bit synchronous upcounter.
 // Clear count to zero on reset.
 // Increment when en is high and hold otherwise.
-// Repair demo setup: injected a counter bug that holds the counter even when enable is asserted
 
 module upcounter16 (
     input clk,
@@ -16,7 +15,7 @@ module upcounter16 (
             count <= 16'd0;
         end else begin
             if (en) begin
-                count <= count;
+                count <= count + 16'd1;
             end
         end
     end

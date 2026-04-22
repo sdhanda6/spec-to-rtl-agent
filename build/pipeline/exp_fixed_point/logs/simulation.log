@@ -1,0 +1,5 @@
+## Simulation
+command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/exp_fixed_point_sim.out
+status: pass
+PASS tb_exp_fixed_point
+/home/sudar762/projects/spec-to-rtl-agent/build/candidates/exp_fixed_point/cand_1/tb_exp_fixed_point.sv:25: $finish called at 10000 (1ps)

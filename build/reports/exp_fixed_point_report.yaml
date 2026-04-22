@@ -1,9 +1,174 @@
-spec_source: examples\specs\p7.yaml
+spec_source_type: yaml
+spec_source: examples/specs/p7.yaml
 top_module: exp_fixed_point
 design_kind: generic
+parsed_design_class: generic
+selected_candidate: cand_1
+final_classification: compile_and_smoke_verified
+ambiguity_findings:
+unsupported_findings:
+extracted_semantics:
+  module_name: exp_fixed_point
+  ports:
+    -
+      name: clk
+      dir: input
+      width: 1
+      kind: wire
+      description: Clock input (rising edge)
+    -
+      name: rst
+      dir: input
+      width: 1
+      kind: wire
+      description: Synchronous reset (active high)
+    -
+      name: enable
+      dir: input
+      width: 1
+      kind: wire
+      description: Enable signal to process input (active high)
+    -
+      name: x_in
+      dir: input
+      width: 1
+      kind: wire
+      description: Unsigned fixed-point input value in UQ1.(WIDTH-1) format
+    -
+      name: exp_out
+      dir: output
+      width: 1
+      kind: wire
+      description: Unsigned exponential output in UQ1.(2*WIDTH - 1) format
+  clock: clk
+  reset:
+    signal: rst
+    active: high
+    mode: sync
+  state:
+  behavior_keys:
+  design_kind_hint: generic
+  flow:
+    tech_node: SkyWater 130HD
+    platform: sky130hd
+    clock_period: 4.5ns
+    module_signature: |-
+      module exp_fixed_point
+        parameter WIDTH = 8
+      ) (
+        input  logic               clk,
+        input  logic               rst,
+        input  logic               enable,
+        input  logic [WIDTH-1:0]   x_in,
+        output logic [2*WIDTH-1:0] exp_out
+      );
+candidate_analysis:
+  candidate_count: 1
+  selected_candidate: cand_1
+  candidates:
+    -
+      candidate_id: cand_1
+      title: structured_document
+      score: 7.75
+      classification: compile_and_smoke_verified
+      assumptions:
+      ambiguity_count: 0
+      unsupported_count: 0
+      internal_checks:
+        - module name present
+        - port list present
+        - clock semantics present
+      compile_ok: true
+      simulation_ok: true
+      evidence_level: smoke
+      oracle_independent: false
+      attempts_used: 1
+      extracted_semantics:
+        module_name: exp_fixed_point
+        ports:
+          -
+            name: clk
+            dir: input
+            width: 1
+            kind: wire
+            description: Clock input (rising edge)
+          -
+            name: rst
+            dir: input
+            width: 1
+            kind: wire
+            description: Synchronous reset (active high)
+          -
+            name: enable
+            dir: input
+            width: 1
+            kind: wire
+            description: Enable signal to process input (active high)
+          -
+            name: x_in
+            dir: input
+            width: 1
+            kind: wire
+            description: Unsigned fixed-point input value in UQ1.(WIDTH-1) format
+          -
+            name: exp_out
+            dir: output
+            width: 1
+            kind: wire
+            description: Unsigned exponential output in UQ1.(2*WIDTH - 1) format
+        clock: clk
+        reset:
+          signal: rst
+          active: high
+          mode: sync
+        state:
+        behavior_keys:
+        design_kind_hint: generic
+        flow:
+          tech_node: SkyWater 130HD
+          platform: sky130hd
+          clock_period: 4.5ns
+          module_signature: |-
+            module exp_fixed_point
+              parameter WIDTH = 8
+            ) (
+              input  logic               clk,
+              input  logic               rst,
+              input  logic               enable,
+              input  logic [WIDTH-1:0]   x_in,
+              output logic [2*WIDTH-1:0] exp_out
+            );
 artifacts:
-  rtl: rtl\exp_fixed_point.v
-  testbench: tb\tb_exp_fixed_point.sv
+  rtl: rtl/exp_fixed_point.v
+  testbench: tb/tb_exp_fixed_point.sv
+generation_status:
+  rtl_generation_status: pass
+  testbench_generation_status: pass
+repair_loop:
+  enabled: true
+  max_attempts: 3
+  attempts_used: 1
+  injected_fault: null
+  repaired_after_feedback: false
+  unrepaired_after_retry_limit: false
+  attempts:
+    -
+      attempt: 1
+      strategy: direct
+      rtl_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/exp_fixed_point/cand_1/attempt_1/exp_fixed_point.v
+      testbench_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/exp_fixed_point/cand_1/attempt_1/tb_exp_fixed_point.sv
+      compile_command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/exp_fixed_point/cand_1/exp_fixed_point.v
+      simulation_command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/exp_fixed_point_sim.out
+      compile_status: pass
+      simulation_status: pass
+      compile_stdout: ""
+      compile_stderr: ""
+      simulation_stdout: |-
+        PASS tb_exp_fixed_point
+        /home/sudar762/projects/spec-to-rtl-agent/build/candidates/exp_fixed_point/cand_1/tb_exp_fixed_point.sv:25: $finish called at 10000 (1ps)
+      simulation_stderr: ""
+      diagnosis_summary: simulation passed on the current RTL/testbench pair
+      next_regeneration_changes:
 verification:
   support_status: partially_supported
   requested_mode: sim
@@ -21,17 +186,18 @@ verification:
   partial_verification_reasons:
     - no independent functional oracle for this design kind
     - simulation did not meet the requested functional evidence threshold
+  assumptions:
   conclusion: simulation passed, but only smoke-level evidence is available
   compile:
     attempt: 1
     ok: true
     message: compile ok
-    command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\rtl\exp_fixed_point.v"
+    command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/exp_fixed_point/cand_1/exp_fixed_point.v
   simulation:
     attempt: 1
     ok: true
     message: |-
       PASS tb_exp_fixed_point
-      D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\tb\tb_exp_fixed_point.sv:25: $finish called at 10000 (1ps)
-    command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\exp_fixed_point_sim.out"
+      /home/sudar762/projects/spec-to-rtl-agent/build/candidates/exp_fixed_point/cand_1/tb_exp_fixed_point.sv:25: $finish called at 10000 (1ps)
+    command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/exp_fixed_point_sim.out
   retry_history:

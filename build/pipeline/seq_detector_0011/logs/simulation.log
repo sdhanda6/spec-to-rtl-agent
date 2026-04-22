@@ -1,0 +1,5 @@
+## Simulation
+command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/seq_detector_0011_sim.out
+status: pass
+PASS tb_seq_detector_0011
+/home/sudar762/projects/spec-to-rtl-agent/build/candidates/seq_detector_0011/cand_1/tb_seq_detector_0011.sv:22: $finish called at 10000 (1ps)

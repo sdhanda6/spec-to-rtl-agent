@@ -1,0 +1,5 @@
+## Simulation
+command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/fir_filter_sim.out
+status: pass
+PASS tb_fir_filter
+/home/sudar762/projects/spec-to-rtl-agent/build/candidates/fir_filter/cand_1/tb_fir_filter.sv:25: $finish called at 10000 (1ps)

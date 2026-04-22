@@ -1,0 +1,3 @@
+## Compile
+command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/seq_detector_0011/cand_1/seq_detector_0011.v
+status: pass

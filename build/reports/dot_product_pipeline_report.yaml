@@ -1,0 +1,321 @@
+input_spec_type: yaml
+input_spec_path: examples/specs/p5.yaml
+parsed_design_class: generic
+top_module: dot_product
+selected_candidate: cand_1
+ambiguity_findings:
+unsupported_findings:
+rtl_generation_status: pass
+testbench_generation_status: pass
+compile_status: pass
+simulation_status: pass
+synthesis_collateral_generation_status: pass
+openroad_execution_status: not_run
+synth_optimization:
+  enabled: false
+  baseline_metrics:
+  attempts:
+  best_attempt_index: null
+  improvement_amount: null
+  targets_met: false
+  stop_reason: null
+  candidate_rankings:
+post_synth_verification:
+  enabled: true
+  behavior_match: false
+  mismatch_kind: synthesis_netlist_mismatch
+  primary_mismatch: null
+  ordered_mismatches:
+  returncode: 2
+  mismatch_count: 1
+  repair_attempts:
+    -
+      attempt: 1
+      mismatch_kind: synthesis_netlist_mismatch
+      primary_mismatch: synthesis_netlist_mismatch
+      chosen_repair_family: synthesis
+      files_changed:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/config.mk
+      result_after_rerun: synthesis_netlist_mismatch
+      repair_kind: collateral_regeneration
+      artifact_to_regenerate: collateral
+      verification_mode: null
+      reason: refresh synthesized collateral and netlist inputs
+    -
+      attempt: 2
+      mismatch_kind: synthesis_netlist_mismatch
+      primary_mismatch: synthesis_netlist_mismatch
+      chosen_repair_family: synthesis
+      files_changed:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/config.mk
+      result_after_rerun: synthesis_netlist_mismatch
+      repair_kind: collateral_regeneration
+      artifact_to_regenerate: collateral
+      verification_mode: null
+      reason: refresh synthesized collateral and netlist inputs
+    -
+      attempt: 3
+      mismatch_kind: synthesis_netlist_mismatch
+      primary_mismatch: synthesis_netlist_mismatch
+      chosen_repair_family: synthesis
+      files_changed:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/config.mk
+      result_after_rerun: pending
+      repair_kind: collateral_regeneration
+      artifact_to_regenerate: collateral
+      verification_mode: null
+      reason: refresh synthesized collateral and netlist inputs
+  reference_source: /home/sudar762/projects/spec-to-rtl-agent/rtl/dot_product.v
+  post_synth_source: null
+  evidence_paths:
+  attempts:
+    -
+      attempt: 1
+      behavior_match: false
+      mismatch_kind: synthesis_netlist_mismatch
+      primary_mismatch: null
+      ordered_mismatches:
+      returncode: 2
+      mismatch_count: 1
+      reference_source: /home/sudar762/projects/spec-to-rtl-agent/rtl/dot_product.v
+      post_synth_source: null
+      evidence_paths:
+      testbench_used: null
+      testbench_adaptation:
+      bottleneck_classification:
+        primary_bottleneck: synthesis_netlist_mismatch
+        bottleneck_classification: synthesis_netlist_mismatch
+        primary_mismatch: synthesis_netlist_mismatch
+        ordered_mismatches:
+          - synthesis_netlist_mismatch
+        metric_kind: correctness
+        metric_family_priority: 0
+        metric_source_file: null
+        reasons:
+          - synthesis stage did not complete successfully for post-synthesis verification
+        action_family_hint: synthesis
+        ordered_bottlenecks:
+          - synthesis_netlist_mismatch
+        failure_kind: synthesis_netlist_mismatch
+        repairable: true
+        artifact_to_regenerate: collateral
+      chosen_action_family: synthesis
+      repair_suggestions:
+        -
+          action_family: synthesis
+          repair_kind: collateral_regeneration
+          artifact_to_regenerate: collateral
+          knob: REGENERATE_COLLATERAL
+          action: set
+          value: 1
+          reason: refresh synthesized collateral and netlist inputs
+          metric_kind: correctness
+    -
+      attempt: 2
+      behavior_match: false
+      mismatch_kind: synthesis_netlist_mismatch
+      primary_mismatch: null
+      ordered_mismatches:
+      returncode: 2
+      mismatch_count: 1
+      reference_source: /home/sudar762/projects/spec-to-rtl-agent/rtl/dot_product.v
+      post_synth_source: null
+      evidence_paths:
+      testbench_used: null
+      testbench_adaptation:
+      bottleneck_classification:
+        primary_bottleneck: synthesis_netlist_mismatch
+        bottleneck_classification: synthesis_netlist_mismatch
+        primary_mismatch: synthesis_netlist_mismatch
+        ordered_mismatches:
+          - synthesis_netlist_mismatch
+        metric_kind: correctness
+        metric_family_priority: 0
+        metric_source_file: null
+        reasons:
+          - synthesis stage did not complete successfully for post-synthesis verification
+        action_family_hint: synthesis
+        ordered_bottlenecks:
+          - synthesis_netlist_mismatch
+        failure_kind: synthesis_netlist_mismatch
+        repairable: true
+        artifact_to_regenerate: collateral
+      chosen_action_family: synthesis
+      repair_suggestions:
+        -
+          action_family: synthesis
+          repair_kind: collateral_regeneration
+          artifact_to_regenerate: collateral
+          knob: REGENERATE_COLLATERAL
+          action: set
+          value: 1
+          reason: refresh synthesized collateral and netlist inputs
+          metric_kind: correctness
+    -
+      attempt: 3
+      behavior_match: false
+      mismatch_kind: synthesis_netlist_mismatch
+      primary_mismatch: null
+      ordered_mismatches:
+      returncode: 2
+      mismatch_count: 1
+      reference_source: /home/sudar762/projects/spec-to-rtl-agent/rtl/dot_product.v
+      post_synth_source: null
+      evidence_paths:
+      testbench_used: null
+      testbench_adaptation:
+      bottleneck_classification:
+        primary_bottleneck: synthesis_netlist_mismatch
+        bottleneck_classification: synthesis_netlist_mismatch
+        primary_mismatch: synthesis_netlist_mismatch
+        ordered_mismatches:
+          - synthesis_netlist_mismatch
+        metric_kind: correctness
+        metric_family_priority: 0
+        metric_source_file: null
+        reasons:
+          - synthesis stage did not complete successfully for post-synthesis verification
+        action_family_hint: synthesis
+        ordered_bottlenecks:
+          - synthesis_netlist_mismatch
+        failure_kind: synthesis_netlist_mismatch
+        repairable: true
+        artifact_to_regenerate: collateral
+      chosen_action_family: synthesis
+      repair_suggestions:
+        -
+          action_family: synthesis
+          repair_kind: collateral_regeneration
+          artifact_to_regenerate: collateral
+          knob: REGENERATE_COLLATERAL
+          action: set
+          value: 1
+          reason: refresh synthesized collateral and netlist inputs
+          metric_kind: correctness
+  best_attempt_index: 3
+  final_classification: synthesis_netlist_mismatch
+  reasons:
+    - synthesis stage did not complete successfully for post-synthesis verification
+qor_summary:
+  timing_wns_ns: null
+  timing_tns_ns: null
+  setup_violations: null
+  hold_violations: null
+  logical_area_um2: null
+  physical_area_um2: null
+  power_mw: null
+  congestion_overflow: null
+  cell_count: null
+  source_reports:
+qor_optimization:
+  enabled: false
+  attempts:
+  best_attempt_index: null
+  final_selected_metrics:
+    timing_wns_ns: null
+    timing_tns_ns: null
+    setup_violations: null
+    hold_violations: null
+    logical_area_um2: null
+    physical_area_um2: null
+    power_mw: null
+    congestion_overflow: null
+    cell_count: null
+    source_reports:
+  final_signoff:
+  improved: false
+  targets_met: false
+  ml_tuning:
+    enabled: false
+    history_path: build/ml_history.json
+    features_used:
+    ranking_reason: ML tuning disabled
+    candidate_rankings:
+    selected_candidate: null
+    score_before: null
+    score_after: null
+    improvement_amount: null
+    best_attempt_index: null
+    targets_met: false
+signoff:
+  enabled: true
+  tool_availability:
+    magic: true
+    netgen: true
+    magic_usable: true
+    netgen_usable: false
+  tool_paths:
+    magic: /usr/bin/magic
+    netgen: /usr/bin/netgen
+  magic_rcfile_used: null
+  netgen_env_used:
+  retry_attempts:
+  drc_status: not_run
+  lvs_status: not_run
+  drc_violation_count: 0
+  lvs_mismatch_count: 0
+  failure_kind: null
+  drc_report_paths:
+  lvs_report_paths:
+  artifact_paths:
+  bottleneck_classification:
+    primary_bottleneck: unknown
+    bottleneck_classification: unknown
+    metric_kind: unknown
+    metric_family_priority: 99
+    metric_source_file: null
+    reasons:
+      - No actionable signoff bottleneck detected.
+    action_family_hint: none
+    ordered_bottlenecks:
+    failure_kind: clean
+  repairs_attempted:
+  targets_met: true
+  final_classification: not_run
+  notes:
+    - "magic available and usable in headless/batch mode; netgen installed but unusable: binary in PATH is not Netgen-LVS"
+artifacts:
+  generated_rtl_path: rtl/dot_product.v
+  generated_testbench_path: tb/tb_dot_product.sv
+  compile_log: build/pipeline/dot_product/logs/compile.log
+  simulation_log: build/pipeline/dot_product/logs/simulation.log
+  synthesis_openroad_logs:
+  output_artifacts:
+    - build/flow/dot_product/design/src/dot_product.v
+    - build/flow/dot_product/design/filelist.f
+    - build/flow/dot_product/design/filelist.tcl
+    - build/flow/dot_product/design/config.mk
+    - build/flow/dot_product/design/design_manifest.yaml
+    - build/flow/dot_product/design/README.md
+    - build/flow/dot_product/design/constraint.sdc
+  openroad_reports:
+  openroad_results:
+  openroad_logs:
+  openroad_other_artifacts:
+  qor_report_paths:
+commands:
+  agent_command: python agent.py --spec /home/sudar762/projects/spec-to-rtl-agent/examples/specs/p5.yaml --verify sim --max-passes 3 --overwrite
+  openroad_command: null
+repair_attempts:
+  rtl:
+  downstream:
+downstream_validation:
+  issues:
+  environment_messages:
+    - PDK_ROOT is not set
+    - post-synthesis behavior check did not converge before the retry limit
+final_classification: partially supported
+final_outcome:
+  rtl_verified: true
+  synthesis_collateral_generated: true
+  synthesis_run_passed: false
+  openroad_run_passed: false
+  post_synth_behavior_match: false
+  signoff_passed: true
+  partially_supported: true
+  unsupported: false
+agent_stage:
+  returncode: 0
+  stdout: ""
+  stderr: ""
+  report_path: build/reports/dot_product_report.yaml

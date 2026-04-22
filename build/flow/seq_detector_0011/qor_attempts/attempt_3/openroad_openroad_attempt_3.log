@@ -1,0 +1,41 @@
+make: Entering directory '/home/sudar762/OpenROAD-flow-scripts/flow'
+/home/sudar762/tools/oss-cad-suite/py3bin/python3 /home/sudar762/OpenROAD-flow-scripts/flow/scripts/run_command.py --log /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/6_1_merge.log --tee -- \
+        /home/sudar762/OpenROAD-flow-scripts/flow/scripts/klayout.sh -zz -rd design_name=seq_detector_0011 \
+        -rd in_def=./results/sky130hd/seq_detector_0011/base/6_final.def \
+        -rd in_files="/home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/gds/sky130_fd_sc_hd.gds  " \
+        -rd seal_file="" \
+        -rd out_file=./results/sky130hd/seq_detector_0011/base/6_1_merged.gds \
+        -rd tech_file=./objects/sky130hd/seq_detector_0011/base/klayout.lyt \
+        -rd layer_map= \
+        -r /home/sudar762/OpenROAD-flow-scripts/flow/util/def2stream.py
+KLayout 0.30.7
+[INFO] Reporting cells prior to loading DEF ...
+	/home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/gds/sky130_fd_sc_hd.gds
+[INFO] All LEF cells have matching GDS/OAS cells
+[INFO] No orphan cells in the final layout
+cp results/sky130hd/seq_detector_0011/base/6_1_merged.gds results/sky130hd/seq_detector_0011/base/6_final.gds
+./logs/sky130hd/seq_detector_0011/base
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+1_1_yosys_canonicalize             0             55 c7390a550d1e17e98214
+1_2_yosys                          0             56 fa091895f96185d00871
+1_synth                            0            118 6b425fd989223546b071
+2_1_floorplan                      0            138 72088ea52674583bed36
+2_2_floorplan_macro                0            115 72088ea52674583bed36
+2_3_floorplan_tapcell              0            116 0a0e976e50ef1559be03
+2_4_floorplan_pdn                  0            119 131619baf717eb53530f
+3_1_place_gp_skip_io               0            118 a05dfbc8b86c28901fd9
+3_2_place_iop                      0            117 45b0b0b23bc856981b58
+3_3_place_gp                       0            211 996c00c0a85143c0c054
+3_4_place_resized                  0            137 996c00c0a85143c0c054
+3_5_place_dp                       0            121 f3dad53c9db7783159fe
+4_1_cts                            1            145 f3dad53c9db7783159fe
+5_1_grt                            0            234 0561dbee26aa88b7d6f2
+5_2_route                          0            569 a3dc63a58a99a81d6f7a
+5_3_fillcell                       0            123 cc00cf930165098a1a3c
+6_1_fill                           0            119 cc00cf930165098a1a3c
+6_1_merge                          1            430                  N/A
+6_report                           1            293                  N/A
+Total                              3            569                     
+make: Leaving directory '/home/sudar762/OpenROAD-flow-scripts/flow'
+
+Elapsed time: 0:01.40[h:]min:sec. CPU time: user 1.10 sys 0.20 (92%). Peak memory: 441080KB.

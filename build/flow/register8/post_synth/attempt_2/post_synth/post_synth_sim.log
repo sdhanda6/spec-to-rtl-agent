@@ -1,0 +1,2 @@
+FATAL: /home/sudar762/projects/spec-to-rtl-agent/build/flow/register8/post_synth/attempt_2/adapted_tb/tb_register8.sv:33: load failed
+       Time: 26000  Scope: tb_register8

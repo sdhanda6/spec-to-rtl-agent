@@ -1,0 +1,5 @@
+## Simulation
+command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/upcounter16_sim.out
+status: pass
+PASS tb_upcounter16
+/home/sudar762/projects/spec-to-rtl-agent/build/candidates/upcounter16/cand_1/tb_upcounter16.sv:32: $finish called at 36000 (1ps)

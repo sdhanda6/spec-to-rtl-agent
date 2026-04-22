@@ -1,0 +1,2 @@
+PASS tb_pulse_latch
+/home/sudar762/projects/spec-to-rtl-agent/tb/tb_pulse_latch.sv:48: $finish called at 16000 (1ps)

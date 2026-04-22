@@ -1,0 +1,28 @@
+top: shift_left4
+design_kind: shift_register
+platform: sky130hd
+rtl: /home/sudar762/projects/spec-to-rtl-agent/build/flow/shift_left4/design/src/shift_left4.v
+testbench: /home/sudar762/projects/spec-to-rtl-agent/tb/tb_shift_left4.sv
+clock_port: clk
+clock_period_ns: 10.0
+ports:
+  -
+    name: clk
+    dir: input
+    width: 1
+  -
+    name: rst_n
+    dir: input
+    width: 1
+  -
+    name: en
+    dir: input
+    width: 1
+  -
+    name: serial_in
+    dir: input
+    width: 1
+  -
+    name: shreg
+    dir: output
+    width: 4

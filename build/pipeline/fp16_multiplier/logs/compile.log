@@ -1,0 +1,5 @@
+## Compile
+command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/fp16_multiplier/cand_1/fp16_multiplier.v
+status: pass
+
+/home/sudar762/projects/spec-to-rtl-agent/build/candidates/fp16_multiplier/cand_1/fp16_multiplier.v:10: warning: @* found no sensitivities so it will never trigger.

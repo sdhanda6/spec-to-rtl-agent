@@ -1,0 +1,5 @@
+## Simulation
+command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/shift_left4_sim.out
+status: pass
+PASS tb_shift_left4
+/home/sudar762/projects/spec-to-rtl-agent/build/candidates/shift_left4/cand_1/tb_shift_left4.sv:40: $finish called at 26000 (1ps)
