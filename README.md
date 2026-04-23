@@ -152,7 +152,7 @@ python3 run_pipeline.py \
 ---
 
 ## 🧑‍💻 Author
-Sudhanshan (sdhanda6)
+Sudarshan (sdhanda6)
 
 ---
 
