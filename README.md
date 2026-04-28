@@ -58,7 +58,7 @@ After execution, you should observe:
 
 - FINAL SUMMARY → all designs PASS  
 - QoR SUMMARY TABLE → WNS ≈ 0  
-- Generated plots in `build/plots/`
+- Generated plots in `outputs/plots/`
 
 Example:
 
@@ -76,6 +76,22 @@ python3 run_pipeline.py --spec <your_spec.yaml> --mode full --overwrite
 
 
 ---
+
+## 📤 Output
+
+All outputs are organized per design in:
+
+outputs/<design_name>/
+
+Each design folder contains:
+- logs  
+- reports  
+- QoR metrics  
+- intermediate flow outputs  
+
+Global artifacts:
+
+- QoR plots → outputs/plots/
 
 # 🔴 5. Add Environment Fix (VERY IMPORTANT)
 
