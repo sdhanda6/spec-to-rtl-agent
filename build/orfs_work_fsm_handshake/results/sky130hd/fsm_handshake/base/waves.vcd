@@ -1,0 +1,438 @@
+$date
+	Mon Apr 27 10:59:08 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_fsm_handshake $end
+$var wire 1 ! valid $end
+$var wire 1 " busy $end
+$var parameter 2 # DONE $end
+$var parameter 2 $ IDLE $end
+$var parameter 2 % RUN $end
+$var reg 1 & clk $end
+$var reg 1 ' done $end
+$var reg 1 ( expected_busy $end
+$var reg 1 ) expected_valid $end
+$var reg 1 * rst_n $end
+$var reg 1 + start $end
+$scope module dut $end
+$var wire 1 & clk $end
+$var wire 1 ' done $end
+$var wire 1 * rst_n $end
+$var wire 1 + start $end
+$var wire 1 ! valid $end
+$var wire 1 , \state_q[0] $end
+$var wire 1 " busy $end
+$var wire 1 - _09_ $end
+$var wire 1 . _08_ $end
+$var wire 1 / _07_ $end
+$var wire 1 0 _06_ $end
+$var wire 1 1 _05_ $end
+$var wire 1 2 _04_ $end
+$var wire 1 3 _03_ $end
+$var wire 1 4 _02_ $end
+$var wire 1 5 _01_ $end
+$var wire 1 6 _00_ $end
+$scope module _10_ $end
+$var wire 1 + A $end
+$var wire 1 7 VGND $end
+$var wire 1 8 VNB $end
+$var wire 1 9 VPB $end
+$var wire 1 : VPWR $end
+$var wire 1 - Y $end
+$scope module base $end
+$var wire 1 + A $end
+$var wire 1 - Y $end
+$var wire 1 ; not0_out_Y $end
+$upscope $end
+$upscope $end
+$scope module _11_ $end
+$var wire 1 - A $end
+$var wire 1 < VGND $end
+$var wire 1 = VNB $end
+$var wire 1 > VPB $end
+$var wire 1 ? VPWR $end
+$var wire 1 3 Y $end
+$var wire 1 , B $end
+$scope module base $end
+$var wire 1 - A $end
+$var wire 1 3 Y $end
+$var wire 1 @ nand0_out_Y $end
+$var wire 1 , B $end
+$upscope $end
+$upscope $end
+$scope module _12_ $end
+$var wire 1 A VGND $end
+$var wire 1 B VNB $end
+$var wire 1 C VPB $end
+$var wire 1 D VPWR $end
+$var wire 1 2 Y $end
+$var wire 1 ! A $end
+$scope module base $end
+$var wire 1 2 Y $end
+$var wire 1 E not0_out_Y $end
+$var wire 1 ! A $end
+$upscope $end
+$upscope $end
+$scope module _13_ $end
+$var wire 1 3 A $end
+$var wire 1 2 B $end
+$var wire 1 F VGND $end
+$var wire 1 G VNB $end
+$var wire 1 H VPB $end
+$var wire 1 I VPWR $end
+$var wire 1 5 Y $end
+$scope module base $end
+$var wire 1 3 A $end
+$var wire 1 2 B $end
+$var wire 1 5 Y $end
+$var wire 1 J nand0_out_Y $end
+$upscope $end
+$upscope $end
+$scope module _14_ $end
+$var wire 1 ' A $end
+$var wire 1 K VGND $end
+$var wire 1 L VNB $end
+$var wire 1 M VPB $end
+$var wire 1 N VPWR $end
+$var wire 1 1 Y $end
+$scope module base $end
+$var wire 1 ' A $end
+$var wire 1 1 Y $end
+$var wire 1 O not0_out_Y $end
+$upscope $end
+$upscope $end
+$scope module _15_ $end
+$var wire 1 1 A $end
+$var wire 1 P VGND $end
+$var wire 1 Q VNB $end
+$var wire 1 R VPB $end
+$var wire 1 S VPWR $end
+$var wire 1 0 Y $end
+$var wire 1 " B $end
+$scope module base $end
+$var wire 1 1 A $end
+$var wire 1 0 Y $end
+$var wire 1 T nand0_out_Y $end
+$var wire 1 " B $end
+$upscope $end
+$upscope $end
+$scope module _16_ $end
+$var wire 1 + A $end
+$var wire 1 U VGND $end
+$var wire 1 V VNB $end
+$var wire 1 W VPB $end
+$var wire 1 X VPWR $end
+$var wire 1 / Y $end
+$var wire 1 , B $end
+$scope module base $end
+$var wire 1 + A $end
+$var wire 1 / Y $end
+$var wire 1 Y nand0_out_Y $end
+$var wire 1 , B $end
+$upscope $end
+$upscope $end
+$scope module _17_ $end
+$var wire 1 0 A $end
+$var wire 1 / B $end
+$var wire 1 Z VGND $end
+$var wire 1 [ VNB $end
+$var wire 1 \ VPB $end
+$var wire 1 ] VPWR $end
+$var wire 1 4 Y $end
+$scope module base $end
+$var wire 1 0 A $end
+$var wire 1 / B $end
+$var wire 1 4 Y $end
+$var wire 1 ^ nand0_out_Y $end
+$upscope $end
+$upscope $end
+$scope module _18_ $end
+$var wire 1 ' B $end
+$var wire 1 _ VGND $end
+$var wire 1 ` VNB $end
+$var wire 1 a VPB $end
+$var wire 1 b VPWR $end
+$var wire 1 . Y $end
+$var wire 1 " A $end
+$scope module base $end
+$var wire 1 ' B $end
+$var wire 1 . Y $end
+$var wire 1 c nand0_out_Y $end
+$var wire 1 " A $end
+$upscope $end
+$upscope $end
+$scope module _19_ $end
+$var wire 1 . A $end
+$var wire 1 d VGND $end
+$var wire 1 e VNB $end
+$var wire 1 f VPB $end
+$var wire 1 g VPWR $end
+$var wire 1 6 Y $end
+$scope module base $end
+$var wire 1 . A $end
+$var wire 1 6 Y $end
+$var wire 1 h not0_out_Y $end
+$upscope $end
+$upscope $end
+$scope module state_q[0]$_DFF_PN1_ $end
+$var wire 1 & CLK $end
+$var wire 1 5 D $end
+$var wire 1 * SET_B $end
+$var wire 1 i VGND $end
+$var wire 1 j VNB $end
+$var wire 1 k VPB $end
+$var wire 1 l VPWR $end
+$var wire 1 , Q $end
+$scope module base $end
+$var wire 1 & CLK $end
+$var wire 1 5 D $end
+$var wire 1 , Q $end
+$var wire 1 m SET $end
+$var wire 1 * SET_B $end
+$var wire 1 n buf_Q $end
+$upscope $end
+$upscope $end
+$scope module state_q[1]$_DFF_PN0_ $end
+$var wire 1 & CLK $end
+$var wire 1 6 D $end
+$var wire 1 * RESET_B $end
+$var wire 1 o VGND $end
+$var wire 1 p VNB $end
+$var wire 1 q VPB $end
+$var wire 1 r VPWR $end
+$var wire 1 ! Q $end
+$scope module base $end
+$var wire 1 & CLK $end
+$var wire 1 6 D $end
+$var wire 1 ! Q $end
+$var wire 1 s RESET $end
+$var wire 1 * RESET_B $end
+$var wire 1 t buf_Q $end
+$upscope $end
+$upscope $end
+$scope module state_q[2]$_DFF_PN0_ $end
+$var wire 1 & CLK $end
+$var wire 1 4 D $end
+$var wire 1 * RESET_B $end
+$var wire 1 u VGND $end
+$var wire 1 v VNB $end
+$var wire 1 w VPB $end
+$var wire 1 x VPWR $end
+$var wire 1 " Q $end
+$scope module base $end
+$var wire 1 & CLK $end
+$var wire 1 4 D $end
+$var wire 1 " Q $end
+$var wire 1 y RESET $end
+$var wire 1 * RESET_B $end
+$var wire 1 z buf_Q $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope task check_state_outputs $end
+$var reg 256 { step_name [255:0] $end
+$var integer 32 | expected_state [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b1 %
+b0 $
+b10 #
+$end
+#0
+$dumpvars
+bx |
+bx {
+0z
+1y
+1x
+1w
+0v
+0u
+0t
+1s
+1r
+1q
+0p
+0o
+1n
+1m
+1l
+1k
+0j
+0i
+0h
+1g
+1f
+0e
+0d
+1c
+1b
+1a
+0`
+0_
+0^
+1]
+1\
+0[
+0Z
+1Y
+1X
+1W
+0V
+0U
+1T
+1S
+1R
+0Q
+0P
+1O
+1N
+1M
+0L
+0K
+1J
+1I
+1H
+0G
+0F
+1E
+1D
+1C
+0B
+0A
+0@
+1?
+1>
+0=
+0<
+1;
+1:
+19
+08
+07
+06
+15
+04
+03
+12
+11
+10
+1/
+1.
+1-
+1,
+0+
+0*
+0)
+0(
+0'
+0&
+0"
+0!
+$end
+#1000
+0m
+0s
+0y
+1*
+b0 |
+b111001001100101011100110110010101110100 {
+#5000
+1&
+#6000
+05
+0J
+13
+14
+1@
+1^
+0-
+0/
+0;
+0Y
+1(
+1+
+b11010000110111101101100011001000101111101101001011001000110110001100101 {
+#10000
+0&
+#15000
+1/
+00
+1Y
+0T
+0,
+1"
+0n
+1z
+1&
+#16000
+1-
+1;
+0+
+b1 |
+b1110100011100100110000101101110011100110110100101110100011010010110111101101110010111110100100101000100010011000100010101011111011101000110111101011111010100100101010101001110 {
+#20000
+0&
+#25000
+1&
+#26000
+04
+0^
+10
+16
+1T
+1h
+01
+0.
+0O
+0c
+1)
+0(
+1'
+b110100001101111011011000110010001011111011100100111010101101110 {
+#30000
+0&
+#35000
+15
+06
+1J
+0h
+02
+1.
+0E
+1c
+1!
+0"
+1t
+0z
+1&
+#36000
+11
+1O
+0)
+0'
+b10 |
+b1110100011100100110000101101110011100110110100101110100011010010110111101101110010111110101001001010101010011100101111101110100011011110101111101000100010011110100111001000101 {
+#40000
+0&
+#45000
+03
+12
+0@
+1E
+1,
+0!
+1n
+0t
+1&
+#46000
+b0 |
+b111010001110010011000010110111001110011011010010111010001101001011011110110111001011111010001000100111101001110010001010101111101110100011011110101111101001001010001000100110001000101 {

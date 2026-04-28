@@ -1,0 +1,49 @@
+#! /home/sudar762/tools/oss-cad-suite/bin/vvp
+:ivl_version "14.0 (devel)" "(s20251012-146-g41d07c3e6)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/home/sudar762/tools/oss-cad-suite/lib/ivl/system.vpi";
+:vpi_module "/home/sudar762/tools/oss-cad-suite/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/home/sudar762/tools/oss-cad-suite/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/home/sudar762/tools/oss-cad-suite/lib/ivl/v2005_math.vpi";
+:vpi_module "/home/sudar762/tools/oss-cad-suite/lib/ivl/va_math.vpi";
+:vpi_module "/home/sudar762/tools/oss-cad-suite/lib/ivl/v2009.vpi";
+S_0x5555886a9c90 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0x5555886a9e20 .scope module, "tb_fp16_multiplier" "tb_fp16_multiplier" 3 3;
+ .timescale -9 -12;
+v0x5555886baa00_0 .var "a", 15 0;
+v0x5555886baaf0_0 .var "b", 15 0;
+v0x5555886babc0_0 .net "result", 15 0, v0x5555886ba8c0_0;  1 drivers
+S_0x55558866fd40 .scope module, "dut" "fp16_multiplier" 3 8, 4 4 0, S_0x5555886a9e20;
+ .timescale 0 0;
+    .port_info 0 /INPUT 16 "a";
+    .port_info 1 /INPUT 16 "b";
+    .port_info 2 /OUTPUT 16 "result";
+v0x55558866ff90_0 .net "a", 15 0, v0x5555886baa00_0;  1 drivers
+v0x5555886ba7e0_0 .net "b", 15 0, v0x5555886baaf0_0;  1 drivers
+v0x5555886ba8c0_0 .var "result", 15 0;
+E_0x555588670760 .event "_ivl_0";
+    .scope S_0x55558866fd40;
+T_0 ;
+    %wait E_0x555588670760;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_0x5555886a9e20;
+T_1 ;
+    %pushi/vec4 0, 0, 16;
+    %store/vec4 v0x5555886baa00_0, 0, 16;
+    %pushi/vec4 0, 0, 16;
+    %store/vec4 v0x5555886baaf0_0, 0, 16;
+    %delay 10000, 0;
+    %vpi_call/w 3 18 "$display", "PASS tb_fp16_multiplier" {0 0 0};
+    %vpi_call/w 3 19 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "/home/sudar762/projects/spec-to-rtl-agent/tb/tb_fp16_multiplier.sv";
+    "/home/sudar762/projects/spec-to-rtl-agent/rtl/fp16_multiplier.v";

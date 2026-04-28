@@ -1,0 +1,21 @@
+module:
+  name: pipelined_adder
+  ports:
+    - name: clk
+      dir: input
+    - name: a
+      dir: input
+      width: 16
+    - name: b
+      dir: input
+      width: 16
+    - name: y
+      dir: output
+      width: 16
+      kind: reg
+behavior:
+  operations:
+    - stage1 = a
+    - stage2 = b
+    - stage3 = stage1 + stage2
+    - y = stage3

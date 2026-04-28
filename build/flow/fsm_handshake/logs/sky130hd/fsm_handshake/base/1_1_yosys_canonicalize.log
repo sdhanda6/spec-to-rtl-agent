@@ -1,0 +1,20 @@
+Yosys 0.64 (git sha1 8449dd470, g++ 11.4.0-1ubuntu1~22.04.3 -fPIC -O3) [the-openroad-project/yosys]
+Using ABC area script.
+Extracting clock period from SDC file: /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fsm_handshake/results/sky130hd/fsm_handshake/base/clock_period.txt
+Setting clock period to 10
+1. Executing Liberty frontend: /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+2. Executing Liberty frontend: /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. Executing Verilog-2005 frontend: /home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/design/src/fsm_handshake.v
+4. Executing Verilog-2005 frontend: /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/cells_clkgate_hd.v
+5. Executing HIERARCHY pass (managing design hierarchy).
+6. Executing AST frontend in derive mode using pre-parsed AST for module `\fsm_handshake'.
+6.1. Analyzing design hierarchy..
+6.2. Analyzing design hierarchy..
+7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Warning: Ignoring module fsm_handshake because it contains processes (run 'proc' command first).
+8. Executing RTLIL backend.
+Warnings: 1 unique messages, 1 total
+End of script. Logfile hash: 37849aa7a2, time: 0.23s, user: 0.13s, system: 0.07s, MEM: 50.62 MB peak
+Yosys 0.64 (git sha1 8449dd470, g++ 11.4.0-1ubuntu1~22.04.3 -fPIC -O3) [the-openroad-project/yosys]
+Time spent: 86% 4x read_liberty (0 sec), 6% 2x write_rtlil (0 sec), ...
+Elapsed time: 0:00.23[h:]min:sec. CPU time: user 0.15 sys 0.08 (97%). Peak memory: 55808KB.

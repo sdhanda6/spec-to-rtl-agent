@@ -1,0 +1,32 @@
+top: fsm_handshake
+design_kind: fsm
+platform: sky130hd
+rtl: /home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/design/src/fsm_handshake.v
+testbench: /home/sudar762/projects/spec-to-rtl-agent/tb/tb_fsm_handshake.sv
+clock_port: clk
+clock_period_ns: 10.0
+ports:
+  -
+    name: clk
+    dir: input
+    width: 1
+  -
+    name: rst_n
+    dir: input
+    width: 1
+  -
+    name: start
+    dir: input
+    width: 1
+  -
+    name: done
+    dir: input
+    width: 1
+  -
+    name: busy
+    dir: output
+    width: 1
+  -
+    name: valid
+    dir: output
+    width: 1

@@ -1,0 +1,2 @@
+PASS tb_register8
+/home/sudar762/projects/spec-to-rtl-agent/tb/tb_register8.sv:37: $finish called at 16000 (1ps)

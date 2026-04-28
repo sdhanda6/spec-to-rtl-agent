@@ -32,8 +32,17 @@ def parse_finish_report(path: Path) -> dict:
     metrics["timing"]["setup_violation_count"] = _search_int(text, r"setup violation count\s+(\d+)")
     metrics["timing"]["hold_violation_count"] = _search_int(text, r"hold violation count\s+(\d+)")
     metrics["timing"]["source"] = path.as_posix()
+    metrics["area"]["physical_um2"] = _search_first_float(
+        text,
+        [
+            r"\b(?:design|instance|instances)\s+area\s*:?\s*([0-9.eE+-]+)\s*(?:um\^2|um2)?",
+            r"\bstd\s*cell\s+area\s*:?\s*([0-9.eE+-]+)\s*(?:um\^2|um2)?",
+        ],
+    )
+    if metrics["area"]["physical_um2"] is not None:
+        metrics["area"]["source"] = {"physical_um2": path.as_posix()}
     metrics["power"]["mw"] = None if power_w is None else power_w * 1000.0
-    metrics["power"]["source"] = path.as_posix()
+    metrics["power"]["source"] = path.as_posix() if power_w is not None else None
     metrics["raw_reports"] = [path.as_posix()]
     return _finalize_metrics(metrics)
 
@@ -64,6 +73,14 @@ def extract_qor_metrics(flow_root: Path, platform: str, design_name: str) -> dic
     discovered = {
         "finish_report": report_dir / "6_finish.rpt",
         "synth_stats": report_dir / "synth_stat.txt",
+        "qor_summary": _first_existing(
+            [
+                report_dir / "qor_summary.rpt",
+                report_dir / "qor_summary.txt",
+                report_dir / "qor_summary.json",
+                report_dir / "metrics.json",
+            ]
+        ),
         "floorplan_report": report_dir / "2_floorplan_final.rpt",
         "route_report": report_dir / "5_global_route.rpt",
         "finish_json": log_dir / "6_report.json",
@@ -71,11 +88,15 @@ def extract_qor_metrics(flow_root: Path, platform: str, design_name: str) -> dic
         "clock_period": result_dir / "clock_period.txt",
         "congestion_report": report_dir / "congestion.rpt",
     }
-    metrics["metadata"]["report_paths"] = {key: path.as_posix() for key, path in discovered.items() if path.exists()}
+    metrics["metadata"]["report_paths"] = {key: path.as_posix() for key, path in discovered.items() if path is not None and path.exists()}
+    metrics["metadata"]["missing_reports"] = [
+        key for key, path in discovered.items() if path is not None and not path.exists()
+    ]
 
     parsers = [
         (discovered["finish_report"], parse_finish_report),
         (discovered["synth_stats"], parse_synth_stats),
+        (discovered["qor_summary"], _parse_qor_summary),
         (discovered["finish_json"], _parse_finish_json),
         (discovered["floorplan_report"], _parse_floorplan_report),
         (discovered["route_report"], _parse_route_report),
@@ -83,7 +104,7 @@ def extract_qor_metrics(flow_root: Path, platform: str, design_name: str) -> dic
         (discovered["congestion_report"], _parse_congestion_report),
     ]
     for path, parser in parsers:
-        if path.exists():
+        if path is not None and path.exists():
             _merge_metrics(metrics, parser(path))
 
     if discovered["clock_period"].exists():
@@ -110,6 +131,7 @@ def extract_synth_metrics(flow_root: Path, platform: str, design_name: str) -> d
         "clock_period": result_dir / "clock_period.txt",
     }
     metrics["metadata"]["report_paths"] = {key: path.as_posix() for key, path in discovered.items() if path.exists()}
+    metrics["metadata"]["missing_reports"] = [key for key, path in discovered.items() if not path.exists()]
 
     if discovered["synth_stats"].exists():
         _merge_metrics(metrics, parse_synth_stats(discovered["synth_stats"]))
@@ -508,7 +530,24 @@ def collect_qor_summary(paths: list[Path]) -> dict[str, object]:
             summary["cell_count"] = parsed.get("cell_count")
         summary["source_reports"].extend(parsed.get("raw_reports", []))
     summary["source_reports"] = _dedupe(summary["source_reports"])
+    _mark_missing_summary_values(summary)
     return summary
+
+
+def _mark_missing_summary_values(summary: dict[str, object]) -> None:
+    for key in [
+        "timing_wns_ns",
+        "timing_tns_ns",
+        "setup_violations",
+        "hold_violations",
+        "logical_area_um2",
+        "physical_area_um2",
+        "power_mw",
+        "congestion_overflow",
+        "cell_count",
+    ]:
+        if summary.get(key) is None:
+            summary[key] = "N/A"
 
 
 def _empty_metrics() -> dict[str, Any]:
@@ -549,24 +588,21 @@ def _parse_finish_json(path: Path) -> dict:
     metrics["timing"]["setup_violation_count"] = _to_int(payload.get("finish__timing__drv__setup_violation_count"))
     metrics["timing"]["hold_violation_count"] = _to_int(payload.get("finish__timing__drv__hold_violation_count"))
     metrics["timing"]["source"] = path.as_posix()
-    metrics["area"]["physical_um2"] = _to_float(payload.get("finish__design__instance__area__stdcell")) or _to_float(payload.get("finish__design__instance__area"))
-    metrics["area"]["cell_count"] = _to_int(payload.get("finish__design__instance__count__stdcell")) or _to_int(payload.get("finish__design__instance__count"))
+    metrics["area"]["physical_um2"] = _first_float(payload.get("finish__design__instance__area__stdcell"), payload.get("finish__design__instance__area"))
+    metrics["area"]["cell_count"] = _first_int(payload.get("finish__design__instance__count__stdcell"), payload.get("finish__design__instance__count"))
     metrics["area"]["source"] = {"physical_um2": path.as_posix(), "cell_count": path.as_posix()}
-    metrics["power"]["mw"] = _watts_to_mw(payload.get("finish__power__total"))
-    metrics["power"]["source"] = path.as_posix()
-    metrics["routability"]["congestion"] = _to_float(payload.get("finish__route__overflow")) or _to_float(payload.get("finish__route__wirelength__overflow"))
+    metrics["routability"]["congestion"] = _first_float(payload.get("finish__route__overflow"), payload.get("finish__route__wirelength__overflow"))
     metrics["routability"]["utilization"] = _to_float(payload.get("finish__design__instance__utilization"))
     metrics["routability"]["source"] = {"congestion": path.as_posix(), "utilization": path.as_posix()}
+    power = _watts_to_mw(payload.get("finish__power__total"))
+    metrics["power"]["mw"] = power
+    metrics["power"]["source"] = path.as_posix() if power is not None else None
     metrics["raw_reports"] = [path.as_posix()]
     return _finalize_metrics(metrics)
 
 
 def _parse_floorplan_report(path: Path) -> dict:
-    text = _safe_read(path)
     metrics = _empty_metrics()
-    power_w = _search_float(text, r"^Total\s+\S+\s+\S+\s+\S+\s+([0-9.eE+-]+)\s+\d+\.\d+%", flags=re.MULTILINE)
-    metrics["power"]["mw"] = None if power_w is None else power_w * 1000.0
-    metrics["power"]["source"] = path.as_posix()
     metrics["raw_reports"] = [path.as_posix()]
     return _finalize_metrics(metrics)
 
@@ -577,14 +613,64 @@ def _parse_synth_json(path: Path) -> dict:
     except (OSError, json.JSONDecodeError):
         return {}
     metrics = _empty_metrics()
-    area = _to_float(payload.get("synth__design__instance__area__stdcell")) or _to_float(payload.get("synth__design__instance__area"))
-    count = _to_int(payload.get("synth__design__instance__count__stdcell")) or _to_int(payload.get("synth__design__instance__count"))
+    area = _first_float(payload.get("synth__design__instance__area__stdcell"), payload.get("synth__design__instance__area"))
+    count = _first_int(payload.get("synth__design__instance__count__stdcell"), payload.get("synth__design__instance__count"))
     power = _watts_to_mw(payload.get("synth__power__total"))
     metrics["area"]["logical_um2"] = area
     metrics["area"]["cell_count"] = count
     metrics["area"]["source"] = {"logical_um2": path.as_posix(), "cell_count": path.as_posix()}
     metrics["power"]["mw"] = power
     metrics["power"]["source"] = path.as_posix() if power is not None else None
+    metrics["raw_reports"] = [path.as_posix()]
+    return _finalize_metrics(metrics)
+
+
+def _parse_qor_summary(path: Path) -> dict:
+    text = _safe_read(path)
+    metrics = _empty_metrics()
+    payload: Any = None
+    if path.suffix.lower() == ".json":
+        try:
+            payload = json.loads(text)
+        except json.JSONDecodeError:
+            payload = None
+    if isinstance(payload, dict):
+        metrics["area"]["logical_um2"] = _first_payload_float(
+            payload,
+            [
+                "logical_area_um2",
+                "logical_area",
+                "synth__design__instance__area__stdcell",
+                "synth__design__instance__area",
+                "design__instance__area",
+            ],
+        )
+        metrics["power"]["mw"] = _first_payload_float(payload, ["power_mw", "total_power_mw"])
+        if metrics["power"]["mw"] is None:
+            metrics["power"]["mw"] = _watts_to_mw(
+                _first_payload_float(payload, ["finish__power__total", "synth__power__total", "power_w", "total_power_w"])
+            )
+    if metrics["area"]["logical_um2"] is None:
+        metrics["area"]["logical_um2"] = _search_first_float(
+            text,
+            [
+                r"\blogical[_\s-]*area(?:[_\s-]*(?:um2|um\^2))?\s*[:=]\s*([0-9.eE+-]+)",
+                r"\bsynth(?:esized)?[_\s-]*area(?:[_\s-]*(?:um2|um\^2))?\s*[:=]\s*([0-9.eE+-]+)",
+                r"\bChip area for module .*?:\s*([0-9.eE+-]+)",
+            ],
+        )
+    if metrics["area"]["logical_um2"] is not None:
+        metrics["area"]["source"] = {"logical_um2": path.as_posix()}
+    if metrics["power"]["mw"] is None:
+        metrics["power"]["mw"] = _search_first_float(
+            text,
+            [
+                r"\bpower[_\s-]*mw\s*[:=]\s*([0-9.eE+-]+)",
+                r"\btotal[_\s-]*power(?:[_\s-]*mw)?\s*[:=]\s*([0-9.eE+-]+)\s*mW",
+            ],
+        )
+    if metrics["power"]["mw"] is not None:
+        metrics["power"]["source"] = path.as_posix()
     metrics["raw_reports"] = [path.as_posix()]
     return _finalize_metrics(metrics)
 
@@ -611,8 +697,6 @@ def _parse_grt_log(path: Path) -> dict:
     text = _safe_read(path)
     metrics = _empty_metrics()
     utilization_pct = _search_float(text, r"Utilization:\s*([0-9.]+)%")
-    metrics["area"]["physical_um2"] = _search_float(text, r"Design area\s+([0-9.]+)\s+um\^2")
-    metrics["area"]["source"] = {"physical_um2": path.as_posix()}
     metrics["routability"]["congestion"] = _search_float(text, r"Total\s+\d+\s+\d+\s+[0-9.]+%\s+\d+\s*/\s*\d+\s*/\s*([0-9.]+)")
     metrics["routability"]["utilization"] = None if utilization_pct is None else utilization_pct / 100.0
     metrics["routability"]["wirelength_um"] = _search_float(text, r"Total wirelength:\s+([0-9.]+)\s+um")
@@ -723,6 +807,8 @@ def _parse_from_name(path: Path) -> dict[str, Any]:
         return parse_finish_report(path)
     if path.name == "synth_stat.txt":
         return parse_synth_stats(path)
+    if path.name.startswith("qor_summary") or path.name == "metrics.json":
+        return _parse_qor_summary(path)
     if path.name == "6_report.json":
         return _parse_finish_json(path)
     if path.name == "2_floorplan_final.rpt":
@@ -758,6 +844,14 @@ def _search_float(text: str, pattern: str, flags: int = 0) -> float | None:
     return _to_float(match.group(match.lastindex or 1))
 
 
+def _search_first_float(text: str, patterns: list[str], flags: int = 0) -> float | None:
+    for pattern in patterns:
+        value = _search_float(text, pattern, flags)
+        if value is not None:
+            return value
+    return None
+
+
 def _search_int(text: str, pattern: str, flags: int = 0) -> int | None:
     match = re.search(pattern, text, flags | re.IGNORECASE | re.MULTILINE)
     if not match:
@@ -770,6 +864,43 @@ def _safe_read(path: Path) -> str:
         return path.read_text(encoding="utf-8", errors="ignore")
     except OSError:
         return ""
+
+
+def _first_float(*values: Any) -> float | None:
+    for value in values:
+        parsed = _to_float(value)
+        if parsed is not None:
+            return parsed
+    return None
+
+
+def _first_int(*values: Any) -> int | None:
+    for value in values:
+        parsed = _to_int(value)
+        if parsed is not None:
+            return parsed
+    return None
+
+
+def _first_payload_float(payload: dict[str, Any], keys: list[str]) -> float | None:
+    for key in keys:
+        if key in payload:
+            parsed = _to_float(payload.get(key))
+            if parsed is not None:
+                return parsed
+    for value in payload.values():
+        if isinstance(value, dict):
+            parsed = _first_payload_float(value, keys)
+            if parsed is not None:
+                return parsed
+    return None
+
+
+def _first_existing(paths: list[Path]) -> Path | None:
+    for path in paths:
+        if path.exists():
+            return path
+    return None
 
 
 def _to_float(value: Any, default: float | None = None) -> float | None:

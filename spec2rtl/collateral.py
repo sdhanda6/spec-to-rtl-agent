@@ -7,6 +7,9 @@ from pathlib import Path
 from spec2rtl.ir import ModuleIR
 
 
+DEFAULT_CLOCK_PERIOD_NS = "10"
+
+
 @dataclass
 class CollateralBundle:
     top: str
@@ -20,6 +23,7 @@ class CollateralBundle:
     constraint_sdc: Path
     manifest_yaml: Path
     readme_md: Path
+    power_activity_tcl: Path | None = None
     generated_files: list[Path] = field(default_factory=list)
     warnings: list[str] = field(default_factory=list)
     clock_port: str | None = None
@@ -50,9 +54,10 @@ def generate_collateral(
     config_mk = design_dir / "config.mk"
     manifest_yaml = design_dir / "design_manifest.yaml"
     readme_md = design_dir / "README.md"
+    power_activity_tcl = design_dir / "power_activity.tcl"
 
     clock_port = _infer_clock_port(ir)
-    clock_period_ns, clock_warning = _infer_clock_period_ns(ir)
+    clock_period_ns, clock_warning = _infer_clock_period_ns(ir, clock_port)
     platform = _infer_platform(ir)
     warnings = [clock_warning] if clock_warning else []
 
@@ -86,15 +91,17 @@ def generate_collateral(
             platform=platform,
             rtl_copy=rtl_copy,
             constraint_sdc=constraint_sdc,
+            power_activity_tcl=power_activity_tcl,
             clock_port=clock_port,
             clock_period_ns=clock_period_ns,
         ),
         encoding="utf-8",
     )
+    power_activity_tcl.write_text(_render_power_activity_tcl(), encoding="utf-8")
     manifest_yaml.write_text(_render_manifest(ir, rtl_copy, tb_path, platform, clock_port, clock_period_ns), encoding="utf-8")
     readme_md.write_text(_render_readme(ir, platform, clock_port, clock_period_ns), encoding="utf-8")
 
-    generated_files = [rtl_copy, filelist_f, filelist_tcl, config_mk, manifest_yaml, readme_md]
+    generated_files = [rtl_copy, filelist_f, filelist_tcl, config_mk, power_activity_tcl, manifest_yaml, readme_md]
     if constraint_sdc.exists():
         generated_files.append(constraint_sdc)
     return CollateralBundle(
@@ -109,6 +116,7 @@ def generate_collateral(
         constraint_sdc=constraint_sdc,
         manifest_yaml=manifest_yaml,
         readme_md=readme_md,
+        power_activity_tcl=power_activity_tcl,
         generated_files=generated_files,
         warnings=warnings,
         clock_port=clock_port,
@@ -119,24 +127,38 @@ def generate_collateral(
 
 
 def _infer_clock_port(ir: ModuleIR) -> str | None:
-    if ir.clock:
+    input_ports = [port.name for port in ir.ports if port.direction == "input"]
+    if ir.clock and ir.clock in input_ports:
         return ir.clock
     for port in ir.ports:
         if port.direction == "input" and port.name.lower() in {"clk", "clock"}:
             return port.name
+    if input_ports:
+        return input_ports[0]
+    if ir.clock:
+        return ir.clock
+    if _needs_generated_clock(ir):
+        return "clk"
     return None
 
 
-def _infer_clock_period_ns(ir: ModuleIR) -> tuple[str | None, str | None]:
+def _needs_generated_clock(ir: ModuleIR) -> bool:
+    if ir.clock or ir.reset or ir.counter or ir.register or ir.shift_register or ir.fsm:
+        return False
+    if ir.processes:
+        return all(process.kind == "comb" for process in ir.processes)
+    return ir.design_kind in {"combinational", "generic"}
+
+
+def _infer_clock_period_ns(ir: ModuleIR, clock_port: str | None) -> tuple[str, str | None]:
     raw = ir.flow_hints.get("clock_period")
-    if raw is None:
-        if _infer_clock_port(ir):
-            return "10.0", "clock_period was not explicit; defaulted OpenROAD collateral to 10.0ns"
-        return None, None
-    text = str(raw).strip().lower()
-    if text.endswith("ns"):
-        return text[:-2], None
-    return text, None
+    if raw is not None and str(raw).strip() not in {"", DEFAULT_CLOCK_PERIOD_NS, f"{DEFAULT_CLOCK_PERIOD_NS}ns"}:
+        return DEFAULT_CLOCK_PERIOD_NS, f"clock_period {raw} was overridden to the tapeout default of 10ns"
+    if ir.clock:
+        return DEFAULT_CLOCK_PERIOD_NS, "OpenROAD collateral uses a forced 10ns clock"
+    if clock_port:
+        return DEFAULT_CLOCK_PERIOD_NS, f"clock was defaulted to {clock_port} at 10ns"
+    return DEFAULT_CLOCK_PERIOD_NS, "clock was not explicit and no input port was available; emitted a virtual 10ns clock"
 
 
 def _infer_platform(ir: ModuleIR) -> str:
@@ -154,14 +176,20 @@ def _infer_platform(ir: ModuleIR) -> str:
 def _render_sdc(ir: ModuleIR, clock_port: str | None, clock_period_ns: str | None) -> str:
     lines = ["# Auto-generated timing constraints"]
     if clock_port and clock_period_ns:
-        lines.append(f"create_clock [get_ports {clock_port}] -name {clock_port} -period {clock_period_ns}")
+        lines.append(f"create_clock -period {clock_period_ns} [get_ports {_sdc_port_ref(clock_port)}]")
     else:
-        lines.append("# No clock was inferred; add clock constraints manually if the design is sequential.")
+        lines.append(f"create_clock -period {clock_period_ns or DEFAULT_CLOCK_PERIOD_NS} spec2rtl_virtual_clk")
     reset_port = ir.reset.signal if ir.reset else None
     if reset_port:
-        lines.append(f"set_false_path -from [get_ports {reset_port}]")
+        lines.append(f"set_false_path -from [get_ports {_sdc_port_ref(reset_port)}]")
     lines.append("")
     return "\n".join(lines)
+
+
+def _sdc_port_ref(port_name: str) -> str:
+    if any(char in port_name for char in "[]{} "):
+        return "{" + port_name.replace("}", "\\}") + "}"
+    return port_name
 
 
 def _render_config_mk(
@@ -169,16 +197,28 @@ def _render_config_mk(
     platform: str,
     rtl_copy: Path,
     constraint_sdc: Path,
+    power_activity_tcl: Path,
     clock_port: str | None,
     clock_period_ns: str | None,
 ) -> str:
     lines = [
         f"export DESIGN_NAME := {design_name}",
+        f"export TOP_MODULE := {design_name}",
         f"export PLATFORM := {platform}",
         f"export VERILOG_FILES := {rtl_copy.as_posix()}",
         f"export SDC_FILE := {constraint_sdc.as_posix()}",
         "export DIE_AREA ?= 0 0 200 200",
         "export CORE_AREA ?= 10 10 190 190",
+        "",
+        "# Synthesis directives: hierarchy -check -top $(DESIGN_NAME), synth -flatten, opt, abc mapping.",
+        "export SYNTH_HIERARCHICAL := 0",
+        f"export SYNTH_ARGS := -top {design_name}",
+        "export SYNTH_OPT_HIER := 1",
+        "export ABC_AREA := 1",
+        "export ACTIVITY_FILE = $(RESULTS_DIR)/waves.vcd",
+        "export ACTIVITY_SCOPE = tb_$(DESIGN_NAME)/dut",
+        "export REPORT_POWER = 1",
+        f"export PRE_FINAL_REPORT_TCL := {power_activity_tcl.as_posix()}",
     ]
     if clock_port:
         lines.append(f"export CLOCK_PORT := {clock_port}")
@@ -186,6 +226,43 @@ def _render_config_mk(
         lines.append(f"export CLOCK_PERIOD := {clock_period_ns}")
     lines.extend(["", "# This file is intended for OpenROAD-flow-scripts style DESIGN_CONFIG usage.", ""])
     return "\n".join(lines)
+
+
+def _render_power_activity_tcl() -> str:
+    return "\n".join(
+        [
+            "# Auto-generated activity hook for OpenROAD final power reporting.",
+            "if { [info exists ::env(REPORT_POWER)] && $::env(REPORT_POWER) eq \"0\" } {",
+            "  puts \"REPORT_POWER=0; skipping activity annotation\"",
+            "} elseif { [info exists ::env(ACTIVITY_FILE)] && $::env(ACTIVITY_FILE) ne \"\" } {",
+            "  set activity_file $::env(ACTIVITY_FILE)",
+            "  if { [file exists $activity_file] } {",
+            "    set activity_scope \"\"",
+            "    if { [info exists ::env(ACTIVITY_SCOPE)] } {",
+            "      set activity_scope $::env(ACTIVITY_SCOPE)",
+            "    }",
+            "    if { $activity_scope ne \"\" } {",
+            "      puts \"Reading activity VCD $activity_file with scope $activity_scope\"",
+            "      if { [catch { read_vcd -scope $activity_scope $activity_file } activity_error] } {",
+            "        puts \"Warning: scoped read_vcd failed: $activity_error\"",
+            "        puts \"Retrying activity VCD without an explicit scope\"",
+            "        if { [catch { read_vcd $activity_file } fallback_error] } {",
+            "          puts \"Warning: unscoped read_vcd failed: $fallback_error\"",
+            "        }",
+            "      }",
+            "    } else {",
+            "      puts \"Reading activity VCD $activity_file\"",
+            "      if { [catch { read_vcd $activity_file } activity_error] } {",
+            "        puts \"Warning: read_vcd failed: $activity_error\"",
+            "      }",
+            "    }",
+            "  } else {",
+            "    puts \"Warning: ACTIVITY_FILE $activity_file was not found; final power will use default activity\"",
+            "  }",
+            "}",
+            "",
+        ]
+    )
 
 
 def _render_manifest(

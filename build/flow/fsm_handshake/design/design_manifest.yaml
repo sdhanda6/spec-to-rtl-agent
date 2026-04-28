@@ -4,7 +4,7 @@ platform: sky130hd
 rtl: /home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/design/src/fsm_handshake.v
 testbench: /home/sudar762/projects/spec-to-rtl-agent/tb/tb_fsm_handshake.sv
 clock_port: clk
-clock_period_ns: 10.0
+clock_period_ns: 10
 ports:
   -
     name: clk

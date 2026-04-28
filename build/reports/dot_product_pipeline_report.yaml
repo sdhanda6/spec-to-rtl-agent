@@ -9,234 +9,1604 @@ rtl_generation_status: pass
 testbench_generation_status: pass
 compile_status: pass
 simulation_status: pass
+coverage_status: not_run
 synthesis_collateral_generation_status: pass
-openroad_execution_status: not_run
-synth_optimization:
+dft_status: not_run
+atpg_status: not_run
+lec_status: not_run
+sta_status: pass
+gds_generated: true
+signoff_status: partial
+openroad_execution_status: pass
+openroad_netlist_check:
+  valid: true
+  reason: null
+  path: build/flow/dot_product/results/sky130hd/dot_product/base/1_2_yosys.v
+  expected_top: dot_product
+  module_found: true
+  module_count: 1
+  mapped_cell_count: 3
+  assign_count: 0
+  always_count: 0
+  statement_count: 3
+  line_count: 37
+  size_bytes: 1388
+synthesis_stage:
+  status: pass
+  failure_kind: null
+  failure_reason: null
+  returncode: 0
+  command: /usr/bin/make -C /home/sudar762/OpenROAD-flow-scripts/flow DESIGN_CONFIG=/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/config.mk synth
+  synthesized_netlist_path: build/flow/dot_product/results/sky130hd/dot_product/base/1_2_yosys.v
+  netlist_check:
+    valid: true
+    reason: null
+    path: build/flow/dot_product/results/sky130hd/dot_product/base/1_2_yosys.v
+    expected_top: dot_product
+    module_found: true
+    module_count: 1
+    mapped_cell_count: 3
+    assign_count: 0
+    always_count: 0
+    statement_count: 3
+    line_count: 37
+    size_bytes: 1388
+  retry_attempted: false
+  retry_reason: null
+coverage_analysis:
+  stage: coverage_analysis
   enabled: false
-  baseline_metrics:
-  attempts:
-  best_attempt_index: null
-  improvement_amount: null
-  targets_met: false
-  stop_reason: null
-  candidate_rankings:
-post_synth_verification:
-  enabled: true
-  behavior_match: false
-  mismatch_kind: synthesis_netlist_mismatch
-  primary_mismatch: null
-  ordered_mismatches:
-  returncode: 2
-  mismatch_count: 1
-  repair_attempts:
-    -
-      attempt: 1
-      mismatch_kind: synthesis_netlist_mismatch
-      primary_mismatch: synthesis_netlist_mismatch
-      chosen_repair_family: synthesis
-      files_changed:
-        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/config.mk
-      result_after_rerun: synthesis_netlist_mismatch
-      repair_kind: collateral_regeneration
-      artifact_to_regenerate: collateral
-      verification_mode: null
-      reason: refresh synthesized collateral and netlist inputs
-    -
-      attempt: 2
-      mismatch_kind: synthesis_netlist_mismatch
-      primary_mismatch: synthesis_netlist_mismatch
-      chosen_repair_family: synthesis
-      files_changed:
-        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/config.mk
-      result_after_rerun: synthesis_netlist_mismatch
-      repair_kind: collateral_regeneration
-      artifact_to_regenerate: collateral
-      verification_mode: null
-      reason: refresh synthesized collateral and netlist inputs
-    -
-      attempt: 3
-      mismatch_kind: synthesis_netlist_mismatch
-      primary_mismatch: synthesis_netlist_mismatch
-      chosen_repair_family: synthesis
-      files_changed:
-        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/config.mk
-      result_after_rerun: pending
-      repair_kind: collateral_regeneration
-      artifact_to_regenerate: collateral
-      verification_mode: null
-      reason: refresh synthesized collateral and netlist inputs
-  reference_source: /home/sudar762/projects/spec-to-rtl-agent/rtl/dot_product.v
-  post_synth_source: null
+  status: not_run
+  reason: --run-coverage was not requested
+  tool: null
+  tool_path: null
+  command: null
+  returncode: null
+  log_path: build/pipeline/dot_product/logs/coverage_analysis.log
   evidence_paths:
-  attempts:
-    -
-      attempt: 1
-      behavior_match: false
-      mismatch_kind: synthesis_netlist_mismatch
-      primary_mismatch: null
-      ordered_mismatches:
-      returncode: 2
-      mismatch_count: 1
-      reference_source: /home/sudar762/projects/spec-to-rtl-agent/rtl/dot_product.v
-      post_synth_source: null
-      evidence_paths:
-      testbench_used: null
-      testbench_adaptation:
-      bottleneck_classification:
-        primary_bottleneck: synthesis_netlist_mismatch
-        bottleneck_classification: synthesis_netlist_mismatch
-        primary_mismatch: synthesis_netlist_mismatch
-        ordered_mismatches:
-          - synthesis_netlist_mismatch
-        metric_kind: correctness
-        metric_family_priority: 0
-        metric_source_file: null
-        reasons:
-          - synthesis stage did not complete successfully for post-synthesis verification
-        action_family_hint: synthesis
-        ordered_bottlenecks:
-          - synthesis_netlist_mismatch
-        failure_kind: synthesis_netlist_mismatch
-        repairable: true
-        artifact_to_regenerate: collateral
-      chosen_action_family: synthesis
-      repair_suggestions:
-        -
-          action_family: synthesis
-          repair_kind: collateral_regeneration
-          artifact_to_regenerate: collateral
-          knob: REGENERATE_COLLATERAL
-          action: set
-          value: 1
-          reason: refresh synthesized collateral and netlist inputs
-          metric_kind: correctness
-    -
-      attempt: 2
-      behavior_match: false
-      mismatch_kind: synthesis_netlist_mismatch
-      primary_mismatch: null
-      ordered_mismatches:
-      returncode: 2
-      mismatch_count: 1
-      reference_source: /home/sudar762/projects/spec-to-rtl-agent/rtl/dot_product.v
-      post_synth_source: null
-      evidence_paths:
-      testbench_used: null
-      testbench_adaptation:
-      bottleneck_classification:
-        primary_bottleneck: synthesis_netlist_mismatch
-        bottleneck_classification: synthesis_netlist_mismatch
-        primary_mismatch: synthesis_netlist_mismatch
-        ordered_mismatches:
-          - synthesis_netlist_mismatch
-        metric_kind: correctness
-        metric_family_priority: 0
-        metric_source_file: null
-        reasons:
-          - synthesis stage did not complete successfully for post-synthesis verification
-        action_family_hint: synthesis
-        ordered_bottlenecks:
-          - synthesis_netlist_mismatch
-        failure_kind: synthesis_netlist_mismatch
-        repairable: true
-        artifact_to_regenerate: collateral
-      chosen_action_family: synthesis
-      repair_suggestions:
-        -
-          action_family: synthesis
-          repair_kind: collateral_regeneration
-          artifact_to_regenerate: collateral
-          knob: REGENERATE_COLLATERAL
-          action: set
-          value: 1
-          reason: refresh synthesized collateral and netlist inputs
-          metric_kind: correctness
-    -
-      attempt: 3
-      behavior_match: false
-      mismatch_kind: synthesis_netlist_mismatch
-      primary_mismatch: null
-      ordered_mismatches:
-      returncode: 2
-      mismatch_count: 1
-      reference_source: /home/sudar762/projects/spec-to-rtl-agent/rtl/dot_product.v
-      post_synth_source: null
-      evidence_paths:
-      testbench_used: null
-      testbench_adaptation:
-      bottleneck_classification:
-        primary_bottleneck: synthesis_netlist_mismatch
-        bottleneck_classification: synthesis_netlist_mismatch
-        primary_mismatch: synthesis_netlist_mismatch
-        ordered_mismatches:
-          - synthesis_netlist_mismatch
-        metric_kind: correctness
-        metric_family_priority: 0
-        metric_source_file: null
-        reasons:
-          - synthesis stage did not complete successfully for post-synthesis verification
-        action_family_hint: synthesis
-        ordered_bottlenecks:
-          - synthesis_netlist_mismatch
-        failure_kind: synthesis_netlist_mismatch
-        repairable: true
-        artifact_to_regenerate: collateral
-      chosen_action_family: synthesis
-      repair_suggestions:
-        -
-          action_family: synthesis
-          repair_kind: collateral_regeneration
-          artifact_to_regenerate: collateral
-          knob: REGENERATE_COLLATERAL
-          action: set
-          value: 1
-          reason: refresh synthesized collateral and netlist inputs
-          metric_kind: correctness
-  best_attempt_index: 3
-  final_classification: synthesis_netlist_mismatch
-  reasons:
-    - synthesis stage did not complete successfully for post-synthesis verification
-qor_summary:
-  timing_wns_ns: null
-  timing_tns_ns: null
-  setup_violations: null
-  hold_violations: null
-  logical_area_um2: null
-  physical_area_um2: null
-  power_mw: null
-  congestion_overflow: null
-  cell_count: null
-  source_reports:
-qor_optimization:
+    - build/pipeline/dot_product/logs/coverage_analysis.log
+  artifacts:
+  bottleneck_classification:
+    primary_bottleneck: not_run
+    bottleneck_classification: not_run
+    metric_kind: unknown
+    metric_family_priority: 99
+    metric_source_file: null
+    reasons:
+      - --run-coverage was not requested
+    action_family_hint: none
+    ordered_bottlenecks:
+    failure_kind: not_run
+    repairable: false
+dft_insertion:
+  stage: dft_insertion
   enabled: false
-  attempts:
-  best_attempt_index: null
-  final_selected_metrics:
-    timing_wns_ns: null
-    timing_tns_ns: null
-    setup_violations: null
-    hold_violations: null
-    logical_area_um2: null
+  status: not_run
+  reason: --run-dft was not requested
+  tool: null
+  tool_path: null
+  command: null
+  returncode: null
+  log_path: null
+  evidence_paths:
+  artifacts:
+  bottleneck_classification:
+    primary_bottleneck: not_run
+    bottleneck_classification: not_run
+    metric_kind: unknown
+    metric_family_priority: 99
+    metric_source_file: null
+    reasons:
+      - --run-dft was not requested
+    action_family_hint: none
+    ordered_bottlenecks:
+    failure_kind: not_run
+    repairable: false
+atpg_generation:
+  stage: atpg_generation
+  enabled: false
+  status: not_run
+  reason: --run-atpg was not requested
+  tool: null
+  tool_path: null
+  command: null
+  returncode: null
+  log_path: null
+  evidence_paths:
+  artifacts:
+  bottleneck_classification:
+    primary_bottleneck: not_run
+    bottleneck_classification: not_run
+    metric_kind: unknown
+    metric_family_priority: 99
+    metric_source_file: null
+    reasons:
+      - --run-atpg was not requested
+    action_family_hint: none
+    ordered_bottlenecks:
+    failure_kind: not_run
+    repairable: false
+lec_check:
+  stage: lec_check
+  enabled: false
+  status: not_run
+  reason: --run-lec was not requested
+  tool: null
+  tool_path: null
+  command: null
+  returncode: null
+  log_path: null
+  evidence_paths:
+  artifacts:
+  bottleneck_classification:
+    primary_bottleneck: not_run
+    bottleneck_classification: not_run
+    metric_kind: unknown
+    metric_family_priority: 99
+    metric_source_file: null
+    reasons:
+      - --run-lec was not requested
+    action_family_hint: none
+    ordered_bottlenecks:
+    failure_kind: not_run
+    repairable: false
+synth_optimization:
+  enabled: true
+  targets:
+    logical_area: null
+    area: null
+    power: null
+    cell_count: null
+    wns: 0.0
+  baseline_metrics:
+    timing:
+      wns_ns: null
+      tns_ns: null
+      setup_violation_count: null
+      hold_violation_count: null
+      source: null
+    area:
+      logical_um2: 18.768
+      physical_um2: null
+      cell_count: 3
+      source:
+        logical_um2: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+        cell_count: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+    power:
+      mw: null
+      source: null
+    routability:
+      congestion: null
+      utilization: null
+      wirelength_um: null
+      source:
+    metadata:
+      platform: sky130hd
+      design_name: dot_product
+      clock_period_ns: 10.0
+      report_paths:
+        synth_stats: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+        synth_json: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/1_synth.json
+        clock_period: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/clock_period.txt
+      missing_reports:
+    metric_kind: null
+    bottleneck_classification: null
+    metric_source_file: null
+    raw_reports:
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/1_synth.json
+    targets:
+      logical_area: null
+      area: null
+      power: null
+      cell_count: null
+      wns: 0.0
+    wns_ns: null
+    tns_ns: null
+    setup_violation_count: null
+    hold_violation_count: null
+    logical_area_um2: 18.768
     physical_area_um2: null
     power_mw: null
+    congestion: null
     congestion_overflow: null
-    cell_count: null
-    source_reports:
-  final_signoff:
-  improved: false
+    utilization: null
+    wirelength_um: null
+    cell_count: 3
+  attempts:
+    -
+      attempt: 1
+      target: synth
+      status: pass
+      returncode: 0
+      command: /usr/bin/make -C /home/sudar762/OpenROAD-flow-scripts/flow DESIGN_CONFIG=/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/config.mk synth
+      config_path: build/flow/dot_product/design/config.mk
+      metrics:
+        timing:
+          wns_ns: null
+          tns_ns: null
+          setup_violation_count: null
+          hold_violation_count: null
+          source: null
+        area:
+          logical_um2: 18.768
+          physical_um2: null
+          cell_count: 3
+          source:
+            logical_um2: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+            cell_count: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+        power:
+          mw: null
+          source: null
+        routability:
+          congestion: null
+          utilization: null
+          wirelength_um: null
+          source:
+        metadata:
+          platform: sky130hd
+          design_name: dot_product
+          clock_period_ns: 10.0
+          report_paths:
+            synth_stats: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+            synth_json: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/1_synth.json
+            clock_period: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/clock_period.txt
+          missing_reports:
+        metric_kind: null
+        bottleneck_classification: null
+        metric_source_file: null
+        raw_reports:
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/1_synth.json
+        targets:
+          logical_area: null
+          area: null
+          power: null
+          cell_count: null
+          wns: 0.0
+        wns_ns: null
+        tns_ns: null
+        setup_violation_count: null
+        hold_violation_count: null
+        logical_area_um2: 18.768
+        physical_area_um2: null
+        power_mw: null
+        congestion: null
+        congestion_overflow: null
+        utilization: null
+        wirelength_um: null
+        cell_count: 3
+      metric_kind: logical_area
+      bottleneck_classification:
+        primary_bottleneck: mixed
+        metric_kind: logical_area
+        bottleneck_classification: mixed
+        reasons:
+          - defaulting to logical area optimization with logical area 18.768um^2
+          - defaulting to logical area optimization with cell count 3
+        metric_source_file: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+        action_family_hint: area
+        metric_family_priority: 4
+        ordered_bottlenecks:
+          - logical_area
+          - logical_area
+      chosen_action_family: baseline
+      chosen_knobs:
+      candidate_id: null
+      candidate_family: null
+      candidate_why: null
+      candidate_predicted_score: null
+      candidate_ranking_reason: null
+      behavior_match: true
+      score: -71.61744740630532
+      score_before: -71.61744740630532
+      score_delta: 0.0
+      score_reasons:
+        - logical area contribution -57.30
+        - cell count contribution -14.31
+      improvement_amount: 0.0
+      beat_baseline: false
+      targets_met: false
+      snapshot_paths:
+        synth_stat.txt: build/flow/dot_product/synth_attempts/attempt_1/synth_stat.txt
+        1_synth.json: build/flow/dot_product/synth_attempts/attempt_1/1_synth.json
+        1_2_yosys.v: build/flow/dot_product/synth_attempts/attempt_1/1_2_yosys.v
+        clock_period.txt: build/flow/dot_product/synth_attempts/attempt_1/clock_period.txt
+      synthesized_netlist_path: build/flow/dot_product/results/sky130hd/dot_product/base/1_2_yosys.v
+    -
+      attempt: 2
+      target: synth
+      status: pass
+      returncode: 0
+      command: /usr/bin/make -C /home/sudar762/OpenROAD-flow-scripts/flow DESIGN_CONFIG=/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/config_synth_round_1_synth_area_reduce_buffers.mk synth
+      config_path: build/flow/dot_product/design/config_synth_round_1_synth_area_reduce_buffers.mk
+      metrics:
+        timing:
+          wns_ns: null
+          tns_ns: null
+          setup_violation_count: null
+          hold_violation_count: null
+          source: null
+        area:
+          logical_um2: 18.768
+          physical_um2: null
+          cell_count: 3
+          source:
+            logical_um2: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+            cell_count: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+        power:
+          mw: null
+          source: null
+        routability:
+          congestion: null
+          utilization: null
+          wirelength_um: null
+          source:
+        metadata:
+          platform: sky130hd
+          design_name: dot_product
+          clock_period_ns: 10.0
+          report_paths:
+            synth_stats: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+            synth_json: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/1_synth.json
+            clock_period: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/clock_period.txt
+          missing_reports:
+        metric_kind: null
+        bottleneck_classification: null
+        metric_source_file: null
+        raw_reports:
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/1_synth.json
+        targets:
+          logical_area: null
+          area: null
+          power: null
+          cell_count: null
+          wns: 0.0
+        wns_ns: null
+        tns_ns: null
+        setup_violation_count: null
+        hold_violation_count: null
+        logical_area_um2: 18.768
+        physical_area_um2: null
+        power_mw: null
+        congestion: null
+        congestion_overflow: null
+        utilization: null
+        wirelength_um: null
+        cell_count: 3
+      metric_kind: logical_area
+      bottleneck_classification:
+        primary_bottleneck: mixed
+        metric_kind: logical_area
+        bottleneck_classification: mixed
+        reasons:
+          - defaulting to logical area optimization with logical area 18.768um^2
+          - defaulting to logical area optimization with cell count 3
+        metric_source_file: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+        action_family_hint: area
+        metric_family_priority: 4
+        ordered_bottlenecks:
+          - logical_area
+          - logical_area
+      chosen_action_family: area
+      chosen_knobs:
+        -
+          knob: SYNTH_SIZING
+          action: set
+          value: 0
+          reason: avoid upsizing for marginal gain
+          action_family: area
+          metric_kind: logical_area
+        -
+          knob: SYNTH_BUFFERING
+          action: set
+          value: 0
+          reason: cut inserted buffers
+          action_family: area
+          metric_kind: logical_area
+        -
+          knob: MAX_FANOUT_CONSTRAINT
+          action: set
+          value: 16
+          reason: reduce buffer insertion pressure
+          action_family: area
+          metric_kind: logical_area
+      candidate_id: synth_area_reduce_buffers
+      candidate_family: area
+      candidate_why: avoid area growth from sizing and fanout-driven buffering
+      candidate_predicted_score: 0.8246665470960908
+      candidate_ranking_reason: learned from 4 similar synth attempts for logical_area; 0 beat baseline; predicted score 0.82
+      behavior_match: true
+      score: -71.61744740630532
+      score_before: -71.61744740630532
+      score_delta: 0.0
+      score_reasons:
+        - logical area contribution -57.30
+        - cell count contribution -14.31
+      improvement_amount: 0.0
+      beat_baseline: false
+      targets_met: false
+      snapshot_paths:
+        synth_stat.txt: build/flow/dot_product/synth_attempts/attempt_2/synth_stat.txt
+        1_synth.json: build/flow/dot_product/synth_attempts/attempt_2/1_synth.json
+        1_2_yosys.v: build/flow/dot_product/synth_attempts/attempt_2/1_2_yosys.v
+        clock_period.txt: build/flow/dot_product/synth_attempts/attempt_2/clock_period.txt
+      synthesized_netlist_path: build/flow/dot_product/results/sky130hd/dot_product/base/1_2_yosys.v
+    -
+      attempt: 3
+      target: synth
+      status: pass
+      returncode: 0
+      command: /usr/bin/make -C /home/sudar762/OpenROAD-flow-scripts/flow DESIGN_CONFIG=/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/config_synth_round_1_synth_struct_flatten_area.mk synth
+      config_path: build/flow/dot_product/design/config_synth_round_1_synth_struct_flatten_area.mk
+      metrics:
+        timing:
+          wns_ns: null
+          tns_ns: null
+          setup_violation_count: null
+          hold_violation_count: null
+          source: null
+        area:
+          logical_um2: 18.768
+          physical_um2: null
+          cell_count: 3
+          source:
+            logical_um2: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+            cell_count: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+        power:
+          mw: null
+          source: null
+        routability:
+          congestion: null
+          utilization: null
+          wirelength_um: null
+          source:
+        metadata:
+          platform: sky130hd
+          design_name: dot_product
+          clock_period_ns: 10.0
+          report_paths:
+            synth_stats: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+            synth_json: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/1_synth.json
+            clock_period: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/clock_period.txt
+          missing_reports:
+        metric_kind: null
+        bottleneck_classification: null
+        metric_source_file: null
+        raw_reports:
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/1_synth.json
+        targets:
+          logical_area: null
+          area: null
+          power: null
+          cell_count: null
+          wns: 0.0
+        wns_ns: null
+        tns_ns: null
+        setup_violation_count: null
+        hold_violation_count: null
+        logical_area_um2: 18.768
+        physical_area_um2: null
+        power_mw: null
+        congestion: null
+        congestion_overflow: null
+        utilization: null
+        wirelength_um: null
+        cell_count: 3
+      metric_kind: logical_area
+      bottleneck_classification:
+        primary_bottleneck: mixed
+        metric_kind: logical_area
+        bottleneck_classification: mixed
+        reasons:
+          - defaulting to logical area optimization with logical area 18.768um^2
+          - defaulting to logical area optimization with cell count 3
+        metric_source_file: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+        action_family_hint: area
+        metric_family_priority: 4
+        ordered_bottlenecks:
+          - logical_area
+          - logical_area
+      chosen_action_family: structural
+      chosen_knobs:
+        -
+          knob: SYNTH_NO_FLAT
+          action: set
+          value: 0
+          reason: enable flattening
+          action_family: structural
+          metric_kind: logical_area
+        -
+          knob: SYNTH_STRATEGY
+          action: set
+          value: AREA 1
+          reason: apply area-biased mapping after flattening
+          action_family: structural
+          metric_kind: logical_area
+        -
+          knob: ABC_AREA
+          action: set
+          value: 1
+          reason: favor compact mapping
+          action_family: structural
+          metric_kind: logical_area
+      candidate_id: synth_struct_flatten_area
+      candidate_family: structural
+      candidate_why: combine flattening with area-biased mapping to explore an alternate structural point
+      candidate_predicted_score: 0.8195807238284495
+      candidate_ranking_reason: learned from 4 similar synth attempts for logical_area; 0 beat baseline; predicted score 0.82
+      behavior_match: true
+      score: -71.61744740630532
+      score_before: -71.61744740630532
+      score_delta: 0.0
+      score_reasons:
+        - logical area contribution -57.30
+        - cell count contribution -14.31
+      improvement_amount: 0.0
+      beat_baseline: false
+      targets_met: false
+      snapshot_paths:
+        synth_stat.txt: build/flow/dot_product/synth_attempts/attempt_3/synth_stat.txt
+        1_synth.json: build/flow/dot_product/synth_attempts/attempt_3/1_synth.json
+        1_2_yosys.v: build/flow/dot_product/synth_attempts/attempt_3/1_2_yosys.v
+        clock_period.txt: build/flow/dot_product/synth_attempts/attempt_3/clock_period.txt
+      synthesized_netlist_path: build/flow/dot_product/results/sky130hd/dot_product/base/1_2_yosys.v
+  best_attempt_index: 1
+  best_score: -71.61744740630532
+  best_netlist_path: build/flow/dot_product/results/sky130hd/dot_product/base/1_2_yosys.v
+  selected_config_path: build/flow/dot_product/design/config.mk
+  improvement_amount: 0.0
   targets_met: false
+  behavior_match: true
+  stop_reason: max_iters_reached
+  candidate_rankings:
+    -
+      round: 1
+      metric_kind: logical_area
+      bottleneck_classification: mixed
+      rankings:
+        -
+          rank: 1
+          candidate_id: synth_area_reduce_buffers
+          candidate_family: area
+          predicted_score: 0.8246665470960908
+          ranking_reason: learned from 4 similar synth attempts for logical_area; 0 beat baseline; predicted score 0.82
+        -
+          rank: 2
+          candidate_id: synth_area_relaxed_clock_13x
+          candidate_family: area
+          predicted_score: 0.8195807238284495
+          ranking_reason: learned from 4 similar synth attempts for logical_area; 0 beat baseline; predicted score 0.82
+        -
+          rank: 3
+          candidate_id: synth_struct_flatten_area
+          candidate_family: structural
+          predicted_score: 0.8195807238284495
+          ranking_reason: learned from 4 similar synth attempts for logical_area; 0 beat baseline; predicted score 0.82
+        -
+          rank: 4
+          candidate_id: synth_struct_flatten_timing
+          candidate_family: structural
+          predicted_score: 0.8195807238284495
+          ranking_reason: learned from 4 similar synth attempts for logical_area; 0 beat baseline; predicted score 0.82
+        -
+          rank: 5
+          candidate_id: synth_area_map_area2
+          candidate_family: area
+          predicted_score: 0.8186036444814638
+          ranking_reason: learned from 4 similar synth attempts for logical_area; 0 beat baseline; predicted score 0.82
+        -
+          rank: 6
+          candidate_id: synth_struct_flatten
+          candidate_family: structural
+          predicted_score: 0.8130004880366668
+          ranking_reason: learned from 4 similar synth attempts for logical_area; 0 beat baseline; predicted score 0.81
+        -
+          rank: 7
+          candidate_id: synth_struct_keep_hierarchy
+          candidate_family: structural
+          predicted_score: 0.8041537265832702
+          ranking_reason: learned from 4 similar synth attempts for logical_area; 0 beat baseline; predicted score 0.80
+        -
+          rank: 8
+          candidate_id: synth_area_flatten_compact
+          candidate_family: area
+          predicted_score: 0.798479967718022
+          ranking_reason: learned from 4 similar synth attempts for logical_area; 0 beat baseline; predicted score 0.80
+        -
+          rank: 9
+          candidate_id: synth_area_share_resources
+          candidate_family: area
+          predicted_score: 0.798479967718022
+          ranking_reason: learned from 4 similar synth attempts for logical_area; 0 beat baseline; predicted score 0.80
+        -
+          rank: 10
+          candidate_id: synth_struct_fanout_rebalance
+          candidate_family: structural
+          predicted_score: 0.798479967718022
+          ranking_reason: learned from 4 similar synth attempts for logical_area; 0 beat baseline; predicted score 0.80
+        -
+          rank: 11
+          candidate_id: synth_power_area_strategy
+          candidate_family: power
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen power family; predicted score 0.00
+        -
+          rank: 12
+          candidate_id: synth_power_keep_hierarchy
+          candidate_family: power
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen power family; predicted score 0.00
+        -
+          rank: 13
+          candidate_id: synth_power_reduce_buffers
+          candidate_family: power
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen power family; predicted score 0.00
+        -
+          rank: 14
+          candidate_id: synth_power_relax_clock
+          candidate_family: power
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen power family; predicted score 0.00
+        -
+          rank: 15
+          candidate_id: synth_power_relaxed_clock_13x
+          candidate_family: power
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen power family; predicted score 0.00
+        -
+          rank: 16
+          candidate_id: synth_timing_conservative_baseline
+          candidate_family: timing
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen timing family; predicted score 0.00
+        -
+          rank: 17
+          candidate_id: synth_timing_effort_high
+          candidate_family: timing
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen timing family; predicted score 0.00
+        -
+          rank: 18
+          candidate_id: synth_timing_flatten_retime
+          candidate_family: timing
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen timing family; predicted score 0.00
+        -
+          rank: 19
+          candidate_id: synth_timing_push_clock_07x
+          candidate_family: timing
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen timing family; predicted score 0.00
+        -
+          rank: 20
+          candidate_id: synth_timing_retime_fanout
+          candidate_family: timing
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen timing family; predicted score 0.00
+        -
+          rank: 21
+          candidate_id: synth_timing_retime_small
+          candidate_family: timing
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen timing family; predicted score 0.00
+  why_the_best_candidate_won: baseline synthesis remained best because no candidate improved the synthesized netlist score
+  why_the_loop_stopped: max_iters_reached
+post_synth_verification:
+  enabled: true
+  behavior_match: true
+  mismatch_kind: match
+  primary_mismatch: match
+  ordered_mismatches:
+  returncode: 0
+  mismatch_count: 0
+  repair_attempts:
+  reference_source: /home/sudar762/projects/spec-to-rtl-agent/rtl/dot_product.v
+  post_synth_source: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/1_2_yosys.v
+  evidence_paths:
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/post_synth/attempt_1/rtl_reference/rtl_reference_compile.log
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/post_synth/attempt_1/rtl_reference/rtl_reference_sim.log
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/waves.vcd
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/post_synth/attempt_1/post_synth/post_synth_compile.log
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/post_synth/attempt_1/post_synth/post_synth_sim.log
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/post_synth/attempt_1/adapted_tb/tb_dot_product.sv
+  attempts:
+    -
+      attempt: 1
+      enabled: true
+      behavior_match: true
+      mismatch_kind: match
+      primary_mismatch: match
+      ordered_mismatches:
+      returncode: 0
+      mismatch_count: 0
+      reference_source: /home/sudar762/projects/spec-to-rtl-agent/rtl/dot_product.v
+      post_synth_source: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/1_2_yosys.v
+      evidence_paths:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/post_synth/attempt_1/rtl_reference/rtl_reference_compile.log
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/post_synth/attempt_1/rtl_reference/rtl_reference_sim.log
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/waves.vcd
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/post_synth/attempt_1/post_synth/post_synth_compile.log
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/post_synth/attempt_1/post_synth/post_synth_sim.log
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/post_synth/attempt_1/adapted_tb/tb_dot_product.sv
+      testbench_used: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/post_synth/attempt_1/adapted_tb/tb_dot_product.sv
+      testbench_adaptation:
+        path: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/post_synth/attempt_1/adapted_tb/tb_dot_product.sv
+        requested_modes:
+        applied_modes:
+          - vcd_dump
+        changes:
+          - added waves.vcd dumping for activity-based power estimation
+        generated_files:
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/post_synth/attempt_1/adapted_tb/tb_dot_product.sv
+        design_name: dot_product
+      reason: null
+      failure_kind: null
+      bottleneck_classification:
+        primary_bottleneck: match
+        bottleneck_classification: match
+        primary_mismatch: match
+        ordered_mismatches:
+          - match
+        metric_kind: unknown
+        metric_family_priority: 99
+        metric_source_file: null
+        reasons:
+          - post-synthesis behavior matched the RTL reference on the shared testbench stimulus
+        action_family_hint: none
+        ordered_bottlenecks:
+          - match
+        failure_kind: match
+        repairable: false
+        artifact_to_regenerate: null
+      chosen_action_family: none
+      repair_suggestions:
+  best_attempt_index: 1
+  final_classification: pass
+  reasons:
+    - post-synthesis behavior matched the RTL reference on the shared testbench stimulus
+  reason: null
+  failure_kind: null
+physical_design_flow:
+  order:
+    - floorplan
+    - power_planning
+    - placement
+    - cts
+    - routing
+    - sta
+    - finish
+  stages:
+    floorplan:
+      status: pass
+      evidence_paths:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/2_floorplan_final.rpt
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/2_1_floorplan.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/2_1_floorplan.sdc
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/2_2_floorplan_macro.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/2_2_floorplan_macro.tcl
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/2_3_floorplan_tapcell.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/2_floorplan.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/2_floorplan.sdc
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/2_1_floorplan.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/2_1_floorplan.log
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/2_2_floorplan_macro.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/2_2_floorplan_macro.log
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/2_3_floorplan_tapcell.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/2_3_floorplan_tapcell.log
+      message: stage evidence found
+    power_planning:
+      status: pass
+      evidence_paths:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/2_4_floorplan_pdn.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/2_4_floorplan_pdn.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/2_4_floorplan_pdn.log
+      message: stage evidence found
+    placement:
+      status: pass
+      evidence_paths:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/3_detailed_place.rpt
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/3_global_place.rpt
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/3_1_place_gp_skip_io.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/3_2_place_iop.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/3_2_place_iop.tcl
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/3_3_place_gp.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/3_4_place_resized.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/3_5_place_dp.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/3_place.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/3_place.sdc
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/3_1_place_gp_skip_io.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/3_1_place_gp_skip_io.log
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/3_2_place_iop.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/3_2_place_iop.log
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/3_3_place_gp.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/3_3_place_gp.log
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/3_4_place_resized.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/3_4_place_resized.log
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/3_5_place_dp.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/3_5_place_dp.log
+      message: stage evidence found
+    cts:
+      status: pass
+      evidence_paths:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/4_cts_final.rpt
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/cts_clk.webp
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/cts_default_clk_layout.webp
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/4_1_cts.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/4_cts.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/4_cts.sdc
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/4_1_cts.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/4_1_cts.log
+      message: stage evidence found
+    routing:
+      status: pass
+      evidence_paths:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/5_global_route.rpt
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/5_route_drc.rpt
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/final_routing.webp
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/5_1_grt.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/5_1_grt.sdc
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/5_2_route.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/5_3_fillcell.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/5_route.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/5_route.sdc
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/route.guide
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/5_1_grt.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/5_1_grt.log
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/5_2_route.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/5_2_route.log
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/5_3_fillcell.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/5_3_fillcell.log
+      message: stage evidence found
+    sta:
+      status: pass
+      evidence_paths:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/6_finish.rpt
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/final_clocks.webp
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/final_worst_path.webp
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.log
+      message: stage evidence found
+    finish:
+      status: pass
+      evidence_paths:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/final_all.webp
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/final_clocks.webp
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/final_congestion.webp
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/final_ir_drop.webp
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/final_placement.webp
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/final_resizer.webp
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/final_routing.webp
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/final_worst_path.webp
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/6_1_fill.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/6_1_fill.sdc
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/6_1_merged.gds
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/6_final.def
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/6_final.gds
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/6_final.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/6_final.sdc
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/6_final.spef
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/6_final.v
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/6_1_fill.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/6_1_fill.log
+      message: stage evidence found
+  target: finish
+pipeline_stages:
+  -
+    stage: spec_ingest
+    status: pass
+  -
+    stage: rtl_generation
+    status: pass
+  -
+    stage: simulation
+    status: pass
+  -
+    stage: coverage_analysis
+    status: not_run
+  -
+    stage: synthesis
+    status: pass
+  -
+    stage: dft_insertion
+    status: not_run
+  -
+    stage: atpg_generation
+    status: not_run
+  -
+    stage: lec_check
+    status: not_run
+  -
+    stage: floorplan
+    status: pass
+  -
+    stage: power_planning
+    status: pass
+  -
+    stage: placement
+    status: pass
+  -
+    stage: cts
+    status: pass
+  -
+    stage: routing
+    status: pass
+  -
+    stage: sta
+    status: pass
+  -
+    stage: gate_level_simulation
+    status: pass
+  -
+    stage: gds
+    status: pass
+  -
+    stage: signoff
+    status: partial
+qor_summary:
+  timing_wns_ns: 0.0
+  timing_tns_ns: 0.0
+  setup_violations: 0
+  hold_violations: 0
+  logical_area_um2: 18.768
+  physical_area_um2: 551.779
+  power_mw: 3.9699999999999996e-05
+  congestion_overflow: 0.0
+  cell_count: 3
+  source_reports:
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/2_floorplan_final.rpt
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/5_global_route.rpt
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/6_finish.rpt
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/5_1_grt.log
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.json
+qor_optimization:
+  enabled: true
+  targets:
+    wns: 0.0
+    tns: 0.0
+    setup_violations: 0
+    hold_violations: 0
+    logical_area: null
+    physical_area: null
+    area: null
+    power: null
+    routability: null
+    congestion: null
+  candidate_registry_used:
+    - setup
+    - timing
+    - hold
+    - logical_area
+    - physical_area
+    - power
+    - routability
+    - congestion
+    - correctness
+  baseline_metrics:
+    timing:
+      wns_ns: 0.0
+      tns_ns: 0.0
+      setup_violation_count: 0
+      hold_violation_count: 0
+      source: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/6_finish.rpt
+    area:
+      logical_um2: 18.768
+      physical_um2: 551.779
+      cell_count: 3
+      source:
+        logical_um2: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+        cell_count: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+        physical_um2: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.json
+    power:
+      mw: 3.9699999999999996e-05
+      source: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/6_finish.rpt
+    routability:
+      congestion: 0.0
+      utilization: 0.017352
+      wirelength_um: 27.0
+      source:
+        congestion: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.json
+        utilization: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.json
+        wirelength_um: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/5_1_grt.log
+    metadata:
+      platform: sky130hd
+      design_name: dot_product
+      clock_period_ns: 10.0
+      report_paths:
+        finish_report: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/6_finish.rpt
+        synth_stats: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+        floorplan_report: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/2_floorplan_final.rpt
+        route_report: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/5_global_route.rpt
+        finish_json: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.json
+        grt_log: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/5_1_grt.log
+        clock_period: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/clock_period.txt
+      missing_reports:
+        - congestion_report
+    metric_kind: null
+    bottleneck_classification: null
+    metric_source_file: null
+    raw_reports:
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/6_finish.rpt
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.json
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/2_floorplan_final.rpt
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/5_global_route.rpt
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/5_1_grt.log
+    targets:
+      wns: 0.0
+      tns: 0.0
+      setup_violations: 0
+      hold_violations: 0
+      logical_area: null
+      physical_area: null
+      area: null
+      power: null
+      routability: null
+      congestion: null
+    wns_ns: 0.0
+    tns_ns: 0.0
+    setup_violation_count: 0
+    hold_violation_count: 0
+    logical_area_um2: 18.768
+    physical_area_um2: 551.779
+    power_mw: 3.9699999999999996e-05
+    congestion: 0.0
+    congestion_overflow: 0.0
+    utilization: 0.017352
+    wirelength_um: 27.0
+    cell_count: 3
+  attempts:
+    -
+      attempt: 1
+      spec_name: p5
+      design_kind: generic
+      target: finish
+      status: pass
+      returncode: 0
+      command: /usr/bin/make -C /home/sudar762/OpenROAD-flow-scripts/flow DESIGN_CONFIG=/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/config.mk finish
+      config_path: build/flow/dot_product/design/config.mk
+      metrics:
+        timing:
+          wns_ns: 0.0
+          tns_ns: 0.0
+          setup_violation_count: 0
+          hold_violation_count: 0
+          source: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/6_finish.rpt
+        area:
+          logical_um2: 18.768
+          physical_um2: 551.779
+          cell_count: 3
+          source:
+            logical_um2: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+            cell_count: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+            physical_um2: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.json
+        power:
+          mw: 3.9699999999999996e-05
+          source: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/6_finish.rpt
+        routability:
+          congestion: 0.0
+          utilization: 0.017352
+          wirelength_um: 27.0
+          source:
+            congestion: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.json
+            utilization: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.json
+            wirelength_um: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/5_1_grt.log
+        metadata:
+          platform: sky130hd
+          design_name: dot_product
+          clock_period_ns: 10.0
+          report_paths:
+            finish_report: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/6_finish.rpt
+            synth_stats: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+            floorplan_report: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/2_floorplan_final.rpt
+            route_report: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/5_global_route.rpt
+            finish_json: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.json
+            grt_log: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/5_1_grt.log
+            clock_period: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/clock_period.txt
+          missing_reports:
+            - congestion_report
+        metric_kind: null
+        bottleneck_classification: null
+        metric_source_file: null
+        raw_reports:
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/6_finish.rpt
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.json
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/2_floorplan_final.rpt
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/5_global_route.rpt
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/5_1_grt.log
+        targets:
+          wns: 0.0
+          tns: 0.0
+          setup_violations: 0
+          hold_violations: 0
+          logical_area: null
+          physical_area: null
+          area: null
+          power: null
+          routability: null
+          congestion: null
+        wns_ns: 0.0
+        tns_ns: 0.0
+        setup_violation_count: 0
+        hold_violation_count: 0
+        logical_area_um2: 18.768
+        physical_area_um2: 551.779
+        power_mw: 3.9699999999999996e-05
+        congestion: 0.0
+        congestion_overflow: 0.0
+        utilization: 0.017352
+        wirelength_um: 27.0
+        cell_count: 3
+      signoff:
+        status: partial
+        drc_status: partial
+        lvs_status: partial
+        drc_violation_count: 0
+        lvs_mismatch_count: 0
+        signoff_tool_availability:
+          magic: true
+          netgen: true
+          magic_usable: true
+          netgen_usable: false
+          magic_path: /usr/bin/magic
+          netgen_path: /usr/bin/netgen
+        signoff_reports:
+          drc_report_paths:
+            - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/drc/magic_drc.rpt
+          lvs_report_paths:
+            - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/lvs/netgen_lvs.rpt
+        signoff_artifacts:
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/drc/magic_drc.tcl
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/drc/magic_drc.rpt
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/lvs/netgen_lvs.tcl
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/lvs/netgen_lvs.rpt
+        magic_rcfile_used: null
+        netgen_env_used:
+          NETGENDIR: /usr/share/netgen
+          LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu/netgen
+          OMPI_MCA_plm: isolated
+          OMPI_MCA_btl: self
+        retry_attempts:
+          netgen: 0
+        failure_kind: unsupported
+        metric_kind: unknown
+        action_family_hint: none
+        ordered_bottlenecks:
+          - netgen
+        notes:
+          - could not find a Magic rcfile near /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef
+          - could not find a Netgen LVS setup file
+        enabled: true
+        drc:
+          command: null
+          returncode: null
+          stdout: ""
+          stderr: ""
+          drc_status: partial
+          lvs_status: not_run
+          drc_violation_count: 0
+          lvs_mismatch_count: 0
+          signoff_tool_availability:
+            magic: true
+            netgen: true
+            magic_usable: true
+            netgen_usable: false
+            magic_path: /usr/bin/magic
+            netgen_path: /usr/bin/netgen
+          signoff_reports:
+            - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/drc/magic_drc.rpt
+          signoff_artifacts:
+            - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/drc/magic_drc.tcl
+            - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/drc/magic_drc.rpt
+          magic_rcfile_used: null
+          netgen_env_used:
+          retry_attempts:
+            netgen: 0
+          notes:
+            - could not find a Magic rcfile near /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef
+          tool: magic
+          design_name: dot_product
+          gds_path: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/6_final.gds
+          tech_lef: /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef
+        lvs:
+          command: null
+          returncode: null
+          stdout: ""
+          stderr: ""
+          drc_status: not_run
+          lvs_status: partial
+          drc_violation_count: 0
+          lvs_mismatch_count: 0
+          signoff_tool_availability:
+            magic: true
+            netgen: true
+            magic_usable: true
+            netgen_usable: false
+            magic_path: /usr/bin/magic
+            netgen_path: /usr/bin/netgen
+          signoff_reports:
+            - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/lvs/netgen_lvs.rpt
+          signoff_artifacts:
+            - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/lvs/netgen_lvs.tcl
+            - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/lvs/netgen_lvs.rpt
+          magic_rcfile_used: null
+          netgen_env_used:
+            NETGENDIR: /usr/share/netgen
+            LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu/netgen
+            OMPI_MCA_plm: isolated
+            OMPI_MCA_btl: self
+          retry_attempts:
+            netgen: 0
+          notes:
+            - could not find a Netgen LVS setup file
+          tool: netgen
+          layout_netlist: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/6_final.v
+          schematic_netlist: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/src/dot_product.v
+      metric_kind: unknown
+      bottleneck_classification:
+        primary_bottleneck: unknown
+        metric_kind: unknown
+        bottleneck_classification: unknown
+        reasons:
+          - No target miss or dominant QoR hotspot detected.
+        metric_source_file: null
+        action_family_hint: none
+        metric_family_priority: 99
+      chosen_action_family: none
+      chosen_knobs:
+      candidate_id: null
+      candidate_family: null
+      candidate_why: null
+      candidate_ml_predicted_score: null
+      candidate_ml_ranking_reason: null
+      candidate_ml_features: null
+      metric_source_file: null
+      tuning_action:
+      score: -19.328091999999998
+      score_before: -19.328091999999998
+      score_delta: 0.0
+      score_reasons:
+        - WNS contribution 0.00
+        - TNS contribution 0.00
+        - setup violation contribution -0.00
+        - hold violation contribution -0.00
+        - logical area contribution -6.57
+        - physical area contribution -2.76
+        - power contribution -0.00
+        - routability contribution -0.00
+        - signoff penalty 5.00 because DRC is unsupported or partial
+        - signoff penalty 5.00 because LVS is unsupported or partial
+      targets_met: true
+      signoff_targets_met: true
+      improvement_amount: null
+      beat_baseline: false
+      behavior_match: true
+      post_synth_pass: true
+      action_family_matched_bottleneck: true
+      snapshot_paths:
+        6_finish.rpt: build/flow/dot_product/qor_attempts/attempt_1/6_finish.rpt
+        synth_stat.txt: build/flow/dot_product/qor_attempts/attempt_1/synth_stat.txt
+        5_1_grt.log: build/flow/dot_product/qor_attempts/attempt_1/5_1_grt.log
+        6_report.json: build/flow/dot_product/qor_attempts/attempt_1/6_report.json
+        clock_period.txt: build/flow/dot_product/qor_attempts/attempt_1/clock_period.txt
+        openroad_openroad_attempt_1.log: build/flow/dot_product/qor_attempts/attempt_1/openroad_openroad_attempt_1.log
+  attempt_metrics:
+    -
+      timing:
+        wns_ns: 0.0
+        tns_ns: 0.0
+        setup_violation_count: 0
+        hold_violation_count: 0
+        source: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/6_finish.rpt
+      area:
+        logical_um2: 18.768
+        physical_um2: 551.779
+        cell_count: 3
+        source:
+          logical_um2: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+          cell_count: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+          physical_um2: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.json
+      power:
+        mw: 3.9699999999999996e-05
+        source: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/6_finish.rpt
+      routability:
+        congestion: 0.0
+        utilization: 0.017352
+        wirelength_um: 27.0
+        source:
+          congestion: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.json
+          utilization: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.json
+          wirelength_um: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/5_1_grt.log
+      metadata:
+        platform: sky130hd
+        design_name: dot_product
+        clock_period_ns: 10.0
+        report_paths:
+          finish_report: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/6_finish.rpt
+          synth_stats: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+          floorplan_report: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/2_floorplan_final.rpt
+          route_report: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/5_global_route.rpt
+          finish_json: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.json
+          grt_log: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/5_1_grt.log
+          clock_period: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/clock_period.txt
+        missing_reports:
+          - congestion_report
+      metric_kind: null
+      bottleneck_classification: null
+      metric_source_file: null
+      raw_reports:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/6_finish.rpt
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/2_floorplan_final.rpt
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/5_global_route.rpt
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/5_1_grt.log
+      targets:
+        wns: 0.0
+        tns: 0.0
+        setup_violations: 0
+        hold_violations: 0
+        logical_area: null
+        physical_area: null
+        area: null
+        power: null
+        routability: null
+        congestion: null
+      wns_ns: 0.0
+      tns_ns: 0.0
+      setup_violation_count: 0
+      hold_violation_count: 0
+      logical_area_um2: 18.768
+      physical_area_um2: 551.779
+      power_mw: 3.9699999999999996e-05
+      congestion: 0.0
+      congestion_overflow: 0.0
+      utilization: 0.017352
+      wirelength_um: 27.0
+      cell_count: 3
+  score_per_attempt:
+    -
+      attempt: 1
+      score: -19.328091999999998
+  best_attempt_index: 1
+  best_score: -19.328091999999998
+  final_selected_metrics:
+    timing:
+      wns_ns: 0.0
+      tns_ns: 0.0
+      setup_violation_count: 0
+      hold_violation_count: 0
+      source: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/6_finish.rpt
+    area:
+      logical_um2: 18.768
+      physical_um2: 551.779
+      cell_count: 3
+      source:
+        logical_um2: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+        cell_count: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+        physical_um2: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.json
+    power:
+      mw: 3.9699999999999996e-05
+      source: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/6_finish.rpt
+    routability:
+      congestion: 0.0
+      utilization: 0.017352
+      wirelength_um: 27.0
+      source:
+        congestion: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.json
+        utilization: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.json
+        wirelength_um: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/5_1_grt.log
+    metadata:
+      platform: sky130hd
+      design_name: dot_product
+      clock_period_ns: 10.0
+      report_paths:
+        finish_report: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/6_finish.rpt
+        synth_stats: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+        floorplan_report: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/2_floorplan_final.rpt
+        route_report: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/5_global_route.rpt
+        finish_json: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.json
+        grt_log: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/5_1_grt.log
+        clock_period: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/clock_period.txt
+      missing_reports:
+        - congestion_report
+    metric_kind: null
+    bottleneck_classification: null
+    metric_source_file: null
+    raw_reports:
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/6_finish.rpt
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.json
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/2_floorplan_final.rpt
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/5_global_route.rpt
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/5_1_grt.log
+    targets:
+      wns: 0.0
+      tns: 0.0
+      setup_violations: 0
+      hold_violations: 0
+      logical_area: null
+      physical_area: null
+      area: null
+      power: null
+      routability: null
+      congestion: null
+    wns_ns: 0.0
+    tns_ns: 0.0
+    setup_violation_count: 0
+    hold_violation_count: 0
+    logical_area_um2: 18.768
+    physical_area_um2: 551.779
+    power_mw: 3.9699999999999996e-05
+    congestion: 0.0
+    congestion_overflow: 0.0
+    utilization: 0.017352
+    wirelength_um: 27.0
+    cell_count: 3
+  final_signoff:
+    status: partial
+    drc_status: partial
+    lvs_status: partial
+    drc_violation_count: 0
+    lvs_mismatch_count: 0
+    signoff_tool_availability:
+      magic: true
+      netgen: true
+      magic_usable: true
+      netgen_usable: false
+      magic_path: /usr/bin/magic
+      netgen_path: /usr/bin/netgen
+    signoff_reports:
+      drc_report_paths:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/drc/magic_drc.rpt
+      lvs_report_paths:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/lvs/netgen_lvs.rpt
+    signoff_artifacts:
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/drc/magic_drc.tcl
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/drc/magic_drc.rpt
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/lvs/netgen_lvs.tcl
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/lvs/netgen_lvs.rpt
+    magic_rcfile_used: null
+    netgen_env_used:
+      NETGENDIR: /usr/share/netgen
+      LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu/netgen
+      OMPI_MCA_plm: isolated
+      OMPI_MCA_btl: self
+    retry_attempts:
+      netgen: 0
+    failure_kind: unsupported
+    metric_kind: unknown
+    action_family_hint: none
+    ordered_bottlenecks:
+      - netgen
+    notes:
+      - could not find a Magic rcfile near /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef
+      - could not find a Netgen LVS setup file
+    enabled: true
+    drc:
+      command: null
+      returncode: null
+      stdout: ""
+      stderr: ""
+      drc_status: partial
+      lvs_status: not_run
+      drc_violation_count: 0
+      lvs_mismatch_count: 0
+      signoff_tool_availability:
+        magic: true
+        netgen: true
+        magic_usable: true
+        netgen_usable: false
+        magic_path: /usr/bin/magic
+        netgen_path: /usr/bin/netgen
+      signoff_reports:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/drc/magic_drc.rpt
+      signoff_artifacts:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/drc/magic_drc.tcl
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/drc/magic_drc.rpt
+      magic_rcfile_used: null
+      netgen_env_used:
+      retry_attempts:
+        netgen: 0
+      notes:
+        - could not find a Magic rcfile near /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef
+      tool: magic
+      design_name: dot_product
+      gds_path: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/6_final.gds
+      tech_lef: /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef
+    lvs:
+      command: null
+      returncode: null
+      stdout: ""
+      stderr: ""
+      drc_status: not_run
+      lvs_status: partial
+      drc_violation_count: 0
+      lvs_mismatch_count: 0
+      signoff_tool_availability:
+        magic: true
+        netgen: true
+        magic_usable: true
+        netgen_usable: false
+        magic_path: /usr/bin/magic
+        netgen_path: /usr/bin/netgen
+      signoff_reports:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/lvs/netgen_lvs.rpt
+      signoff_artifacts:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/lvs/netgen_lvs.tcl
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/lvs/netgen_lvs.rpt
+      magic_rcfile_used: null
+      netgen_env_used:
+        NETGENDIR: /usr/share/netgen
+        LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu/netgen
+        OMPI_MCA_plm: isolated
+        OMPI_MCA_btl: self
+      retry_attempts:
+        netgen: 0
+      notes:
+        - could not find a Netgen LVS setup file
+      tool: netgen
+      layout_netlist: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/6_final.v
+      schematic_netlist: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/src/dot_product.v
+  improved: false
+  targets_met: true
+  selected_config_path: build/flow/dot_product/design/config.mk
+  chosen_action_family: none
+  metric_kind: unknown
+  bottleneck_classification:
+    primary_bottleneck: unknown
+    metric_kind: unknown
+    bottleneck_classification: unknown
+    reasons:
+      - No target miss or dominant QoR hotspot detected.
+    metric_source_file: null
+    action_family_hint: none
+    metric_family_priority: 99
+  action_family_matched_bottleneck: true
+  repairs_attempted:
+  signoff_enabled: true
+  signoff_only: false
+  rounds_executed: 0
+  stop_reason: targets_met
+  why_the_best_candidate_won: baseline remained best because no candidate improved the multi-objective score
+  why_the_loop_stopped: baseline already met all QoR targets
   ml_tuning:
     enabled: false
     history_path: build/ml_history.json
     features_used:
-    ranking_reason: ML tuning disabled
+      - spec_name
+      - design_kind
+      - metric_kind
+      - bottleneck_classification
+      - candidate_family
+      - candidate_knobs
+      - timing_pressure
+      - setup_violations
+      - hold_violations
+      - logical_area_um2
+      - physical_area_um2
+      - power_mw
+      - congestion
+      - utilization
+      - clock_period_ns
+    ranking_reason: baseline remained best after learned reranking
     candidate_rankings:
-    selected_candidate: null
-    score_before: null
-    score_after: null
-    improvement_amount: null
-    best_attempt_index: null
-    targets_met: false
+    selected_candidate:
+      attempt: 1
+      candidate_id: null
+      candidate_family: null
+      ranking_reason: null
+      predicted_score: null
+    score_before: -19.328091999999998
+    score_after: -19.328091999999998
+    improvement_amount: 0.0
+    best_attempt_index: 1
+    targets_met: true
 signoff:
   enabled: true
   tool_availability:
@@ -249,53 +1619,292 @@ signoff:
     netgen: /usr/bin/netgen
   magic_rcfile_used: null
   netgen_env_used:
+    NETGENDIR: /usr/share/netgen
+    LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu/netgen
+    OMPI_MCA_plm: isolated
+    OMPI_MCA_btl: self
   retry_attempts:
-  drc_status: not_run
-  lvs_status: not_run
+    netgen: 0
+  drc_status: partial
+  lvs_status: partial
   drc_violation_count: 0
   lvs_mismatch_count: 0
-  failure_kind: null
+  failure_kind: unsupported
   drc_report_paths:
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/drc/magic_drc.rpt
   lvs_report_paths:
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/lvs/netgen_lvs.rpt
   artifact_paths:
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/drc/magic_drc.tcl
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/drc/magic_drc.rpt
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/lvs/netgen_lvs.tcl
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/signoff/lvs/netgen_lvs.rpt
   bottleneck_classification:
-    primary_bottleneck: unknown
-    bottleneck_classification: unknown
+    primary_bottleneck: signoff_support
+    bottleneck_classification: unsupported
     metric_kind: unknown
     metric_family_priority: 99
     metric_source_file: null
     reasons:
-      - No actionable signoff bottleneck detected.
+      - "signoff partially supported: netgen"
+      - could not find a Magic rcfile near /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef
+      - could not find a Netgen LVS setup file
     action_family_hint: none
     ordered_bottlenecks:
-    failure_kind: clean
+      - netgen
+    failure_kind: unsupported
   repairs_attempted:
   targets_met: true
-  final_classification: not_run
+  final_classification: partial
   notes:
-    - "magic available and usable in headless/batch mode; netgen installed but unusable: binary in PATH is not Netgen-LVS"
+    - could not find a Magic rcfile near /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef
+    - could not find a Netgen LVS setup file
 artifacts:
   generated_rtl_path: rtl/dot_product.v
   generated_testbench_path: tb/tb_dot_product.sv
   compile_log: build/pipeline/dot_product/logs/compile.log
   simulation_log: build/pipeline/dot_product/logs/simulation.log
+  coverage_log: build/pipeline/dot_product/logs/coverage_analysis.log
+  dft_log: null
+  atpg_log: null
+  lec_log: null
+  final_gds: build/flow/dot_product/results/sky130hd/dot_product/base/6_final.gds
   synthesis_openroad_logs:
+    - build/flow/dot_product/logs/openroad_openroad_attempt_1.log
   output_artifacts:
     - build/flow/dot_product/design/src/dot_product.v
     - build/flow/dot_product/design/filelist.f
     - build/flow/dot_product/design/filelist.tcl
     - build/flow/dot_product/design/config.mk
+    - build/flow/dot_product/design/power_activity.tcl
     - build/flow/dot_product/design/design_manifest.yaml
     - build/flow/dot_product/design/README.md
     - build/flow/dot_product/design/constraint.sdc
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/2_floorplan_final.rpt
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/3_detailed_place.rpt
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/3_global_place.rpt
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/3_resizer.rpt
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/4_cts_final.rpt
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/5_global_route.rpt
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/5_route_drc.rpt
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/6_finish.rpt
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/cts_clk.webp
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/cts_default_clk_layout.webp
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/drt_antennas.log
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/final_all.webp
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/final_clocks.webp
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/final_congestion.webp
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/final_ir_drop.webp
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/final_placement.webp
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/final_resizer.webp
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/final_routing.webp
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/final_worst_path.webp
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/grt_antennas.log
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/synth_check.txt
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+    - build/flow/dot_product/results/sky130hd/dot_product/base/1_1_yosys_canonicalize.rtlil
+    - build/flow/dot_product/results/sky130hd/dot_product/base/1_2_yosys.sdc
+    - build/flow/dot_product/results/sky130hd/dot_product/base/1_2_yosys.v
+    - build/flow/dot_product/results/sky130hd/dot_product/base/1_synth.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/1_synth.sdc
+    - build/flow/dot_product/results/sky130hd/dot_product/base/2_1_floorplan.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/2_1_floorplan.sdc
+    - build/flow/dot_product/results/sky130hd/dot_product/base/2_2_floorplan_macro.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/2_2_floorplan_macro.tcl
+    - build/flow/dot_product/results/sky130hd/dot_product/base/2_3_floorplan_tapcell.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/2_4_floorplan_pdn.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/2_floorplan.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/2_floorplan.sdc
+    - build/flow/dot_product/results/sky130hd/dot_product/base/3_1_place_gp_skip_io.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/3_2_place_iop.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/3_2_place_iop.tcl
+    - build/flow/dot_product/results/sky130hd/dot_product/base/3_3_place_gp.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/3_4_place_resized.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/3_5_place_dp.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/3_place.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/3_place.sdc
+    - build/flow/dot_product/results/sky130hd/dot_product/base/4_1_cts.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/4_after_rsz_lec.v
+    - build/flow/dot_product/results/sky130hd/dot_product/base/4_before_rsz_lec.v
+    - build/flow/dot_product/results/sky130hd/dot_product/base/4_cts.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/4_cts.sdc
+    - build/flow/dot_product/results/sky130hd/dot_product/base/5_1_grt.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/5_1_grt.sdc
+    - build/flow/dot_product/results/sky130hd/dot_product/base/5_2_route.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/5_3_fillcell.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/5_route.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/5_route.sdc
+    - build/flow/dot_product/results/sky130hd/dot_product/base/6_1_fill.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/6_1_fill.sdc
+    - build/flow/dot_product/results/sky130hd/dot_product/base/6_1_merged.gds
+    - build/flow/dot_product/results/sky130hd/dot_product/base/6_final.def
+    - build/flow/dot_product/results/sky130hd/dot_product/base/6_final.gds
+    - build/flow/dot_product/results/sky130hd/dot_product/base/6_final.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/6_final.sdc
+    - build/flow/dot_product/results/sky130hd/dot_product/base/6_final.spef
+    - build/flow/dot_product/results/sky130hd/dot_product/base/6_final.v
+    - build/flow/dot_product/results/sky130hd/dot_product/base/clock_period.txt
+    - build/flow/dot_product/results/sky130hd/dot_product/base/mem.json
+    - build/flow/dot_product/results/sky130hd/dot_product/base/route.guide
+    - build/flow/dot_product/results/sky130hd/dot_product/base/waves.vcd
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/1_1_yosys_canonicalize.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/1_2_yosys.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/1_synth.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/1_synth.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/2_1_floorplan.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/2_1_floorplan.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/2_2_floorplan_macro.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/2_2_floorplan_macro.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/2_3_floorplan_tapcell.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/2_3_floorplan_tapcell.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/2_4_floorplan_pdn.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/2_4_floorplan_pdn.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/3_1_place_gp_skip_io.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/3_1_place_gp_skip_io.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/3_2_place_iop.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/3_2_place_iop.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/3_3_place_gp.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/3_3_place_gp.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/3_4_place_resized.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/3_4_place_resized.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/3_5_place_dp.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/3_5_place_dp.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/4_1_cts.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/4_1_cts.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/4_rsz_lec_check.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/5_1_grt.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/5_1_grt.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/5_2_route.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/5_2_route.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/5_3_fillcell.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/5_3_fillcell.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/6_1_fill.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/6_1_fill.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/6_1_merge.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.log
+    - /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef
+    - /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd_merged.lef
+    - build/flow/dot_product/logs/openroad_openroad_attempt_1.log
   openroad_reports:
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/2_floorplan_final.rpt
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/3_detailed_place.rpt
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/3_global_place.rpt
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/3_resizer.rpt
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/4_cts_final.rpt
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/5_global_route.rpt
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/5_route_drc.rpt
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/6_finish.rpt
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/cts_clk.webp
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/cts_default_clk_layout.webp
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/drt_antennas.log
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/final_all.webp
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/final_clocks.webp
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/final_congestion.webp
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/final_ir_drop.webp
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/final_placement.webp
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/final_resizer.webp
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/final_routing.webp
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/final_worst_path.webp
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/grt_antennas.log
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/synth_check.txt
+    - build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
   openroad_results:
+    - build/flow/dot_product/results/sky130hd/dot_product/base/1_1_yosys_canonicalize.rtlil
+    - build/flow/dot_product/results/sky130hd/dot_product/base/1_2_yosys.sdc
+    - build/flow/dot_product/results/sky130hd/dot_product/base/1_2_yosys.v
+    - build/flow/dot_product/results/sky130hd/dot_product/base/1_synth.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/1_synth.sdc
+    - build/flow/dot_product/results/sky130hd/dot_product/base/2_1_floorplan.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/2_1_floorplan.sdc
+    - build/flow/dot_product/results/sky130hd/dot_product/base/2_2_floorplan_macro.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/2_2_floorplan_macro.tcl
+    - build/flow/dot_product/results/sky130hd/dot_product/base/2_3_floorplan_tapcell.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/2_4_floorplan_pdn.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/2_floorplan.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/2_floorplan.sdc
+    - build/flow/dot_product/results/sky130hd/dot_product/base/3_1_place_gp_skip_io.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/3_2_place_iop.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/3_2_place_iop.tcl
+    - build/flow/dot_product/results/sky130hd/dot_product/base/3_3_place_gp.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/3_4_place_resized.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/3_5_place_dp.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/3_place.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/3_place.sdc
+    - build/flow/dot_product/results/sky130hd/dot_product/base/4_1_cts.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/4_after_rsz_lec.v
+    - build/flow/dot_product/results/sky130hd/dot_product/base/4_before_rsz_lec.v
+    - build/flow/dot_product/results/sky130hd/dot_product/base/4_cts.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/4_cts.sdc
+    - build/flow/dot_product/results/sky130hd/dot_product/base/5_1_grt.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/5_1_grt.sdc
+    - build/flow/dot_product/results/sky130hd/dot_product/base/5_2_route.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/5_3_fillcell.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/5_route.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/5_route.sdc
+    - build/flow/dot_product/results/sky130hd/dot_product/base/6_1_fill.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/6_1_fill.sdc
+    - build/flow/dot_product/results/sky130hd/dot_product/base/6_1_merged.gds
+    - build/flow/dot_product/results/sky130hd/dot_product/base/6_final.def
+    - build/flow/dot_product/results/sky130hd/dot_product/base/6_final.gds
+    - build/flow/dot_product/results/sky130hd/dot_product/base/6_final.odb
+    - build/flow/dot_product/results/sky130hd/dot_product/base/6_final.sdc
+    - build/flow/dot_product/results/sky130hd/dot_product/base/6_final.spef
+    - build/flow/dot_product/results/sky130hd/dot_product/base/6_final.v
+    - build/flow/dot_product/results/sky130hd/dot_product/base/clock_period.txt
+    - build/flow/dot_product/results/sky130hd/dot_product/base/mem.json
+    - build/flow/dot_product/results/sky130hd/dot_product/base/route.guide
+    - build/flow/dot_product/results/sky130hd/dot_product/base/waves.vcd
   openroad_logs:
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/1_1_yosys_canonicalize.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/1_2_yosys.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/1_synth.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/1_synth.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/2_1_floorplan.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/2_1_floorplan.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/2_2_floorplan_macro.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/2_2_floorplan_macro.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/2_3_floorplan_tapcell.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/2_3_floorplan_tapcell.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/2_4_floorplan_pdn.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/2_4_floorplan_pdn.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/3_1_place_gp_skip_io.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/3_1_place_gp_skip_io.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/3_2_place_iop.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/3_2_place_iop.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/3_3_place_gp.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/3_3_place_gp.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/3_4_place_resized.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/3_4_place_resized.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/3_5_place_dp.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/3_5_place_dp.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/4_1_cts.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/4_1_cts.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/4_rsz_lec_check.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/5_1_grt.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/5_1_grt.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/5_2_route.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/5_2_route.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/5_3_fillcell.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/5_3_fillcell.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/6_1_fill.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/6_1_fill.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/6_1_merge.log
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.json
+    - build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.log
   openroad_other_artifacts:
+    - /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef
+    - /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd_merged.lef
   qor_report_paths:
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/2_floorplan_final.rpt
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/5_global_route.rpt
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/6_finish.rpt
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/5_1_grt.log
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/6_report.json
 commands:
   agent_command: python agent.py --spec /home/sudar762/projects/spec-to-rtl-agent/examples/specs/p5.yaml --verify sim --max-passes 3 --overwrite
-  openroad_command: null
+  openroad_command: /usr/bin/make -C /home/sudar762/OpenROAD-flow-scripts/flow DESIGN_CONFIG=/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/config.mk finish
 repair_attempts:
   rtl:
   downstream:
@@ -303,16 +1912,18 @@ downstream_validation:
   issues:
   environment_messages:
     - PDK_ROOT is not set
-    - post-synthesis behavior check did not converge before the retry limit
-final_classification: partially supported
+final_classification: pass
 final_outcome:
   rtl_verified: true
   synthesis_collateral_generated: true
   synthesis_run_passed: false
-  openroad_run_passed: false
-  post_synth_behavior_match: false
+  openroad_run_passed: true
+  post_synth_behavior_match: true
+  logical_correctness: true
+  qor_ready: true
+  signoff_ready: true
   signoff_passed: true
-  partially_supported: true
+  partially_supported: false
   unsupported: false
 agent_stage:
   returncode: 0

@@ -1,0 +1,28 @@
+
+20. Printing statistics.
+
+=== fsm_handshake ===
+
+        +----------------------------Count including submodules.
+        |        +-------------------Area including submodules.
+        |        |        +----------Local count, excluding submodules.
+        |        |        |        +-Local area, excluding submodules.
+        |        |        |        | 
+       17        -       17        - wires
+       17        -       17        - wire bits
+        7        -        7        - public wires
+        7        -        7        - public wire bits
+        6        -        6        - ports
+        6        -        6        - port bits
+        -        -        -        - memories
+        -        -        -        - memory bits
+        -        -        -        - processes
+       13  113.859       13  113.859 cells
+        2   50.048        2   50.048   sky130_fd_sc_hd__dfrtp_1
+        1   26.275        1   26.275   sky130_fd_sc_hd__dfstp_2
+        4   15.014        4   15.014   sky130_fd_sc_hd__inv_1
+        6   22.522        6   22.522   sky130_fd_sc_hd__nand2_1
+
+   Chip area for module '\fsm_handshake': 113.859200
+     of which used for sequential elements: 76.323200 (67.03%)
+

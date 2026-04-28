@@ -1,0 +1,24 @@
+top: updown_counter16
+design_kind: generic
+platform: sky130hd
+rtl: /home/sudar762/projects/spec-to-rtl-agent/build/flow/updown_counter16/design/src/updown_counter16.v
+testbench: /home/sudar762/projects/spec-to-rtl-agent/tb/tb_updown_counter16.sv
+clock_port: clk
+clock_period_ns: 10
+ports:
+  -
+    name: clk
+    dir: input
+    width: 1
+  -
+    name: reset
+    dir: input
+    width: 1
+  -
+    name: up
+    dir: input
+    width: 1
+  -
+    name: count
+    dir: output
+    width: 16

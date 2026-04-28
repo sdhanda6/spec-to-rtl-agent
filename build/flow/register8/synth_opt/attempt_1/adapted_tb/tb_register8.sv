@@ -1,0 +1,43 @@
+`timescale 1ns/1ps
+
+module tb_register8;
+    initial begin
+        $dumpfile("waves.vcd");
+        $dumpvars(0, tb_register8);
+    end
+    reg clk;
+    reg rst_n;
+    reg en;
+    reg [7:0] d;
+    wire [7:0] q;
+
+    register8 dut (
+        .clk(clk),
+        .rst_n(rst_n),
+        .en(en),
+        .d(d),
+        .q(q)
+    );
+
+    always #5 clk = ~clk;
+
+    initial begin
+        clk = 1'b0;
+        rst_n = 1'b0;
+        en = 1'b0;
+        d = 8'd0;
+        #2;
+        if (q !== 8'd0) $fatal(1, "reset failed");
+        rst_n = 1'b1;
+        d = 8'd10;
+        en = 1'b1;
+        @(posedge clk);
+        #1 if (q !== 8'd10) $fatal(1, "load failed");
+        en = 1'b0;
+        d = 8'd3;
+        @(posedge clk);
+        #1 if (q !== 8'd10) $fatal(1, "hold failed");
+        $display("PASS tb_register8");
+        $finish;
+    end
+endmodule

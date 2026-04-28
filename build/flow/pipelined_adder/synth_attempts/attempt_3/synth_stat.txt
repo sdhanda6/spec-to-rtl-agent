@@ -1,0 +1,40 @@
+
+20. Printing statistics.
+
+=== pipelined_adder ===
+
+        +----------------------------Count including submodules.
+        |        +-------------------Area including submodules.
+        |        |        +----------Local count, excluding submodules.
+        |        |        |        +-Local area, excluding submodules.
+        |        |        |        | 
+      249        -      249        - wires
+      294        -      294        - wire bits
+       53        -       53        - public wires
+       98        -       98        - public wire bits
+        5        -        5        - ports
+       50        -       50        - port bits
+        -        -        -        - memories
+        -        -        -        - memory bits
+        -        -        -        - processes
+      244 2.55E+03      244 2.55E+03 cells
+        5   25.024        5   25.024   sky130_fd_sc_hd__a21oi_1
+        3   26.275        3   26.275   sky130_fd_sc_hd__a21oi_2
+       64  1.6E+03       64  1.6E+03   sky130_fd_sc_hd__dfrtp_1
+        1   20.019        1   20.019   sky130_fd_sc_hd__fa_1
+       15   187.68       15   187.68   sky130_fd_sc_hd__ha_1
+       36   135.13       36   135.13   sky130_fd_sc_hd__inv_1
+        6   22.522        6   22.522   sky130_fd_sc_hd__inv_2
+       74  277.766       74  277.766   sky130_fd_sc_hd__nand2_1
+        7   43.792        7   43.792   sky130_fd_sc_hd__nand2_2
+       11   55.053       11   55.053   sky130_fd_sc_hd__nand3_1
+        1    10.01        1    10.01   sky130_fd_sc_hd__nand3_2
+        1    6.256        1    6.256   sky130_fd_sc_hd__nand4_1
+        8   30.029        8   30.029   sky130_fd_sc_hd__nor2_1
+        3   30.029        3   30.029   sky130_fd_sc_hd__nor3_2
+        1    8.758        1    8.758   sky130_fd_sc_hd__o21ai_2
+        8   70.067        8   70.067   sky130_fd_sc_hd__xor2_1
+
+   Chip area for module '\pipelined_adder': 2549.945600
+     of which used for sequential elements: 1601.536000 (62.81%)
+

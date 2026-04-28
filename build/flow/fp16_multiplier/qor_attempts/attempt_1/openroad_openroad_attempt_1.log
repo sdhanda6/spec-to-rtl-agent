@@ -2,8 +2,8 @@ make: Entering directory '/home/sudar762/OpenROAD-flow-scripts/flow'
 /home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 2_1_floorplan floorplan
 Running floorplan.tcl, stage 2_1_floorplan
 read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-read_db ./results/sky130hd/fp16_multiplier/base/1_synth.odb
-read_sdc ./results/sky130hd/fp16_multiplier/base/1_synth.sdc
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/1_synth.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/1_synth.sdc
 source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
 Master sky130_ef_sc_hd__decap_12 is loaded but not used in the design
 Removed 0 unused instances and 0 unused nets.
@@ -11,7 +11,7 @@ Removed 0 unused instances and 0 unused nets.
 ==========================================================================
 Floorplan check_setup
 --------------------------------------------------------------------------
-Warning: There are 32 input ports missing set_input_delay.
+Warning: There are 33 input ports missing set_input_delay.
 number instances in verilog is 17
 [WARNING IFP-0028] Core area lower left (10.000, 10.000) snapped to (10.120, 10.880).
 [INFO IFP-0001] Added 65 rows of 391 site unithd.
@@ -64,50 +64,50 @@ Report metrics stage 2, floorplan final...
 floorplan final report_design_area
 --------------------------------------------------------------------------
 Design area 180 um^2 1% utilization.
-write_db ./results/sky130hd/fp16_multiplier/base/2_1_floorplan.odb
-write_sdc -no_timestamp ./results/sky130hd/fp16_multiplier/base/2_1_floorplan.sdc
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/2_1_floorplan.odb
+write_sdc -no_timestamp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/2_1_floorplan.sdc
 Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
-2_1_floorplan                      0            139 a5ecf734c0c45d2b8420
+2_1_floorplan                      0            138 2ebd5cf51f0318a8ba14
 /home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 2_2_floorplan_macro macro_place
 Running macro_place.tcl, stage 2_2_floorplan_macro
 read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-read_db ./results/sky130hd/fp16_multiplier/base/2_1_floorplan.odb
-read_sdc ./results/sky130hd/fp16_multiplier/base/2_1_floorplan.sdc
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/2_1_floorplan.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/2_1_floorplan.sdc
 source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
 No macros found: Skipping macro_placement
 Design area 180 um^2 1% utilization.
-write_db ./results/sky130hd/fp16_multiplier/base/2_2_floorplan_macro.odb
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/2_2_floorplan_macro.odb
 Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
-2_2_floorplan_macro                0            116 a5ecf734c0c45d2b8420
+2_2_floorplan_macro                0            116 2ebd5cf51f0318a8ba14
 /home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 2_3_floorplan_tapcell tapcell
 Running tapcell.tcl, stage 2_3_floorplan_tapcell
 read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-read_db ./results/sky130hd/fp16_multiplier/base/2_2_floorplan_macro.odb
-read_sdc ./results/sky130hd/fp16_multiplier/base/2_1_floorplan.sdc
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/2_2_floorplan_macro.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/2_1_floorplan.sdc
 source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
 [INFO TAP-0005] Inserted 435 tapcells.
 Design area 724 um^2 2% utilization.
-write_db ./results/sky130hd/fp16_multiplier/base/2_3_floorplan_tapcell.odb
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/2_3_floorplan_tapcell.odb
 Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
-2_3_floorplan_tapcell              0            116 337a261da4a60621ec32
+2_3_floorplan_tapcell              0            116 ee801d24bf47ad943b69
 /home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 2_4_floorplan_pdn pdn
 Running pdn.tcl, stage 2_4_floorplan_pdn
 read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-read_db ./results/sky130hd/fp16_multiplier/base/2_3_floorplan_tapcell.odb
-read_sdc ./results/sky130hd/fp16_multiplier/base/2_1_floorplan.sdc
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/2_3_floorplan_tapcell.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/2_1_floorplan.sdc
 source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
 [INFO PDN-0001] Inserting grid: grid
 Design area 724 um^2 2% utilization.
-write_db ./results/sky130hd/fp16_multiplier/base/2_4_floorplan_pdn.odb
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/2_4_floorplan_pdn.odb
 Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
-2_4_floorplan_pdn                  0            120 548a0f466a053eec0de0
-cp ./results/sky130hd/fp16_multiplier/base/2_4_floorplan_pdn.odb ./results/sky130hd/fp16_multiplier/base/2_floorplan.odb
-cp ./results/sky130hd/fp16_multiplier/base/2_1_floorplan.sdc ./results/sky130hd/fp16_multiplier/base/2_floorplan.sdc
+2_4_floorplan_pdn                  0            120 f75bcd65cc99774a65ec
+cp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/2_4_floorplan_pdn.odb /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/2_floorplan.odb
+cp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/2_1_floorplan.sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/2_floorplan.sdc
 /home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 3_1_place_gp_skip_io global_place_skip_io
 Running global_place_skip_io.tcl, stage 3_1_place_gp_skip_io
 read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-read_db ./results/sky130hd/fp16_multiplier/base/2_floorplan.odb
-read_sdc ./results/sky130hd/fp16_multiplier/base/2_floorplan.sdc
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/2_floorplan.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/2_floorplan.sdc
 source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
 global_placement -skip_io -density 0.6 -pad_left 0 -pad_right 0
 [INFO GPL-0001] ---- Initialize GPL Main Data Structures
@@ -122,7 +122,7 @@ global_placement -skip_io -density 0.6 -pad_left 0 -pad_right 0
 [INFO GPL-0007] Movable instances:                  32
 [INFO GPL-0008] Fixed instances:                   435
 [INFO GPL-0009] Dummy instances:                     0
-[INFO GPL-0010] Number of nets:                     64
+[INFO GPL-0010] Number of nets:                     66
 [INFO GPL-0011] Number of pins:                     48
 [INFO GPL-0012] Die BBox:  (  0.000  0.000 ) ( 200.000 200.000 ) um
 [INFO GPL-0013] Core BBox: ( 10.120 10.880 ) ( 189.980 187.680 ) um
@@ -182,35 +182,36 @@ Iteration | Overflow |     HPWL (um) |  HPWL(%) |   Penalty | Group
 [INFO GPL-1008]     - For 80% usage of free space: 0.0072
 [INFO GPL-1009]     - For 50% usage of free space: 0.0115
 [INFO GPL-1014] Final placement area: 180.17 (+0.00%)
+Took 7 seconds: global_placement -skip_io -density 0.6 -pad_left 0 -pad_right 0
 Design area 724 um^2 2% utilization.
-write_db ./results/sky130hd/fp16_multiplier/base/3_1_place_gp_skip_io.odb
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/3_1_place_gp_skip_io.odb
 Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
-3_1_place_gp_skip_io               0            118 371fd2eacc369bf08ad3
+3_1_place_gp_skip_io               6            118 f7676a8f19237c935f06
 /home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 3_2_place_iop io_placement
 Running io_placement.tcl, stage 3_2_place_iop
 read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-read_db ./results/sky130hd/fp16_multiplier/base/3_1_place_gp_skip_io.odb
-read_sdc ./results/sky130hd/fp16_multiplier/base/2_floorplan.sdc
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/3_1_place_gp_skip_io.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/2_floorplan.sdc
 source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
 place_pins -hor_layers met3 -ver_layers met2
 Found 0 macro blocks.
 Using 2 tracks default min distance between IO pins.
 [INFO PPL-0001] Number of available slots 718
-[INFO PPL-0002] Number of I/O             48
+[INFO PPL-0002] Number of I/O             50
 [INFO PPL-0003] Number of I/O w/sink      16
-[INFO PPL-0004] Number of I/O w/o sink    32
+[INFO PPL-0004] Number of I/O w/o sink    34
 [INFO PPL-0005] Slots per section         200
 [INFO PPL-0008] Successfully assigned pins to sections.
 [INFO PPL-0012] I/O nets HPWL: 1133.33 um.
 Design area 724 um^2 2% utilization.
-write_db ./results/sky130hd/fp16_multiplier/base/3_2_place_iop.odb
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/3_2_place_iop.odb
 Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
-3_2_place_iop                      0            117 ecec0efb7030e9a631a0
+3_2_place_iop                      0            118 d9b5e98f9c6243d47f80
 /home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 3_3_place_gp global_place
 Running global_place.tcl, stage 3_3_place_gp
 read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-read_db ./results/sky130hd/fp16_multiplier/base/3_2_place_iop.odb
-read_sdc ./results/sky130hd/fp16_multiplier/base/2_floorplan.sdc
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/3_2_place_iop.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/2_floorplan.sdc
 source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
 [INFO RSZ-0026] Removed 16 buffers.
 Perform port buffering...
@@ -229,8 +230,8 @@ global_placement -density 0.6 -pad_left 0 -pad_right 0 -routability_driven -timi
 [INFO GPL-0007] Movable instances:                  16
 [INFO GPL-0008] Fixed instances:                   435
 [INFO GPL-0009] Dummy instances:                     0
-[INFO GPL-0010] Number of nets:                     48
-[INFO GPL-0011] Number of pins:                     64
+[INFO GPL-0010] Number of nets:                     50
+[INFO GPL-0011] Number of pins:                     66
 [INFO GPL-0012] Die BBox:  (  0.000  0.000 ) ( 200.000 200.000 ) um
 [INFO GPL-0013] Core BBox: ( 10.120 10.880 ) ( 189.980 187.680 ) um
 [INFO GPL-0016] Core area:                   31799.248 um^2
@@ -244,11 +245,11 @@ global_placement -density 0.6 -pad_left 0 -pad_right 0 -routability_driven -timi
 [INFO GPL-0005] ---- Execute Conjugate Gradient Initial Placement.
 [INFO GPL-0051] Source of initial instance position counters:
 	Odb location = 0	Core center = 16	Region center = 0
-[InitialPlace]  Iter: 1 conjugate gradient residual: 0.00000003 HPWL: 1196473
-[InitialPlace]  Iter: 2 conjugate gradient residual: 0.00000003 HPWL: 237830
-[InitialPlace]  Iter: 3 conjugate gradient residual: 0.00000002 HPWL: 237830
-[InitialPlace]  Iter: 4 conjugate gradient residual: 0.00000002 HPWL: 237830
-[InitialPlace]  Iter: 5 conjugate gradient residual: 0.00000002 HPWL: 237830
+[InitialPlace]  Iter: 1 conjugate gradient residual: 0.00000003 HPWL: 1197723
+[InitialPlace]  Iter: 2 conjugate gradient residual: 0.00000003 HPWL: 239080
+[InitialPlace]  Iter: 3 conjugate gradient residual: 0.00000002 HPWL: 239080
+[InitialPlace]  Iter: 4 conjugate gradient residual: 0.00000002 HPWL: 239080
+[InitialPlace]  Iter: 5 conjugate gradient residual: 0.00000002 HPWL: 239080
 [INFO GPL-0033] ---- Initialize Nesterov Region: Top-level
 [INFO GPL-0023] Placement target density:       0.6000
 [INFO GPL-0024] Movable insts average area:      3.754 um^2
@@ -267,7 +268,7 @@ Iteration | Overflow |     HPWL (um) |  HPWL(%) |   Penalty | Group
 [INFO GPL-0101]    Iter: 1, overflow: 0.165, keep resizer changes at: 1, HPWL: 205987
 Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
 ---------------------------------------------------------------------
-        0 |     +0.0% |       0 |       0 |             0 |        64
+        0 |     +0.0% |       0 |       0 |             0 |        66
     final |     +0.0% |       0 |       0 |             0 |         0
 ---------------------------------------------------------------------
     final |     +0.0% |       0 |        0 |         0
@@ -349,6 +350,7 @@ Iteration | Overflow |     HPWL (um) |  HPWL(%) |   Penalty | Group
 [INFO GPL-1012] Total routability artificial inflation: 0.00 (+0.00%)
 [INFO GPL-1013] Total timing-driven delta area: 0.00 (+0.00%)
 [INFO GPL-1014] Final placement area: 60.06 (+0.00%)
+Took 9 seconds: global_placement -density 0.6 -pad_left 0 -pad_right 0 -routability_driven -timing_driven -force_center_initial_place -min_phi_coef 0.95 -max_phi_coef 1.05
 estimate_parasitics -placement
 Report metrics stage 3, global place...
 
@@ -356,27 +358,27 @@ Report metrics stage 3, global place...
 global place report_design_area
 --------------------------------------------------------------------------
 Design area 604 um^2 2% utilization.
-write_db ./results/sky130hd/fp16_multiplier/base/3_3_place_gp.odb
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/3_3_place_gp.odb
 Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
-3_3_place_gp                       1            211 237c599411a169231a3b
+3_3_place_gp                       9            211 b8720ac7309ac9e2b3e4
 /home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 3_4_place_resized resize
 Running resize.tcl, stage 3_4_place_resized
 read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-read_db ./results/sky130hd/fp16_multiplier/base/3_3_place_gp.odb
-read_sdc ./results/sky130hd/fp16_multiplier/base/2_floorplan.sdc
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/3_3_place_gp.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/2_floorplan.sdc
 source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
 estimate_parasitics -placement
 Perform buffer insertion and gate resizing...
 repair_design -verbose -match_cell_footprint
 Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
 ---------------------------------------------------------------------
-        0 |     +0.0% |       0 |       0 |             0 |        64
-       10 |     +0.0% |       0 |       0 |             0 |        54
-       20 |     +0.0% |       0 |       0 |             0 |        44
-       30 |     +0.0% |       0 |       0 |             0 |        34
-       40 |     +0.0% |       0 |       0 |             0 |        24
-       50 |     +0.0% |       0 |       0 |             0 |        14
-       60 |     +0.0% |       0 |       0 |             0 |         4
+        0 |     +0.0% |       0 |       0 |             0 |        66
+       10 |     +0.0% |       0 |       0 |             0 |        56
+       20 |     +0.0% |       0 |       0 |             0 |        46
+       30 |     +0.0% |       0 |       0 |             0 |        36
+       40 |     +0.0% |       0 |       0 |             0 |        26
+       50 |     +0.0% |       0 |       0 |             0 |        16
+       60 |     +0.0% |       0 |       0 |             0 |         6
     final |     +0.0% |       0 |       0 |             0 |         0
 ---------------------------------------------------------------------
 Floating nets: 
@@ -389,14 +391,14 @@ resizer report_design_area
 Design area 604 um^2 2% utilization.
 Instance count before 451, after 451
 Pin count before 32, after 32
-write_db ./results/sky130hd/fp16_multiplier/base/3_4_place_resized.odb
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/3_4_place_resized.odb
 Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
-3_4_place_resized                  0            137 237c599411a169231a3b
+3_4_place_resized                  0            137 b8720ac7309ac9e2b3e4
 /home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 3_5_place_dp detail_place
 Running detail_place.tcl, stage 3_5_place_dp
 read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-read_db ./results/sky130hd/fp16_multiplier/base/3_4_place_resized.odb
-read_sdc ./results/sky130hd/fp16_multiplier/base/2_floorplan.sdc
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/3_4_place_resized.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/2_floorplan.sdc
 source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
 detailed_placement
 [INFO DPL-0006] Core area: 31799.25 um^2, Instances area: 604.33 um^2, Utilization: 1.9%
@@ -424,7 +426,7 @@ improve_placement -max_displacement "5 1"
 Detailed placement improvement.
 [INFO DPL-0401] Setting random seed to 1.
 [INFO DPL-0402] Setting maximum displacement 5 1 to 13600 2720 units.
-[INFO DPL-0320] Collected 483 fixed cells.
+[INFO DPL-0320] Collected 485 fixed cells.
 [INFO DPL-0318] Collected 16 single height cells.
 [INFO DPL-0321] Collected 0 wide cells.
 [INFO DPL-0322] Image (10120, 10880) - (189980, 187680)
@@ -496,16 +498,16 @@ No registers in design
 detailed place report_design_area
 --------------------------------------------------------------------------
 Design area 604 um^2 2% utilization.
-write_db ./results/sky130hd/fp16_multiplier/base/3_5_place_dp.odb
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/3_5_place_dp.odb
 Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
-3_5_place_dp                       0            122 c289a420e78409bdab6b
-cp ./results/sky130hd/fp16_multiplier/base/3_5_place_dp.odb ./results/sky130hd/fp16_multiplier/base/3_place.odb
-cp ./results/sky130hd/fp16_multiplier/base/2_floorplan.sdc ./results/sky130hd/fp16_multiplier/base/3_place.sdc
+3_5_place_dp                       0            122 83f80b442a5ee9fffd27
+cp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/3_5_place_dp.odb /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/3_place.odb
+cp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/2_floorplan.sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/3_place.sdc
 /home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 4_1_cts cts
 Running cts.tcl, stage 4_1_cts
 read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-read_db ./results/sky130hd/fp16_multiplier/base/3_place.odb
-read_sdc ./results/sky130hd/fp16_multiplier/base/3_place.sdc
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/3_place.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/3_place.sdc
 source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
 clock_tree_synthesis -sink_clustering_enable -repair_clock_nets
 [INFO CTS-0050] Root buffer is sky130_fd_sc_hd__clkbuf_16.
@@ -513,6 +515,8 @@ clock_tree_synthesis -sink_clustering_enable -repair_clock_nets
 [INFO CTS-0052] The following clock buffers will be used for CTS:
                     sky130_fd_sc_hd__clkbuf_16
 [INFO CTS-0049] Characterization buffer is sky130_fd_sc_hd__clkbuf_16.
+[INFO CTS-0007] Net "clk" found for clock "clk".
+[WARNING CTS-0041] Net "clk" has 0 sinks. Skipping...
 [WARNING CTS-0083] No clock nets have been found.
 [INFO CTS-0008] TritonCTS found 0 clock nets.
 [WARNING CTS-0082] No valid clock nets in the design.
@@ -576,16 +580,16 @@ No registers in design
 cts final report_design_area
 --------------------------------------------------------------------------
 Design area 604 um^2 2% utilization.
-write_db ./results/sky130hd/fp16_multiplier/base/4_1_cts.odb
-write_sdc -no_timestamp ./results/sky130hd/fp16_multiplier/base/4_cts.sdc
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/4_1_cts.odb
+write_sdc -no_timestamp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/4_cts.sdc
 Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
-4_1_cts                            1            145 f753af2cf4f2dcc0b17c
-cp ./results/sky130hd/fp16_multiplier/base/4_1_cts.odb ./results/sky130hd/fp16_multiplier/base/4_cts.odb
+4_1_cts                            1            145 c188d3b3b0608c2a6c7d
+cp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/4_1_cts.odb /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/4_cts.odb
 /home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 5_1_grt global_route
 Running global_route.tcl, stage 5_1_grt
 read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-read_db ./results/sky130hd/fp16_multiplier/base/4_cts.odb
-read_sdc ./results/sky130hd/fp16_multiplier/base/4_cts.sdc
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/4_cts.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/4_cts.sdc
 source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
 pin_access
 [INFO DRT-0149] Reading tech and libs.
@@ -613,9 +617,9 @@ Die area:                 ( 0 0 ) ( 200000 200000 )
 Number of track patterns: 12
 Number of DEF vias:       0
 Number of components:     451
-Number of terminals:      50
+Number of terminals:      52
 Number of snets:          2
-Number of nets:           48
+Number of nets:           50
 
 [INFO DRT-0167] List of default vias:
   Layer via
@@ -649,7 +653,7 @@ Number of nets:           48
 [INFO DRT-0033] mcon shape region query size = 966.
 [INFO DRT-0033] met1 shape region query size = 1397.
 [INFO DRT-0033] via shape region query size = 2145.
-[INFO DRT-0033] met2 shape region query size = 1334.
+[INFO DRT-0033] met2 shape region query size = 1336.
 [INFO DRT-0033] via2 shape region query size = 1716.
 [INFO DRT-0033] met3 shape region query size = 1288.
 [INFO DRT-0033] via3 shape region query size = 1716.
@@ -673,8 +677,8 @@ Number of nets:           48
 #macroValidViaAp       = 0
 #macroNoAp             = 0
 [INFO DRT-0166] Complete pin access.
-[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 124.43 (MB), peak = 124.43 (MB)
-global_route -congestion_report_file ./reports/sky130hd/fp16_multiplier/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 125.39 (MB), peak = 125.39 (MB)
+global_route -congestion_report_file /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/reports/sky130hd/fp16_multiplier/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose
 [INFO GRT-0020] Min routing layer: met1
 [INFO GRT-0021] Max routing layer: met5
 [INFO GRT-0022] Global adjustment: 0%
@@ -687,7 +691,7 @@ global_route -congestion_report_file ./reports/sky130hd/fp16_multiplier/base/con
 [INFO GRT-0088] Layer met5    Track-Pitch = 3.4000  line-2-Via Pitch: 3.1100
 [INFO GRT-0003] Macros: 0
 [INFO GRT-0004] Blockages: 0
-[INFO GRT-0019] Found 0 clock nets.
+[INFO GRT-0019] Found 1 clock nets.
 [INFO GRT-0001] Minimum degree: 2
 [INFO GRT-0002] Maximum degree: 2
 
@@ -729,7 +733,8 @@ Perform buffer insertion and gate resizing...
 repair_design -verbose
 Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
 ---------------------------------------------------------------------
-        0 |     +0.0% |       0 |       0 |             0 |        64
+        0 |     +0.0% |       0 |       0 |             0 |        66
+[WARNING RSZ-0104] Net reset only has one pin. Check if it is intended to be dangling.
 [WARNING RSZ-0104] Net b[9] only has one pin. Check if it is intended to be dangling.
 [WARNING RSZ-0104] Net b[8] only has one pin. Check if it is intended to be dangling.
 [WARNING RSZ-0104] Net b[7] only has one pin. Check if it is intended to be dangling.
@@ -737,9 +742,9 @@ Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
 [WARNING RSZ-0104] Net b[5] only has one pin. Check if it is intended to be dangling.
 [WARNING RSZ-0104] Net b[4] only has one pin. Check if it is intended to be dangling.
 [WARNING RSZ-0104] Net b[3] only has one pin. Check if it is intended to be dangling.
+       10 |     +0.0% |       0 |       0 |             0 |        56
 [WARNING RSZ-0104] Net b[2] only has one pin. Check if it is intended to be dangling.
 [WARNING RSZ-0104] Net b[1] only has one pin. Check if it is intended to be dangling.
-       10 |     +0.0% |       0 |       0 |             0 |        54
 [WARNING RSZ-0104] Net b[15] only has one pin. Check if it is intended to be dangling.
 [WARNING RSZ-0104] Net b[14] only has one pin. Check if it is intended to be dangling.
 [WARNING RSZ-0104] Net b[13] only has one pin. Check if it is intended to be dangling.
@@ -748,9 +753,9 @@ Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
 [WARNING RSZ-0104] Net b[10] only has one pin. Check if it is intended to be dangling.
 [WARNING RSZ-0104] Net b[0] only has one pin. Check if it is intended to be dangling.
 [WARNING RSZ-0104] Net a[9] only has one pin. Check if it is intended to be dangling.
+       20 |     +0.0% |       0 |       0 |             0 |        46
 [WARNING RSZ-0104] Net a[8] only has one pin. Check if it is intended to be dangling.
 [WARNING RSZ-0104] Net a[7] only has one pin. Check if it is intended to be dangling.
-       20 |     +0.0% |       0 |       0 |             0 |        44
 [WARNING RSZ-0104] Net a[6] only has one pin. Check if it is intended to be dangling.
 [WARNING RSZ-0104] Net a[5] only has one pin. Check if it is intended to be dangling.
 [WARNING RSZ-0104] Net a[4] only has one pin. Check if it is intended to be dangling.
@@ -759,15 +764,15 @@ Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
 [WARNING RSZ-0104] Net a[1] only has one pin. Check if it is intended to be dangling.
 [WARNING RSZ-0104] Net a[15] only has one pin. Check if it is intended to be dangling.
 [WARNING RSZ-0104] Net a[14] only has one pin. Check if it is intended to be dangling.
+       30 |     +0.0% |       0 |       0 |             0 |        36
 [WARNING RSZ-0104] Net a[13] only has one pin. Check if it is intended to be dangling.
 [WARNING RSZ-0104] Net a[12] only has one pin. Check if it is intended to be dangling.
-       30 |     +0.0% |       0 |       0 |             0 |        34
 [WARNING RSZ-0104] Net a[11] only has one pin. Check if it is intended to be dangling.
 [WARNING RSZ-0104] Net a[10] only has one pin. Check if it is intended to be dangling.
 [WARNING RSZ-0104] Net a[0] only has one pin. Check if it is intended to be dangling.
-       40 |     +0.0% |       0 |       0 |             0 |        24
-       50 |     +0.0% |       0 |       0 |             0 |        14
-       60 |     +0.0% |       0 |       0 |             0 |         4
+       40 |     +0.0% |       0 |       0 |             0 |        26
+       50 |     +0.0% |       0 |       0 |             0 |        16
+       60 |     +0.0% |       0 |       0 |             0 |         6
     final |     +0.0% |       0 |       0 |             0 |         0
 ---------------------------------------------------------------------
 global_route -start_incremental
@@ -793,7 +798,7 @@ original HPWL             213.2 u
 legalized HPWL            213.2 u
 delta HPWL                    0 %
 
-global_route -end_incremental -congestion_report_file ./reports/sky130hd/fp16_multiplier/base/congestion_post_repair_design.rpt
+global_route -end_incremental -congestion_report_file /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/reports/sky130hd/fp16_multiplier/base/congestion_post_repair_design.rpt
 Repair setup and hold violations...
 estimate_parasitics -global_routing
 repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -verbose
@@ -823,9 +828,9 @@ original HPWL             213.2 u
 legalized HPWL            213.2 u
 delta HPWL                    0 %
 
-global_route -end_incremental -congestion_report_file ./reports/sky130hd/fp16_multiplier/base/congestion_post_repair_timing.rpt
+global_route -end_incremental -congestion_report_file /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/reports/sky130hd/fp16_multiplier/base/congestion_post_repair_timing.rpt
 global_route -start_incremental
-global_route -end_incremental -congestion_report_file ./reports/sky130hd/fp16_multiplier/base/congestion_post_recover_power.rpt
+global_route -end_incremental -congestion_report_file /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/reports/sky130hd/fp16_multiplier/base/congestion_post_recover_power.rpt
 Repair antennas...
 [INFO GRT-0012] Found 0 antenna violations.
 [INFO ANT-0002] Found 0 net violations.
@@ -839,19 +844,20 @@ No registers in design
 global route report_design_area
 --------------------------------------------------------------------------
 Design area 604 um^2 2% utilization.
-[WARNING FLW-0006] No clocks found.
+[INFO FLW-0007] clock clk period 10.000000
+[WARNING FLW-0013] No constrained path found. Skipping sdc update.
 [INFO FLW-0011] Path endpoint path count 0
-write_db ./results/sky130hd/fp16_multiplier/base/5_1_grt.odb
-write_sdc -no_timestamp ./results/sky130hd/fp16_multiplier/base/5_1_grt.sdc
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/5_1_grt.odb
+write_sdc -no_timestamp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/5_1_grt.sdc
 Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
-5_1_grt                            1            234 47eb28ead32ec7db3019
+5_1_grt                            1            234 821accd2edcbe7e2cbf4
 /home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 5_2_route detail_route
 Running detail_route.tcl, stage 5_2_route
 read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-read_db ./results/sky130hd/fp16_multiplier/base/5_1_grt.odb
-read_sdc ./results/sky130hd/fp16_multiplier/base/5_1_grt.sdc
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/5_1_grt.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/5_1_grt.sdc
 source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
-detailed_route -output_drc ./reports/sky130hd/fp16_multiplier/base/5_route_drc.rpt -output_maze ./results/sky130hd/fp16_multiplier/base/maze.log -droute_end_iter 64 -verbose 1 -drc_report_iter_step 5
+detailed_route -output_drc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/reports/sky130hd/fp16_multiplier/base/5_route_drc.rpt -output_maze /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/maze.log -droute_end_iter 64 -verbose 1 -drc_report_iter_step 5
 [INFO DRT-0149] Reading tech and libs.
 [WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer mcon
 [WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer mcon
@@ -877,9 +883,9 @@ Die area:                 ( 0 0 ) ( 200000 200000 )
 Number of track patterns: 12
 Number of DEF vias:       0
 Number of components:     451
-Number of terminals:      50
+Number of terminals:      52
 Number of snets:          2
-Number of nets:           48
+Number of nets:           50
 
 [INFO DRT-0167] List of default vias:
   Layer via
@@ -913,7 +919,7 @@ Number of nets:           48
 [INFO DRT-0033] mcon shape region query size = 966.
 [INFO DRT-0033] met1 shape region query size = 1397.
 [INFO DRT-0033] via shape region query size = 2145.
-[INFO DRT-0033] met2 shape region query size = 1334.
+[INFO DRT-0033] met2 shape region query size = 1336.
 [INFO DRT-0033] via2 shape region query size = 1716.
 [INFO DRT-0033] met3 shape region query size = 1288.
 [INFO DRT-0033] via3 shape region query size = 1716.
@@ -937,7 +943,7 @@ Number of nets:           48
 #macroValidViaAp       = 0
 #macroNoAp             = 0
 [INFO DRT-0166] Complete pin access.
-[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 203.55 (MB), peak = 203.55 (MB)
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 204.30 (MB), peak = 204.30 (MB)
 
 [INFO DRT-0157] Number of guides:     52
 
@@ -985,39 +991,39 @@ Number of nets:           48
 [INFO DRT-0036] via4 guide region query size = 0.
 [INFO DRT-0036] met5 guide region query size = 0.
 [INFO DRT-0179] Init gr pin query.
-[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 203.55 (MB), peak = 203.55 (MB)
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 204.55 (MB), peak = 204.55 (MB)
 [INFO DRT-0245] skipped writing guide updates to database.
 [INFO DRT-0181] Start track assignment.
 [INFO DRT-0184] Done with 32 vertical wires in 1 frboxes and 17 horizontal wires in 1 frboxes.
 [INFO DRT-0186] Done with 2 vertical wires in 1 frboxes and 0 horizontal wires in 1 frboxes.
 [INFO DRT-0182] Complete track assignment.
-[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 204.85 (MB), peak = 206.37 (MB)
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 205.60 (MB), peak = 206.55 (MB)
 [INFO DRT-0187] Start routing data preparation.
-[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 204.85 (MB), peak = 206.37 (MB)
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 205.60 (MB), peak = 206.55 (MB)
 [INFO DRT-0194] Start detail routing.
 [INFO DRT-0195] Start 0th optimization iteration.
     Completing 10% with 0 violations.
-    elapsed time = 00:00:00, memory = 204.98 (MB).
+    elapsed time = 00:00:00, memory = 205.60 (MB).
     Completing 20% with 0 violations.
-    elapsed time = 00:00:00, memory = 204.98 (MB).
+    elapsed time = 00:00:00, memory = 205.60 (MB).
     Completing 30% with 0 violations.
-    elapsed time = 00:00:00, memory = 205.10 (MB).
+    elapsed time = 00:00:00, memory = 205.85 (MB).
     Completing 40% with 0 violations.
-    elapsed time = 00:00:00, memory = 205.35 (MB).
+    elapsed time = 00:00:00, memory = 206.35 (MB).
     Completing 50% with 0 violations.
-    elapsed time = 00:00:00, memory = 206.47 (MB).
+    elapsed time = 00:00:00, memory = 206.73 (MB).
     Completing 60% with 0 violations.
-    elapsed time = 00:00:00, memory = 206.47 (MB).
+    elapsed time = 00:00:00, memory = 206.73 (MB).
     Completing 70% with 0 violations.
-    elapsed time = 00:00:00, memory = 211.35 (MB).
+    elapsed time = 00:00:00, memory = 212.48 (MB).
     Completing 80% with 0 violations.
-    elapsed time = 00:00:00, memory = 211.35 (MB).
+    elapsed time = 00:00:00, memory = 212.48 (MB).
     Completing 90% with 0 violations.
-    elapsed time = 00:00:00, memory = 211.35 (MB).
+    elapsed time = 00:00:00, memory = 212.48 (MB).
     Completing 100% with 0 violations.
-    elapsed time = 00:00:00, memory = 211.35 (MB).
+    elapsed time = 00:00:00, memory = 212.48 (MB).
 [INFO DRT-0199]   Number of violations = 0.
-[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 557.02 (MB), peak = 568.97 (MB)
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 562.53 (MB), peak = 574.48 (MB)
 Total wire length = 210 um.
 Total wire length on LAYER li1 = 0 um.
 Total wire length on LAYER met1 = 23 um.
@@ -1061,7 +1067,7 @@ Up-via summary (total 35):
                35
 
 
-[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 557.15 (MB), peak = 568.97 (MB)
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 562.65 (MB), peak = 574.48 (MB)
 
 [INFO DRT-0180] Post processing.
 [INFO GRT-0012] Found 0 antenna violations.
@@ -1070,40 +1076,44 @@ Up-via summary (total 35):
 [INFO ANT-0002] Found 0 net violations.
 [INFO ANT-0001] Found 0 pin violations.
 Design area 604 um^2 2% utilization.
-write_db ./results/sky130hd/fp16_multiplier/base/5_2_route.odb
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/5_2_route.odb
 Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
-5_2_route                          1            568 403bc85357f37af3e027
+5_2_route                          1            574 9609e49a795e0b929b1b
 /home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 5_3_fillcell fillcell
 Running fillcell.tcl, stage 5_3_fillcell
 read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-read_db ./results/sky130hd/fp16_multiplier/base/5_2_route.odb
-read_sdc ./results/sky130hd/fp16_multiplier/base/5_1_grt.sdc
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/5_2_route.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/5_1_grt.sdc
 source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
 filler_placement "sky130_fd_sc_hd__fill_1 sky130_fd_sc_hd__fill_2 sky130_fd_sc_hd__fill_4 sky130_fd_sc_hd__fill_8"
 [INFO DPL-0001] Placed 3813 filler instances.
 Design area 604 um^2 2% utilization.
-write_db ./results/sky130hd/fp16_multiplier/base/5_3_fillcell.odb
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/5_3_fillcell.odb
 Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
-5_3_fillcell                       0            122 a2ccc1c9526bab57deed
-cp ./results/sky130hd/fp16_multiplier/base/5_3_fillcell.odb ./results/sky130hd/fp16_multiplier/base/5_route.odb
-cp ./results/sky130hd/fp16_multiplier/base/5_1_grt.sdc ./results/sky130hd/fp16_multiplier/base/5_route.sdc
+5_3_fillcell                       0            123 7dfb9ed54a007edc60d3
+cp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/5_3_fillcell.odb /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/5_route.odb
+cp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/5_1_grt.sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/5_route.sdc
 /home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 6_1_fill density_fill
 Running density_fill.tcl, stage 6_1_fill
 read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-read_db ./results/sky130hd/fp16_multiplier/base/5_route.odb
-read_sdc ./results/sky130hd/fp16_multiplier/base/5_route.sdc
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/5_route.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/5_route.sdc
 source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
-exec cp ./results/sky130hd/fp16_multiplier/base/5_route.odb ./results/sky130hd/fp16_multiplier/base/6_1_fill.odb
+exec cp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/5_route.odb /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/6_1_fill.odb
 Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
-6_1_fill                           0            119 a2ccc1c9526bab57deed
-cp ./results/sky130hd/fp16_multiplier/base/5_route.sdc ./results/sky130hd/fp16_multiplier/base/6_1_fill.sdc
+6_1_fill                           0            119 7dfb9ed54a007edc60d3
+cp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/5_route.sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/6_1_fill.sdc
 /home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 6_report final_report
 Running final_report.tcl, stage 6_report
 read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-read_db ./results/sky130hd/fp16_multiplier/base/6_1_fill.odb
-read_sdc ./results/sky130hd/fp16_multiplier/base/6_1_fill.sdc
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/6_1_fill.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/6_1_fill.sdc
 source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
-write_db ./results/sky130hd/fp16_multiplier/base/6_final.odb
+source /home/sudar762/projects/spec-to-rtl-agent/build/flow/fp16_multiplier/design/power_activity.tcl
+Reading activity VCD /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/waves.vcd with scope tb_fp16_multiplier/dut
+[WARNING STA-1453] clock clk pin clk has no vcd transitions.
+Annotated 50 pin activities.
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/6_final.odb
 Deleted 0 routing obstructions
 Warning: master sky130_ef_sc_hd__decap_12 has signal pins but no liberty cell
 [INFO RCX-0431] Defined process_corner X with ext_model_index 0
@@ -1115,30 +1125,30 @@ Warning: master sky130_ef_sc_hd__decap_12 has signal pins but no liberty cell
 [INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
 [INFO RCX-0442] 96% of 985 wires extracted
 [INFO RCX-0442] 100% of 985 wires extracted
-[INFO RCX-0045] Extract 48 nets, 32 rsegs, 32 caps, 18 ccs
-[INFO RCX-0443] 48 nets finished
+[INFO RCX-0045] Extract 50 nets, 32 rsegs, 32 caps, 18 ccs
+[INFO RCX-0443] 50 nets finished
 [INFO PSM-0040] All shapes on net VDD are connected.
 ########## IR report #################
 Net              : VDD
 Corner           : default
-Total power      : 4.07e-06 W
+Total power      : 4.07e-07 W
 Supply voltage   : 1.80e+00 V
 Worstcase voltage: 1.80e+00 V
 Average voltage  : 1.80e+00 V
-Average IR drop  : 4.48e-08 V
-Worstcase IR drop: 4.83e-06 V
+Average IR drop  : 4.48e-09 V
+Worstcase IR drop: 4.83e-07 V
 Percentage drop  : 0.00 %
 ######################################
 [INFO PSM-0040] All shapes on net VSS are connected.
 ########## IR report #################
 Net              : VSS
 Corner           : default
-Total power      : 4.07e-06 W
+Total power      : 4.07e-07 W
 Supply voltage   : 0.00e+00 V
-Worstcase voltage: 2.93e-06 V
-Average voltage  : 2.48e-08 V
-Average IR drop  : 2.48e-08 V
-Worstcase IR drop: 2.93e-06 V
+Worstcase voltage: 2.93e-07 V
+Average voltage  : 2.48e-09 V
+Average IR drop  : 2.48e-09 V
+Worstcase IR drop: 2.93e-07 V
 Percentage drop  : 0.00 %
 ######################################
 Cell type report:                       Count       Area
@@ -1154,25 +1164,24 @@ finish report_design_area
 --------------------------------------------------------------------------
 Design area 604 um^2 2% utilization.
 [WARNING GUI-0066] Heat map "IR Drop" has not been populated with data.
-[WARNING STA-0351] clock '*' not found.
 [WARNING GUI-0066] Heat map "Routing Congestion" has not been populated with data.
 Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
-6_report                           1            294                  N/A
-cp ./results/sky130hd/fp16_multiplier/base/5_route.sdc ./results/sky130hd/fp16_multiplier/base/6_final.sdc
-cp /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef ./objects/sky130hd/fp16_multiplier/base/klayout_tech.lef
+6_report                           1            186                  N/A
+cp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/5_route.sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/6_final.sdc
+cp /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/objects/sky130hd/fp16_multiplier/base/klayout_tech.lef
 /home/sudar762/tools/oss-cad-suite/py3bin/python3 /home/sudar762/OpenROAD-flow-scripts/flow/util/generate_klayout_tech.py \
 	--template /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/sky130hd.lyt \
-	--output ./objects/sky130hd/fp16_multiplier/base/klayout.lyt \
-	--lef-files ./objects/sky130hd/fp16_multiplier/base/klayout_tech.lef /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd_merged.lef   \
-	--reference-dir ./results/sky130hd/fp16_multiplier/base \
+	--output /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/objects/sky130hd/fp16_multiplier/base/klayout.lyt \
+	--lef-files /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/objects/sky130hd/fp16_multiplier/base/klayout_tech.lef /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd_merged.lef   \
+	--reference-dir /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base \
 	--map-files 
-/home/sudar762/tools/oss-cad-suite/py3bin/python3 /home/sudar762/OpenROAD-flow-scripts/flow/scripts/run_command.py --log /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/fp16_multiplier/base/6_1_merge.log --tee -- \
+/home/sudar762/tools/oss-cad-suite/py3bin/python3 /home/sudar762/OpenROAD-flow-scripts/flow/scripts/run_command.py --log /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/logs/sky130hd/fp16_multiplier/base/6_1_merge.log --tee -- \
         /home/sudar762/OpenROAD-flow-scripts/flow/scripts/klayout.sh -zz -rd design_name=fp16_multiplier \
-        -rd in_def=./results/sky130hd/fp16_multiplier/base/6_final.def \
+        -rd in_def=/home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/6_final.def \
         -rd in_files="/home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/gds/sky130_fd_sc_hd.gds  " \
         -rd seal_file="" \
-        -rd out_file=./results/sky130hd/fp16_multiplier/base/6_1_merged.gds \
-        -rd tech_file=./objects/sky130hd/fp16_multiplier/base/klayout.lyt \
+        -rd out_file=/home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/6_1_merged.gds \
+        -rd tech_file=/home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/objects/sky130hd/fp16_multiplier/base/klayout.lyt \
         -rd layer_map= \
         -r /home/sudar762/OpenROAD-flow-scripts/flow/util/def2stream.py
 KLayout 0.30.7
@@ -1180,44 +1189,44 @@ KLayout 0.30.7
 	/home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/gds/sky130_fd_sc_hd.gds
 [INFO] All LEF cells have matching GDS/OAS cells
 [INFO] No orphan cells in the final layout
-cp results/sky130hd/fp16_multiplier/base/6_1_merged.gds results/sky130hd/fp16_multiplier/base/6_final.gds
-./logs/sky130hd/fp16_multiplier/base
+cp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/6_1_merged.gds /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/results/sky130hd/fp16_multiplier/base/6_final.gds
+/home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_fp16_multiplier/logs/sky130hd/fp16_multiplier/base
 Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
-1_1_yosys_canonicalize             0             55 6d0116faf9907ae08edf
-1_2_yosys                          0             57 b89ddb234b382ccfb459
-1_synth                            0            117 bb62c8b59191d7392594
-2_1_floorplan                      0            139 a5ecf734c0c45d2b8420
-2_2_floorplan_macro                0            116 a5ecf734c0c45d2b8420
-2_3_floorplan_tapcell              0            116 337a261da4a60621ec32
-2_4_floorplan_pdn                  0            120 548a0f466a053eec0de0
-3_1_place_gp_skip_io               0            118 371fd2eacc369bf08ad3
-3_2_place_iop                      0            117 ecec0efb7030e9a631a0
-3_3_place_gp                       1            211 237c599411a169231a3b
-3_4_place_resized                  0            137 237c599411a169231a3b
-3_5_place_dp                       0            122 c289a420e78409bdab6b
-4_1_cts                            1            145 f753af2cf4f2dcc0b17c
-5_1_grt                            1            234 47eb28ead32ec7db3019
-5_2_route                          1            568 403bc85357f37af3e027
-5_3_fillcell                       0            122 a2ccc1c9526bab57deed
-6_1_fill                           0            119 a2ccc1c9526bab57deed
+1_1_yosys_canonicalize             0             55 3df3303fdbc524781e4e
+1_2_yosys                          0             57 27f1abfa0b0a898ae43e
+1_synth                            0            119 77e43c70073ba0030981
+2_1_floorplan                      0            138 2ebd5cf51f0318a8ba14
+2_2_floorplan_macro                0            116 2ebd5cf51f0318a8ba14
+2_3_floorplan_tapcell              0            116 ee801d24bf47ad943b69
+2_4_floorplan_pdn                  0            120 f75bcd65cc99774a65ec
+3_1_place_gp_skip_io               6            118 f7676a8f19237c935f06
+3_2_place_iop                      0            118 d9b5e98f9c6243d47f80
+3_3_place_gp                       9            211 b8720ac7309ac9e2b3e4
+3_4_place_resized                  0            137 b8720ac7309ac9e2b3e4
+3_5_place_dp                       0            122 83f80b442a5ee9fffd27
+4_1_cts                            1            145 c188d3b3b0608c2a6c7d
+5_1_grt                            1            234 821accd2edcbe7e2cbf4
+5_2_route                          1            574 9609e49a795e0b929b1b
+5_3_fillcell                       0            123 7dfb9ed54a007edc60d3
+6_1_fill                           0            119 7dfb9ed54a007edc60d3
 6_1_merge                          1            431                  N/A
-6_report                           1            294                  N/A
-Total                              6            568                     
+6_report                           1            186                  N/A
+Total                             20            574                     
 make: Leaving directory '/home/sudar762/OpenROAD-flow-scripts/flow'
 
-Elapsed time: 0:00.53[h:]min:sec. CPU time: user 0.38 sys 0.14 (98%). Peak memory: 142404KB.
-Elapsed time: 0:00.41[h:]min:sec. CPU time: user 0.36 sys 0.04 (98%). Peak memory: 118892KB.
-Elapsed time: 0:00.42[h:]min:sec. CPU time: user 0.36 sys 0.05 (98%). Peak memory: 119720KB.
-Elapsed time: 0:00.44[h:]min:sec. CPU time: user 0.38 sys 0.06 (99%). Peak memory: 122936KB.
-Elapsed time: 0:00.68[h:]min:sec. CPU time: user 2.28 sys 0.07 (347%). Peak memory: 121352KB.
-Elapsed time: 0:00.43[h:]min:sec. CPU time: user 0.36 sys 0.06 (98%). Peak memory: 120800KB.
-Elapsed time: 0:01.39[h:]min:sec. CPU time: user 6.88 sys 0.24 (511%). Peak memory: 216756KB.
-Elapsed time: 0:00.55[h:]min:sec. CPU time: user 0.42 sys 0.12 (99%). Peak memory: 140608KB.
-Elapsed time: 0:00.44[h:]min:sec. CPU time: user 0.36 sys 0.08 (99%). Peak memory: 125004KB.
-Elapsed time: 0:01.38[h:]min:sec. CPU time: user 1.17 sys 0.21 (99%). Peak memory: 149432KB.
-Elapsed time: 0:01.10[h:]min:sec. CPU time: user 2.31 sys 0.51 (257%). Peak memory: 239696KB.
-Elapsed time: 0:01.23[h:]min:sec. CPU time: user 2.09 sys 0.54 (213%). Peak memory: 582628KB.
-Elapsed time: 0:00.50[h:]min:sec. CPU time: user 0.43 sys 0.07 (99%). Peak memory: 125600KB.
-Elapsed time: 0:00.44[h:]min:sec. CPU time: user 0.36 sys 0.08 (98%). Peak memory: 122260KB.
-Elapsed time: 0:01.79[h:]min:sec. CPU time: user 1.47 sys 0.27 (96%). Peak memory: 301196KB.
-Elapsed time: 0:01.70[h:]min:sec. CPU time: user 1.53 sys 0.17 (99%). Peak memory: 441500KB.
+Elapsed time: 0:00.57[h:]min:sec. CPU time: user 0.39 sys 0.14 (94%). Peak memory: 142176KB.
+Elapsed time: 0:00.62[h:]min:sec. CPU time: user 0.37 sys 0.06 (68%). Peak memory: 119440KB.
+Elapsed time: 0:00.46[h:]min:sec. CPU time: user 0.35 sys 0.09 (96%). Peak memory: 119540KB.
+Elapsed time: 0:00.42[h:]min:sec. CPU time: user 0.37 sys 0.06 (101%). Peak memory: 123284KB.
+Elapsed time: 0:06.86[h:]min:sec. CPU time: user 31.81 sys 0.14 (465%). Peak memory: 121680KB.
+Elapsed time: 0:00.42[h:]min:sec. CPU time: user 0.36 sys 0.07 (101%). Peak memory: 120988KB.
+Elapsed time: 0:09.05[h:]min:sec. CPU time: user 53.71 sys 0.27 (596%). Peak memory: 216628KB.
+Elapsed time: 0:00.50[h:]min:sec. CPU time: user 0.40 sys 0.11 (102%). Peak memory: 140956KB.
+Elapsed time: 0:00.43[h:]min:sec. CPU time: user 0.39 sys 0.04 (101%). Peak memory: 125072KB.
+Elapsed time: 0:01.42[h:]min:sec. CPU time: user 1.27 sys 0.19 (103%). Peak memory: 149332KB.
+Elapsed time: 0:01.52[h:]min:sec. CPU time: user 5.03 sys 0.38 (355%). Peak memory: 240428KB.
+Elapsed time: 0:01.05[h:]min:sec. CPU time: user 1.84 sys 0.38 (212%). Peak memory: 588268KB.
+Elapsed time: 0:00.48[h:]min:sec. CPU time: user 0.38 sys 0.08 (94%). Peak memory: 126504KB.
+Elapsed time: 0:00.41[h:]min:sec. CPU time: user 0.34 sys 0.07 (99%). Peak memory: 122500KB.
+Elapsed time: 0:01.49[h:]min:sec. CPU time: user 1.39 sys 0.16 (104%). Peak memory: 190740KB.
+Elapsed time: 0:01.54[h:]min:sec. CPU time: user 1.38 sys 0.20 (102%). Peak memory: 441608KB.

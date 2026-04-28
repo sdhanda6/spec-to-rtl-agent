@@ -1,0 +1,5 @@
+## Simulation
+command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/pipelined_adder_sim.out
+status: pass
+PASS tb_pipelined_adder
+/home/sudar762/projects/spec-to-rtl-agent/build/candidates/pipelined_adder/cand_1/tb_pipelined_adder.sv:25: $finish called at 10000 (1ps)

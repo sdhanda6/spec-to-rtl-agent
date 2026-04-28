@@ -1,0 +1,26 @@
+module:
+  name: alu8
+  ports:
+    - name: a
+      dir: input
+      width: 8
+    - name: b
+      dir: input
+      width: 8
+    - name: op
+      dir: input
+      width: 3
+    - name: y
+      dir: output
+      width: 8
+      kind: reg
+behavior:
+  operations:
+    - if op == 0: y = a + b
+    - if op == 1: y = a - b
+    - if op == 2: y = a & b
+    - if op == 3: y = a | b
+    - if op == 4: y = a ^ b
+    - if op == 5: y = a << 1
+    - if op == 6: y = a >> 1
+    - if op == 7: y = 0

@@ -294,6 +294,89 @@ QOR_KNOB_REGISTRY: dict[str, list[dict[str, Any]]] = {
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_ML_HISTORY_PATH = REPO_ROOT / "build" / "ml_history.json"
 
+ASIC_STAGE_REPAIR_CLASSIFICATIONS: dict[str, dict[str, str]] = {
+    "coverage_analysis": {
+        "classification": "coverage_issue",
+        "metric_kind": "verification",
+        "action_family_hint": "coverage",
+    },
+    "dft_insertion": {
+        "classification": "dft_issue",
+        "metric_kind": "testability",
+        "action_family_hint": "dft",
+    },
+    "atpg_generation": {
+        "classification": "atpg_issue",
+        "metric_kind": "testability",
+        "action_family_hint": "atpg",
+    },
+    "lec_check": {
+        "classification": "lec_mismatch",
+        "metric_kind": "correctness",
+        "action_family_hint": "lec",
+    },
+}
+
+
+def classify_asic_stage_issue(stage_name: str, result: dict[str, Any]) -> dict[str, Any]:
+    status = str(result.get("status", "not_run"))
+    mapping = ASIC_STAGE_REPAIR_CLASSIFICATIONS.get(stage_name, {})
+    issue_class = mapping.get("classification", "flow_issue")
+    reason = str(result.get("reason") or result.get("message") or f"{stage_name} status is {status}")
+
+    if status == "pass":
+        return {
+            "primary_bottleneck": "none",
+            "bottleneck_classification": "clean",
+            "metric_kind": mapping.get("metric_kind", "unknown"),
+            "metric_family_priority": 99,
+            "metric_source_file": None,
+            "reasons": [f"{stage_name} passed"],
+            "action_family_hint": "none",
+            "ordered_bottlenecks": [],
+            "failure_kind": "none",
+            "repairable": False,
+        }
+    if status == "not_run":
+        return {
+            "primary_bottleneck": "not_run",
+            "bottleneck_classification": "not_run",
+            "metric_kind": "unknown",
+            "metric_family_priority": 99,
+            "metric_source_file": None,
+            "reasons": [reason],
+            "action_family_hint": "none",
+            "ordered_bottlenecks": [],
+            "failure_kind": "not_run",
+            "repairable": False,
+        }
+    if status == "not_supported":
+        return {
+            "primary_bottleneck": "tool_support",
+            "bottleneck_classification": "not_supported",
+            "metric_kind": "support",
+            "metric_family_priority": 99,
+            "metric_source_file": None,
+            "reasons": [reason],
+            "action_family_hint": "none",
+            "ordered_bottlenecks": ["tool_support"],
+            "failure_kind": "not_supported",
+            "repairable": False,
+        }
+
+    return {
+        "primary_bottleneck": issue_class,
+        "bottleneck_classification": issue_class,
+        "metric_kind": mapping.get("metric_kind", "unknown"),
+        "metric_family_priority": 0 if issue_class == "lec_mismatch" else 3,
+        "metric_source_file": _first_evidence_path(result),
+        "reasons": [reason],
+        "action_family_hint": mapping.get("action_family_hint", "none"),
+        "ordered_bottlenecks": [issue_class],
+        "failure_kind": issue_class,
+        "repairable": issue_class in {"coverage_issue", "lec_mismatch"},
+    }
+
 
 def validate_collateral(bundle: CollateralBundle, expected_top: str) -> list[FlowIssue]:
     issues: list[FlowIssue] = []
@@ -315,8 +398,18 @@ def validate_collateral(bundle: CollateralBundle, expected_top: str) -> list[Flo
         config_text = bundle.config_mk.read_text(encoding="utf-8")
         if f"export DESIGN_NAME := {expected_top}" not in config_text:
             issues.append(FlowIssue(code="wrong_top", message=f"config.mk DESIGN_NAME does not match expected top {expected_top}"))
+        if f"export TOP_MODULE := {expected_top}" not in config_text:
+            issues.append(FlowIssue(code="missing_top_module_var", message=f"config.mk TOP_MODULE does not match expected top {expected_top}"))
         if "export VERILOG_FILES :=" not in config_text:
             issues.append(FlowIssue(code="missing_verilog_var", message="config.mk is missing VERILOG_FILES"))
+        if "export SYNTH_HIERARCHICAL := 0" not in config_text:
+            issues.append(FlowIssue(code="missing_flat_synth_directive", message="config.mk does not force flat synthesis"))
+        if f"export SYNTH_ARGS := -top {expected_top}" not in config_text:
+            issues.append(FlowIssue(code="missing_synth_top_arg", message=f"config.mk does not pass -top {expected_top} into synthesis"))
+        if "export SYNTH_OPT_HIER := 1" not in config_text:
+            issues.append(FlowIssue(code="missing_synth_opt_directive", message="config.mk does not enable synthesis hierarchy optimization"))
+        if "export ABC_AREA := 1" not in config_text:
+            issues.append(FlowIssue(code="missing_abc_mapping_directive", message="config.mk does not enable ABC area mapping"))
     return issues
 
 
@@ -329,7 +422,19 @@ def attempt_collateral_repair(
     issues: list[FlowIssue],
 ) -> FlowRepairResult:
     repairable_codes = {issue.code for issue in issues}
-    supported = {"missing_sdc", "missing_rtl_source", "empty_filelist", "wrong_top", "missing_config", "missing_filelist"}
+    supported = {
+        "missing_sdc",
+        "missing_rtl_source",
+        "empty_filelist",
+        "wrong_top",
+        "missing_top_module_var",
+        "missing_synth_top_arg",
+        "missing_synth_opt_directive",
+        "missing_flat_synth_directive",
+        "missing_abc_mapping_directive",
+        "missing_config",
+        "missing_filelist",
+    }
     if not repairable_codes.intersection(supported):
         return FlowRepairResult(repaired=False, issues=issues, bundle=bundle)
 
@@ -647,6 +752,14 @@ def apply_post_synth_strategy(base_config: dict[str, object], suggestions: list[
     updated["regenerate_rtl"] = any(str(item.get("artifact_to_regenerate")) == "rtl" for item in suggestions)
     updated["action_family_matches_bottleneck"] = chosen in {"wrapper_testbench", "reset_init", "synthesis", "rtl", "none"}
     return updated
+
+
+def _first_evidence_path(result: dict[str, Any]) -> str | None:
+    evidence = result.get("evidence_paths", [])
+    if isinstance(evidence, list) and evidence:
+        return str(evidence[0])
+    log_path = result.get("log_path")
+    return str(log_path) if log_path else None
 
 
 def generate_qor_candidates(metrics: dict[str, object], bottlenecks: dict[str, object], base_config: dict[str, object]) -> list[dict[str, object]]:

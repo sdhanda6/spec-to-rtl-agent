@@ -1,0 +1,60 @@
+#! /home/sudar762/tools/oss-cad-suite/bin/vvp
+:ivl_version "14.0 (devel)" "(s20251012-146-g41d07c3e6)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/home/sudar762/tools/oss-cad-suite/lib/ivl/system.vpi";
+:vpi_module "/home/sudar762/tools/oss-cad-suite/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/home/sudar762/tools/oss-cad-suite/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/home/sudar762/tools/oss-cad-suite/lib/ivl/v2005_math.vpi";
+:vpi_module "/home/sudar762/tools/oss-cad-suite/lib/ivl/va_math.vpi";
+:vpi_module "/home/sudar762/tools/oss-cad-suite/lib/ivl/v2009.vpi";
+S_0x5555588121f0 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0x555558812380 .scope module, "tb_seq_detector_0011" "tb_seq_detector_0011" 3 3;
+ .timescale -9 -12;
+v0x555558823300_0 .var "clk", 0 0;
+v0x5555588233c0_0 .var "data_in", 0 0;
+v0x555558823490_0 .net "detected", 0 0, v0x555558823120_0;  1 drivers
+v0x555558823590_0 .var "reset", 0 0;
+S_0x5555587d7d40 .scope module, "dut" "seq_detector_0011" 3 9, 4 4 0, S_0x555558812380;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "reset";
+    .port_info 2 /INPUT 1 "data_in";
+    .port_info 3 /OUTPUT 1 "detected";
+v0x5555587d7f40_0 .net "clk", 0 0, v0x555558823300_0;  1 drivers
+v0x555558823060_0 .net "data_in", 0 0, v0x5555588233c0_0;  1 drivers
+v0x555558823120_0 .var "detected", 0 0;
+v0x5555588231c0_0 .net "reset", 0 0, v0x555558823590_0;  1 drivers
+E_0x5555587d82f0 .event posedge, v0x5555588231c0_0, v0x5555587d7f40_0;
+    .scope S_0x5555587d7d40;
+T_0 ;
+    %wait E_0x5555587d82f0;
+    %load/vec4 v0x5555588231c0_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x555558823120_0, 0;
+T_0.0 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_0x555558812380;
+T_1 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x555558823300_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x555558823590_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5555588233c0_0, 0, 1;
+    %delay 10000, 0;
+    %vpi_call/w 3 21 "$display", "PASS tb_seq_detector_0011" {0 0 0};
+    %vpi_call/w 3 22 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "/home/sudar762/projects/spec-to-rtl-agent/tb/tb_seq_detector_0011.sv";
+    "/home/sudar762/projects/spec-to-rtl-agent/rtl/seq_detector_0011.v";

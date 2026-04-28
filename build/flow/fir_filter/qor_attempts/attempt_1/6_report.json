@@ -1,10 +1,10 @@
 {
 	"finish__design_powergrid__voltage__worst__net:VDD__corner:default": 1.8,
 	"finish__design_powergrid__drop__average__net:VDD__corner:default": 1.8,
-	"finish__design_powergrid__drop__worst__net:VDD__corner:default": 3.97663e-08,
-	"finish__design_powergrid__voltage__worst__net:VSS__corner:default": 2.08803e-08,
-	"finish__design_powergrid__drop__average__net:VSS__corner:default": 1.25401e-10,
-	"finish__design_powergrid__drop__worst__net:VSS__corner:default": 2.08803e-08,
+	"finish__design_powergrid__drop__worst__net:VDD__corner:default": 3.18141e-08,
+	"finish__design_powergrid__voltage__worst__net:VSS__corner:default": 1.67048e-08,
+	"finish__design_powergrid__drop__average__net:VSS__corner:default": 1.00324e-10,
+	"finish__design_powergrid__drop__worst__net:VSS__corner:default": 1.67048e-08,
 	"finish__design__instance__count__class:fill_cell": 3815,
 	"finish__design__instance__area__class:fill_cell": 31251.2,
 	"finish__design__instance__count__class:tap_cell": 435,
@@ -28,9 +28,9 @@
 	"finish__timing__drv__setup_violation_count": 0,
 	"finish__timing__drv__hold_violation_count": 0,
 	"finish__power__internal__total": 0,
-	"finish__power__switching__total": 2.58507e-08,
+	"finish__power__switching__total": 2.06805e-08,
 	"finish__power__leakage__total": 3.24004e-12,
-	"finish__power__total": 2.58539e-08,
+	"finish__power__total": 2.06838e-08,
 	"finish__design__io": 7,
 	"finish__design__die__area": 40000,
 	"finish__design__core__area": 31799.2,
@@ -50,8 +50,9 @@
 	"finish__design__rows:unithd": 65,
 	"finish__design__sites": 25415,
 	"finish__design__sites:unithd": 25415,
-	"finish__flow__warnings__count": 2,
+	"finish__flow__warnings__count": 3,
 	"finish__flow__errors__count": 0,
 	"finish__flow__warnings__count:GUI-0066": 2,
-	"finish__flow__warnings__type_count": 1
+	"finish__flow__warnings__count:STA-1453": 1,
+	"finish__flow__warnings__type_count": 2
 }

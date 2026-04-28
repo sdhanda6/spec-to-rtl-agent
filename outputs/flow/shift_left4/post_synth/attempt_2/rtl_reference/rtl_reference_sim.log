@@ -1,0 +1,2 @@
+PASS tb_shift_left4
+/home/sudar762/projects/spec-to-rtl-agent/tb/tb_shift_left4.sv:40: $finish called at 26000 (1ps)

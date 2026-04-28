@@ -1,0 +1,173 @@
+#! /home/sudar762/tools/oss-cad-suite/bin/vvp
+:ivl_version "14.0 (devel)" "(s20251012-146-g41d07c3e6)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/home/sudar762/tools/oss-cad-suite/lib/ivl/system.vpi";
+:vpi_module "/home/sudar762/tools/oss-cad-suite/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/home/sudar762/tools/oss-cad-suite/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/home/sudar762/tools/oss-cad-suite/lib/ivl/v2005_math.vpi";
+:vpi_module "/home/sudar762/tools/oss-cad-suite/lib/ivl/va_math.vpi";
+:vpi_module "/home/sudar762/tools/oss-cad-suite/lib/ivl/v2009.vpi";
+S_0x555563099dd0 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0x555563099f60 .scope module, "tb_comb_adder8" "tb_comb_adder8" 3 3;
+ .timescale -9 -12;
+v0x5555630b29f0_0 .var "a", 7 0;
+v0x5555630b2ae0_0 .var "b", 7 0;
+v0x5555630b2bb0_0 .var "expected_y", 7 0;
+v0x5555630b2c80_0 .net "y", 7 0, v0x5555630b28b0_0;  1 drivers
+S_0x55556305fd40 .scope task, "check_outputs" "check_outputs" 3 15, 3 15 0, S_0x555563099f60;
+ .timescale -9 -12;
+v0x555563088750_0 .var "vector_name", 255 0;
+TD_tb_comb_adder8.check_outputs ;
+    %load/vec4 v0x5555630b2c80_0;
+    %load/vec4 v0x5555630b2bb0_0;
+    %cmp/ne;
+    %jmp/0xz  T_0.0, 6;
+    %vpi_call/w 3 19 "$display", "FAIL %0s: expected y=%b got %b", v0x555563088750_0, v0x5555630b2bb0_0, v0x5555630b2c80_0 {0 0 0};
+    %vpi_call/w 3 20 "$fatal", 32'sb00000000000000000000000000000001 {0 0 0};
+T_0.0 ;
+    %end;
+S_0x5555630b2530 .scope module, "dut" "comb_adder8" 3 9, 4 3 0, S_0x555563099f60;
+ .timescale 0 0;
+    .port_info 0 /INPUT 8 "a";
+    .port_info 1 /INPUT 8 "b";
+    .port_info 2 /OUTPUT 8 "y";
+v0x5555630887f0_0 .net "a", 7 0, v0x5555630b29f0_0;  1 drivers
+v0x5555630b27d0_0 .net "b", 7 0, v0x5555630b2ae0_0;  1 drivers
+v0x5555630b28b0_0 .var "y", 7 0;
+E_0x555563060fe0 .event anyedge, v0x5555630887f0_0, v0x5555630b27d0_0;
+    .scope S_0x5555630b2530;
+T_1 ;
+    %wait E_0x555563060fe0;
+    %load/vec4 v0x5555630887f0_0;
+    %load/vec4 v0x5555630b27d0_0;
+    %add;
+    %store/vec4 v0x5555630b28b0_0, 0, 8;
+    %jmp T_1;
+    .thread T_1, $push;
+    .scope S_0x555563099f60;
+T_2 ;
+    %pushi/vec4 0, 0, 8;
+    %store/vec4 v0x5555630b29f0_0, 0, 8;
+    %pushi/vec4 0, 0, 8;
+    %store/vec4 v0x5555630b2ae0_0, 0, 8;
+    %pushi/vec4 0, 0, 8;
+    %store/vec4 v0x5555630b29f0_0, 0, 8;
+    %pushi/vec4 0, 0, 8;
+    %store/vec4 v0x5555630b2ae0_0, 0, 8;
+    %load/vec4 v0x5555630b29f0_0;
+    %load/vec4 v0x5555630b2ae0_0;
+    %add;
+    %store/vec4 v0x5555630b2bb0_0, 0, 8;
+    %delay 1000, 0;
+    %pushi/vec4 0, 0, 32; draw_string_vec4
+    %pushi/vec4 0, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 0, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 0, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 0, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 0, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 122, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 1701998451, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %store/vec4 v0x555563088750_0, 0, 256;
+    %fork TD_tb_comb_adder8.check_outputs, S_0x55556305fd40;
+    %join;
+    %pushi/vec4 255, 0, 8;
+    %store/vec4 v0x5555630b29f0_0, 0, 8;
+    %pushi/vec4 255, 0, 8;
+    %store/vec4 v0x5555630b2ae0_0, 0, 8;
+    %load/vec4 v0x5555630b29f0_0;
+    %load/vec4 v0x5555630b2ae0_0;
+    %add;
+    %store/vec4 v0x5555630b2bb0_0, 0, 8;
+    %delay 1000, 0;
+    %pushi/vec4 0, 0, 32; draw_string_vec4
+    %pushi/vec4 0, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 0, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 0, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 0, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 0, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 0, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 1869505907, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %store/vec4 v0x555563088750_0, 0, 256;
+    %fork TD_tb_comb_adder8.check_outputs, S_0x55556305fd40;
+    %join;
+    %pushi/vec4 1, 0, 8;
+    %store/vec4 v0x5555630b29f0_0, 0, 8;
+    %pushi/vec4 0, 0, 8;
+    %store/vec4 v0x5555630b2ae0_0, 0, 8;
+    %load/vec4 v0x5555630b29f0_0;
+    %load/vec4 v0x5555630b2ae0_0;
+    %add;
+    %store/vec4 v0x5555630b2bb0_0, 0, 8;
+    %delay 1000, 0;
+    %pushi/vec4 0, 0, 32; draw_string_vec4
+    %pushi/vec4 0, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 0, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 0, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 0, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 0, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 97, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 1600679796, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %store/vec4 v0x555563088750_0, 0, 256;
+    %fork TD_tb_comb_adder8.check_outputs, S_0x55556305fd40;
+    %join;
+    %pushi/vec4 0, 0, 8;
+    %store/vec4 v0x5555630b29f0_0, 0, 8;
+    %pushi/vec4 1, 0, 8;
+    %store/vec4 v0x5555630b2ae0_0, 0, 8;
+    %load/vec4 v0x5555630b29f0_0;
+    %load/vec4 v0x5555630b2ae0_0;
+    %add;
+    %store/vec4 v0x5555630b2bb0_0, 0, 8;
+    %delay 1000, 0;
+    %pushi/vec4 0, 0, 32; draw_string_vec4
+    %pushi/vec4 0, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 0, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 0, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 0, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 0, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 98, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 1600679796, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %store/vec4 v0x555563088750_0, 0, 256;
+    %fork TD_tb_comb_adder8.check_outputs, S_0x55556305fd40;
+    %join;
+    %vpi_call/w 3 44 "$display", "PASS tb_comb_adder8" {0 0 0};
+    %vpi_call/w 3 45 "$finish" {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "/home/sudar762/projects/spec-to-rtl-agent/tb/tb_comb_adder8.sv";
+    "/home/sudar762/projects/spec-to-rtl-agent/rtl/comb_adder8.v";

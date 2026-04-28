@@ -13,11 +13,11 @@ python run_pipeline.py --spec <spec> --mode full --overwrite
 
 If OpenROAD-flow-scripts is installed separately, point `OPENROAD_FLOW_ROOT` or `OPENROAD_FLOW_DIR` to it and run:
 ```powershell
-make DESIGN_CONFIG=build\flow\text_counter\design\config.mk
+make DESIGN_CONFIG=build/flow/text_counter/design/config.mk
 ```
 
 Platform hint: `sky130hd`
 Clock port: `clk`
-Clock period: `10.0 ns`
+Clock period: `10 ns`
 
 Visible and hidden-case note: unsupported or ambiguous physical-design requirements should be treated as partial support, not tapeout-ready success.

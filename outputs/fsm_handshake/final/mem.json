@@ -1,0 +1,371 @@
+{
+  "creator": "Yosys 0.64 (git sha1 8449dd470, g++ 11.4.0-1ubuntu1~22.04.3 -fPIC -O3) [the-openroad-project/yosys]",
+  "modules": {
+    "fsm_handshake": {
+      "attributes": {
+        "hdlname": "fsm_handshake",
+        "top": "00000000000000000000000000000001",
+        "src": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/design/src/fsm_handshake.v:3.1-52.10"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "rst_n": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "start": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "done": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "busy": {
+          "direction": "output",
+          "bits": [ 6 ]
+        },
+        "valid": {
+          "direction": "output",
+          "bits": [ 7 ]
+        }
+      },
+      "cells": {
+        "$auto$fsm_map.cc:121:implement_pattern_cache$5631": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 8 ],
+            "B": [ 9 ],
+            "Y": [ 10 ]
+          }
+        },
+        "$auto$fsm_map.cc:121:implement_pattern_cache$5636": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 5 ],
+            "B": [ 11 ],
+            "Y": [ 12 ]
+          }
+        },
+        "$auto$fsm_map.cc:121:implement_pattern_cache$5640": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 4 ],
+            "B": [ 9 ],
+            "Y": [ 13 ]
+          }
+        },
+        "$auto$fsm_map.cc:121:implement_pattern_cache$5644": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 14 ],
+            "B": [ 11 ],
+            "Y": [ 15 ]
+          }
+        },
+        "$auto$fsm_map.cc:144:implement_pattern_cache$5632": {
+          "hide_name": 1,
+          "type": "$reduce_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 10, 16 ],
+            "Y": [ 17 ]
+          }
+        },
+        "$auto$fsm_map.cc:144:implement_pattern_cache$5645": {
+          "hide_name": 1,
+          "type": "$reduce_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 15, 13 ],
+            "Y": [ 18 ]
+          }
+        },
+        "$auto$fsm_map.cc:172:map_fsm$5625": {
+          "hide_name": 1,
+          "type": "$adff",
+          "parameters": {
+            "ARST_POLARITY": "0",
+            "ARST_VALUE": "001",
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "ARST": "input",
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "ARST": [ 3 ],
+            "CLK": [ 2 ],
+            "D": [ 17, 12, 18 ],
+            "Q": [ 9, 16, 11 ]
+          }
+        },
+        "$auto$fsm_map.cc:77:implement_pattern_cache$5629": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 4 ],
+            "Y": [ 8 ]
+          }
+        },
+        "$auto$fsm_map.cc:77:implement_pattern_cache$5642": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 5 ],
+            "Y": [ 14 ]
+          }
+        },
+        "$procmux$5608": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/design/src/fsm_handshake.v:40.16-40.16|/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/design/src/fsm_handshake.v:30.9-49.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ "1" ],
+            "S": [ 16 ],
+            "Y": [ 7 ]
+          }
+        },
+        "$procmux$5612": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/design/src/fsm_handshake.v:35.16-35.16|/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/design/src/fsm_handshake.v:30.9-49.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ "1" ],
+            "S": [ 11 ],
+            "Y": [ 6 ]
+          }
+        }
+      },
+      "netnames": {
+        "$auto$fsm_map.cc:118:implement_pattern_cache$5630": {
+          "hide_name": 1,
+          "bits": [ 10 ],
+          "attributes": {
+          }
+        },
+        "$auto$fsm_map.cc:118:implement_pattern_cache$5635": {
+          "hide_name": 1,
+          "bits": [ 12 ],
+          "attributes": {
+          }
+        },
+        "$auto$fsm_map.cc:118:implement_pattern_cache$5639": {
+          "hide_name": 1,
+          "bits": [ 13 ],
+          "attributes": {
+          }
+        },
+        "$auto$fsm_map.cc:118:implement_pattern_cache$5643": {
+          "hide_name": 1,
+          "bits": [ 15 ],
+          "attributes": {
+          }
+        },
+        "$auto$fsm_map.cc:170:map_fsm$5624": {
+          "hide_name": 1,
+          "bits": [ 17, 12, 18 ],
+          "attributes": {
+          }
+        },
+        "$auto$fsm_map.cc:74:implement_pattern_cache$5628": {
+          "hide_name": 1,
+          "bits": [ 8 ],
+          "attributes": {
+          }
+        },
+        "$auto$fsm_map.cc:74:implement_pattern_cache$5641": {
+          "hide_name": 1,
+          "bits": [ 14 ],
+          "attributes": {
+          }
+        },
+        "busy": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "src": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/design/src/fsm_handshake.v:8.16-8.20"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/design/src/fsm_handshake.v:4.11-4.14"
+          }
+        },
+        "done": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/design/src/fsm_handshake.v:7.11-7.15"
+          }
+        },
+        "rst_n": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/design/src/fsm_handshake.v:5.11-5.16"
+          }
+        },
+        "start": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/design/src/fsm_handshake.v:6.11-6.16"
+          }
+        },
+        "state_q": {
+          "hide_name": 0,
+          "bits": [ 9, 16, 11 ],
+          "attributes": {
+            "onehot": "00000000000000000000000000000001"
+          }
+        },
+        "valid": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "src": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/design/src/fsm_handshake.v:9.16-9.21"
+          }
+        }
+      }
+    }
+  }
+}

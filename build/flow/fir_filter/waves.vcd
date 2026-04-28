@@ -1,0 +1,73 @@
+$date
+	Mon Apr 27 11:01:59 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_fir_filter $end
+$var wire 1 ! y_out $end
+$var reg 1 " clk $end
+$var reg 1 # h $end
+$var reg 1 $ rst $end
+$var reg 1 % x_in $end
+$scope module dut $end
+$var wire 1 & _0_ $end
+$var wire 1 " clk $end
+$var wire 1 # h $end
+$var wire 1 $ rst $end
+$var wire 1 % x_in $end
+$var wire 1 ! y_out $end
+$scope module _1_ $end
+$var wire 1 ' HI $end
+$var wire 1 & LO $end
+$var wire 1 ( VGND $end
+$var wire 1 ) VNB $end
+$var wire 1 * VPB $end
+$var wire 1 + VPWR $end
+$scope module base $end
+$var wire 1 ' HI $end
+$var wire 1 & LO $end
+$upscope $end
+$upscope $end
+$scope module _2_ $end
+$var wire 1 & A $end
+$var wire 1 , VGND $end
+$var wire 1 - VNB $end
+$var wire 1 . VPB $end
+$var wire 1 / VPWR $end
+$var wire 1 ! X $end
+$scope module base $end
+$var wire 1 & A $end
+$var wire 1 ! X $end
+$var wire 1 0 buf0_out_X $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+00
+1/
+1.
+0-
+0,
+1+
+1*
+0)
+0(
+1'
+0&
+0%
+0$
+0#
+0"
+0!
+$end
+#10000

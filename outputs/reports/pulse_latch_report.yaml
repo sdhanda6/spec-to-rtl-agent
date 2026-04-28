@@ -1,0 +1,153 @@
+spec_source_type: yaml
+spec_source: examples/specs/pulse_latch.yaml
+top_module: pulse_latch
+design_kind: generic
+parsed_design_class: generic
+selected_candidate: cand_1
+final_classification: functionally_verified
+ambiguity_findings:
+unsupported_findings:
+extracted_semantics:
+  module_name: pulse_latch
+  ports:
+    -
+      name: clk
+      dir: input
+      width: 1
+    -
+      name: rst_n
+      dir: input
+      width: 1
+    -
+      name: set_pulse
+      dir: input
+      width: 1
+    -
+      name: flag
+      dir: output
+      width: 1
+      kind: reg
+  clock: clk
+  reset:
+    signal: rst_n
+    active: low
+    mode: async
+  state:
+  behavior_keys:
+    - processes
+  design_kind_hint: generic
+  flow:
+candidate_analysis:
+  candidate_count: 1
+  selected_candidate: cand_1
+  candidates:
+    -
+      candidate_id: cand_1
+      title: structured_document
+      score: 10.25
+      classification: functionally_verified
+      assumptions:
+      ambiguity_count: 0
+      unsupported_count: 0
+      internal_checks:
+        - module name present
+        - port list present
+        - clock semantics present
+      compile_ok: true
+      simulation_ok: true
+      evidence_level: functional
+      oracle_independent: true
+      attempts_used: 1
+      extracted_semantics:
+        module_name: pulse_latch
+        ports:
+          -
+            name: clk
+            dir: input
+            width: 1
+          -
+            name: rst_n
+            dir: input
+            width: 1
+          -
+            name: set_pulse
+            dir: input
+            width: 1
+          -
+            name: flag
+            dir: output
+            width: 1
+            kind: reg
+        clock: clk
+        reset:
+          signal: rst_n
+          active: low
+          mode: async
+        state:
+        behavior_keys:
+          - processes
+        design_kind_hint: generic
+        flow:
+artifacts:
+  rtl: rtl/pulse_latch.v
+  testbench: tb/tb_pulse_latch.sv
+generation_status:
+  rtl_generation_status: pass
+  testbench_generation_status: pass
+repair_loop:
+  enabled: true
+  max_attempts: 3
+  attempts_used: 1
+  injected_fault: null
+  repaired_after_feedback: false
+  unrepaired_after_retry_limit: false
+  attempts:
+    -
+      attempt: 1
+      strategy: direct
+      rtl_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/pulse_latch/cand_1/attempt_1/pulse_latch.v
+      testbench_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/pulse_latch/cand_1/attempt_1/tb_pulse_latch.sv
+      compile_command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/pulse_latch/cand_1/pulse_latch.v
+      simulation_command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/pulse_latch_sim.out
+      compile_status: pass
+      simulation_status: pass
+      compile_stdout: ""
+      compile_stderr: ""
+      simulation_stdout: |-
+        PASS tb_pulse_latch
+        /home/sudar762/projects/spec-to-rtl-agent/build/candidates/pulse_latch/cand_1/tb_pulse_latch.sv:48: $finish called at 16000 (1ps)
+      simulation_stderr: ""
+      diagnosis_summary: simulation passed on the current RTL/testbench pair
+      next_regeneration_changes:
+verification:
+  support_status: supported
+  requested_mode: sim
+  requested_level: functional
+  generated_testbench_kind: verification_steps_functional
+  oracle_independent: true
+  compile_pass: true
+  smoke_sim_pass: false
+  functional_sim_pass: true
+  overall_pass: true
+  covered_checks:
+    - user sequence step reset_assert
+    - user sequence step set_flag
+    - user sequence step hold_flag
+  limitations:
+  notes:
+  partial_verification_reasons:
+  assumptions:
+  conclusion: functional verification passed with independent evidence
+  compile:
+    attempt: 1
+    ok: true
+    message: compile ok
+    command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/pulse_latch/cand_1/pulse_latch.v
+  simulation:
+    attempt: 1
+    ok: true
+    message: |-
+      PASS tb_pulse_latch
+      /home/sudar762/projects/spec-to-rtl-agent/build/candidates/pulse_latch/cand_1/tb_pulse_latch.sv:48: $finish called at 16000 (1ps)
+    command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/pulse_latch_sim.out
+  retry_history:

@@ -1,0 +1,20 @@
+top: fp16_multiplier
+design_kind: generic
+platform: sky130hd
+rtl: /home/sudar762/projects/spec-to-rtl-agent/build/flow/fp16_multiplier/design/src/fp16_multiplier.v
+testbench: /home/sudar762/projects/spec-to-rtl-agent/tb/tb_fp16_multiplier.sv
+clock_port: null
+clock_period_ns: 9
+ports:
+  -
+    name: a
+    dir: input
+    width: 16
+  -
+    name: b
+    dir: input
+    width: 16
+  -
+    name: result
+    dir: output
+    width: 16

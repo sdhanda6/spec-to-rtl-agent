@@ -1,10 +1,10 @@
 spec_source_type: yaml
 spec_source: examples/specs/comb_adder8.yaml
 top_module: comb_adder8
-design_kind: combinational
-parsed_design_class: combinational
+design_kind: generic
+parsed_design_class: generic
 selected_candidate: cand_1
-final_classification: functionally_verified
+final_classification: compile_and_smoke_verified
 ambiguity_findings:
 unsupported_findings:
 extracted_semantics:
@@ -37,8 +37,8 @@ candidate_analysis:
     -
       candidate_id: cand_1
       title: structured_document
-      score: 10.0
-      classification: functionally_verified
+      score: 8.0
+      classification: compile_and_smoke_verified
       assumptions:
       ambiguity_count: 0
       unsupported_count: 0
@@ -47,8 +47,8 @@ candidate_analysis:
         - port list present
       compile_ok: true
       simulation_ok: true
-      evidence_level: functional
-      oracle_independent: true
+      evidence_level: smoke
+      oracle_independent: false
       attempts_used: 1
       extracted_semantics:
         module_name: comb_adder8
@@ -100,28 +100,29 @@ repair_loop:
       compile_stderr: ""
       simulation_stdout: |-
         PASS tb_comb_adder8
-        /home/sudar762/projects/spec-to-rtl-agent/build/candidates/comb_adder8/cand_1/tb_comb_adder8.sv:45: $finish called at 4000 (1ps)
+        /home/sudar762/projects/spec-to-rtl-agent/build/candidates/comb_adder8/cand_1/tb_comb_adder8.sv:25: $finish called at 10000 (1ps)
       simulation_stderr: ""
       diagnosis_summary: simulation passed on the current RTL/testbench pair
       next_regeneration_changes:
 verification:
-  support_status: supported
+  support_status: partially_supported
   requested_mode: sim
   requested_level: functional
-  generated_testbench_kind: combinational_functional
-  oracle_independent: true
+  generated_testbench_kind: generic_smoke
+  oracle_independent: false
   compile_pass: true
-  smoke_sim_pass: false
-  functional_sim_pass: true
+  smoke_sim_pass: true
+  functional_sim_pass: false
   overall_pass: true
   covered_checks:
-    - directed input vectors
-    - independent oracle expected-value checks
   limitations:
+    - no independent functional oracle for this design kind
   notes:
   partial_verification_reasons:
+    - no independent functional oracle for this design kind
+    - simulation did not meet the requested functional evidence threshold
   assumptions:
-  conclusion: functional verification passed with independent evidence
+  conclusion: simulation passed, but only smoke-level evidence is available
   compile:
     attempt: 1
     ok: true
@@ -132,6 +133,6 @@ verification:
     ok: true
     message: |-
       PASS tb_comb_adder8
-      /home/sudar762/projects/spec-to-rtl-agent/build/candidates/comb_adder8/cand_1/tb_comb_adder8.sv:45: $finish called at 4000 (1ps)
+      /home/sudar762/projects/spec-to-rtl-agent/build/candidates/comb_adder8/cand_1/tb_comb_adder8.sv:25: $finish called at 10000 (1ps)
     command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/comb_adder8_sim.out
   retry_history:

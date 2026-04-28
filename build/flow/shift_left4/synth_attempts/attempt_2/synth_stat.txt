@@ -1,0 +1,27 @@
+
+20. Printing statistics.
+
+=== shift_left4 ===
+
+        +----------------------------Count including submodules.
+        |        +-------------------Area including submodules.
+        |        |        +----------Local count, excluding submodules.
+        |        |        |        +-Local area, excluding submodules.
+        |        |        |        | 
+       18        -       18        - wires
+       21        -       21        - wire bits
+        5        -        5        - public wires
+        8        -        8        - public wire bits
+        5        -        5        - ports
+        8        -        8        - port bits
+        -        -        -        - memories
+        -        -        -        - memory bits
+        -        -        -        - processes
+       17  148.893       17  148.893 cells
+        4  100.096        4  100.096   sky130_fd_sc_hd__dfrtp_1
+        1    3.754        1    3.754   sky130_fd_sc_hd__inv_2
+       12   45.043       12   45.043   sky130_fd_sc_hd__nand2_1
+
+   Chip area for module '\shift_left4': 148.892800
+     of which used for sequential elements: 100.096000 (67.23%)
+

@@ -17,7 +17,7 @@ make DESIGN_CONFIG=build/flow/comb_adder8/design/config.mk
 ```
 
 Platform hint: `sky130hd`
-Clock port: not inferred
-Clock period: not inferred
+Clock port: `clk`
+Clock period: `10 ns`
 
 Visible and hidden-case note: unsupported or ambiguous physical-design requirements should be treated as partial support, not tapeout-ready success.

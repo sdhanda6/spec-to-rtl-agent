@@ -1,0 +1,26 @@
+
+20. Printing statistics.
+
+=== fir_filter ===
+
+        +----------------------------Count including submodules.
+        |        +-------------------Area including submodules.
+        |        |        +----------Local count, excluding submodules.
+        |        |        |        +-Local area, excluding submodules.
+        |        |        |        | 
+        6        -        6        - wires
+        6        -        6        - wire bits
+        5        -        5        - public wires
+        5        -        5        - public wire bits
+        5        -        5        - ports
+        5        -        5        - port bits
+        -        -        -        - memories
+        -        -        -        - memory bits
+        -        -        -        - processes
+        2   11.261        2   11.261 cells
+        1    7.507        1    7.507   sky130_fd_sc_hd__buf_4
+        1    3.754        1    3.754   sky130_fd_sc_hd__conb_1
+
+   Chip area for module '\fir_filter': 11.260800
+     of which used for sequential elements: 0.000000 (0.00%)
+

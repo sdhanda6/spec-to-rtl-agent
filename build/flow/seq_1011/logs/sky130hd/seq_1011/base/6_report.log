@@ -1,0 +1,71 @@
+OpenROAD 26Q2-209-g0d9d73ffba 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 8 thread(s).
+read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_seq_1011/results/sky130hd/seq_1011/base/6_1_fill.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_seq_1011/results/sky130hd/seq_1011/base/6_1_fill.sdc
+source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+source /home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_1011/design/power_activity.tcl
+Reading activity VCD /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_seq_1011/results/sky130hd/seq_1011/base/waves.vcd with scope tb_seq_1011/dut
+[WARNING STA-1453] clock clk pin clk has no vcd transitions.
+Annotated 72 pin activities.
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_seq_1011/results/sky130hd/seq_1011/base/6_final.odb
+Deleted 0 routing obstructions
+Warning: master sky130_ef_sc_hd__decap_12 has signal pins but no liberty cell
+[INFO RCX-0431] Defined process_corner X with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner X
+[INFO RCX-0435] Reading extraction model file /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/rcx_patterns.rules ...
+[INFO RCX-0436] RC segment generation seq_1011 (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 87 rc segments
+[INFO RCX-0439] Coupling Cap extraction seq_1011 ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0442] 92% of 1087 wires extracted
+[INFO RCX-0442] 100% of 1087 wires extracted
+[INFO RCX-0045] Extract 30 nets, 117 rsegs, 117 caps, 90 ccs
+[INFO RCX-0443] 30 nets finished
+[INFO PSM-0040] All shapes on net VDD are connected.
+########## IR report #################
+Net              : VDD
+Corner           : default
+Total power      : 8.55e-05 W
+Supply voltage   : 1.80e+00 V
+Worstcase voltage: 1.80e+00 V
+Average voltage  : 1.80e+00 V
+Average IR drop  : 5.17e-07 V
+Worstcase IR drop: 3.29e-05 V
+Percentage drop  : 0.00 %
+######################################
+[INFO PSM-0040] All shapes on net VSS are connected.
+########## IR report #################
+Net              : VSS
+Corner           : default
+Total power      : 8.55e-05 W
+Supply voltage   : 0.00e+00 V
+Worstcase voltage: 3.63e-05 V
+Average voltage  : 5.36e-07 V
+Average IR drop  : 5.36e-07 V
+Worstcase IR drop: 3.63e-05 V
+Percentage drop  : 0.00 %
+######################################
+Cell type report:                       Count       Area
+  Fill cell                              3790   30934.67
+  Tap cell                                435     544.27
+  Clock buffer                              4      78.83
+  Timing Repair Buffer                      3      30.03
+  Inverter                                  5      18.77
+  Sequential cell                           5     126.37
+  Multi-Input combinational cell           11      66.31
+  Total                                  4253   31799.25
+Report metrics stage 6, finish...
+
+==========================================================================
+finish report_design_area
+--------------------------------------------------------------------------
+Design area 865 um^2 3% utilization.
+[WARNING GUI-0066] Heat map "IR Drop" has not been populated with data.
+[WARNING GUI-0066] Heat map "Routing Congestion" has not been populated with data.
+Elapsed time: 0:02.08[h:]min:sec. CPU time: user 1.67 sys 0.21 (90%). Peak memory: 191876KB.
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+6_report                           2            187                  N/A

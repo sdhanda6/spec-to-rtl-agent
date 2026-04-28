@@ -1,2 +1,3 @@
+VCD info: dumpfile waves.vcd opened for output.
 PASS tb_sum_stage
-/home/sudar762/projects/spec-to-rtl-agent/tb/tb_sum_stage.sv:70: $finish called at 16000 (1ps)
+/home/sudar762/projects/spec-to-rtl-agent/build/flow/sum_stage/post_synth/attempt_1/adapted_tb/tb_sum_stage.sv:74: $finish called at 16000 (1ps)

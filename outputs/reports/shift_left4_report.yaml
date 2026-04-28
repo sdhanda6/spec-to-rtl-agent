@@ -1,0 +1,169 @@
+spec_source_type: yaml
+spec_source: examples/specs/shift_left4.yaml
+top_module: shift_left4
+design_kind: shift_register
+parsed_design_class: shift_register
+selected_candidate: cand_1
+final_classification: functionally_verified
+ambiguity_findings:
+unsupported_findings:
+extracted_semantics:
+  module_name: shift_left4
+  ports:
+    -
+      name: clk
+      dir: input
+      width: 1
+    -
+      name: rst_n
+      dir: input
+      width: 1
+    -
+      name: en
+      dir: input
+      width: 1
+    -
+      name: serial_in
+      dir: input
+      width: 1
+    -
+      name: shreg
+      dir: output
+      width: 4
+      kind: reg
+  clock: clk
+  reset:
+    signal: rst_n
+    active: low
+    mode: async
+  state:
+    -
+      name: shreg
+      width: 4
+      reset: 0
+  behavior_keys:
+    - shift_register
+  design_kind_hint: shift_register
+  flow:
+candidate_analysis:
+  candidate_count: 1
+  selected_candidate: cand_1
+  candidates:
+    -
+      candidate_id: cand_1
+      title: structured_document
+      score: 10.25
+      classification: functionally_verified
+      assumptions:
+      ambiguity_count: 0
+      unsupported_count: 0
+      internal_checks:
+        - module name present
+        - port list present
+        - clock semantics present
+      compile_ok: true
+      simulation_ok: true
+      evidence_level: functional
+      oracle_independent: true
+      attempts_used: 1
+      extracted_semantics:
+        module_name: shift_left4
+        ports:
+          -
+            name: clk
+            dir: input
+            width: 1
+          -
+            name: rst_n
+            dir: input
+            width: 1
+          -
+            name: en
+            dir: input
+            width: 1
+          -
+            name: serial_in
+            dir: input
+            width: 1
+          -
+            name: shreg
+            dir: output
+            width: 4
+            kind: reg
+        clock: clk
+        reset:
+          signal: rst_n
+          active: low
+          mode: async
+        state:
+          -
+            name: shreg
+            width: 4
+            reset: 0
+        behavior_keys:
+          - shift_register
+        design_kind_hint: shift_register
+        flow:
+artifacts:
+  rtl: rtl/shift_left4.v
+  testbench: tb/tb_shift_left4.sv
+generation_status:
+  rtl_generation_status: pass
+  testbench_generation_status: pass
+repair_loop:
+  enabled: true
+  max_attempts: 3
+  attempts_used: 1
+  injected_fault: null
+  repaired_after_feedback: false
+  unrepaired_after_retry_limit: false
+  attempts:
+    -
+      attempt: 1
+      strategy: direct
+      rtl_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/shift_left4/cand_1/attempt_1/shift_left4.v
+      testbench_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/shift_left4/cand_1/attempt_1/tb_shift_left4.sv
+      compile_command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/shift_left4/cand_1/shift_left4.v
+      simulation_command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/shift_left4_sim.out
+      compile_status: pass
+      simulation_status: pass
+      compile_stdout: ""
+      compile_stderr: ""
+      simulation_stdout: |-
+        PASS tb_shift_left4
+        /home/sudar762/projects/spec-to-rtl-agent/build/candidates/shift_left4/cand_1/tb_shift_left4.sv:40: $finish called at 26000 (1ps)
+      simulation_stderr: ""
+      diagnosis_summary: simulation passed on the current RTL/testbench pair
+      next_regeneration_changes:
+verification:
+  support_status: supported
+  requested_mode: sim
+  requested_level: functional
+  generated_testbench_kind: shift_register_functional
+  oracle_independent: true
+  compile_pass: true
+  smoke_sim_pass: false
+  functional_sim_pass: true
+  overall_pass: true
+  covered_checks:
+    - reset behavior
+    - shift behavior
+    - hold when disabled
+  limitations:
+  notes:
+  partial_verification_reasons:
+  assumptions:
+  conclusion: functional verification passed with independent evidence
+  compile:
+    attempt: 1
+    ok: true
+    message: compile ok
+    command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/shift_left4/cand_1/shift_left4.v
+  simulation:
+    attempt: 1
+    ok: true
+    message: |-
+      PASS tb_shift_left4
+      /home/sudar762/projects/spec-to-rtl-agent/build/candidates/shift_left4/cand_1/tb_shift_left4.sv:40: $finish called at 26000 (1ps)
+    command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/shift_left4_sim.out
+  retry_history:

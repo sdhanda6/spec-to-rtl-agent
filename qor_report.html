@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QoR Report</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 32px;
+      color: #202124;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 24px;
+    }
+    .chart-wrap {
+      max-width: 1100px;
+      height: 520px;
+    }
+  </style>
+</head>
+<body>
+  <h1>QoR Area and Power</h1>
+  <div class="chart-wrap">
+    <canvas id="qorChart"></canvas>
+  </div>
+  <script>
+    const labels = ["alu8", "comb_adder8", "dot_product", "exp_fixed_point", "fir_filter", "fp16_multiplier", "fsm_handshake", "pipelined_adder", "pulse_latch", "register8", "seq_1011", "seq_detector_0011", "shift_left4", "sum_stage", "text_counter", "upcounter16", "updown_counter16"];
+    const areaData = [1471.4112, 524.2528, 18.768, 11.2608, 11.2608, 123.8688, 113.8592, 2549.9456, 36.2848, 305.2928, 211.4528, 11.2608, 148.8928, 589.3152, 392.8768, 838.304, 1326.272];
+    const powerData = [0.0974, 0.097, 3.9699999999999996e-05, 2.0700000000000002e-05, 2.0700000000000002e-05, 0.00040699999999999997, 0.0942, 0.5429999999999999, 0.0188, 0.155, 0.0855, 2.0700000000000002e-05, 0.106, 0.213, 0.129, 0.179, 0.14200000000000002];
+
+    new Chart(document.getElementById("qorChart"), {
+      type: "bar",
+      data: {
+        labels,
+        datasets: [
+          {
+            label: "Area (um2)",
+            data: areaData,
+            backgroundColor: "rgba(37, 99, 235, 0.65)",
+            borderColor: "rgb(37, 99, 235)",
+            borderWidth: 1,
+            yAxisID: "yArea"
+          },
+          {
+            label: "Power (mW)",
+            data: powerData,
+            backgroundColor: "rgba(234, 88, 12, 0.65)",
+            borderColor: "rgb(234, 88, 12)",
+            borderWidth: 1,
+            yAxisID: "yPower"
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: {
+          mode: "index",
+          intersect: false
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: "Design"
+            }
+          },
+          yArea: {
+            beginAtZero: true,
+            position: "left",
+            title: {
+              display: true,
+              text: "Area (um2)"
+            }
+          },
+          yPower: {
+            beginAtZero: true,
+            position: "right",
+            grid: {
+              drawOnChartArea: false
+            },
+            title: {
+              display: true,
+              text: "Power (mW)"
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:28405: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:29034: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:29516: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:30103: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:30557: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:31239: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:31817: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:32482: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:33022: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:34670: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:35267: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:35856: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:36538: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:37214: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:37764: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:42375: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:42837: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:90792: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:91485: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:92024: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:92679: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:93189: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:93955: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:94604: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:95349: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:95953: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:97374: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/OpenROAD-flow-scripts/tools/OpenROAD/src/sta/examples/sky130_hd.v:98015: warning: macro UNIT_DELAY undefined (and assumed null) at this point.
+/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/synth_opt/attempt_2/adapted_tb/tb_fsm_handshake.sv:35: error: Unable to bind wire/reg/memory `dut.state_q' in `tb_fsm_handshake.check_state_outputs'
+/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/synth_opt/attempt_2/adapted_tb/tb_fsm_handshake.sv:35: error: Unable to elaborate condition expression.
+2 error(s) during elaboration.

@@ -1,0 +1,72 @@
+OpenROAD 26Q2-209-g0d9d73ffba 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 8 thread(s).
+read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_comb_adder8/results/sky130hd/comb_adder8/base/6_1_fill.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_comb_adder8/results/sky130hd/comb_adder8/base/6_1_fill.sdc
+source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+source /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/design/power_activity.tcl
+Reading activity VCD /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_comb_adder8/results/sky130hd/comb_adder8/base/waves.vcd with scope tb_comb_adder8/dut
+[WARNING STA-1453] clock clk pin clk has no vcd transitions.
+Annotated 230 pin activities.
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_comb_adder8/results/sky130hd/comb_adder8/base/6_final.odb
+Deleted 0 routing obstructions
+Warning: master sky130_ef_sc_hd__decap_12 has signal pins but no liberty cell
+[INFO RCX-0431] Defined process_corner X with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner X
+[INFO RCX-0435] Reading extraction model file /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/rcx_patterns.rules ...
+[INFO RCX-0436] RC segment generation comb_adder8 (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 252 rc segments
+[INFO RCX-0439] Coupling Cap extraction comb_adder8 ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0442] 84% of 1369 wires extracted
+[INFO RCX-0442] 100% of 1369 wires extracted
+[INFO RCX-0045] Extract 117 nets, 369 rsegs, 369 caps, 303 ccs
+[INFO RCX-0443] 117 nets finished
+[INFO PSM-0040] All shapes on net VDD are connected.
+########## IR report #################
+Net              : VDD
+Corner           : default
+Total power      : 9.70e-05 W
+Supply voltage   : 1.80e+00 V
+Worstcase voltage: 1.80e+00 V
+Average voltage  : 1.80e+00 V
+Average IR drop  : 6.67e-07 V
+Worstcase IR drop: 5.67e-05 V
+Percentage drop  : 0.00 %
+######################################
+[INFO PSM-0040] All shapes on net VSS are connected.
+########## IR report #################
+Net              : VSS
+Corner           : default
+Total power      : 9.70e-05 W
+Supply voltage   : 0.00e+00 V
+Worstcase voltage: 4.51e-05 V
+Average voltage  : 4.70e-07 V
+Average IR drop  : 4.70e-07 V
+Worstcase IR drop: 4.51e-05 V
+Percentage drop  : 0.00 %
+######################################
+Cell type report:                       Count       Area
+  Fill cell                              3764   30400.41
+  Tap cell                                435     544.27
+  Antenna cell                              2       5.00
+  Clock buffer                              3      75.07
+  Timing Repair Buffer                     25     250.24
+  Inverter                                 10      37.54
+  Sequential cell                           8     200.19
+  Multi-Input combinational cell           45     286.52
+  Total                                  4292   31799.25
+Report metrics stage 6, finish...
+
+==========================================================================
+finish report_design_area
+--------------------------------------------------------------------------
+Design area 1399 um^2 4% utilization.
+[WARNING GUI-0066] Heat map "IR Drop" has not been populated with data.
+[WARNING GUI-0066] Heat map "Routing Congestion" has not been populated with data.
+Elapsed time: 0:03.25[h:]min:sec. CPU time: user 1.66 sys 0.21 (57%). Peak memory: 192668KB.
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+6_report                           3            188                  N/A

@@ -1,0 +1,1653 @@
+make: Entering directory '/home/sudar762/OpenROAD-flow-scripts/flow'
+/home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 2_1_floorplan floorplan
+Running floorplan.tcl, stage 2_1_floorplan
+read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/1_synth.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/1_synth.sdc
+source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+Master sky130_ef_sc_hd__decap_12 is loaded but not used in the design
+Removed 0 unused instances and 0 unused nets.
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+Warning: There are 33 input ports missing set_input_delay.
+Warning: There are 16 output ports missing set_output_delay.
+Warning: There are 48 unconstrained endpoints.
+number instances in verilog is 244
+[WARNING IFP-0028] Core area lower left (10.000, 10.000) snapped to (10.120, 10.880).
+[INFO IFP-0001] Added 65 rows of 391 site unithd.
+[INFO IFP-0100] Die BBox:  (  0.000  0.000 ) ( 200.000 200.000 ) um
+[INFO IFP-0101] Core BBox: ( 10.120 10.880 ) ( 189.980 187.680 ) um
+[INFO IFP-0102] Core area:                        31799.248 um^2
+[INFO IFP-0103] Total instances area:              2549.946 um^2
+[INFO IFP-0104] Effective utilization:                0.080
+[INFO IFP-0105] Number of instances:                    244
+source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/make_tracks.tcl
+source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/fastroute.tcl
+Repair tie lo fanout...
+Repair tie hi fanout...
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -match_cell_footprint -setup -skip_last_gasp -sequence unbuffer,sizeup,swap,vt_swap -verbose
+[WARNING EST-0027] no estimated parasitics. Using wire load models.
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove 
+[INFO RSZ-0098] No setup violations found
+Default units for flow
+ time 1ns
+ capacitance 1pF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1nW
+ distance 1um
+   Layer   | Unit Resistance | Unit Capacitance 
+           |       (kohm/um) |          (pF/um)
+------------------------------------------------
+       li1 |        7.18e-02 |         1.50e-04
+      met1 |        8.93e-04 |         1.72e-04
+      met2 |        8.93e-04 |         1.36e-04
+      met3 |        1.57e-04 |         2.15e-04
+      met4 |        1.57e-04 |         1.48e-04
+      met5 |        1.78e-05 |         1.54e-04
+------------------------------------------------
+
+   Layer   | Via Resistance 
+           |         (kohm) 
+----------------------------
+      mcon |       9.25e-03 
+       via |       4.50e-03 
+      via2 |       3.37e-03 
+      via3 |       3.77e-04 
+      via4 |       5.80e-06 
+----------------------------
+Report metrics stage 2, floorplan final...
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 2550 um^2 8% utilization.
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/2_1_floorplan.odb
+write_sdc -no_timestamp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/2_1_floorplan.sdc
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+2_1_floorplan                      0            139 fd1f770ade05e9738079
+/home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 2_2_floorplan_macro macro_place
+Running macro_place.tcl, stage 2_2_floorplan_macro
+read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/2_1_floorplan.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/2_1_floorplan.sdc
+source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+No macros found: Skipping macro_placement
+Design area 2550 um^2 8% utilization.
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/2_2_floorplan_macro.odb
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+2_2_floorplan_macro                0            116 fd1f770ade05e9738079
+/home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 2_3_floorplan_tapcell tapcell
+Running tapcell.tcl, stage 2_3_floorplan_tapcell
+read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/2_2_floorplan_macro.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/2_1_floorplan.sdc
+source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+[INFO TAP-0005] Inserted 435 tapcells.
+Design area 3094 um^2 10% utilization.
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/2_3_floorplan_tapcell.odb
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+2_3_floorplan_tapcell              0            117 af19cea37c46b02f5682
+/home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 2_4_floorplan_pdn pdn
+Running pdn.tcl, stage 2_4_floorplan_pdn
+read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/2_3_floorplan_tapcell.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/2_1_floorplan.sdc
+source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+[INFO PDN-0001] Inserting grid: grid
+Design area 3094 um^2 10% utilization.
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/2_4_floorplan_pdn.odb
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+2_4_floorplan_pdn                  0            120 fb357763feb79af1dc44
+cp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/2_4_floorplan_pdn.odb /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/2_floorplan.odb
+cp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/2_1_floorplan.sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/2_floorplan.sdc
+/home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 3_1_place_gp_skip_io global_place_skip_io
+Running global_place_skip_io.tcl, stage 3_1_place_gp_skip_io
+read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/2_floorplan.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/2_floorplan.sdc
+source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+global_placement -skip_io -density 0.6 -pad_left 0 -pad_right 0
+[INFO GPL-0001] ---- Initialize GPL Main Data Structures
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.460  2.720 ) um
+[INFO GPL-0004] CoreBBox: ( 10.120 10.880 ) ( 189.980 187.680 ) um
+[INFO GPL-0036] Movable instances area:       2549.946 um^2
+[INFO GPL-0037] Total instances area:         3094.218 um^2
+[INFO GPL-0035] Pin density area adjust:        71.987 um^2
+[INFO GPL-0032] ---- Initialize Region: Top-level
+[INFO GPL-0006] Number of instances:               679
+[INFO GPL-0007] Movable instances:                 244
+[INFO GPL-0008] Fixed instances:                   435
+[INFO GPL-0009] Dummy instances:                     0
+[INFO GPL-0010] Number of nets:                    294
+[INFO GPL-0011] Number of pins:                    797
+[INFO GPL-0012] Die BBox:  (  0.000  0.000 ) ( 200.000 200.000 ) um
+[INFO GPL-0013] Core BBox: ( 10.120 10.880 ) ( 189.980 187.680 ) um
+[INFO GPL-0016] Core area:                   31799.248 um^2
+[INFO GPL-0014] Region name: top-level.
+[INFO GPL-0015] Region area:                 31799.248 um^2
+[INFO GPL-0017] Fixed instances area:          544.272 um^2
+[INFO GPL-0018] Movable instances area:       2621.932 um^2
+[INFO GPL-0019] Utilization:                     8.389 %
+[INFO GPL-0020] Standard cells area:          2621.932 um^2
+[INFO GPL-0021] Large instances area:            0.000 um^2
+[INFO GPL-0005] ---- Execute Conjugate Gradient Initial Placement.
+[INFO GPL-0051] Source of initial instance position counters:
+	Odb location = 0	Core center = 244	Region center = 0
+[INFO GPL-0033] ---- Initialize Nesterov Region: Top-level
+[INFO GPL-0023] Placement target density:       0.6000
+[INFO GPL-0024] Movable insts average area:     10.746 um^2
+[INFO GPL-0025] Ideal bin area:                 17.909 um^2
+[INFO GPL-0026] Ideal bin count:                  1775
+[INFO GPL-0027] Total bin area:              31799.248 um^2
+[INFO GPL-0028] Bin count (X, Y):          32 ,     32
+[INFO GPL-0029] Bin size (W * H):       5.621 *  5.525 um
+[INFO GPL-0030] Number of bins:                   1024
+[INFO GPL-0007] ---- Execute Nesterov Global Placement.
+[INFO GPL-0031] HPWL: Half-Perimeter Wirelength
+Iteration | Overflow |     HPWL (um) |  HPWL(%) |   Penalty | Group
+---------------------------------------------------------------
+        0 |   0.9698 |  5.628250e+02 |   +0.00% |  9.17e-15 |      
+       10 |   0.9299 |  2.672440e+02 |  -52.52% |  1.49e-14 |      
+       20 |   0.9299 |  2.482950e+02 |   -7.09% |  2.43e-14 |      
+       30 |   0.9299 |  2.538830e+02 |   +2.25% |  3.96e-14 |      
+       40 |   0.9299 |  2.506880e+02 |   -1.26% |  6.46e-14 |      
+       50 |   0.9299 |  2.517870e+02 |   +0.44% |  1.05e-13 |      
+       60 |   0.9299 |  2.518400e+02 |   +0.02% |  1.71e-13 |      
+       70 |   0.9299 |  2.520760e+02 |   +0.09% |  2.79e-13 |      
+       80 |   0.9299 |  2.528020e+02 |   +0.29% |  4.55e-13 |      
+       90 |   0.9299 |  2.538520e+02 |   +0.42% |  7.40e-13 |      
+      100 |   0.9299 |  2.557720e+02 |   +0.76% |  1.21e-12 |      
+      110 |   0.9299 |  2.587040e+02 |   +1.15% |  1.96e-12 |      
+      120 |   0.9298 |  2.627590e+02 |   +1.57% |  3.20e-12 |      
+      130 |   0.9297 |  2.674850e+02 |   +1.80% |  5.21e-12 |      
+      140 |   0.9294 |  2.714970e+02 |   +1.50% |  8.49e-12 |      
+      150 |   0.9289 |  2.705200e+02 |   -0.36% |  1.38e-11 |      
+      160 |   0.9285 |  2.579490e+02 |   -4.65% |  2.25e-11 |      
+      170 |   0.9060 |  2.512360e+02 |   -2.60% |  3.67e-11 |      
+      180 |   0.8737 |  3.337560e+02 |  +32.85% |  5.98e-11 |      
+      190 |   0.8182 |  4.638440e+02 |  +38.98% |  9.74e-11 |      
+      200 |   0.7971 |  5.348510e+02 |  +15.31% |  1.59e-10 |      
+      210 |   0.7488 |  5.952880e+02 |  +11.30% |  2.58e-10 |      
+      220 |   0.7103 |  6.554230e+02 |  +10.10% |  4.21e-10 |      
+      230 |   0.6616 |  7.781640e+02 |  +18.73% |  6.85e-10 |      
+      240 |   0.6226 |  8.642520e+02 |  +11.06% |  1.12e-09 |      
+      250 |   0.5756 |  9.944970e+02 |  +15.07% |  1.82e-09 |      
+      260 |   0.5207 |  1.109390e+03 |  +11.55% |  2.96e-09 |      
+      270 |   0.4651 |  1.205118e+03 |   +8.63% |  4.82e-09 |      
+      280 |   0.4088 |  1.328578e+03 |  +10.24% |  7.86e-09 |      
+      290 |   0.3484 |  1.426908e+03 |   +7.40% |  1.28e-08 |      
+      300 |   0.3057 |  1.494715e+03 |   +4.75% |  1.90e-08 |      
+      310 |   0.2671 |  1.569381e+03 |   +5.00% |  2.81e-08 |      
+      320 |   0.2343 |  1.627819e+03 |   +3.72% |  4.13e-08 |      
+      330 |   0.1920 |  1.673142e+03 |   +2.78% |  6.09e-08 |      
+      340 |   0.1624 |  1.717446e+03 |   +2.65% |  8.97e-08 |      
+      350 |   0.1397 |  1.762832e+03 |   +2.64% |  1.32e-07 |      
+      360 |   0.1283 |  1.788637e+03 |   +1.46% |  1.95e-07 |      
+      370 |   0.1119 |  1.813509e+03 |   +1.39% |  2.87e-07 |      
+      378 |   0.0999 |  1.832729e+03 |          |  4.06e-07 |      
+---------------------------------------------------------------
+[INFO GPL-1001] Global placement finished at iteration 378
+[INFO GPL-1002] Placed Cell Area             2621.9325
+[INFO GPL-1003] Available Free Area         31254.9760
+[INFO GPL-1004] Minimum Feasible Density        0.0900 (cell_area / free_area)
+[INFO GPL-1006]   Suggested Target Densities:
+[INFO GPL-1007]     - For 90% usage of free space: 0.0932
+[INFO GPL-1008]     - For 80% usage of free space: 0.1049
+[INFO GPL-1009]     - For 50% usage of free space: 0.1678
+[INFO GPL-1014] Final placement area: 2621.93 (+0.00%)
+Took 10 seconds: global_placement -skip_io -density 0.6 -pad_left 0 -pad_right 0
+Design area 3094 um^2 10% utilization.
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/3_1_place_gp_skip_io.odb
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+3_1_place_gp_skip_io               9            118 ca582384d3abb18539d3
+/home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 3_2_place_iop io_placement
+Running io_placement.tcl, stage 3_2_place_iop
+read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/3_1_place_gp_skip_io.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/2_floorplan.sdc
+source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+place_pins -hor_layers met3 -ver_layers met2
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0001] Number of available slots 718
+[INFO PPL-0002] Number of I/O             50
+[INFO PPL-0003] Number of I/O w/sink      50
+[INFO PPL-0004] Number of I/O w/o sink    0
+[INFO PPL-0005] Slots per section         200
+[INFO PPL-0008] Successfully assigned pins to sections.
+[INFO PPL-0012] I/O nets HPWL: 3639.44 um.
+Design area 3094 um^2 10% utilization.
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/3_2_place_iop.odb
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+3_2_place_iop                      0            118 f2c91abeca14a0fe7114
+/home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 3_3_place_gp global_place
+Running global_place.tcl, stage 3_3_place_gp
+read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/3_2_place_iop.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/2_floorplan.sdc
+source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+[INFO RSZ-0026] Removed 0 buffers.
+Perform port buffering...
+[INFO RSZ-0027] Inserted 33 sky130_fd_sc_hd__clkdlybuf4s50_1 input buffers.
+[INFO RSZ-0028] Inserted 16 sky130_fd_sc_hd__clkdlybuf4s50_1 output buffers.
+global_placement -density 0.6 -pad_left 0 -pad_right 0 -routability_driven -timing_driven -force_center_initial_place -min_phi_coef 0.95 -max_phi_coef 1.05
+[INFO GPL-0001] ---- Initialize GPL Main Data Structures
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.460  2.720 ) um
+[INFO GPL-0004] CoreBBox: ( 10.120 10.880 ) ( 189.980 187.680 ) um
+[INFO GPL-0036] Movable instances area:       3040.416 um^2
+[INFO GPL-0037] Total instances area:         3584.688 um^2
+[INFO GPL-0035] Pin density area adjust:        91.727 um^2
+[INFO GPL-0032] ---- Initialize Region: Top-level
+[INFO GPL-0006] Number of instances:               728
+[INFO GPL-0007] Movable instances:                 293
+[INFO GPL-0008] Fixed instances:                   435
+[INFO GPL-0009] Dummy instances:                     0
+[INFO GPL-0010] Number of nets:                    343
+[INFO GPL-0011] Number of pins:                    945
+[INFO GPL-0012] Die BBox:  (  0.000  0.000 ) ( 200.000 200.000 ) um
+[INFO GPL-0013] Core BBox: ( 10.120 10.880 ) ( 189.980 187.680 ) um
+[INFO GPL-0016] Core area:                   31799.248 um^2
+[INFO GPL-0014] Region name: top-level.
+[INFO GPL-0015] Region area:                 31799.248 um^2
+[INFO GPL-0017] Fixed instances area:          544.272 um^2
+[INFO GPL-0018] Movable instances area:       3132.143 um^2
+[INFO GPL-0019] Utilization:                    10.021 %
+[INFO GPL-0020] Standard cells area:          3132.143 um^2
+[INFO GPL-0021] Large instances area:            0.000 um^2
+[INFO GPL-0005] ---- Execute Conjugate Gradient Initial Placement.
+[INFO GPL-0051] Source of initial instance position counters:
+	Odb location = 0	Core center = 293	Region center = 0
+[InitialPlace]  Iter: 1 conjugate gradient residual: 0.00000005 HPWL: 8123358
+[InitialPlace]  Iter: 2 conjugate gradient residual: 0.00000005 HPWL: 7924388
+[InitialPlace]  Iter: 3 conjugate gradient residual: 0.00000011 HPWL: 7842386
+[InitialPlace]  Iter: 4 conjugate gradient residual: 0.00000010 HPWL: 7763325
+[InitialPlace]  Iter: 5 conjugate gradient residual: 0.00000009 HPWL: 7668569
+[INFO GPL-0033] ---- Initialize Nesterov Region: Top-level
+[INFO GPL-0023] Placement target density:       0.6000
+[INFO GPL-0024] Movable insts average area:     10.690 um^2
+[INFO GPL-0025] Ideal bin area:                 17.817 um^2
+[INFO GPL-0026] Ideal bin count:                  1784
+[INFO GPL-0027] Total bin area:              31799.248 um^2
+[INFO GPL-0028] Bin count (X, Y):          32 ,     32
+[INFO GPL-0029] Bin size (W * H):       5.621 *  5.525 um
+[INFO GPL-0030] Number of bins:                   1024
+[INFO GPL-0007] ---- Execute Nesterov Global Placement.
+[INFO GPL-0031] HPWL: Half-Perimeter Wirelength
+Iteration | Overflow |     HPWL (um) |  HPWL(%) |   Penalty | Group
+---------------------------------------------------------------
+        0 |   0.4214 |  5.099403e+03 |   +0.00% |  1.99e-13 |      
+[INFO GPL-0100] Timing-driven iteration 1/2, virtual: false.
+[INFO GPL-0101]    Iter: 1, overflow: 0.421, keep resizer changes at: 1, HPWL: 5099403
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |       343
+    final |     +0.6% |       1 |       1 |             1 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0034] Found 1 slew violations.
+[INFO RSZ-0039] Resized 1 instances.
+[INFO RSZ-0038] Inserted 1 buffers in 1 nets.
+   Iter   |    Area   | Removed | Inserted |   Pins
+          |           | Buffers | Buffers  | Remaining
+-------------------------------------------------------
+        0 |     +0.0% |       0 |        0 |       309
+       30 |     +0.0% |       0 |        0 |       279
+       60 |     +0.0% |       0 |        0 |       249
+       90 |     +0.0% |       0 |        0 |       219
+      120 |     +0.0% |       0 |        0 |       189
+      150 |     +0.0% |       0 |        0 |       159
+      180 |     +0.0% |       0 |        0 |       129
+      210 |     +0.0% |       0 |        0 |        99
+      240 |     +0.0% |       0 |        0 |        69
+      270 |     +0.0% |       0 |        0 |        39
+      300 |     -0.3% |       1 |        1 |         9
+    final |     -0.3% |       1 |        1 |         0
+-------------------------------------------------------
+[INFO GPL-0106] Timing-driven: worst slack 8.24797e-09
+[INFO GPL-0107] Timing-driven: repair_design delta area: 7.507 um^2 (+0.24%)
+[INFO GPL-0108] Timing-driven: repair_design, gpl delta gcells: 1 (+0.34%)
+[INFO GPL-0109] Timing-driven: repair_design, gcells created: 2, deleted: 1
+[INFO GPL-0110] Timing-driven: new target density: 0.60024023
+[INFO GPL-0038] Routability snapshot saved at iter = 1
+        0 |   0.4214 |  5.100674e+03 |          |           |      
+Iteration | Overflow |     HPWL (um) |  HPWL(%) |   Penalty | Group
+---------------------------------------------------------------
+       10 |   0.3349 |  5.056433e+03 |   -0.84% |  3.20e-13 |      
+[INFO GPL-0040] Routability iteration: 1
+[INFO GPL-0041] Total routing overflow: 0.0151
+[INFO GPL-0042] Number of overflowed tiles: 1 (0.13%)
+[INFO GPL-0043] Average top 0.5% routing congestion: 0.9328
+[INFO GPL-0044] Average top 1.0% routing congestion: 0.8513
+[INFO GPL-0045] Average top 2.0% routing congestion: 0.7710
+[INFO GPL-0046] Average top 5.0% routing congestion: 0.6641
+[INFO GPL-0047] Routability iteration weighted routing congestion: 0.8921
+[INFO GPL-0050] Weighted routing congestion is lower than target routing congestion(1.0100), end routability optimization.
+[INFO GPL-0090] Routability finished. Target routing congestion achieved succesfully.
+Iteration | Overflow |     HPWL (um) |  HPWL(%) |   Penalty | Group
+---------------------------------------------------------------
+       20 |   0.2894 |  5.108404e+03 |   +1.03% |  4.72e-13 |      
+       30 |   0.2717 |  5.120333e+03 |   +0.23% |  6.95e-13 |      
+       40 |   0.2733 |  5.119399e+03 |   -0.02% |  1.02e-12 |      
+       50 |   0.2758 |  5.116057e+03 |   -0.07% |  1.51e-12 |      
+       60 |   0.2754 |  5.112326e+03 |   -0.07% |  2.22e-12 |      
+       70 |   0.2726 |  5.106473e+03 |   -0.11% |  3.27e-12 |      
+       80 |   0.2736 |  5.098951e+03 |   -0.15% |  4.82e-12 |      
+       90 |   0.2806 |  5.093476e+03 |   -0.11% |  7.10e-12 |      
+      100 |   0.2810 |  5.083835e+03 |   -0.19% |  1.05e-11 |      
+      110 |   0.2846 |  5.077237e+03 |   -0.13% |  1.54e-11 |      
+      120 |   0.2824 |  5.069884e+03 |   -0.14% |  2.27e-11 |      
+      130 |   0.2825 |  5.067151e+03 |   -0.05% |  3.35e-11 |      
+      140 |   0.2811 |  5.068530e+03 |   +0.03% |  4.93e-11 |      
+      150 |   0.2800 |  5.069646e+03 |   +0.02% |  7.26e-11 |      
+      160 |   0.2810 |  5.071275e+03 |   +0.03% |  1.07e-10 |      
+      170 |   0.2794 |  5.071902e+03 |   +0.01% |  1.58e-10 |      
+      180 |   0.2775 |  5.072649e+03 |   +0.01% |  2.32e-10 |      
+      190 |   0.2762 |  5.073500e+03 |   +0.02% |  3.42e-10 |      
+      200 |   0.2744 |  5.074678e+03 |   +0.02% |  5.04e-10 |      
+      210 |   0.2735 |  5.077573e+03 |   +0.06% |  7.42e-10 |      
+      220 |   0.2721 |  5.086261e+03 |   +0.17% |  1.09e-09 |      
+      230 |   0.2685 |  5.090382e+03 |   +0.08% |  1.61e-09 |      
+      240 |   0.2659 |  5.086211e+03 |   -0.08% |  2.37e-09 |      
+      250 |   0.2638 |  5.077687e+03 |   -0.17% |  3.49e-09 |      
+      260 |   0.2597 |  5.093501e+03 |   +0.31% |  5.15e-09 |      
+      270 |   0.2513 |  5.111275e+03 |   +0.35% |  7.58e-09 |      
+      280 |   0.2390 |  5.105195e+03 |   -0.12% |  1.12e-08 |      
+      290 |   0.2224 |  5.127648e+03 |   +0.44% |  1.65e-08 |      
+      300 |   0.2093 |  5.121911e+03 |   -0.11% |  2.42e-08 |      
+      310 |   0.1972 |  5.129576e+03 |   +0.15% |  3.57e-08 |      
+[INFO GPL-0100] Timing-driven iteration 2/2, virtual: false.
+[INFO GPL-0101]    Iter: 313, overflow: 0.194, keep resizer changes at: 1, HPWL: 5127297
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |       344
+    final |     +0.0% |       0 |       0 |             0 |         0
+---------------------------------------------------------------------
+   Iter   |    Area   | Removed | Inserted |   Pins
+          |           | Buffers | Buffers  | Remaining
+-------------------------------------------------------
+        0 |     +0.0% |       0 |        0 |       309
+       30 |     +0.0% |       0 |        0 |       279
+       60 |     +0.0% |       0 |        0 |       249
+       90 |     +0.0% |       0 |        0 |       219
+      120 |     +0.0% |       0 |        0 |       189
+      150 |     +0.0% |       0 |        0 |       159
+      180 |     +0.0% |       0 |        0 |       129
+      210 |     +0.0% |       0 |        0 |        99
+      240 |     +0.0% |       0 |        0 |        69
+      270 |     +0.0% |       0 |        0 |        39
+      300 |     +0.0% |       1 |        1 |         9
+    final |     +0.0% |       1 |        1 |         0
+-------------------------------------------------------
+[INFO GPL-0106] Timing-driven: worst slack 8.282617e-09
+[INFO GPL-0107] Timing-driven: repair_design delta area: 0.000 um^2 (+0.00%)
+[INFO GPL-0108] Timing-driven: repair_design, gpl delta gcells: 0 (+0.00%)
+[INFO GPL-0109] Timing-driven: repair_design, gcells created: 1, deleted: 1
+[INFO GPL-0110] Timing-driven: new target density: 0.60024023
+Iteration | Overflow |     HPWL (um) |  HPWL(%) |   Penalty | Group
+---------------------------------------------------------------
+      320 |   0.1727 |  5.137726e+03 |   +0.16% |  5.26e-08 |      
+      330 |   0.1537 |  5.132184e+03 |   -0.11% |  7.75e-08 |      
+      340 |   0.1327 |  5.134368e+03 |   +0.04% |  1.14e-07 |      
+      350 |   0.1144 |  5.142848e+03 |   +0.17% |  1.68e-07 |      
+      360 |   0.1022 |  5.158995e+03 |   +0.31% |  2.48e-07 |      
+      362 |   0.0988 |  5.162658e+03 |          |  2.78e-07 |      
+---------------------------------------------------------------
+[INFO GPL-1001] Global placement finished at iteration 362
+[INFO GPL-1003] Routability mode iteration count: 17
+[INFO GPL-1005] Routability final weighted congestion: 0.8117
+[INFO GPL-1002] Placed Cell Area             3139.6504
+[INFO GPL-1003] Available Free Area         31254.9760
+[INFO GPL-1004] Minimum Feasible Density        0.1100 (cell_area / free_area)
+[INFO GPL-1006]   Suggested Target Densities:
+[INFO GPL-1007]     - For 90% usage of free space: 0.1116
+[INFO GPL-1008]     - For 80% usage of free space: 0.1256
+[INFO GPL-1009]     - For 50% usage of free space: 0.2009
+[INFO GPL-1011] Original area (um^2): 3132.14
+[INFO GPL-1012] Total routability artificial inflation: 0.00 (+0.00%)
+[INFO GPL-1013] Total timing-driven delta area: 7.51 (+0.24%)
+[INFO GPL-1014] Final placement area: 3139.65 (+0.24%)
+estimate_parasitics -placement
+Report metrics stage 3, global place...
+
+==========================================================================
+global place report_design_area
+--------------------------------------------------------------------------
+Design area 3592 um^2 11% utilization.
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/3_3_place_gp.odb
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+3_3_place_gp                       2            226 ec8c88364cfe3b0548a6
+/home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 3_4_place_resized resize
+Running resize.tcl, stage 3_4_place_resized
+read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/3_3_place_gp.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/2_floorplan.sdc
+source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+estimate_parasitics -placement
+Perform buffer insertion and gate resizing...
+repair_design -verbose -match_cell_footprint
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |       344
+       10 |     +0.0% |       0 |       0 |             0 |       334
+       20 |     +0.0% |       0 |       0 |             0 |       324
+       30 |     +0.0% |       0 |       0 |             0 |       314
+       40 |     +0.0% |       0 |       0 |             0 |       304
+       50 |     +0.0% |       0 |       0 |             0 |       294
+       60 |     +0.0% |       0 |       0 |             0 |       284
+       70 |     +0.0% |       0 |       0 |             0 |       274
+       80 |     +0.0% |       0 |       0 |             0 |       264
+       90 |     +0.0% |       0 |       0 |             0 |       254
+      100 |     +0.0% |       0 |       0 |             0 |       244
+      110 |     +0.0% |       0 |       0 |             0 |       234
+      120 |     +0.0% |       0 |       0 |             0 |       224
+      130 |     +0.0% |       0 |       0 |             0 |       214
+      140 |     +0.0% |       0 |       0 |             0 |       204
+      150 |     +0.0% |       0 |       0 |             0 |       194
+      160 |     +0.0% |       0 |       0 |             0 |       184
+      170 |     +0.0% |       0 |       0 |             0 |       174
+      180 |     +0.0% |       0 |       0 |             0 |       164
+      190 |     +0.0% |       0 |       0 |             0 |       154
+      200 |     +0.0% |       0 |       0 |             0 |       144
+      210 |     +0.0% |       0 |       0 |             0 |       134
+      220 |     +0.0% |       0 |       0 |             0 |       124
+      230 |     +0.0% |       0 |       0 |             0 |       114
+      240 |     +0.0% |       0 |       0 |             0 |       104
+      250 |     +0.0% |       0 |       0 |             0 |        94
+      260 |     +0.0% |       0 |       0 |             0 |        84
+      270 |     +0.0% |       0 |       0 |             0 |        74
+      280 |     +0.0% |       0 |       0 |             0 |        64
+      290 |     +0.0% |       0 |       0 |             0 |        54
+      300 |     +0.0% |       0 |       0 |             0 |        44
+      310 |     +0.0% |       0 |       0 |             0 |        34
+      320 |     +0.0% |       0 |       0 |             0 |        24
+      330 |     +0.0% |       0 |       0 |             0 |        14
+      340 |     +0.0% |       0 |       0 |             0 |         4
+    final |     +0.0% |       0 |       0 |             0 |         0
+---------------------------------------------------------------------
+Floating nets: 
+Report metrics stage 3, resizer...
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 3592 um^2 11% utilization.
+Instance count before 729, after 729
+Pin count before 897, after 897
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/3_4_place_resized.odb
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+3_4_place_resized                  0            138 ec8c88364cfe3b0548a6
+/home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 3_5_place_dp detail_place
+Running detail_place.tcl, stage 3_5_place_dp
+read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/3_4_place_resized.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/2_floorplan.sdc
+source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+detailed_placement
+[INFO DPL-0006] Core area: 31799.25 um^2, Instances area: 3592.20 um^2, Utilization: 11.3%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1101] Legalizing using diamond search.
+Movements Summary
+---------------------------------------
+Total cells:                     294
+Diamond Move Success:            294 (100.00%)
+Diamond Move Failure:              0
+Rip-up and replace Success:        0 (  0.00% of diamond failures)
+Rip-up and replace Failure:        0
+Total Placement Failures:          0
+---------------------------------------
+Placement Analysis
+---------------------------------
+total displacement        573.2 u
+average displacement        0.8 u
+max displacement            6.2 u
+original HPWL            5169.5 u
+legalized HPWL           5627.9 u
+delta HPWL                    9 %
+
+improve_placement -max_displacement "5 1"
+Detailed placement improvement.
+[INFO DPL-0401] Setting random seed to 1.
+[INFO DPL-0402] Setting maximum displacement 5 1 to 13600 2720 units.
+[INFO DPL-0320] Collected 485 fixed cells.
+[INFO DPL-0318] Collected 294 single height cells.
+[INFO DPL-0321] Collected 0 wide cells.
+[INFO DPL-0322] Image (10120, 10880) - (189980, 187680)
+[INFO DPL-0310] Assigned 294 cells into segments.  Movement in X-direction is 0.000000, movement in Y-direction is 0.000000.
+[INFO DPL-0313] Found 0 cells in wrong regions.
+[INFO DPL-0315] Found 0 row alignment problems.
+[INFO DPL-0314] Found 0 site alignment problems.
+[INFO DPL-0311] Found 0 overlaps between adjacent cells.
+[INFO DPL-0312] Found 0 edge spacing violations and 0 padding violations.
+[INFO DPL-0303] Running algorithm for independent set matching.
+[INFO DPL-0300] Set matching objective is wirelength.
+[INFO DPL-0301] Pass   1 of matching; objective is 5.624978e+06.
+[INFO DPL-0302] End of matching; objective is 5.596318e+06, improvement is 0.51 percent.
+[INFO DPL-0303] Running algorithm for global swaps.
+[INFO DPL-0306] Pass   1 of global swaps; hpwl is 5.494235e+06.
+[INFO DPL-0306] Pass   2 of global swaps; hpwl is 5.468479e+06.
+[INFO DPL-0307] End of global swaps; objective is 5.468479e+06, improvement is 2.28 percent.
+[INFO DPL-0303] Running algorithm for vertical swaps.
+[INFO DPL-0308] Pass   1 of vertical swaps; hpwl is 5.463550e+06.
+[INFO DPL-0309] End of vertical swaps; objective is 5.463550e+06, improvement is 0.09 percent.
+[INFO DPL-0303] Running algorithm for reordering.
+[INFO DPL-0304] Pass   1 of reordering; objective is 5.456044e+06.
+[INFO DPL-0305] End of reordering; objective is 5.456044e+06, improvement is 0.14 percent.
+[INFO DPL-0303] Running algorithm for random improvement.
+[INFO DPL-0324] Random improver is using random generator.
+[INFO DPL-0325] Random improver is using hpwl objective.
+[INFO DPL-0326] Random improver cost string is (a).
+[INFO DPL-0332] End of pass, Generator random called 5880 times.
+[INFO DPL-0335] Generator random, Cumulative attempts 5880, swaps 843, moves  1780 since last reset.
+[INFO DPL-0333] End of pass, Objective hpwl, Initial cost 5.456044e+06, Scratch cost 5.404731e+06, Incremental cost 5.404731e+06, Mismatch? N
+[INFO DPL-0338] End of pass, Total cost is 5.404731e+06.
+[INFO DPL-0327] Pass   1 of random improver; improvement in cost is 0.94 percent.
+[INFO DPL-0328] End of random improver; improvement is 0.940480 percent.
+[INFO DPL-0380] Cell flipping.
+[INFO DPL-0382] Changed 0 cell orientations for row compatibility.
+[INFO DPL-0383] Performed 52 cell flips.
+[INFO DPL-0384] End of flipping; objective is 5.358598e+06, improvement is 0.85 percent.
+[INFO DPL-0313] Found 0 cells in wrong regions.
+[INFO DPL-0315] Found 0 row alignment problems.
+[INFO DPL-0314] Found 0 site alignment problems.
+[INFO DPL-0311] Found 0 overlaps between adjacent cells.
+[INFO DPL-0312] Found 0 edge spacing violations and 0 padding violations.
+Detailed Improvement Results
+------------------------------------------
+Original HPWL             5627.9 u (    2720.7,     2907.3)
+Final HPWL                5363.0 u (    2615.8,     2747.1)
+Delta HPWL                  -4.7 % (      -3.9,       -5.5)
+
+optimize_mirroring
+[INFO DPL-0020] Mirrored 14 instances
+[INFO DPL-0021] HPWL before            5363.0 u
+[INFO DPL-0022] HPWL after             5360.0 u
+[INFO DPL-0023] HPWL delta               -0.1 %
+[INFO FLW-0012] Placement violations .
+estimate_parasitics -placement
+Report metrics stage 3, detailed place...
+
+==========================================================================
+detailed place report_design_area
+--------------------------------------------------------------------------
+Design area 3592 um^2 11% utilization.
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/3_5_place_dp.odb
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+3_5_place_dp                       0            123 149c20992b09c2e0732c
+cp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/3_5_place_dp.odb /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/3_place.odb
+cp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/2_floorplan.sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/3_place.sdc
+/home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 4_1_cts cts
+Running cts.tcl, stage 4_1_cts
+read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/3_place.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/3_place.sdc
+source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+clock_tree_synthesis -sink_clustering_enable -repair_clock_nets
+[INFO CTS-0050] Root buffer is sky130_fd_sc_hd__clkbuf_16.
+[INFO CTS-0051] Sink buffer is sky130_fd_sc_hd__clkbuf_16.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    sky130_fd_sc_hd__clkbuf_16
+[INFO CTS-0049] Characterization buffer is sky130_fd_sc_hd__clkbuf_16.
+[INFO CTS-0007] Net "clk" found for clock "clk".
+[INFO CTS-0010]  Clock net "clk" has 64 sinks.
+[INFO CTS-0008] TritonCTS found 1 clock nets.
+[INFO CTS-0097] Characterization used 1 buffer(s) types.
+[INFO CTS-0201] 0 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk.
+[INFO CTS-0028]  Total number of sinks: 64.
+[INFO CTS-0090]  Sinks will be clustered based on buffer max cap.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 13600  dbu (13 um).
+[INFO CTS-0023]  Original sink region: [(69265, 17620), (121245, 137300)].
+[INFO CTS-0024]  Normalized sink region: [(5.09301, 1.29559), (8.91507, 10.0956)].
+[INFO CTS-0025]     Width:  3.8221.
+[INFO CTS-0026]     Height: 8.8000.
+ Level 1
+    Direction: Vertical
+    Sinks per sub-region: 32
+    Sub-region size: 3.8221 X 4.4000
+[INFO CTS-0034]     Segment length (rounded): 2.
+ Level 2
+    Direction: Horizontal
+    Sinks per sub-region: 16
+    Sub-region size: 1.9110 X 4.4000
+[INFO CTS-0034]     Segment length (rounded): 1.
+ Level 3
+    Direction: Vertical
+    Sinks per sub-region: 8
+    Sub-region size: 1.9110 X 2.2000
+[INFO CTS-0034]     Segment length (rounded): 1.
+[INFO CTS-0032]  Stop criterion found. Max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 64.
+[INFO CTS-0018]     Created 9 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 2.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 2.
+[INFO CTS-0015]     Created 9 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 5:1, 6:2, 8:1, 9:2, 10:1, 11:1..
+[INFO CTS-0017]     Max level of the clock tree: 3.
+[INFO CTS-0098] Clock net "clk"
+[INFO CTS-0099]  Sinks 71
+[INFO CTS-0100]  Leaf buffers 0
+[INFO CTS-0101]  Average sink wire length 156.61 um
+[INFO CTS-0102]  Path depth 2 - 2
+[INFO CTS-0207]  Dummy loads inserted 7
+estimate_parasitics -placement
+detailed_placement
+[INFO DPL-0006] Core area: 31799.25 um^2, Instances area: 3877.47 um^2, Utilization: 12.2%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1101] Legalizing using diamond search.
+Movements Summary
+---------------------------------------
+Total cells:                     310
+Diamond Move Success:            310 (100.00%)
+Diamond Move Failure:              0
+Rip-up and replace Success:        0 (  0.00% of diamond failures)
+Rip-up and replace Failure:        0
+Total Placement Failures:          0
+---------------------------------------
+Placement Analysis
+---------------------------------
+total displacement        107.2 u
+average displacement        0.1 u
+max displacement            5.4 u
+original HPWL            5716.8 u
+legalized HPWL           5828.1 u
+delta HPWL                    2 %
+
+estimate_parasitics -placement
+Warning: master sky130_ef_sc_hd__decap_12 has signal pins but no liberty cell
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -match_cell_footprint -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0033] No hold violations found.
+Warning: master sky130_ef_sc_hd__decap_12 has signal pins but no liberty cell
+Repair timing output passed lec test
+detailed_placement
+[INFO DPL-0006] Core area: 31799.25 um^2, Instances area: 3877.47 um^2, Utilization: 12.2%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1101] Legalizing using diamond search.
+Movements Summary
+---------------------------------------
+Total cells:                     310
+Diamond Move Success:            310 (100.00%)
+Diamond Move Failure:              0
+Rip-up and replace Success:        0 (  0.00% of diamond failures)
+Rip-up and replace Failure:        0
+Total Placement Failures:          0
+---------------------------------------
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL            5828.1 u
+legalized HPWL           5828.1 u
+delta HPWL                    0 %
+
+Report metrics stage 4, cts final...
+
+==========================================================================
+cts final report_design_area
+--------------------------------------------------------------------------
+Design area 3877 um^2 12% utilization.
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/4_1_cts.odb
+write_sdc -no_timestamp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/4_cts.sdc
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+4_1_cts                            1            149 09ccc5e29c9aea2073d5
+cp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/4_1_cts.odb /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/4_cts.odb
+/home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 5_1_grt global_route
+Running global_route.tcl, stage 5_1_grt
+read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/4_cts.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/4_cts.sdc
+source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+pin_access
+[INFO DRT-0149] Reading tech and libs.
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer mcon
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer mcon
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via2
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via2
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via3
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via3
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via4
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via4
+
+Units:                1000
+Number of layers:     13
+Number of macros:     441
+Number of vias:       29
+Number of viarulegen: 25
+
+[INFO DRT-0150] Reading design.
+
+Design:                   pipelined_adder
+Die area:                 ( 0 0 ) ( 200000 200000 )
+Number of track patterns: 12
+Number of DEF vias:       0
+Number of components:     745
+Number of terminals:      52
+Number of snets:          2
+Number of nets:           353
+
+[INFO DRT-0167] List of default vias:
+  Layer via
+    default via: M1M2_PR
+  Layer via2
+    default via: M2M3_PR
+  Layer via3
+    default via: M3M4_PR
+  Layer via4
+    default via: M4M5_PR
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+[INFO DRT-0164] Number of unique instances = 41.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0024]   Complete FR_MASTERSLICE.
+[INFO DRT-0024]   Complete Fr_VIA.
+[INFO DRT-0024]   Complete li1.
+[INFO DRT-0024]   Complete mcon.
+[INFO DRT-0024]   Complete met1.
+[INFO DRT-0024]   Complete via.
+[INFO DRT-0024]   Complete met2.
+[INFO DRT-0024]   Complete via2.
+[INFO DRT-0024]   Complete met3.
+[INFO DRT-0024]   Complete via3.
+[INFO DRT-0024]   Complete met4.
+[INFO DRT-0024]   Complete via4.
+[INFO DRT-0024]   Complete met5.
+[INFO DRT-0033] FR_MASTERSLICE shape region query size = 0.
+[INFO DRT-0033] FR_VIA shape region query size = 0.
+[INFO DRT-0033] li1 shape region query size = 11085.
+[INFO DRT-0033] mcon shape region query size = 6783.
+[INFO DRT-0033] met1 shape region query size = 2900.
+[INFO DRT-0033] via shape region query size = 2145.
+[INFO DRT-0033] met2 shape region query size = 1313.
+[INFO DRT-0033] via2 shape region query size = 1716.
+[INFO DRT-0033] met3 shape region query size = 1311.
+[INFO DRT-0033] via3 shape region query size = 1716.
+[INFO DRT-0033] met4 shape region query size = 527.
+[INFO DRT-0033] via4 shape region query size = 85.
+[INFO DRT-0033] met5 shape region query size = 111.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0078]   Complete 280 pins.
+[INFO DRT-0081]   Complete 41 unique inst patterns.
+[INFO DRT-0084]   Complete 192 groups.
+#scanned instances     = 745
+#unique  instances     = 41
+#stdCellGenAp          = 1446
+#stdCellValidPlanarAp  = 21
+#stdCellValidViaAp     = 774
+#stdCellPinNoAp        = 3
+#stdCellPinCnt         = 922
+#instTermValidViaApCnt = 0
+#macroGenAp            = 0
+#macroValidPlanarAp    = 0
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:00:20, elapsed time = 00:00:10, memory = 129.05 (MB), peak = 129.05 (MB)
+Took 11 seconds: pin_access
+global_route -congestion_report_file /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/reports/sky130hd/pipelined_adder/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose
+[INFO GRT-0020] Min routing layer: met1
+[INFO GRT-0021] Max routing layer: met5
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0088] Layer li1     Track-Pitch = 0.4600  line-2-Via Pitch: 0.3400
+[INFO GRT-0088] Layer met1    Track-Pitch = 0.3400  line-2-Via Pitch: 0.3400
+[INFO GRT-0088] Layer met2    Track-Pitch = 0.4600  line-2-Via Pitch: 0.3500
+[INFO GRT-0088] Layer met3    Track-Pitch = 0.6800  line-2-Via Pitch: 0.6150
+[INFO GRT-0088] Layer met4    Track-Pitch = 0.9200  line-2-Via Pitch: 1.0400
+[INFO GRT-0088] Layer met5    Track-Pitch = 3.4000  line-2-Via Pitch: 3.1100
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0004] Blockages: 901
+[INFO GRT-0019] Found 10 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 64
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+li1        Vertical            0             0          0.00%
+met1       Horizontal      11977          9299          22.36%
+met2       Vertical        10341          7992          22.72%
+met3       Horizontal       7489          5867          21.66%
+met4       Vertical         5105          3566          30.15%
+met5       Horizontal       1255           785          37.45%
+---------------------------------------------------------------
+
+[INFO GRT-0197] Via related to pin nodes: 1385
+[INFO GRT-0198] Via related Steiner nodes: 11
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 1692
+[INFO GRT-0112] Final usage 3D: 5975
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Overflow
+---------------------------------------------------------------------------------------
+li1                  0             0            0.00%             0 /  0 /  0
+met1              9299           335            3.60%             0 /  0 /  0
+met2              7992           410            5.13%             0 /  0 /  0
+met3              5867           130            2.22%             0 /  0 /  0
+met4              3566            24            0.67%             0 /  0 /  0
+met5               785             0            0.00%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total            27509           899            3.27%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 9570 um
+[INFO GRT-0014] Routed nets: 353
+[INFO GRT-0303] Global routing runtime = 00:00:00
+estimate_parasitics -global_routing
+Perform buffer insertion and gate resizing...
+repair_design -verbose
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |       360
+       10 |     +0.0% |       0 |       0 |             0 |       350
+       20 |     +0.0% |       0 |       0 |             0 |       340
+       30 |     +0.0% |       0 |       0 |             0 |       330
+       40 |     +0.0% |       0 |       0 |             0 |       320
+       50 |     +0.0% |       0 |       0 |             0 |       310
+       60 |     +0.0% |       0 |       0 |             0 |       300
+       70 |     +0.0% |       0 |       0 |             0 |       290
+       80 |     +0.0% |       0 |       0 |             0 |       280
+       90 |     +0.0% |       0 |       0 |             0 |       270
+      100 |     +0.0% |       0 |       0 |             0 |       260
+      110 |     +0.0% |       0 |       0 |             0 |       250
+      120 |     +0.0% |       0 |       0 |             0 |       240
+      130 |     +0.0% |       0 |       0 |             0 |       230
+      140 |     +0.0% |       0 |       0 |             0 |       220
+      150 |     +0.0% |       0 |       0 |             0 |       210
+      160 |     +0.0% |       0 |       0 |             0 |       200
+      170 |     +0.0% |       0 |       0 |             0 |       190
+      180 |     +0.0% |       0 |       0 |             0 |       180
+      190 |     +0.0% |       0 |       0 |             0 |       170
+      200 |     +0.0% |       0 |       0 |             0 |       160
+      210 |     +0.0% |       0 |       0 |             0 |       150
+      220 |     +0.0% |       0 |       0 |             0 |       140
+      230 |     +0.0% |       0 |       0 |             0 |       130
+      240 |     +0.0% |       0 |       0 |             0 |       120
+      250 |     +0.0% |       0 |       0 |             0 |       110
+      260 |     +0.0% |       0 |       0 |             0 |       100
+      270 |     +0.0% |       0 |       0 |             0 |        90
+      280 |     +0.0% |       0 |       0 |             0 |        80
+      290 |     +0.0% |       0 |       0 |             0 |        70
+      300 |     +0.0% |       0 |       0 |             0 |        60
+      310 |     +0.0% |       0 |       0 |             0 |        50
+      320 |     +0.0% |       0 |       0 |             0 |        40
+      330 |     +0.0% |       0 |       0 |             0 |        30
+      340 |     +0.0% |       0 |       0 |             0 |        20
+      350 |     +0.0% |       0 |       0 |             0 |        10
+      360 |     +0.0% |       0 |       0 |             0 |         0
+    final |     +0.0% |       0 |       0 |             0 |         0
+---------------------------------------------------------------------
+global_route -start_incremental
+detailed_placement
+[INFO DPL-0006] Core area: 31799.25 um^2, Instances area: 3877.47 um^2, Utilization: 12.2%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1101] Legalizing using diamond search.
+Movements Summary
+---------------------------------------
+Total cells:                     310
+Diamond Move Success:            310 (100.00%)
+Diamond Move Failure:              0
+Rip-up and replace Success:        0 (  0.00% of diamond failures)
+Rip-up and replace Failure:        0
+Total Placement Failures:          0
+---------------------------------------
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL            5828.1 u
+legalized HPWL           5828.1 u
+delta HPWL                    0 %
+
+global_route -end_incremental -congestion_report_file /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/reports/sky130hd/pipelined_adder/base/congestion_post_repair_design.rpt
+Repair setup and hold violations...
+estimate_parasitics -global_routing
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0033] No hold violations found.
+global_route -start_incremental
+detailed_placement
+[INFO DPL-0006] Core area: 31799.25 um^2, Instances area: 3877.47 um^2, Utilization: 12.2%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1101] Legalizing using diamond search.
+Movements Summary
+---------------------------------------
+Total cells:                     310
+Diamond Move Success:            310 (100.00%)
+Diamond Move Failure:              0
+Rip-up and replace Success:        0 (  0.00% of diamond failures)
+Rip-up and replace Failure:        0
+Total Placement Failures:          0
+---------------------------------------
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL            5828.1 u
+legalized HPWL           5828.1 u
+delta HPWL                    0 %
+
+global_route -end_incremental -congestion_report_file /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/reports/sky130hd/pipelined_adder/base/congestion_post_repair_timing.rpt
+global_route -start_incremental
+global_route -end_incremental -congestion_report_file /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/reports/sky130hd/pipelined_adder/base/congestion_post_recover_power.rpt
+Repair antennas...
+[INFO GRT-0012] Found 7 antenna violations.
+[INFO GRT-0302] Inserted 7 jumpers for 7 nets.
+[INFO GRT-0012] Found 0 antenna violations.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Estimate parasitics...
+estimate_parasitics -global_routing
+Report metrics stage 5, global route...
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 3877 um^2 12% utilization.
+[INFO FLW-0007] clock clk period 10.000000
+[INFO FLW-0008] Clock clk period 1.842
+[INFO FLW-0009] Clock clk slack 8.061
+[INFO FLW-0011] Path endpoint path count 151
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/5_1_grt.odb
+write_sdc -no_timestamp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/5_1_grt.sdc
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+5_1_grt                           13            235 f70c834ce4f47a202fde
+/home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 5_2_route detail_route
+Running detail_route.tcl, stage 5_2_route
+read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/5_1_grt.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/5_1_grt.sdc
+source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+detailed_route -output_drc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/reports/sky130hd/pipelined_adder/base/5_route_drc.rpt -output_maze /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/maze.log -droute_end_iter 64 -verbose 1 -drc_report_iter_step 5
+[INFO DRT-0149] Reading tech and libs.
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer mcon
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer mcon
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via2
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via2
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via3
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via3
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via4
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via4
+
+Units:                1000
+Number of layers:     13
+Number of macros:     441
+Number of vias:       29
+Number of viarulegen: 25
+
+[INFO DRT-0150] Reading design.
+
+Design:                   pipelined_adder
+Die area:                 ( 0 0 ) ( 200000 200000 )
+Number of track patterns: 12
+Number of DEF vias:       0
+Number of components:     745
+Number of terminals:      52
+Number of snets:          2
+Number of nets:           353
+
+[INFO DRT-0167] List of default vias:
+  Layer via
+    default via: M1M2_PR
+  Layer via2
+    default via: M2M3_PR
+  Layer via3
+    default via: M3M4_PR
+  Layer via4
+    default via: M4M5_PR
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+[INFO DRT-0164] Number of unique instances = 41.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0024]   Complete FR_MASTERSLICE.
+[INFO DRT-0024]   Complete Fr_VIA.
+[INFO DRT-0024]   Complete li1.
+[INFO DRT-0024]   Complete mcon.
+[INFO DRT-0024]   Complete met1.
+[INFO DRT-0024]   Complete via.
+[INFO DRT-0024]   Complete met2.
+[INFO DRT-0024]   Complete via2.
+[INFO DRT-0024]   Complete met3.
+[INFO DRT-0024]   Complete via3.
+[INFO DRT-0024]   Complete met4.
+[INFO DRT-0024]   Complete via4.
+[INFO DRT-0024]   Complete met5.
+[INFO DRT-0033] FR_MASTERSLICE shape region query size = 0.
+[INFO DRT-0033] FR_VIA shape region query size = 0.
+[INFO DRT-0033] li1 shape region query size = 11085.
+[INFO DRT-0033] mcon shape region query size = 6783.
+[INFO DRT-0033] met1 shape region query size = 2900.
+[INFO DRT-0033] via shape region query size = 2145.
+[INFO DRT-0033] met2 shape region query size = 1313.
+[INFO DRT-0033] via2 shape region query size = 1716.
+[INFO DRT-0033] met3 shape region query size = 1311.
+[INFO DRT-0033] via3 shape region query size = 1716.
+[INFO DRT-0033] met4 shape region query size = 527.
+[INFO DRT-0033] via4 shape region query size = 85.
+[INFO DRT-0033] met5 shape region query size = 111.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0078]   Complete 280 pins.
+[INFO DRT-0081]   Complete 41 unique inst patterns.
+[INFO DRT-0084]   Complete 192 groups.
+#scanned instances     = 745
+#unique  instances     = 41
+#stdCellGenAp          = 1446
+#stdCellValidPlanarAp  = 21
+#stdCellValidViaAp     = 774
+#stdCellPinNoAp        = 3
+#stdCellPinCnt         = 922
+#instTermValidViaApCnt = 0
+#macroGenAp            = 0
+#macroValidPlanarAp    = 0
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:00:21, elapsed time = 00:00:16, memory = 209.80 (MB), peak = 209.80 (MB)
+
+[INFO DRT-0157] Number of guides:     1876
+
+[INFO DRT-0169] Post process guides.
+[INFO DRT-0176] GCELLGRID X 0 DO 28 STEP 6900 ;
+[INFO DRT-0177] GCELLGRID Y 0 DO 28 STEP 6900 ;
+[INFO DRT-0028]   Complete FR_MASTERSLICE.
+[INFO DRT-0028]   Complete Fr_VIA.
+[INFO DRT-0028]   Complete li1.
+[INFO DRT-0028]   Complete mcon.
+[INFO DRT-0028]   Complete met1.
+[INFO DRT-0028]   Complete via.
+[INFO DRT-0028]   Complete met2.
+[INFO DRT-0028]   Complete via2.
+[INFO DRT-0028]   Complete met3.
+[INFO DRT-0028]   Complete via3.
+[INFO DRT-0028]   Complete met4.
+[INFO DRT-0028]   Complete via4.
+[INFO DRT-0028]   Complete met5.
+[INFO DRT-0178] Init guide query.
+[INFO DRT-0035]   Complete FR_MASTERSLICE (guide).
+[INFO DRT-0035]   Complete Fr_VIA (guide).
+[INFO DRT-0035]   Complete li1 (guide).
+[INFO DRT-0035]   Complete mcon (guide).
+[INFO DRT-0035]   Complete met1 (guide).
+[INFO DRT-0035]   Complete via (guide).
+[INFO DRT-0035]   Complete met2 (guide).
+[INFO DRT-0035]   Complete via2 (guide).
+[INFO DRT-0035]   Complete met3 (guide).
+[INFO DRT-0035]   Complete via3 (guide).
+[INFO DRT-0035]   Complete met4 (guide).
+[INFO DRT-0035]   Complete via4 (guide).
+[INFO DRT-0035]   Complete met5 (guide).
+[INFO DRT-0036] FR_MASTERSLICE guide region query size = 0.
+[INFO DRT-0036] FR_VIA guide region query size = 0.
+[INFO DRT-0036] li1 guide region query size = 647.
+[INFO DRT-0036] mcon guide region query size = 0.
+[INFO DRT-0036] met1 guide region query size = 499.
+[INFO DRT-0036] via guide region query size = 0.
+[INFO DRT-0036] met2 guide region query size = 247.
+[INFO DRT-0036] via2 guide region query size = 0.
+[INFO DRT-0036] met3 guide region query size = 42.
+[INFO DRT-0036] via3 guide region query size = 0.
+[INFO DRT-0036] met4 guide region query size = 22.
+[INFO DRT-0036] via4 guide region query size = 0.
+[INFO DRT-0036] met5 guide region query size = 7.
+[INFO DRT-0179] Init gr pin query.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 210.18 (MB), peak = 210.18 (MB)
+[INFO DRT-0245] skipped writing guide updates to database.
+[INFO DRT-0181] Start track assignment.
+[INFO DRT-0184] Done with 916 vertical wires in 1 frboxes and 548 horizontal wires in 1 frboxes.
+[INFO DRT-0186] Done with 46 vertical wires in 1 frboxes and 102 horizontal wires in 1 frboxes.
+[INFO DRT-0182] Complete track assignment.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 217.72 (MB), peak = 217.72 (MB)
+[INFO DRT-0187] Start routing data preparation.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 217.72 (MB), peak = 217.72 (MB)
+[INFO DRT-0194] Start detail routing.
+[INFO DRT-0195] Start 0th optimization iteration.
+    Completing 10% with 0 violations.
+    elapsed time = 00:00:00, memory = 241.38 (MB).
+    Completing 20% with 0 violations.
+    elapsed time = 00:00:01, memory = 234.70 (MB).
+    Completing 30% with 22 violations.
+    elapsed time = 00:00:01, memory = 243.20 (MB).
+    Completing 40% with 22 violations.
+    elapsed time = 00:00:01, memory = 257.07 (MB).
+    Completing 50% with 22 violations.
+    elapsed time = 00:00:03, memory = 266.45 (MB).
+    Completing 60% with 58 violations.
+    elapsed time = 00:00:03, memory = 283.82 (MB).
+    Completing 70% with 58 violations.
+    elapsed time = 00:00:05, memory = 276.07 (MB).
+    Completing 80% with 66 violations.
+    elapsed time = 00:00:05, memory = 277.82 (MB).
+    Completing 90% with 66 violations.
+    elapsed time = 00:00:05, memory = 298.95 (MB).
+    Completing 100% with 73 violations.
+    elapsed time = 00:00:07, memory = 303.45 (MB).
+[INFO DRT-0199]   Number of violations = 88.
+Viol/Layer         li1   mcon   met1   met2   met4   met5
+Cut Spacing          0      2      0      0      0      0
+Metal Spacing        0      0     30      2      2      2
+Recheck              1      0     10      4      0      0
+Short                0      0     28      7      0      0
+[INFO DRT-0267] cpu time = 00:00:05, elapsed time = 00:00:08, memory = 660.45 (MB), peak = 660.45 (MB)
+Total wire length = 6389 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 2487 um.
+Total wire length on LAYER met2 = 2894 um.
+Total wire length on LAYER met3 = 758 um.
+Total wire length on LAYER met4 = 177 um.
+Total wire length on LAYER met5 = 69 um.
+Total number of vias = 1676.
+Up-via summary (total 1676):
+
+-----------------------
+ FR_MASTERSLICE       0
+            li1     864
+           met1     740
+           met2      36
+           met3      24
+           met4      12
+-----------------------
+               1676
+
+
+[INFO DRT-0195] Start 1st optimization iteration.
+    Completing 10% with 88 violations.
+    elapsed time = 00:00:00, memory = 661.95 (MB).
+    Completing 20% with 88 violations.
+    elapsed time = 00:00:00, memory = 665.07 (MB).
+    Completing 30% with 88 violations.
+    elapsed time = 00:00:00, memory = 697.32 (MB).
+    Completing 40% with 31 violations.
+    elapsed time = 00:00:02, memory = 683.65 (MB).
+    Completing 50% with 31 violations.
+    elapsed time = 00:00:02, memory = 701.90 (MB).
+    Completing 60% with 31 violations.
+    elapsed time = 00:00:04, memory = 712.53 (MB).
+    Completing 70% with 17 violations.
+    elapsed time = 00:00:04, memory = 713.40 (MB).
+    Completing 80% with 17 violations.
+    elapsed time = 00:00:04, memory = 713.40 (MB).
+    Completing 90% with 11 violations.
+    elapsed time = 00:00:05, memory = 713.40 (MB).
+    Completing 100% with 11 violations.
+    elapsed time = 00:00:05, memory = 713.40 (MB).
+[INFO DRT-0199]   Number of violations = 11.
+Viol/Layer        met1   met3
+Metal Spacing        6      1
+Short                4      0
+[INFO DRT-0267] cpu time = 00:00:03, elapsed time = 00:00:05, memory = 713.40 (MB), peak = 713.40 (MB)
+Total wire length = 6313 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 2476 um.
+Total wire length on LAYER met2 = 2878 um.
+Total wire length on LAYER met3 = 767 um.
+Total wire length on LAYER met4 = 142 um.
+Total wire length on LAYER met5 = 47 um.
+Total number of vias = 1638.
+Up-via summary (total 1638):
+
+-----------------------
+ FR_MASTERSLICE       0
+            li1     864
+           met1     712
+           met2      37
+           met3      17
+           met4       8
+-----------------------
+               1638
+
+
+[INFO DRT-0195] Start 2nd optimization iteration.
+    Completing 10% with 11 violations.
+    elapsed time = 00:00:00, memory = 713.40 (MB).
+    Completing 20% with 11 violations.
+    elapsed time = 00:00:00, memory = 713.40 (MB).
+    Completing 30% with 11 violations.
+    elapsed time = 00:00:00, memory = 713.40 (MB).
+    Completing 40% with 6 violations.
+    elapsed time = 00:00:03, memory = 735.28 (MB).
+    Completing 50% with 6 violations.
+    elapsed time = 00:00:03, memory = 735.28 (MB).
+    Completing 60% with 6 violations.
+    elapsed time = 00:00:04, memory = 735.28 (MB).
+    Completing 70% with 5 violations.
+    elapsed time = 00:00:04, memory = 735.28 (MB).
+    Completing 80% with 5 violations.
+    elapsed time = 00:00:04, memory = 735.28 (MB).
+    Completing 90% with 5 violations.
+    elapsed time = 00:00:04, memory = 735.28 (MB).
+    Completing 100% with 5 violations.
+    elapsed time = 00:00:04, memory = 735.28 (MB).
+[INFO DRT-0199]   Number of violations = 5.
+Viol/Layer        met1   met2
+Metal Spacing        1      1
+Short                3      0
+[INFO DRT-0267] cpu time = 00:00:02, elapsed time = 00:00:05, memory = 735.28 (MB), peak = 735.28 (MB)
+Total wire length = 6334 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 2512 um.
+Total wire length on LAYER met2 = 2871 um.
+Total wire length on LAYER met3 = 760 um.
+Total wire length on LAYER met4 = 142 um.
+Total wire length on LAYER met5 = 47 um.
+Total number of vias = 1637.
+Up-via summary (total 1637):
+
+-----------------------
+ FR_MASTERSLICE       0
+            li1     864
+           met1     715
+           met2      34
+           met3      16
+           met4       8
+-----------------------
+               1637
+
+
+[INFO DRT-0195] Start 3rd guides tiles iteration.
+    Completing 20% with 5 violations.
+    elapsed time = 00:00:00, memory = 735.28 (MB).
+    Completing 50% with 5 violations.
+    elapsed time = 00:00:00, memory = 735.28 (MB).
+    Completing 70% with 5 violations.
+    elapsed time = 00:00:00, memory = 735.28 (MB).
+    Completing 100% with 0 violations.
+    elapsed time = 00:00:00, memory = 735.28 (MB).
+[INFO DRT-0199]   Number of violations = 0.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 735.28 (MB), peak = 735.28 (MB)
+Total wire length = 6336 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 2511 um.
+Total wire length on LAYER met2 = 2872 um.
+Total wire length on LAYER met3 = 761 um.
+Total wire length on LAYER met4 = 142 um.
+Total wire length on LAYER met5 = 47 um.
+Total number of vias = 1637.
+Up-via summary (total 1637):
+
+-----------------------
+ FR_MASTERSLICE       0
+            li1     864
+           met1     715
+           met2      34
+           met3      16
+           met4       8
+-----------------------
+               1637
+
+
+[INFO DRT-0198] Complete detail routing.
+Total wire length = 6336 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 2511 um.
+Total wire length on LAYER met2 = 2872 um.
+Total wire length on LAYER met3 = 761 um.
+Total wire length on LAYER met4 = 142 um.
+Total wire length on LAYER met5 = 47 um.
+Total number of vias = 1637.
+Up-via summary (total 1637):
+
+-----------------------
+ FR_MASTERSLICE       0
+            li1     864
+           met1     715
+           met2      34
+           met3      16
+           met4       8
+-----------------------
+               1637
+
+
+[INFO DRT-0267] cpu time = 00:00:12, elapsed time = 00:00:20, memory = 735.40 (MB), peak = 735.40 (MB)
+
+[INFO DRT-0180] Post processing.
+Took 37 seconds: detailed_route -output_drc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/reports/sky130hd/pipelined_adder/base/5_route_drc.rpt -output_maze /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/maze.log -droute_end_iter 64 -verbose 1 -drc_report_iter_step 5
+[INFO GRT-0012] Found 6 antenna violations.
+[INFO DPL-0006] Core area: 31799.25 um^2, Instances area: 3892.48 um^2, Utilization: 12.2%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1101] Legalizing using diamond search.
+Movements Summary
+---------------------------------------
+Total cells:                       0
+Diamond Move Success:              0 (  0.00%)
+Diamond Move Failure:              0
+Rip-up and replace Success:        0 (  0.00% of diamond failures)
+Rip-up and replace Failure:        0
+Total Placement Failures:          0
+---------------------------------------
+[INFO GRT-0015] Inserted 6 diodes.
+[INFO DRT-0024]   Complete FR_MASTERSLICE.
+[INFO DRT-0024]   Complete Fr_VIA.
+[INFO DRT-0024]   Complete li1.
+[INFO DRT-0024]   Complete mcon.
+[INFO DRT-0024]   Complete met1.
+[INFO DRT-0024]   Complete via.
+[INFO DRT-0024]   Complete met2.
+[INFO DRT-0024]   Complete via2.
+[INFO DRT-0024]   Complete met3.
+[INFO DRT-0024]   Complete via3.
+[INFO DRT-0024]   Complete met4.
+[INFO DRT-0024]   Complete via4.
+[INFO DRT-0024]   Complete met5.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0078]   Complete 290 pins.
+[INFO DRT-0081]   Complete 43 unique inst patterns.
+[INFO DRT-0084]   Complete 193 groups.
+#scanned instances     = 751
+#unique  instances     = 43
+#stdCellGenAp          = 1470
+#stdCellValidPlanarAp  = 21
+#stdCellValidViaAp     = 798
+#stdCellPinNoAp        = 3
+#stdCellPinCnt         = 922
+#instTermValidViaApCnt = 0
+#macroGenAp            = 0
+#macroValidPlanarAp    = 0
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:00:23, elapsed time = 00:00:18, memory = 661.07 (MB), peak = 735.40 (MB)
+
+[INFO DRT-0157] Number of guides:     1861
+
+[INFO DRT-0169] Post process guides.
+[INFO DRT-0176] GCELLGRID X 0 DO 28 STEP 6900 ;
+[INFO DRT-0177] GCELLGRID Y 0 DO 28 STEP 6900 ;
+[INFO DRT-0028]   Complete FR_MASTERSLICE.
+[INFO DRT-0028]   Complete Fr_VIA.
+[INFO DRT-0028]   Complete li1.
+[INFO DRT-0028]   Complete mcon.
+[INFO DRT-0028]   Complete met1.
+[INFO DRT-0028]   Complete via.
+[INFO DRT-0028]   Complete met2.
+[INFO DRT-0028]   Complete via2.
+[INFO DRT-0028]   Complete met3.
+[INFO DRT-0028]   Complete via3.
+[INFO DRT-0028]   Complete met4.
+[INFO DRT-0028]   Complete via4.
+[INFO DRT-0028]   Complete met5.
+[INFO DRT-0178] Init guide query.
+[INFO DRT-0035]   Complete FR_MASTERSLICE (guide).
+[INFO DRT-0035]   Complete Fr_VIA (guide).
+[INFO DRT-0035]   Complete li1 (guide).
+[INFO DRT-0035]   Complete mcon (guide).
+[INFO DRT-0035]   Complete met1 (guide).
+[INFO DRT-0035]   Complete via (guide).
+[INFO DRT-0035]   Complete met2 (guide).
+[INFO DRT-0035]   Complete via2 (guide).
+[INFO DRT-0035]   Complete met3 (guide).
+[INFO DRT-0035]   Complete via3 (guide).
+[INFO DRT-0035]   Complete met4 (guide).
+[INFO DRT-0035]   Complete via4 (guide).
+[INFO DRT-0035]   Complete met5 (guide).
+[INFO DRT-0036] FR_MASTERSLICE guide region query size = 0.
+[INFO DRT-0036] FR_VIA guide region query size = 0.
+[INFO DRT-0036] li1 guide region query size = 648.
+[INFO DRT-0036] mcon guide region query size = 0.
+[INFO DRT-0036] met1 guide region query size = 499.
+[INFO DRT-0036] via guide region query size = 0.
+[INFO DRT-0036] met2 guide region query size = 247.
+[INFO DRT-0036] via2 guide region query size = 0.
+[INFO DRT-0036] met3 guide region query size = 39.
+[INFO DRT-0036] via3 guide region query size = 0.
+[INFO DRT-0036] met4 guide region query size = 16.
+[INFO DRT-0036] via4 guide region query size = 0.
+[INFO DRT-0036] met5 guide region query size = 4.
+[INFO DRT-0179] Init gr pin query.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 661.07 (MB), peak = 735.40 (MB)
+[INFO DRT-0245] skipped writing guide updates to database.
+[INFO DRT-0181] Start track assignment.
+[INFO DRT-0184] Done with 911 vertical wires in 1 frboxes and 542 horizontal wires in 1 frboxes.
+[INFO DRT-0186] Done with 51 vertical wires in 1 frboxes and 94 horizontal wires in 1 frboxes.
+[INFO DRT-0182] Complete track assignment.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 661.07 (MB), peak = 735.40 (MB)
+[INFO DRT-0187] Start routing data preparation.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 661.07 (MB), peak = 735.40 (MB)
+[INFO DRT-0194] Start detail routing.
+[INFO DRT-0195] Start 0th optimization iteration.
+    Completing 10% with 0 violations.
+    elapsed time = 00:00:00, memory = 661.57 (MB).
+    Completing 20% with 0 violations.
+    elapsed time = 00:00:00, memory = 667.94 (MB).
+    Completing 30% with 0 violations.
+    elapsed time = 00:00:00, memory = 667.94 (MB).
+    Completing 40% with 0 violations.
+    elapsed time = 00:00:01, memory = 668.07 (MB).
+    Completing 50% with 0 violations.
+    elapsed time = 00:00:01, memory = 673.82 (MB).
+    Completing 60% with 0 violations.
+    elapsed time = 00:00:01, memory = 687.69 (MB).
+    Completing 70% with 0 violations.
+    elapsed time = 00:00:02, memory = 687.69 (MB).
+    Completing 80% with 0 violations.
+    elapsed time = 00:00:02, memory = 687.69 (MB).
+    Completing 90% with 0 violations.
+    elapsed time = 00:00:02, memory = 687.69 (MB).
+    Completing 100% with 0 violations.
+    elapsed time = 00:00:03, memory = 687.69 (MB).
+[INFO DRT-0199]   Number of violations = 0.
+[INFO DRT-0267] cpu time = 00:00:02, elapsed time = 00:00:04, memory = 765.94 (MB), peak = 765.94 (MB)
+Total wire length = 6332 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 2525 um.
+Total wire length on LAYER met2 = 2870 um.
+Total wire length on LAYER met3 = 745 um.
+Total wire length on LAYER met4 = 142 um.
+Total wire length on LAYER met5 = 47 um.
+Total number of vias = 1647.
+Up-via summary (total 1647):
+
+-----------------------
+ FR_MASTERSLICE       0
+            li1     874
+           met1     715
+           met2      34
+           met3      16
+           met4       8
+-----------------------
+               1647
+
+
+[INFO DRT-0198] Complete detail routing.
+Total wire length = 6332 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 2525 um.
+Total wire length on LAYER met2 = 2870 um.
+Total wire length on LAYER met3 = 745 um.
+Total wire length on LAYER met4 = 142 um.
+Total wire length on LAYER met5 = 47 um.
+Total number of vias = 1647.
+Up-via summary (total 1647):
+
+-----------------------
+ FR_MASTERSLICE       0
+            li1     874
+           met1     715
+           met2      34
+           met3      16
+           met4       8
+-----------------------
+               1647
+
+
+[INFO DRT-0267] cpu time = 00:00:02, elapsed time = 00:00:04, memory = 765.94 (MB), peak = 765.94 (MB)
+
+[INFO DRT-0180] Post processing.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Design area 3892 um^2 12% utilization.
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/5_2_route.odb
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+5_2_route                         59            766 f4a36e194869546e52c2
+/home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 5_3_fillcell fillcell
+Running fillcell.tcl, stage 5_3_fillcell
+read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/5_2_route.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/5_1_grt.sdc
+source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+filler_placement "sky130_fd_sc_hd__fill_1 sky130_fd_sc_hd__fill_2 sky130_fd_sc_hd__fill_4 sky130_fd_sc_hd__fill_8"
+[INFO DPL-0001] Placed 3591 filler instances.
+Design area 3892 um^2 12% utilization.
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/5_3_fillcell.odb
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+5_3_fillcell                       1            124 421b6145bd7941174226
+cp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/5_3_fillcell.odb /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/5_route.odb
+cp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/5_1_grt.sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/5_route.sdc
+/home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 6_1_fill density_fill
+Running density_fill.tcl, stage 6_1_fill
+read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/5_route.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/5_route.sdc
+source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+exec cp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/5_route.odb /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/6_1_fill.odb
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+6_1_fill                           1            120 421b6145bd7941174226
+cp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/5_route.sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/6_1_fill.sdc
+/home/sudar762/OpenROAD-flow-scripts/flow/scripts/flow.sh 6_report final_report
+Running final_report.tcl, stage 6_report
+read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/6_1_fill.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/6_1_fill.sdc
+source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+source /home/sudar762/projects/spec-to-rtl-agent/build/flow/pipelined_adder/design/power_activity.tcl
+Reading activity VCD /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/waves.vcd with scope tb_pipelined_adder/dut
+[WARNING STA-1453] clock clk pin clk has no vcd transitions.
+Annotated 847 pin activities.
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/6_final.odb
+Deleted 0 routing obstructions
+Warning: master sky130_ef_sc_hd__decap_12 has signal pins but no liberty cell
+[INFO RCX-0431] Defined process_corner X with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner X
+[INFO RCX-0435] Reading extraction model file /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/rcx_patterns.rules ...
+[INFO RCX-0436] RC segment generation pipelined_adder (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 923 rc segments
+[INFO RCX-0439] Coupling Cap extraction pipelined_adder ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0442] 69% of 2461 wires extracted
+[INFO RCX-0442] 100% of 2461 wires extracted
+[INFO RCX-0045] Extract 353 nets, 1276 rsegs, 1276 caps, 1155 ccs
+[INFO RCX-0443] 353 nets finished
+[INFO PSM-0040] All shapes on net VDD are connected.
+########## IR report #################
+Net              : VDD
+Corner           : default
+Total power      : 5.43e-04 W
+Supply voltage   : 1.80e+00 V
+Worstcase voltage: 1.80e+00 V
+Average voltage  : 1.80e+00 V
+Average IR drop  : 3.41e-06 V
+Worstcase IR drop: 7.03e-05 V
+Percentage drop  : 0.00 %
+######################################
+[INFO PSM-0040] All shapes on net VSS are connected.
+########## IR report #################
+Net              : VSS
+Corner           : default
+Total power      : 5.43e-04 W
+Supply voltage   : 0.00e+00 V
+Worstcase voltage: 6.49e-05 V
+Average voltage  : 3.18e-06 V
+Average IR drop  : 3.18e-06 V
+Worstcase IR drop: 6.49e-05 V
+Percentage drop  : 0.00 %
+######################################
+Cell type report:                       Count       Area
+  Fill cell                              3591   27906.76
+  Tap cell                                435     544.27
+  Antenna cell                              6      15.01
+  Clock buffer                             12     256.50
+  Timing Repair Buffer                     50     497.98
+  Inverter                                 42     157.65
+  Clock inverter                            4      28.78
+  Sequential cell                          64    1601.54
+  Multi-Input combinational cell          138     790.76
+  Total                                  4342   31799.25
+Report metrics stage 6, finish...
+
+==========================================================================
+finish report_design_area
+--------------------------------------------------------------------------
+Design area 3892 um^2 12% utilization.
+[WARNING GUI-0066] Heat map "IR Drop" has not been populated with data.
+[WARNING GUI-0066] Heat map "Routing Congestion" has not been populated with data.
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+6_report                           4            190                  N/A
+cp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/5_route.sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/6_final.sdc
+cp /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/objects/sky130hd/pipelined_adder/base/klayout_tech.lef
+/home/sudar762/tools/oss-cad-suite/py3bin/python3 /home/sudar762/OpenROAD-flow-scripts/flow/util/generate_klayout_tech.py \
+	--template /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/sky130hd.lyt \
+	--output /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/objects/sky130hd/pipelined_adder/base/klayout.lyt \
+	--lef-files /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/objects/sky130hd/pipelined_adder/base/klayout_tech.lef /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd_merged.lef   \
+	--reference-dir /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base \
+	--map-files 
+/home/sudar762/tools/oss-cad-suite/py3bin/python3 /home/sudar762/OpenROAD-flow-scripts/flow/scripts/run_command.py --log /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/logs/sky130hd/pipelined_adder/base/6_1_merge.log --tee -- \
+        /home/sudar762/OpenROAD-flow-scripts/flow/scripts/klayout.sh -zz -rd design_name=pipelined_adder \
+        -rd in_def=/home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/6_final.def \
+        -rd in_files="/home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/gds/sky130_fd_sc_hd.gds  " \
+        -rd seal_file="" \
+        -rd out_file=/home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/6_1_merged.gds \
+        -rd tech_file=/home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/objects/sky130hd/pipelined_adder/base/klayout.lyt \
+        -rd layer_map= \
+        -r /home/sudar762/OpenROAD-flow-scripts/flow/util/def2stream.py
+KLayout 0.30.7
+[INFO] Reporting cells prior to loading DEF ...
+	/home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/gds/sky130_fd_sc_hd.gds
+[INFO] All LEF cells have matching GDS/OAS cells
+[INFO] No orphan cells in the final layout
+cp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/6_1_merged.gds /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/results/sky130hd/pipelined_adder/base/6_final.gds
+/home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_pipelined_adder/logs/sky130hd/pipelined_adder/base
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+1_1_yosys_canonicalize             0             55 2a61144feccd4be09653
+1_2_yosys                          0             57 157afce5b1064250df3d
+1_synth                            0            119 468b3daae32cababcf66
+2_1_floorplan                      0            139 fd1f770ade05e9738079
+2_2_floorplan_macro                0            116 fd1f770ade05e9738079
+2_3_floorplan_tapcell              0            117 af19cea37c46b02f5682
+2_4_floorplan_pdn                  0            120 fb357763feb79af1dc44
+3_1_place_gp_skip_io               9            118 ca582384d3abb18539d3
+3_2_place_iop                      0            118 f2c91abeca14a0fe7114
+3_3_place_gp                       2            226 ec8c88364cfe3b0548a6
+3_4_place_resized                  0            138 ec8c88364cfe3b0548a6
+3_5_place_dp                       0            123 149c20992b09c2e0732c
+4_1_cts                            1            149 09ccc5e29c9aea2073d5
+5_1_grt                           13            235 f70c834ce4f47a202fde
+5_2_route                         59            766 f4a36e194869546e52c2
+5_3_fillcell                       1            124 421b6145bd7941174226
+6_1_fill                           1            120 421b6145bd7941174226
+6_1_merge                          5            432                  N/A
+6_report                           4            190                  N/A
+Total                             95            766                     
+make: Leaving directory '/home/sudar762/OpenROAD-flow-scripts/flow'
+
+Elapsed time: 0:00.52[h:]min:sec. CPU time: user 0.39 sys 0.14 (101%). Peak memory: 142436KB.
+Elapsed time: 0:00.41[h:]min:sec. CPU time: user 0.35 sys 0.06 (102%). Peak memory: 119460KB.
+Elapsed time: 0:00.41[h:]min:sec. CPU time: user 0.36 sys 0.06 (102%). Peak memory: 120060KB.
+Elapsed time: 0:00.41[h:]min:sec. CPU time: user 0.36 sys 0.06 (101%). Peak memory: 123760KB.
+Elapsed time: 0:09.15[h:]min:sec. CPU time: user 53.57 sys 0.30 (589%). Peak memory: 121688KB.
+Elapsed time: 0:00.51[h:]min:sec. CPU time: user 0.37 sys 0.07 (86%). Peak memory: 121236KB.
+Elapsed time: 0:02.84[h:]min:sec. CPU time: user 14.79 sys 0.22 (528%). Peak memory: 231472KB.
+Elapsed time: 0:00.57[h:]min:sec. CPU time: user 0.44 sys 0.17 (107%). Peak memory: 141748KB.
+Elapsed time: 0:00.53[h:]min:sec. CPU time: user 0.50 sys 0.06 (106%). Peak memory: 126752KB.
+Elapsed time: 0:01.54[h:]min:sec. CPU time: user 1.35 sys 0.18 (99%). Peak memory: 153060KB.
+Elapsed time: 0:13.01[h:]min:sec. CPU time: user 22.49 sys 0.31 (175%). Peak memory: 241644KB.
+Elapsed time: 0:59.59[h:]min:sec. CPU time: user 61.65 sys 1.02 (105%). Peak memory: 784604KB.
+Elapsed time: 0:01.18[h:]min:sec. CPU time: user 0.54 sys 0.10 (54%). Peak memory: 127524KB.
+Elapsed time: 0:01.33[h:]min:sec. CPU time: user 0.51 sys 0.09 (44%). Peak memory: 123024KB.
+Elapsed time: 0:04.89[h:]min:sec. CPU time: user 2.25 sys 0.29 (52%). Peak memory: 194784KB.
+Elapsed time: 0:05.40[h:]min:sec. CPU time: user 2.21 sys 0.40 (48%). Peak memory: 442404KB.

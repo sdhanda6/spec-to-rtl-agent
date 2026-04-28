@@ -1,0 +1,81 @@
+input_spec_type: text
+input_spec_path: examples\specs\text_counter.txt
+parsed_design_class: generic
+top_module: text_counter
+selected_candidate: cand_1
+ambiguity_findings:
+  -
+    code: reset_polarity_inferred
+    severity: warning
+    message: reset polarity was not explicit in the prose; inferred from naming conventions
+    inferred_value: low
+  -
+    code: reset_mode_inferred
+    severity: warning
+    message: reset timing mode was not explicit in the prose; defaulted to synchronous reset
+    inferred_value: sync
+unsupported_findings:
+rtl_generation_status: pass
+testbench_generation_status: pass
+compile_status: pass
+simulation_status: pass
+synthesis_collateral_generation_status: pass
+openroad_execution_status: missing_tool
+qor_summary:
+  timing_wns_ns: null
+  timing_tns_ns: null
+  area_um2: null
+  power_mw: null
+  cell_count: null
+  source_reports:
+artifacts:
+  generated_rtl_path: rtl\text_counter.v
+  generated_testbench_path: tb\tb_text_counter.sv
+  compile_log: build\pipeline\text_counter\logs\compile.log
+  simulation_log: build\pipeline\text_counter\logs\simulation.log
+  synthesis_openroad_logs:
+  output_artifacts:
+    - build\flow\text_counter\design\src\text_counter.v
+    - build\flow\text_counter\design\filelist.f
+    - build\flow\text_counter\design\filelist.tcl
+    - build\flow\text_counter\design\config.mk
+    - build\flow\text_counter\design\design_manifest.yaml
+    - build\flow\text_counter\design\README.md
+    - build\flow\text_counter\design\constraint.sdc
+commands:
+  agent_command: "python agent.py --spec D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\examples\specs\text_counter.txt --verify sim --max-passes 3 --overwrite"
+  openroad_command: null
+repair_attempts:
+  rtl:
+  downstream:
+    -
+      attempt: 1
+      action: collateral_regeneration
+      issues:
+        -
+          code: missing_rtl_source
+          message: "filelist entry does not exist: D:/Spring 2026 courses/VLSI Automation/Project 2 Phase 2/build/flow/text_counter/design/src/missing_top.v"
+          severity: error
+      changes:
+        - regenerated downstream collateral after detecting missing_rtl_source
+      repaired: true
+downstream_validation:
+  issues:
+  environment_messages:
+    - openroad not found in PATH
+    - yosys not found in PATH
+    - OpenROAD-flow-scripts root not found; set OPENROAD_FLOW_ROOT or OPENROAD_FLOW_DIR
+    - make not found in PATH
+final_classification: partially supported
+final_outcome:
+  rtl_verified: true
+  synthesis_collateral_generated: true
+  synthesis_run_passed: false
+  openroad_run_passed: false
+  partially_supported: true
+  unsupported: false
+agent_stage:
+  returncode: 0
+  stdout: ""
+  stderr: ""
+  report_path: build\reports\text_counter_report.yaml

@@ -18,6 +18,6 @@ make DESIGN_CONFIG=build/flow/fsm_handshake/design/config.mk
 
 Platform hint: `sky130hd`
 Clock port: `clk`
-Clock period: `10.0 ns`
+Clock period: `10 ns`
 
 Visible and hidden-case note: unsupported or ambiguous physical-design requirements should be treated as partial support, not tapeout-ready success.

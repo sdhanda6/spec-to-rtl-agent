@@ -1,0 +1,20 @@
+Yosys 0.64 (git sha1 8449dd470, g++ 11.4.0-1ubuntu1~22.04.3 -fPIC -O3) [the-openroad-project/yosys]
+Using ABC area script.
+Extracting clock period from SDC file: /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_text_counter/results/sky130hd/text_counter/base/clock_period.txt
+Setting clock period to 10
+1. Executing Liberty frontend: /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+2. Executing Liberty frontend: /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. Executing Verilog-2005 frontend: /home/sudar762/projects/spec-to-rtl-agent/build/flow/text_counter/design/src/text_counter.v
+4. Executing Verilog-2005 frontend: /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/cells_clkgate_hd.v
+5. Executing HIERARCHY pass (managing design hierarchy).
+6. Executing AST frontend in derive mode using pre-parsed AST for module `\text_counter'.
+6.1. Analyzing design hierarchy..
+6.2. Analyzing design hierarchy..
+7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Warning: Ignoring module text_counter because it contains processes (run 'proc' command first).
+8. Executing RTLIL backend.
+Warnings: 1 unique messages, 1 total
+End of script. Logfile hash: d2ae9d79f2, time: 0.47s, user: 0.18s, system: 0.01s, MEM: 51.00 MB peak
+Yosys 0.64 (git sha1 8449dd470, g++ 11.4.0-1ubuntu1~22.04.3 -fPIC -O3) [the-openroad-project/yosys]
+Time spent: 90% 4x read_liberty (0 sec), 5% 2x write_rtlil (0 sec), ...
+Elapsed time: 0:00.49[h:]min:sec. CPU time: user 0.21 sys 0.02 (46%). Peak memory: 56320KB.

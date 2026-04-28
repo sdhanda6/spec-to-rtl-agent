@@ -4,6 +4,8 @@ import argparse
 import contextlib
 import io
 import os
+import shutil
+import subprocess
 import sys
 from pathlib import Path
 from typing import Any
@@ -26,6 +28,7 @@ from spec2rtl.equivalence import (
     compare_behaviors,
     extract_module_ports,
     prepare_post_synth_testbench,
+    run_lec_equivalence,
     run_post_synth_simulation,
     run_rtl_reference_simulation,
 )
@@ -39,6 +42,7 @@ from spec2rtl.flow_repair import (
     apply_qor_strategy,
     attempt_collateral_repair,
     classify_post_synth_mismatch,
+    classify_asic_stage_issue,
     classify_signoff_bottleneck,
     generate_qor_candidates,
     load_ml_history,
@@ -83,6 +87,54 @@ ROOT = Path(__file__).resolve().parent
 BUILD_DIR = ROOT / "build"
 REPORT_DIR = BUILD_DIR / "reports"
 PIPELINE_DIR = BUILD_DIR / "pipeline"
+ORFS_WORK_ROOT = BUILD_DIR / "orfs_work"
+
+
+def _clean_directory_contents(path: Path) -> None:
+    if not path.exists():
+        return
+    for child in path.iterdir():
+        try:
+            if child.is_dir() and not child.is_symlink():
+                shutil.rmtree(child)
+            else:
+                child.unlink()
+        except OSError:
+            continue
+
+
+def _openroad_flow_candidates() -> list[Path]:
+    candidates: list[Path] = []
+    for env_name in ["OPENROAD_FLOW_ROOT", "OPENROAD_FLOW_DIR"]:
+        raw = os.environ.get(env_name)
+        if raw:
+            path = Path(raw).expanduser()
+            candidates.append(path / "flow" if path.name != "flow" else path)
+    candidates.extend(
+        [
+            Path.home() / "OpenROAD-flow-scripts" / "flow",
+            ROOT.parent / "OpenROAD-flow-scripts" / "flow",
+            ROOT / "OpenROAD-flow-scripts" / "flow",
+        ]
+    )
+    ordered: list[Path] = []
+    seen: set[str] = set()
+    for candidate in candidates:
+        key = candidate.as_posix()
+        if key not in seen:
+            ordered.append(candidate)
+            seen.add(key)
+    return ordered
+
+
+def _auto_clean_before_run() -> None:
+    if os.environ.get("SPEC2RTL_SKIP_AUTO_CLEAN") == "1":
+        return
+    if BUILD_DIR.exists():
+        shutil.rmtree(BUILD_DIR)
+    for flow_dir in _openroad_flow_candidates():
+        _clean_directory_contents(flow_dir / "results")
+        _clean_directory_contents(flow_dir / "logs")
 
 
 def parse_args() -> argparse.Namespace:
@@ -111,6 +163,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--min-qor-attempts", type=int, default=3, help="Minimum QoR attempts to explore when targets are not yet met")
     parser.add_argument("--persist-ml-history", action="store_true", help="Persist QoR attempt history to build/ml_history.json for future ranking")
     parser.add_argument("--run-signoff", action="store_true", help="Run DRC/LVS signoff after successful OpenROAD finish")
+    parser.add_argument("--run-coverage", action="store_true", help="Run coverage analysis after RTL simulation when a supported coverage tool is available")
+    parser.add_argument("--run-dft", action="store_true", help="Run DFT insertion stage after synthesis when a supported DFT tool is available")
+    parser.add_argument("--run-atpg", action="store_true", help="Run ATPG generation stage after DFT when a supported ATPG tool is available")
+    parser.add_argument("--run-lec", action="store_true", help="Run LEC-style RTL vs synthesized-netlist comparison after synthesis")
     parser.add_argument("--max-signoff-iters", type=int, default=2, help="Maximum extra signoff-driven retry rounds")
     parser.add_argument("--signoff-only", action="store_true", help="Skip QoR tuning and only run signoff feedback retries after baseline OpenROAD")
     parser.add_argument("--verify-post-synth", action="store_true", help="Run a post-synthesis behavior check against the synthesized netlist")
@@ -169,6 +225,204 @@ def _write_stage_log(path: Path, header: str, body: str) -> Path:
     return path
 
 
+def _base_stage_result(stage_name: str, enabled: bool, status: str, reason: str, log_path: Path | None = None) -> dict[str, Any]:
+    result = {
+        "stage": stage_name,
+        "enabled": enabled,
+        "status": status,
+        "reason": reason,
+        "tool": None,
+        "tool_path": None,
+        "command": None,
+        "returncode": None,
+        "log_path": _relative(log_path),
+        "evidence_paths": [_relative(log_path)] if log_path else [],
+        "artifacts": [],
+    }
+    result["bottleneck_classification"] = classify_asic_stage_issue(stage_name, result)
+    return result
+
+
+def _finalize_stage_result(stage_name: str, result: dict[str, Any]) -> dict[str, Any]:
+    result["stage"] = stage_name
+    result["bottleneck_classification"] = classify_asic_stage_issue(stage_name, result)
+    return result
+
+
+def _first_tool(names: list[str]) -> tuple[str, str] | None:
+    for name in names:
+        path = shutil.which(name)
+        if path:
+            return name, path
+    return None
+
+
+def _run_coverage_analysis(top: str, rtl_path: Path, tb_path: Path | None, enabled: bool) -> dict[str, Any]:
+    stage_name = "coverage_analysis"
+    log_path = PIPELINE_DIR / top / "logs" / f"{stage_name}.log"
+    if not enabled:
+        _write_stage_log(log_path, "Coverage analysis", "status: not_run\nreason: --run-coverage was not requested")
+        return _base_stage_result(stage_name, False, "not_run", "--run-coverage was not requested", log_path)
+    if tb_path is None or not tb_path.exists():
+        _write_stage_log(log_path, "Coverage analysis", "status: not_supported\nreason: coverage analysis requires a generated testbench")
+        return _base_stage_result(stage_name, True, "not_supported", "coverage analysis requires a generated testbench", log_path)
+    tool = _first_tool(["verilator"])
+    if tool is None:
+        _write_stage_log(log_path, "Coverage analysis", "status: not_supported\nreason: verilator not found in PATH")
+        return _base_stage_result(stage_name, True, "not_supported", "verilator not found in PATH", log_path)
+
+    tool_name, tool_path = tool
+    command = [tool_path, "--lint-only", "--coverage", "--timing", "--sv", "-Wno-fatal", "--top-module", top, str(rtl_path), str(tb_path)]
+    try:
+        proc = subprocess.run(command, capture_output=True, text=True, timeout=120)
+        status = "pass" if proc.returncode == 0 else "fail"
+        body = "\n".join(
+            [
+                f"status: {status}",
+                f"tool: {tool_name}",
+                f"command: {' '.join(command)}",
+                f"returncode: {proc.returncode}",
+                proc.stdout or "",
+                proc.stderr or "",
+            ]
+        )
+        _write_stage_log(log_path, "Coverage analysis", body)
+        return _finalize_stage_result(
+            stage_name,
+            {
+                "enabled": True,
+                "status": status,
+                "reason": "coverage instrumentation lint passed" if status == "pass" else "coverage instrumentation lint failed",
+                "tool": tool_name,
+                "tool_path": tool_path,
+                "command": " ".join(command),
+                "returncode": proc.returncode,
+                "stdout": proc.stdout,
+                "stderr": proc.stderr,
+                "log_path": _relative(log_path),
+                "evidence_paths": [_relative(log_path)],
+                "artifacts": [],
+            },
+        )
+    except (OSError, subprocess.SubprocessError) as exc:
+        _write_stage_log(log_path, "Coverage analysis", f"status: fail\nreason: {exc}")
+        return _finalize_stage_result(
+            stage_name,
+            {
+                "enabled": True,
+                "status": "fail",
+                "reason": str(exc),
+                "tool": tool_name,
+                "tool_path": tool_path,
+                "command": " ".join(command),
+                "returncode": None,
+                "log_path": _relative(log_path),
+                "evidence_paths": [_relative(log_path)],
+                "artifacts": [],
+            },
+        )
+
+
+def _run_dft_insertion(top: str, synthesized_netlist: Path | None, enabled: bool) -> dict[str, Any]:
+    stage_name = "dft_insertion"
+    log_path = PIPELINE_DIR / top / "logs" / f"{stage_name}.log"
+    if not enabled:
+        _write_stage_log(log_path, "DFT insertion", "status: not_run\nreason: --run-dft was not requested")
+        return _base_stage_result(stage_name, False, "not_run", "--run-dft was not requested", log_path)
+    tool = _first_tool(["yosys-dft", "tessent", "dc_shell"])
+    if tool is None:
+        _write_stage_log(log_path, "DFT insertion", "status: not_supported\nreason: no supported DFT insertion tool found in PATH")
+        return _base_stage_result(stage_name, True, "not_supported", "no supported DFT insertion tool found in PATH", log_path)
+    if synthesized_netlist is None or not synthesized_netlist.exists():
+        _write_stage_log(log_path, "DFT insertion", "status: not_run\nreason: synthesized netlist is unavailable")
+        return _base_stage_result(stage_name, True, "not_run", "synthesized netlist is unavailable", log_path)
+
+    tool_name, tool_path = tool
+    _write_stage_log(
+        log_path,
+        "DFT insertion",
+        f"status: not_supported\ntool: {tool_name}\nreason: detected {tool_name}, but this demo pipeline has no safe non-interactive DFT invocation for it",
+    )
+    result = _base_stage_result(stage_name, True, "not_supported", f"detected {tool_name}, but no supported non-interactive DFT invocation is configured", log_path)
+    result["tool"] = tool_name
+    result["tool_path"] = tool_path
+    return _finalize_stage_result(stage_name, result)
+
+
+def _run_atpg_generation(top: str, synthesized_netlist: Path | None, dft_result: dict[str, Any], enabled: bool) -> dict[str, Any]:
+    stage_name = "atpg_generation"
+    log_path = PIPELINE_DIR / top / "logs" / f"{stage_name}.log"
+    if not enabled:
+        _write_stage_log(log_path, "ATPG generation", "status: not_run\nreason: --run-atpg was not requested")
+        return _base_stage_result(stage_name, False, "not_run", "--run-atpg was not requested", log_path)
+    tool = _first_tool(["fault", "atalanta", "tetramax", "fastscan"])
+    if tool is None:
+        _write_stage_log(log_path, "ATPG generation", "status: not_supported\nreason: no supported ATPG tool found in PATH")
+        return _base_stage_result(stage_name, True, "not_supported", "no supported ATPG tool found in PATH", log_path)
+    if synthesized_netlist is None or not synthesized_netlist.exists():
+        _write_stage_log(log_path, "ATPG generation", "status: not_run\nreason: synthesized netlist is unavailable")
+        return _base_stage_result(stage_name, True, "not_run", "synthesized netlist is unavailable", log_path)
+    if dft_result.get("enabled") and dft_result.get("status") == "fail":
+        _write_stage_log(log_path, "ATPG generation", "status: not_run\nreason: DFT insertion failed")
+        return _base_stage_result(stage_name, True, "not_run", "DFT insertion failed", log_path)
+
+    tool_name, tool_path = tool
+    _write_stage_log(
+        log_path,
+        "ATPG generation",
+        f"status: not_supported\ntool: {tool_name}\nreason: detected {tool_name}, but this demo pipeline has no safe Verilog ATPG invocation for it",
+    )
+    result = _base_stage_result(stage_name, True, "not_supported", f"detected {tool_name}, but no supported Verilog ATPG invocation is configured", log_path)
+    result["tool"] = tool_name
+    result["tool_path"] = tool_path
+    return _finalize_stage_result(stage_name, result)
+
+
+def _run_lec_check(top: str, rtl_path: Path, synthesized_netlist: Path | None, enabled: bool) -> dict[str, Any]:
+    stage_name = "lec_check"
+    log_path = PIPELINE_DIR / top / "logs" / f"{stage_name}.log"
+    if not enabled:
+        _write_stage_log(log_path, "LEC check", "status: not_run\nreason: --run-lec was not requested")
+        return _base_stage_result(stage_name, False, "not_run", "--run-lec was not requested", log_path)
+    if shutil.which("yosys") is None:
+        _write_stage_log(log_path, "LEC check", "status: not_supported\nreason: yosys not found in PATH")
+        return _base_stage_result(stage_name, True, "not_supported", "yosys not found in PATH", log_path)
+    if synthesized_netlist is None or not synthesized_netlist.exists():
+        _write_stage_log(log_path, "LEC check", "status: not_run\nreason: synthesized netlist is unavailable")
+        return _base_stage_result(stage_name, True, "not_run", "synthesized netlist is unavailable", log_path)
+
+    lec = run_lec_equivalence(rtl_path, synthesized_netlist, top, PIPELINE_DIR / top / "lec")
+    body = "\n".join(
+        [
+            f"status: {lec.get('status')}",
+            f"lec_pass: {lec.get('lec_pass')}",
+            f"tool: {lec.get('tool')}",
+            f"command: {lec.get('command')}",
+            f"reason: {lec.get('reason')}",
+        ]
+    )
+    _write_stage_log(log_path, "LEC check", body)
+    evidence = [_relative(log_path)]
+    evidence.extend(_relative(Path(path)) for path in lec.get("evidence_paths", []) if path)
+    result = {
+        "enabled": True,
+        "status": lec.get("status", "not_run"),
+        "lec_pass": bool(lec.get("lec_pass")),
+        "reason": lec.get("reason"),
+        "tool": lec.get("tool"),
+        "tool_path": lec.get("tool_path"),
+        "command": lec.get("command"),
+        "returncode": lec.get("returncode"),
+        "log_path": _relative(log_path),
+        "evidence_paths": [item for item in dict.fromkeys(evidence) if item],
+        "artifacts": [],
+        "module_io_match": lec.get("module_io_match"),
+        "rtl_source": lec.get("rtl_source"),
+        "netlist_source": lec.get("netlist_source"),
+    }
+    return _finalize_stage_result(stage_name, result)
+
+
 def _materialize_rtl_logs(top: str, report: dict[str, Any]) -> tuple[Path | None, Path | None]:
     logs_dir = PIPELINE_DIR / top / "logs"
     compile_log_path: Path | None = None
@@ -213,6 +467,34 @@ def _relative(path: Path | None) -> str | None:
         return str(path.relative_to(ROOT))
     except ValueError:
         return str(path)
+
+
+def _current_openroad_artifacts(openroad_result: OpenROADRunResult | None) -> list[Path]:
+    if not openroad_result:
+        return []
+    artifacts = [path for path in openroad_result.get("artifacts", []) if isinstance(path, Path)]
+    if openroad_result.get("artifact_collection") == "current_run":
+        return artifacts
+    if openroad_result.get("succeeded"):
+        return artifacts
+    return []
+
+
+def _mark_qor_unavailable(summary: dict[str, Any]) -> None:
+    for key in ["logical_area_um2", "physical_area_um2", "power_mw", "congestion", "congestion_overflow"]:
+        if summary.get(key) is None:
+            summary[key] = "N/A"
+    if isinstance(summary.get("area"), dict):
+        if summary["area"].get("logical_um2") is None:
+            summary["area"]["logical_um2"] = "N/A"
+        if summary["area"].get("physical_um2") is None:
+            summary["area"]["physical_um2"] = "N/A"
+    if isinstance(summary.get("power"), dict):
+        if summary["power"].get("mw") is None:
+            summary["power"]["mw"] = "N/A"
+    if isinstance(summary.get("routability"), dict):
+        if summary["routability"].get("congestion") is None:
+            summary["routability"]["congestion"] = "N/A"
 
 
 def _run_agent_stage(spec_path: Path, overwrite: bool, max_passes: int, inject_fault: str | None) -> tuple[dict[str, Any], dict[str, Any]]:
@@ -279,7 +561,7 @@ def _issue_summary(issues: list[FlowIssue]) -> list[dict[str, str]]:
 def _collect_artifacts(bundle: CollateralBundle, openroad_result: OpenROADRunResult | None) -> list[str]:
     artifacts = [_relative(path) for path in bundle.generated_files]
     if openroad_result:
-        artifacts.extend(_relative(path) for path in openroad_result.get("artifacts", []))
+        artifacts.extend(_relative(path) for path in _current_openroad_artifacts(openroad_result))
         if openroad_result.get("log_path"):
             artifacts.append(_relative(openroad_result.get("log_path")))
     deduped: list[str] = []
@@ -300,7 +582,7 @@ def _collect_openroad_artifact_groups(openroad_result: OpenROADRunResult | None)
     }
     if not openroad_result:
         return grouped
-    for path in openroad_result.get("artifacts", []):
+    for path in _current_openroad_artifacts(openroad_result):
         rel = _relative(path)
         if not rel:
             continue
@@ -332,6 +614,8 @@ def _load_config_mk(path: Path) -> dict[str, Any]:
             lhs, rhs = stripped.split(":=", 1)
         elif "?=" in stripped:
             lhs, rhs = stripped.split("?=", 1)
+        elif "=" in stripped:
+            lhs, rhs = stripped.split("=", 1)
         else:
             continue
         name = lhs.replace("export", "", 1).strip()
@@ -347,7 +631,10 @@ def _write_config_mk(path: Path, config: dict[str, Any]) -> Path:
     for name in vars_map:
         if name not in ordered_names:
             ordered_names.append(name)
-    lines = [f"export {name} := {vars_map[name]}" for name in ordered_names]
+    lines = []
+    for name in ordered_names:
+        operator = "=" if name == "ACTIVITY_FILE" else ":="
+        lines.append(f"export {name} {operator} {vars_map[name]}")
     lines.extend(["", "# Auto-generated QoR tuning config.", ""])
     path.write_text("\n".join(lines), encoding="utf-8")
     return path
@@ -488,14 +775,50 @@ def _build_synthesis_stage_summary(synth_result: OpenROADRunResult | None) -> di
                 synth_result.get("returncode"),
                 str(synth_result.get("target", "synth")),
             )
+    netlist_check = _netlist_check_summary(synth_result)
     return {
         "status": synth_result.get("status", "not_run") if synth_result else "not_run",
         "failure_kind": failure_kind,
+        "failure_reason": synth_result.get("failure_reason") if synth_result else None,
         "returncode": synth_result.get("returncode") if synth_result else None,
         "command": synth_result.get("command") if synth_result else None,
         "synthesized_netlist_path": _relative(synth_result.get("synthesized_netlist_path")) if synth_result and synth_result.get("synthesized_netlist_path") else None,
+        "netlist_check": netlist_check,
         "retry_attempted": False,
         "retry_reason": "elevated retry is unavailable from pipeline runtime" if failure_kind == "infrastructure" else None,
+    }
+
+
+def _netlist_check_summary(result: OpenROADRunResult | None) -> dict[str, Any]:
+    if not result or not isinstance(result.get("netlist_check"), dict):
+        return {}
+    summary = dict(result["netlist_check"])
+    path_text = summary.get("path")
+    if isinstance(path_text, str) and path_text:
+        summary["path"] = _relative(Path(path_text))
+    return summary
+
+
+def _synthesized_netlist_from_result(result: OpenROADRunResult | None) -> Path | None:
+    if not result:
+        return None
+    direct = result.get("synthesized_netlist_path")
+    if isinstance(direct, Path) and direct.exists():
+        return direct
+    report_paths = result.get("report_paths", {})
+    if isinstance(report_paths, dict):
+        candidate = report_paths.get("synthesized_netlist")
+        if isinstance(candidate, Path) and candidate.exists():
+            return candidate
+    return None
+
+
+def _default_asic_stage_results() -> dict[str, dict[str, Any]]:
+    return {
+        "coverage_analysis": _base_stage_result("coverage_analysis", False, "not_run", "--run-coverage was not requested"),
+        "dft_insertion": _base_stage_result("dft_insertion", False, "not_run", "--run-dft was not requested"),
+        "atpg_generation": _base_stage_result("atpg_generation", False, "not_run", "--run-atpg was not requested"),
+        "lec_check": _base_stage_result("lec_check", False, "not_run", "--run-lec was not requested"),
     }
 
 
@@ -1567,12 +1890,56 @@ def _run_qor_optimization_loop(
     return best_result, summary
 
 
+def _enabled_stage_statuses(asic_stage_results: dict[str, Any] | None) -> list[str]:
+    if not isinstance(asic_stage_results, dict):
+        return []
+    statuses = []
+    for result in asic_stage_results.values():
+        if isinstance(result, dict) and result.get("enabled"):
+            statuses.append(str(result.get("status", "not_run")))
+    return statuses
+
+
+def _lec_stage_failed(asic_stage_results: dict[str, Any] | None) -> bool:
+    if not isinstance(asic_stage_results, dict):
+        return False
+    lec = asic_stage_results.get("lec_check")
+    if not isinstance(lec, dict) or not lec.get("enabled"):
+        return False
+    return str(lec.get("status", "not_run")) == "fail" or bool(lec.get("lec_pass")) is False and str(lec.get("status")) == "pass"
+
+
+def _enabled_stage_partially_supported(asic_stage_results: dict[str, Any] | None) -> bool:
+    statuses = _enabled_stage_statuses(asic_stage_results)
+    return any(status in {"fail", "not_supported"} for status in statuses)
+
+
+def _qor_ready(qor_optimization: dict[str, Any] | None) -> bool:
+    if not isinstance(qor_optimization, dict) or not qor_optimization.get("enabled"):
+        return True
+    return bool(qor_optimization.get("targets_met"))
+
+
+def _signoff_ready(signoff: dict[str, Any], run_signoff: bool, allow_drc_fail: bool, allow_lvs_fail: bool) -> bool:
+    if not run_signoff:
+        return True
+    if str(signoff.get("status", "not_run")) == "pass":
+        return True
+    if str(signoff.get("failure_kind", "")).lower() == "unsupported":
+        return True
+    if str(signoff.get("status", "not_run")) in {"not_supported", "unsupported"}:
+        return True
+    return bool(_signoff_targets_met(signoff, allow_drc_fail, allow_lvs_fail) and (allow_drc_fail or allow_lvs_fail))
+
+
 def _final_classification(
     mode: str,
     rtl_ok: bool,
     collateral_ok: bool,
     post_synth_verification: dict[str, Any] | None,
     openroad_result: OpenROADRunResult | None,
+    asic_stage_results: dict[str, Any] | None,
+    qor_optimization: dict[str, Any] | None,
     env_missing: bool,
     verify_post_synth: bool,
     allow_post_synth_fail: bool,
@@ -1590,22 +1957,66 @@ def _final_classification(
         return "infra_failure"
     if verify_post_synth and not _post_synth_targets_met(post_synth_verification or {}, allow_post_synth_fail):
         return "logical_failure" if post_synth_verification and post_synth_verification.get("enabled") else "infra_failure"
+    if _lec_stage_failed(asic_stage_results):
+        return "logical_failure"
     if mode == "synth":
         if openroad_result and openroad_result.get("succeeded"):
-            return "pass"
+            return "partial" if _enabled_stage_partially_supported(asic_stage_results) or not _qor_ready(qor_optimization) else "pass"
         if openroad_result and openroad_result.get("failure_kind") == "infrastructure":
             return "infra_failure"
         return "infra_failure" if env_missing or openroad_result is None else "logical_failure"
     if mode in {"openroad", "full"}:
         if openroad_result and openroad_result.get("succeeded"):
             signoff = openroad_result.get("signoff", {}) if isinstance(openroad_result.get("signoff"), dict) else {}
-            if run_signoff and not _signoff_targets_met(signoff, allow_drc_fail, allow_lvs_fail):
+            if (
+                _enabled_stage_partially_supported(asic_stage_results)
+                or not _qor_ready(qor_optimization)
+                or not _signoff_ready(signoff, run_signoff, allow_drc_fail, allow_lvs_fail)
+            ):
                 return "partial"
             return "pass"
         if openroad_result and openroad_result.get("failure_kind") == "infrastructure":
             return "infra_failure"
         return "infra_failure" if env_missing or openroad_result is None else "logical_failure"
     return "partial"
+
+
+def _pipeline_stage_table(
+    rtl_status: str,
+    simulation_status: str,
+    coverage_status: str,
+    synthesis_status: str,
+    dft_status: str,
+    atpg_status: str,
+    lec_status: str,
+    physical_stages: dict[str, Any],
+    gate_level_status: str,
+    gds_generated: bool,
+    signoff_status: str,
+) -> list[dict[str, str]]:
+    def physical_status(stage: str) -> str:
+        value = physical_stages.get(stage, {}) if isinstance(physical_stages, dict) else {}
+        return str(value.get("status", "not_run")) if isinstance(value, dict) else "not_run"
+
+    return [
+        {"stage": "spec_ingest", "status": "pass"},
+        {"stage": "rtl_generation", "status": rtl_status},
+        {"stage": "simulation", "status": simulation_status},
+        {"stage": "coverage_analysis", "status": coverage_status},
+        {"stage": "synthesis", "status": synthesis_status},
+        {"stage": "dft_insertion", "status": dft_status},
+        {"stage": "atpg_generation", "status": atpg_status},
+        {"stage": "lec_check", "status": lec_status},
+        {"stage": "floorplan", "status": physical_status("floorplan")},
+        {"stage": "power_planning", "status": physical_status("power_planning")},
+        {"stage": "placement", "status": physical_status("placement")},
+        {"stage": "cts", "status": physical_status("cts")},
+        {"stage": "routing", "status": physical_status("routing")},
+        {"stage": "sta", "status": physical_status("sta")},
+        {"stage": "gate_level_simulation", "status": gate_level_status},
+        {"stage": "gds", "status": "pass" if gds_generated else "not_run"},
+        {"stage": "signoff", "status": signoff_status},
+    ]
 
 
 def _compose_pipeline_report(
@@ -1622,6 +2033,7 @@ def _compose_pipeline_report(
     synth_optimization: dict[str, Any] | None,
     post_synth_verification: dict[str, Any] | None,
     synthesis_stage: dict[str, Any] | None,
+    asic_stage_results: dict[str, dict[str, Any]] | None,
     openroad_result: OpenROADRunResult | None,
     qor_optimization: dict[str, Any] | None,
     compile_log_path: Path | None,
@@ -1645,6 +2057,8 @@ def _compose_pipeline_report(
         collateral_ok,
         post_synth_verification,
         openroad_result,
+        asic_stage_results,
+        qor_optimization,
         env_missing,
         verify_post_synth,
         allow_post_synth_fail,
@@ -1654,8 +2068,11 @@ def _compose_pipeline_report(
     )
     qor_paths = list(collateral_bundle.generated_files) if collateral_bundle else []
     if openroad_result:
-        qor_paths.extend(openroad_result.get("artifacts", []))
+        qor_paths.extend(_current_openroad_artifacts(openroad_result))
     qor_summary = collect_qor_summary(qor_paths)
+    openroad_completed = bool(openroad_result and openroad_result.get("succeeded"))
+    if mode in {"synth", "openroad", "full"} and not openroad_completed:
+        _mark_qor_unavailable(qor_summary)
     openroad_artifacts = _collect_openroad_artifact_groups(openroad_result)
     synthesis_run_passed = bool(openroad_result and openroad_result.get("succeeded") and mode == "synth")
     openroad_run_passed = bool(openroad_result and openroad_result.get("succeeded") and mode in {"openroad", "full"})
@@ -1682,6 +2099,8 @@ def _compose_pipeline_report(
                 "targets_met": False,
             },
         }
+    if not openroad_completed and isinstance(qor_optimization.get("final_selected_metrics"), dict):
+        _mark_qor_unavailable(qor_optimization["final_selected_metrics"])
     if synth_optimization is None:
         synth_optimization = {
             "enabled": False,
@@ -1697,11 +2116,38 @@ def _compose_pipeline_report(
     if post_synth_verification is None:
         post_synth_verification = _default_post_synth_summary(verify_post_synth)
     if synthesis_stage is None:
-        synthesis_stage = {"status": "not_run", "failure_kind": None}
+        if openroad_result and openroad_result.get("target") == "synth":
+            synthesis_stage = _build_synthesis_stage_summary(openroad_result)
+        elif openroad_result and openroad_result.get("target") == "finish":
+            synthesis_stage = {
+                "status": "pass" if openroad_result.get("succeeded") else "fail",
+                "failure_kind": openroad_result.get("failure_kind"),
+                "failure_reason": openroad_result.get("failure_reason"),
+                "returncode": openroad_result.get("returncode"),
+                "command": openroad_result.get("command"),
+                "synthesized_netlist_path": _relative(_synthesized_netlist_from_result(openroad_result)),
+                "netlist_check": _netlist_check_summary(openroad_result),
+                "integrated_in_openroad_finish": True,
+            }
+        else:
+            synthesis_stage = {"status": "not_run", "failure_kind": None}
+    if asic_stage_results is None:
+        asic_stage_results = _default_asic_stage_results()
     signoff_notes = list(signoff_result.get("notes", [])) if isinstance(signoff_result.get("notes"), list) else [str(signoff_tools.get("notes") or "")]
     magic_available = bool(signoff_tools.get("magic_available"))
     netgen_available = bool(signoff_tools.get("netgen_available"))
     signoff_classification = classify_signoff_bottleneck(signoff_result) if run_signoff else {"metric_kind": "unknown"}
+    physical_tracking = openroad_result.get("stage_tracking", {}) if openroad_result and isinstance(openroad_result.get("stage_tracking"), dict) else {}
+    physical_stages = physical_tracking.get("stages", {}) if isinstance(physical_tracking.get("stages"), dict) else {}
+    sta_status = str((physical_stages.get("sta") or {}).get("status", "not_run")) if isinstance(physical_stages.get("sta"), dict) else "not_run"
+    report_paths = openroad_result.get("report_paths", {}) if openroad_result and isinstance(openroad_result.get("report_paths"), dict) else {}
+    final_gds = report_paths.get("final_gds") if isinstance(report_paths, dict) else None
+    gds_generated = bool(isinstance(final_gds, Path) and final_gds.exists())
+    signoff_status = signoff_result.get("status", "not_run") if run_signoff else "not_run"
+    coverage_status = str(asic_stage_results.get("coverage_analysis", {}).get("status", "not_run"))
+    dft_status = str(asic_stage_results.get("dft_insertion", {}).get("status", "not_run"))
+    atpg_status = str(asic_stage_results.get("atpg_generation", {}).get("status", "not_run"))
+    lec_status = str(asic_stage_results.get("lec_check", {}).get("status", "not_run"))
     return {
         "input_spec_type": agent_report.get("spec_source_type"),
         "input_spec_path": str(spec_path.relative_to(ROOT)),
@@ -1714,11 +2160,37 @@ def _compose_pipeline_report(
         "testbench_generation_status": "pass" if tb_path and tb_path.exists() else "not_generated",
         "compile_status": "pass" if verification.get("compile_pass") else "fail",
         "simulation_status": "pass" if verification.get("functional_sim_pass") or verification.get("smoke_sim_pass") else "fail",
+        "coverage_status": coverage_status,
         "synthesis_collateral_generation_status": "pass" if collateral_ok else "fail" if collateral_bundle else "not_run",
+        "dft_status": dft_status,
+        "atpg_status": atpg_status,
+        "lec_status": lec_status,
+        "sta_status": sta_status,
+        "gds_generated": gds_generated,
+        "signoff_status": signoff_status,
         "openroad_execution_status": (openroad_result.get("status") if openroad_result else "not_run") if mode != "rtl" else "not_run",
+        "openroad_netlist_check": _netlist_check_summary(openroad_result),
         "synthesis_stage": synthesis_stage,
+        "coverage_analysis": asic_stage_results.get("coverage_analysis", {}),
+        "dft_insertion": asic_stage_results.get("dft_insertion", {}),
+        "atpg_generation": asic_stage_results.get("atpg_generation", {}),
+        "lec_check": asic_stage_results.get("lec_check", {}),
         "synth_optimization": synth_optimization,
         "post_synth_verification": post_synth_verification,
+        "physical_design_flow": physical_tracking,
+        "pipeline_stages": _pipeline_stage_table(
+            rtl_status="pass" if rtl_path and rtl_path.exists() else "fail",
+            simulation_status="pass" if verification.get("functional_sim_pass") or verification.get("smoke_sim_pass") else "fail",
+            coverage_status=coverage_status,
+            synthesis_status=str(synthesis_stage.get("status", "not_run")),
+            dft_status=dft_status,
+            atpg_status=atpg_status,
+            lec_status=lec_status,
+            physical_stages=physical_stages,
+            gate_level_status=str(post_synth_verification.get("final_classification", "not_run")),
+            gds_generated=gds_generated,
+            signoff_status=str(signoff_status),
+        ),
         "qor_summary": qor_summary,
         "qor_optimization": qor_optimization,
         "signoff": {
@@ -1755,6 +2227,11 @@ def _compose_pipeline_report(
             "generated_testbench_path": _relative(tb_path),
             "compile_log": _relative(compile_log_path),
             "simulation_log": _relative(simulation_log_path),
+            "coverage_log": asic_stage_results.get("coverage_analysis", {}).get("log_path"),
+            "dft_log": asic_stage_results.get("dft_insertion", {}).get("log_path"),
+            "atpg_log": asic_stage_results.get("atpg_generation", {}).get("log_path"),
+            "lec_log": asic_stage_results.get("lec_check", {}).get("log_path"),
+            "final_gds": _relative(final_gds) if isinstance(final_gds, Path) else None,
             "synthesis_openroad_logs": [_relative(openroad_result.get("log_path"))] if openroad_result and openroad_result.get("log_path") and openroad_result.get("log_path").exists() else [],
             "output_artifacts": _collect_artifacts(collateral_bundle, openroad_result) if collateral_bundle else [],
             "openroad_reports": openroad_artifacts["reports"],
@@ -1782,7 +2259,10 @@ def _compose_pipeline_report(
             "synthesis_run_passed": synthesis_run_passed,
             "openroad_run_passed": openroad_run_passed,
             "post_synth_behavior_match": _post_synth_targets_met(post_synth_verification, allow_post_synth_fail) if verify_post_synth else None,
-            "signoff_passed": _signoff_targets_met(signoff_result, allow_drc_fail, allow_lvs_fail) if run_signoff else None,
+            "logical_correctness": rtl_ok and not _lec_stage_failed(asic_stage_results) and (_post_synth_targets_met(post_synth_verification, allow_post_synth_fail) if verify_post_synth else True),
+            "qor_ready": _qor_ready(qor_optimization),
+            "signoff_ready": _signoff_ready(signoff_result, run_signoff, allow_drc_fail, allow_lvs_fail),
+            "signoff_passed": _signoff_ready(signoff_result, run_signoff, allow_drc_fail, allow_lvs_fail) if run_signoff else None,
             "partially_supported": final_classification == "partial",
             "unsupported": final_classification == "logical_failure",
         },
@@ -1797,6 +2277,7 @@ def _compose_pipeline_report(
 
 def main() -> int:
     args = parse_args()
+    _auto_clean_before_run()
     spec_path = resolve_spec(args.spec)
     top_guess = infer_top(spec_path)
 
@@ -1840,6 +2321,7 @@ def main() -> int:
     synth_optimization: dict[str, Any] | None = None
     post_synth_verification: dict[str, Any] | None = None
     synthesis_stage: dict[str, Any] | None = None
+    asic_stage_results: dict[str, dict[str, Any]] = _default_asic_stage_results()
     openroad_result: OpenROADRunResult | None = None
     qor_optimization: dict[str, Any] | None = None
     env_messages: list[str] = []
@@ -1847,6 +2329,13 @@ def main() -> int:
     synth_opt_enabled = bool(args.optimize_synth and args.mode in {"synth", "openroad", "full"})
     post_synth_enabled = bool(args.verify_post_synth and args.mode in {"synth", "openroad", "full"})
     signoff_enabled = bool(args.run_signoff and args.mode in {"openroad", "full"})
+
+    if rtl_ok:
+        asic_stage_results["coverage_analysis"] = _run_coverage_analysis(actual_top, rtl_path, tb_path, bool(args.run_coverage))
+    elif args.run_coverage:
+        log_path = PIPELINE_DIR / actual_top / "logs" / "coverage_analysis.log"
+        _write_stage_log(log_path, "Coverage analysis", "status: not_run\nreason: RTL simulation did not pass")
+        asic_stage_results["coverage_analysis"] = _base_stage_result("coverage_analysis", True, "not_run", "RTL simulation did not pass", log_path)
 
     if rtl_ok and args.mode in {"synth", "openroad", "full"}:
         collateral_bundle = generate_collateral(ROOT, ir, rtl_path, tb_path=tb_path, injected_fault=args.inject_flow_fault)
@@ -1872,6 +2361,8 @@ def main() -> int:
         env = detect_openroad_environment()
         env_messages = env.get("messages", [])
         if not collateral_issues:
+            if env.get("flow_root") is not None:
+                ORFS_WORK_ROOT.mkdir(parents=True, exist_ok=True)
             synth_stage_result: OpenROADRunResult | None = None
             if synth_opt_enabled and env.get("flow_root") is not None:
                 collateral_bundle, synth_stage_result, synth_optimization = _run_synth_optimization_loop(
@@ -1897,23 +2388,34 @@ def main() -> int:
                     max_iters=max(1, args.max_post_synth_iters),
                 )
                 synthesis_stage = _build_synthesis_stage_summary(synth_stage_result)
-                if args.mode == "synth":
-                    openroad_result = synth_stage_result
                 if args.post_synth_only:
                     openroad_result = synth_stage_result
                 if post_synth_verification.get("enabled") and not _post_synth_targets_met(post_synth_verification, bool(args.post_synth_allow_fail)):
                     env_messages.append("post-synthesis behavior check did not converge before the retry limit")
-            elif synth_stage_result is not None and args.mode == "synth":
-                openroad_result = synth_stage_result
 
-            openroad_mode = "synth" if args.mode == "synth" else "openroad"
+            after_synth_requested = bool(args.run_dft or args.run_atpg or args.run_lec)
+            if after_synth_requested and env.get("flow_root") is not None and synth_stage_result is None:
+                synth_stage_result = run_openroad_flow(ROOT, collateral_bundle, env, "synth", attempt=1)
+                synthesis_stage = _build_synthesis_stage_summary(synth_stage_result)
+            elif synth_stage_result is not None and synthesis_stage is None:
+                synthesis_stage = _build_synthesis_stage_summary(synth_stage_result)
+
+            if after_synth_requested:
+                synthesized_netlist = _synthesized_netlist_from_result(synth_stage_result)
+                asic_stage_results["dft_insertion"] = _run_dft_insertion(ir.name, synthesized_netlist, bool(args.run_dft))
+                asic_stage_results["atpg_generation"] = _run_atpg_generation(
+                    ir.name,
+                    synthesized_netlist,
+                    asic_stage_results["dft_insertion"],
+                    bool(args.run_atpg),
+                )
+                asic_stage_results["lec_check"] = _run_lec_check(ir.name, rtl_path, synthesized_netlist, bool(args.run_lec))
+
+            openroad_mode = "openroad"
             can_proceed_to_openroad = (
                 not post_synth_enabled
                 or _post_synth_targets_met(post_synth_verification or {}, bool(args.post_synth_allow_fail))
             ) and not args.post_synth_only
-            if args.mode == "synth" and synth_stage_result is not None:
-                openroad_result = synth_stage_result
-                can_proceed_to_openroad = False
             if can_proceed_to_openroad:
                 if signoff_enabled:
                     os.environ["SPEC2RTL_RUN_SIGNOFF"] = "1"
@@ -1984,6 +2486,7 @@ def main() -> int:
         synth_optimization=synth_optimization,
         post_synth_verification=post_synth_verification,
         synthesis_stage=synthesis_stage,
+        asic_stage_results=asic_stage_results,
         openroad_result=openroad_result,
         qor_optimization=qor_optimization,
         compile_log_path=compile_log_path,

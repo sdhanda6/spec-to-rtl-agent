@@ -1,0 +1,169 @@
+spec_source_type: yaml
+spec_source: examples/specs/register8.yaml
+top_module: register8
+design_kind: register
+parsed_design_class: register
+selected_candidate: cand_1
+final_classification: functionally_verified
+ambiguity_findings:
+unsupported_findings:
+extracted_semantics:
+  module_name: register8
+  ports:
+    -
+      name: clk
+      dir: input
+      width: 1
+    -
+      name: rst_n
+      dir: input
+      width: 1
+    -
+      name: en
+      dir: input
+      width: 1
+    -
+      name: d
+      dir: input
+      width: 8
+    -
+      name: q
+      dir: output
+      width: 8
+      kind: reg
+  clock: clk
+  reset:
+    signal: rst_n
+    active: low
+    mode: async
+  state:
+    -
+      name: q
+      width: 8
+      reset: 0
+  behavior_keys:
+    - register
+  design_kind_hint: register
+  flow:
+candidate_analysis:
+  candidate_count: 1
+  selected_candidate: cand_1
+  candidates:
+    -
+      candidate_id: cand_1
+      title: structured_document
+      score: 10.25
+      classification: functionally_verified
+      assumptions:
+      ambiguity_count: 0
+      unsupported_count: 0
+      internal_checks:
+        - module name present
+        - port list present
+        - clock semantics present
+      compile_ok: true
+      simulation_ok: true
+      evidence_level: functional
+      oracle_independent: true
+      attempts_used: 1
+      extracted_semantics:
+        module_name: register8
+        ports:
+          -
+            name: clk
+            dir: input
+            width: 1
+          -
+            name: rst_n
+            dir: input
+            width: 1
+          -
+            name: en
+            dir: input
+            width: 1
+          -
+            name: d
+            dir: input
+            width: 8
+          -
+            name: q
+            dir: output
+            width: 8
+            kind: reg
+        clock: clk
+        reset:
+          signal: rst_n
+          active: low
+          mode: async
+        state:
+          -
+            name: q
+            width: 8
+            reset: 0
+        behavior_keys:
+          - register
+        design_kind_hint: register
+        flow:
+artifacts:
+  rtl: rtl/register8.v
+  testbench: tb/tb_register8.sv
+generation_status:
+  rtl_generation_status: pass
+  testbench_generation_status: pass
+repair_loop:
+  enabled: true
+  max_attempts: 3
+  attempts_used: 1
+  injected_fault: null
+  repaired_after_feedback: false
+  unrepaired_after_retry_limit: false
+  attempts:
+    -
+      attempt: 1
+      strategy: direct
+      rtl_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/register8/cand_1/attempt_1/register8.v
+      testbench_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/register8/cand_1/attempt_1/tb_register8.sv
+      compile_command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/register8/cand_1/register8.v
+      simulation_command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/register8_sim.out
+      compile_status: pass
+      simulation_status: pass
+      compile_stdout: ""
+      compile_stderr: ""
+      simulation_stdout: |-
+        PASS tb_register8
+        /home/sudar762/projects/spec-to-rtl-agent/build/candidates/register8/cand_1/tb_register8.sv:37: $finish called at 16000 (1ps)
+      simulation_stderr: ""
+      diagnosis_summary: simulation passed on the current RTL/testbench pair
+      next_regeneration_changes:
+verification:
+  support_status: supported
+  requested_mode: sim
+  requested_level: functional
+  generated_testbench_kind: register_functional
+  oracle_independent: true
+  compile_pass: true
+  smoke_sim_pass: false
+  functional_sim_pass: true
+  overall_pass: true
+  covered_checks:
+    - reset behavior
+    - single load
+    - hold when disabled
+  limitations:
+  notes:
+  partial_verification_reasons:
+  assumptions:
+  conclusion: functional verification passed with independent evidence
+  compile:
+    attempt: 1
+    ok: true
+    message: compile ok
+    command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/register8/cand_1/register8.v
+  simulation:
+    attempt: 1
+    ok: true
+    message: |-
+      PASS tb_register8
+      /home/sudar762/projects/spec-to-rtl-agent/build/candidates/register8/cand_1/tb_register8.sv:37: $finish called at 16000 (1ps)
+    command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/register8_sim.out
+  retry_history:

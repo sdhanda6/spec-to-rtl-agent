@@ -1,0 +1,109 @@
+spec_source_type: yaml
+spec_source: examples/specs/pipelined_adder.yaml
+top_module: pipelined_adder
+design_kind: generic
+parsed_design_class: generic
+selected_candidate: cand_1
+final_classification: compile_and_smoke_verified
+ambiguity_findings:
+unsupported_findings:
+extracted_semantics:
+  module_name: pipelined_adder
+  ports:
+  clock: null
+  reset: null
+  state:
+  behavior_keys:
+  design_kind_hint: generic
+  flow:
+candidate_analysis:
+  candidate_count: 1
+  selected_candidate: cand_1
+  candidates:
+    -
+      candidate_id: cand_1
+      title: structured_document
+      score: 7.0
+      classification: compile_and_smoke_verified
+      assumptions:
+      ambiguity_count: 0
+      unsupported_count: 0
+      internal_checks:
+        - module name present
+      compile_ok: true
+      simulation_ok: true
+      evidence_level: smoke
+      oracle_independent: false
+      attempts_used: 1
+      extracted_semantics:
+        module_name: pipelined_adder
+        ports:
+        clock: null
+        reset: null
+        state:
+        behavior_keys:
+        design_kind_hint: generic
+        flow:
+artifacts:
+  rtl: rtl/pipelined_adder.v
+  testbench: tb/tb_pipelined_adder.sv
+generation_status:
+  rtl_generation_status: pass
+  testbench_generation_status: pass
+repair_loop:
+  enabled: true
+  max_attempts: 3
+  attempts_used: 1
+  injected_fault: null
+  repaired_after_feedback: false
+  unrepaired_after_retry_limit: false
+  attempts:
+    -
+      attempt: 1
+      strategy: direct
+      rtl_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/pipelined_adder/cand_1/attempt_1/pipelined_adder.v
+      testbench_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/pipelined_adder/cand_1/attempt_1/tb_pipelined_adder.sv
+      compile_command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/pipelined_adder/cand_1/pipelined_adder.v
+      simulation_command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/pipelined_adder_sim.out
+      compile_status: pass
+      simulation_status: pass
+      compile_stdout: ""
+      compile_stderr: ""
+      simulation_stdout: |-
+        PASS tb_pipelined_adder
+        /home/sudar762/projects/spec-to-rtl-agent/build/candidates/pipelined_adder/cand_1/tb_pipelined_adder.sv:25: $finish called at 10000 (1ps)
+      simulation_stderr: ""
+      diagnosis_summary: simulation passed on the current RTL/testbench pair
+      next_regeneration_changes:
+verification:
+  support_status: partially_supported
+  requested_mode: sim
+  requested_level: functional
+  generated_testbench_kind: generic_smoke
+  oracle_independent: false
+  compile_pass: true
+  smoke_sim_pass: true
+  functional_sim_pass: false
+  overall_pass: true
+  covered_checks:
+  limitations:
+    - no independent functional oracle for this design kind
+  notes:
+  partial_verification_reasons:
+    - no independent functional oracle for this design kind
+    - simulation did not meet the requested functional evidence threshold
+  assumptions:
+  conclusion: simulation passed, but only smoke-level evidence is available
+  compile:
+    attempt: 1
+    ok: true
+    message: compile ok
+    command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/pipelined_adder/cand_1/pipelined_adder.v
+  simulation:
+    attempt: 1
+    ok: true
+    message: |-
+      PASS tb_pipelined_adder
+      /home/sudar762/projects/spec-to-rtl-agent/build/candidates/pipelined_adder/cand_1/tb_pipelined_adder.sv:25: $finish called at 10000 (1ps)
+    command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/pipelined_adder_sim.out
+  retry_history:

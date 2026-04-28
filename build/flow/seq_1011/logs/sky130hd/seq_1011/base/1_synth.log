@@ -1,0 +1,16 @@
+OpenROAD 26Q2-209-g0d9d73ffba 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 8 thread(s).
+read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+[INFO ODB-0227] LEF file: /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef, created 13 layers, 25 vias
+[INFO ODB-0227] LEF file: /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd_merged.lef, created 441 library cells
+link_design seq_1011
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_seq_1011/results/sky130hd/seq_1011/base/1_2_yosys.sdc
+source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_seq_1011/results/sky130hd/seq_1011/base/1_synth.odb
+write_sdc -no_timestamp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_seq_1011/results/sky130hd/seq_1011/base/1_synth.sdc
+Elapsed time: 0:00.80[h:]min:sec. CPU time: user 0.41 sys 0.08 (61%). Peak memory: 121716KB.
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+1_synth                            0            118 bfe10a998bae378c397a

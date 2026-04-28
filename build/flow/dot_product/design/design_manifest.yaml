@@ -4,7 +4,7 @@ platform: sky130hd
 rtl: /home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/src/dot_product.v
 testbench: /home/sudar762/projects/spec-to-rtl-agent/tb/tb_dot_product.sv
 clock_port: clk
-clock_period_ns: 4.5
+clock_period_ns: 10
 ports:
   -
     name: clk

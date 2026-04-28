@@ -1,10 +1,10 @@
 top: text_counter
 design_kind: generic
 platform: sky130hd
-rtl: D:/Spring 2026 courses/VLSI Automation/Project 2 Phase 2/build/flow/text_counter/design/src/text_counter.v
-testbench: D:/Spring 2026 courses/VLSI Automation/Project 2 Phase 2/tb/tb_text_counter.sv
+rtl: /home/sudar762/projects/spec-to-rtl-agent/build/flow/text_counter/design/src/text_counter.v
+testbench: /home/sudar762/projects/spec-to-rtl-agent/tb/tb_text_counter.sv
 clock_port: clk
-clock_period_ns: 10.0
+clock_period_ns: 10
 ports:
   -
     name: clk

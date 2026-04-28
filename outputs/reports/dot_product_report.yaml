@@ -1,0 +1,219 @@
+spec_source_type: yaml
+spec_source: examples/specs/p5.yaml
+top_module: dot_product
+design_kind: generic
+parsed_design_class: generic
+selected_candidate: cand_1
+final_classification: compile_and_smoke_verified
+ambiguity_findings:
+unsupported_findings:
+extracted_semantics:
+  module_name: dot_product
+  ports:
+    -
+      name: clk
+      dir: input
+      width: 1
+      kind: wire
+      description: Clock input (rising-edge)
+    -
+      name: rst
+      dir: input
+      width: 1
+      kind: wire
+      description: Active-high synchronous reset
+    -
+      name: A
+      dir: input
+      width: 1
+      kind: wire
+      description: Packed signed vector input A
+    -
+      name: B
+      dir: input
+      width: 1
+      kind: wire
+      description: Packed signed vector input B
+    -
+      name: dot_out
+      dir: output
+      width: 1
+      kind: wire
+      description: Final dot product result (signed scalar)
+    -
+      name: valid
+      dir: output
+      width: 1
+      kind: wire
+      description: High for one cycle when dot_out is valid
+  clock: clk
+  reset:
+    signal: rst
+    active: high
+    mode: sync
+  state:
+  behavior_keys:
+  design_kind_hint: generic
+  flow:
+    tech_node: SkyWater 130HD
+    platform: sky130hd
+    clock_period: 4.5ns
+    module_signature: |-
+      module dot_product
+          parameter int N = 8,
+          parameter int WIDTH = 8
+      ) (
+          input  logic clk,
+          input  logic rst,
+          input  logic signed [N-1:0][WIDTH-1:0] A,
+          input  logic signed [N-1:0][WIDTH-1:0] B,
+          output logic signed [2*WIDTH+3:0] dot_out,
+          output logic valid
+      );
+candidate_analysis:
+  candidate_count: 1
+  selected_candidate: cand_1
+  candidates:
+    -
+      candidate_id: cand_1
+      title: structured_document
+      score: 7.75
+      classification: compile_and_smoke_verified
+      assumptions:
+      ambiguity_count: 0
+      unsupported_count: 0
+      internal_checks:
+        - module name present
+        - port list present
+        - clock semantics present
+      compile_ok: true
+      simulation_ok: true
+      evidence_level: smoke
+      oracle_independent: false
+      attempts_used: 1
+      extracted_semantics:
+        module_name: dot_product
+        ports:
+          -
+            name: clk
+            dir: input
+            width: 1
+            kind: wire
+            description: Clock input (rising-edge)
+          -
+            name: rst
+            dir: input
+            width: 1
+            kind: wire
+            description: Active-high synchronous reset
+          -
+            name: A
+            dir: input
+            width: 1
+            kind: wire
+            description: Packed signed vector input A
+          -
+            name: B
+            dir: input
+            width: 1
+            kind: wire
+            description: Packed signed vector input B
+          -
+            name: dot_out
+            dir: output
+            width: 1
+            kind: wire
+            description: Final dot product result (signed scalar)
+          -
+            name: valid
+            dir: output
+            width: 1
+            kind: wire
+            description: High for one cycle when dot_out is valid
+        clock: clk
+        reset:
+          signal: rst
+          active: high
+          mode: sync
+        state:
+        behavior_keys:
+        design_kind_hint: generic
+        flow:
+          tech_node: SkyWater 130HD
+          platform: sky130hd
+          clock_period: 4.5ns
+          module_signature: |-
+            module dot_product
+                parameter int N = 8,
+                parameter int WIDTH = 8
+            ) (
+                input  logic clk,
+                input  logic rst,
+                input  logic signed [N-1:0][WIDTH-1:0] A,
+                input  logic signed [N-1:0][WIDTH-1:0] B,
+                output logic signed [2*WIDTH+3:0] dot_out,
+                output logic valid
+            );
+artifacts:
+  rtl: rtl/dot_product.v
+  testbench: tb/tb_dot_product.sv
+generation_status:
+  rtl_generation_status: pass
+  testbench_generation_status: pass
+repair_loop:
+  enabled: true
+  max_attempts: 3
+  attempts_used: 1
+  injected_fault: null
+  repaired_after_feedback: false
+  unrepaired_after_retry_limit: false
+  attempts:
+    -
+      attempt: 1
+      strategy: direct
+      rtl_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/dot_product/cand_1/attempt_1/dot_product.v
+      testbench_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/dot_product/cand_1/attempt_1/tb_dot_product.sv
+      compile_command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/dot_product/cand_1/dot_product.v
+      simulation_command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/dot_product_sim.out
+      compile_status: pass
+      simulation_status: pass
+      compile_stdout: ""
+      compile_stderr: ""
+      simulation_stdout: |-
+        PASS tb_dot_product
+        /home/sudar762/projects/spec-to-rtl-agent/build/candidates/dot_product/cand_1/tb_dot_product.sv:27: $finish called at 10000 (1ps)
+      simulation_stderr: ""
+      diagnosis_summary: simulation passed on the current RTL/testbench pair
+      next_regeneration_changes:
+verification:
+  support_status: partially_supported
+  requested_mode: sim
+  requested_level: smoke
+  generated_testbench_kind: generic_smoke
+  oracle_independent: false
+  compile_pass: true
+  smoke_sim_pass: true
+  functional_sim_pass: false
+  overall_pass: true
+  covered_checks:
+  limitations:
+    - no independent functional oracle for this design kind
+  notes:
+  partial_verification_reasons:
+    - no independent functional oracle for this design kind
+    - simulation did not meet the requested functional evidence threshold
+  assumptions:
+  conclusion: simulation passed, but only smoke-level evidence is available
+  compile:
+    attempt: 1
+    ok: true
+    message: compile ok
+    command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/dot_product/cand_1/dot_product.v
+  simulation:
+    attempt: 1
+    ok: true
+    message: |-
+      PASS tb_dot_product
+      /home/sudar762/projects/spec-to-rtl-agent/build/candidates/dot_product/cand_1/tb_dot_product.sv:27: $finish called at 10000 (1ps)
+    command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/dot_product_sim.out
+  retry_history:

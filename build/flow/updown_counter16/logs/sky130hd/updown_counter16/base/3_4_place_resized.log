@@ -1,0 +1,53 @@
+OpenROAD 26Q2-209-g0d9d73ffba 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 8 thread(s).
+read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_updown_counter16/results/sky130hd/updown_counter16/base/3_3_place_gp.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_updown_counter16/results/sky130hd/updown_counter16/base/2_floorplan.sdc
+source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+estimate_parasitics -placement
+Perform buffer insertion and gate resizing...
+repair_design -verbose -match_cell_footprint
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |       232
+       10 |     +0.0% |       0 |       0 |             0 |       222
+       20 |     +0.0% |       0 |       0 |             0 |       212
+       30 |     +0.0% |       0 |       0 |             0 |       202
+       40 |     +0.0% |       0 |       0 |             0 |       192
+       50 |     +0.0% |       0 |       0 |             0 |       182
+       60 |     +0.0% |       0 |       0 |             0 |       172
+       70 |     +0.0% |       0 |       0 |             0 |       162
+       80 |     +0.0% |       0 |       0 |             0 |       152
+       90 |     +0.0% |       0 |       0 |             0 |       142
+      100 |     +0.0% |       0 |       0 |             0 |       132
+      110 |     +0.0% |       0 |       0 |             0 |       122
+      120 |     +0.0% |       0 |       0 |             0 |       112
+      130 |     +0.0% |       0 |       0 |             0 |       102
+      140 |     +0.0% |       0 |       0 |             0 |        92
+      150 |     +0.0% |       0 |       0 |             0 |        82
+      160 |     +0.0% |       0 |       0 |             0 |        72
+      170 |     +0.0% |       0 |       0 |             0 |        62
+      180 |     +0.0% |       0 |       0 |             0 |        52
+      190 |     +0.0% |       0 |       0 |             0 |        42
+      200 |     +0.0% |       0 |       0 |             0 |        32
+      210 |     +0.0% |       0 |       0 |             0 |        22
+      220 |     +0.0% |       0 |       0 |             0 |        12
+      230 |     +0.0% |       0 |       0 |             0 |         2
+    final |     +0.0% |       0 |       0 |             0 |         0
+---------------------------------------------------------------------
+Floating nets: 
+Report metrics stage 3, resizer...
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 2051 um^2 6% utilization.
+Instance count before 649, after 649
+Pin count before 640, after 640
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_updown_counter16/results/sky130hd/updown_counter16/base/3_4_place_resized.odb
+Elapsed time: 0:00.80[h:]min:sec. CPU time: user 0.55 sys 0.19 (92%). Peak memory: 141360KB.
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+3_4_place_resized                  0            138 d60a51a4b310fcd026ae

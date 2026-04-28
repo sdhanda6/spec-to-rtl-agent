@@ -1,0 +1,2 @@
+PASS tb_fir_filter
+/home/sudar762/projects/spec-to-rtl-agent/tb/tb_fir_filter.sv:25: $finish called at 10000 (1ps)

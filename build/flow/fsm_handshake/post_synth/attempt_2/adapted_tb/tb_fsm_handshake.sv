@@ -1,6 +1,10 @@
 `timescale 1ns/1ps
 
 module tb_fsm_handshake;
+    initial begin
+        $dumpfile("waves.vcd");
+        $dumpvars(0, tb_fsm_handshake);
+    end
     reg clk;
     reg rst_n;
     reg start;

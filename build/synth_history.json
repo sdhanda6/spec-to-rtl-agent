@@ -1,450 +1,39 @@
 [
   {
     "beat_baseline": false,
-    "behavior_match": true,
-    "bottleneck_classification": "mixed",
-    "candidate_family": null,
-    "candidate_id": null,
-    "candidate_knobs": [],
-    "design_kind": "generic",
-    "improvement_amount": 0.0,
-    "metric_kind": "logical_area",
-    "metrics": {
-      "area": {
-        "cell_count": 2,
-        "logical_um2": 11.2608,
-        "physical_um2": null,
-        "source": {
-          "cell_count": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt",
-          "logical_um2": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt"
-        }
-      },
-      "bottleneck_classification": null,
-      "cell_count": 2,
-      "congestion": null,
-      "congestion_overflow": null,
-      "hold_violation_count": null,
-      "logical_area_um2": 11.2608,
-      "metadata": {
-        "clock_period_ns": 1.1,
-        "design_name": "seq_detector_0011",
-        "platform": "sky130hd",
-        "report_paths": {
-          "clock_period": "/home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/clock_period.txt",
-          "synth_json": "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/1_synth.json",
-          "synth_stats": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt"
-        }
-      },
-      "metric_kind": null,
-      "metric_source_file": null,
-      "physical_area_um2": null,
-      "power": {
-        "mw": null,
-        "source": null
-      },
-      "power_mw": null,
-      "raw_reports": [
-        "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt",
-        "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/1_synth.json"
-      ],
-      "routability": {
-        "congestion": null,
-        "source": {},
-        "utilization": null,
-        "wirelength_um": null
-      },
-      "setup_violation_count": null,
-      "targets": {
-        "area": null,
-        "cell_count": null,
-        "logical_area": null,
-        "power": null,
-        "wns": 0.0
-      },
-      "timing": {
-        "hold_violation_count": null,
-        "setup_violation_count": null,
-        "source": null,
-        "tns_ns": null,
-        "wns_ns": null
-      },
-      "tns_ns": null,
-      "utilization": null,
-      "wirelength_um": null,
-      "wns_ns": null
-    },
-    "score": -18.51296,
-    "score_before": -18.51296,
-    "score_delta": 0.0,
-    "spec_name": "p1",
-    "targets_met": false
-  },
-  {
-    "beat_baseline": false,
-    "behavior_match": true,
-    "bottleneck_classification": "mixed",
-    "candidate_family": null,
-    "candidate_id": null,
-    "candidate_knobs": [],
-    "design_kind": "generic",
-    "improvement_amount": 0.0,
-    "metric_kind": "logical_area",
-    "metrics": {
-      "area": {
-        "cell_count": 3,
-        "logical_um2": 18.768,
-        "physical_um2": null,
-        "source": {
-          "cell_count": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/dot_product/base/synth_stat.txt",
-          "logical_um2": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/dot_product/base/synth_stat.txt"
-        }
-      },
-      "bottleneck_classification": null,
-      "cell_count": 3,
-      "congestion": null,
-      "congestion_overflow": null,
-      "hold_violation_count": null,
-      "logical_area_um2": 18.768,
-      "metadata": {
-        "clock_period_ns": 4.5,
-        "design_name": "dot_product",
-        "platform": "sky130hd",
-        "report_paths": {
-          "clock_period": "/home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/dot_product/base/clock_period.txt",
-          "synth_json": "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/dot_product/base/1_synth.json",
-          "synth_stats": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/dot_product/base/synth_stat.txt"
-        }
-      },
-      "metric_kind": null,
-      "metric_source_file": null,
-      "physical_area_um2": null,
-      "power": {
-        "mw": null,
-        "source": null
-      },
-      "power_mw": null,
-      "raw_reports": [
-        "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/dot_product/base/synth_stat.txt",
-        "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/dot_product/base/1_synth.json"
-      ],
-      "routability": {
-        "congestion": null,
-        "source": {},
-        "utilization": null,
-        "wirelength_um": null
-      },
-      "setup_violation_count": null,
-      "targets": {
-        "area": null,
-        "cell_count": null,
-        "logical_area": null,
-        "power": null,
-        "wns": 0.0
-      },
-      "timing": {
-        "hold_violation_count": null,
-        "setup_violation_count": null,
-        "source": null,
-        "tns_ns": null,
-        "wns_ns": null
-      },
-      "tns_ns": null,
-      "utilization": null,
-      "wirelength_um": null,
-      "wns_ns": null
-    },
-    "score": -30.0216,
-    "score_before": -30.0216,
-    "score_delta": 0.0,
-    "spec_name": "p5",
-    "targets_met": false
-  },
-  {
-    "beat_baseline": false,
-    "behavior_match": true,
-    "bottleneck_classification": "mixed",
-    "candidate_family": "area",
-    "candidate_id": "synth_area_flatten_compact",
-    "candidate_knobs": [
-      "SYNTH_NO_FLAT",
-      "SYNTH_STRATEGY",
-      "SYNTH_SHARE_RESOURCES"
-    ],
-    "design_kind": "generic",
-    "improvement_amount": 0.0,
-    "metric_kind": "logical_area",
-    "metrics": {
-      "area": {
-        "cell_count": 3,
-        "logical_um2": 18.768,
-        "physical_um2": null,
-        "source": {
-          "cell_count": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/dot_product/base/synth_stat.txt",
-          "logical_um2": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/dot_product/base/synth_stat.txt"
-        }
-      },
-      "bottleneck_classification": null,
-      "cell_count": 3,
-      "congestion": null,
-      "congestion_overflow": null,
-      "hold_violation_count": null,
-      "logical_area_um2": 18.768,
-      "metadata": {
-        "clock_period_ns": 4.5,
-        "design_name": "dot_product",
-        "platform": "sky130hd",
-        "report_paths": {
-          "clock_period": "/home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/dot_product/base/clock_period.txt",
-          "synth_json": "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/dot_product/base/1_synth.json",
-          "synth_stats": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/dot_product/base/synth_stat.txt"
-        }
-      },
-      "metric_kind": null,
-      "metric_source_file": null,
-      "physical_area_um2": null,
-      "power": {
-        "mw": null,
-        "source": null
-      },
-      "power_mw": null,
-      "raw_reports": [
-        "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/dot_product/base/synth_stat.txt",
-        "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/dot_product/base/1_synth.json"
-      ],
-      "routability": {
-        "congestion": null,
-        "source": {},
-        "utilization": null,
-        "wirelength_um": null
-      },
-      "setup_violation_count": null,
-      "targets": {
-        "area": null,
-        "cell_count": null,
-        "logical_area": null,
-        "power": null,
-        "wns": 0.0
-      },
-      "timing": {
-        "hold_violation_count": null,
-        "setup_violation_count": null,
-        "source": null,
-        "tns_ns": null,
-        "wns_ns": null
-      },
-      "tns_ns": null,
-      "utilization": null,
-      "wirelength_um": null,
-      "wns_ns": null
-    },
-    "score": -30.0216,
-    "score_before": -30.0216,
-    "score_delta": 0.0,
-    "spec_name": "p5",
-    "targets_met": false
-  },
-  {
-    "beat_baseline": false,
-    "behavior_match": true,
-    "bottleneck_classification": "mixed",
-    "candidate_family": "area",
-    "candidate_id": "synth_area_flatten_compact",
-    "candidate_knobs": [
-      "SYNTH_NO_FLAT",
-      "SYNTH_STRATEGY",
-      "SYNTH_SHARE_RESOURCES"
-    ],
-    "design_kind": "generic",
-    "improvement_amount": 0.0,
-    "metric_kind": "logical_area",
-    "metrics": {
-      "area": {
-        "cell_count": 2,
-        "logical_um2": 11.2608,
-        "physical_um2": null,
-        "source": {
-          "cell_count": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt",
-          "logical_um2": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt"
-        }
-      },
-      "bottleneck_classification": null,
-      "cell_count": 2,
-      "congestion": null,
-      "congestion_overflow": null,
-      "hold_violation_count": null,
-      "logical_area_um2": 11.2608,
-      "metadata": {
-        "clock_period_ns": 1.1,
-        "design_name": "seq_detector_0011",
-        "platform": "sky130hd",
-        "report_paths": {
-          "clock_period": "/home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/clock_period.txt",
-          "synth_json": "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/1_synth.json",
-          "synth_stats": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt"
-        }
-      },
-      "metric_kind": null,
-      "metric_source_file": null,
-      "physical_area_um2": null,
-      "power": {
-        "mw": null,
-        "source": null
-      },
-      "power_mw": null,
-      "raw_reports": [
-        "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt",
-        "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/1_synth.json"
-      ],
-      "routability": {
-        "congestion": null,
-        "source": {},
-        "utilization": null,
-        "wirelength_um": null
-      },
-      "setup_violation_count": null,
-      "targets": {
-        "area": null,
-        "cell_count": null,
-        "logical_area": null,
-        "power": null,
-        "wns": 0.0
-      },
-      "timing": {
-        "hold_violation_count": null,
-        "setup_violation_count": null,
-        "source": null,
-        "tns_ns": null,
-        "wns_ns": null
-      },
-      "tns_ns": null,
-      "utilization": null,
-      "wirelength_um": null,
-      "wns_ns": null
-    },
-    "score": -18.51296,
-    "score_before": -18.51296,
-    "score_delta": 0.0,
-    "spec_name": "p1",
-    "targets_met": false
-  },
-  {
-    "beat_baseline": false,
-    "behavior_match": true,
-    "bottleneck_classification": "mixed",
-    "candidate_family": "area",
-    "candidate_id": "synth_area_map_area2",
-    "candidate_knobs": [
-      "SYNTH_STRATEGY",
-      "ABC_AREA",
-      "SYNTH_BUFFERING"
-    ],
-    "design_kind": "generic",
-    "improvement_amount": 0.0,
-    "metric_kind": "logical_area",
-    "metrics": {
-      "area": {
-        "cell_count": 2,
-        "logical_um2": 11.2608,
-        "physical_um2": null,
-        "source": {
-          "cell_count": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt",
-          "logical_um2": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt"
-        }
-      },
-      "bottleneck_classification": null,
-      "cell_count": 2,
-      "congestion": null,
-      "congestion_overflow": null,
-      "hold_violation_count": null,
-      "logical_area_um2": 11.2608,
-      "metadata": {
-        "clock_period_ns": 1.1,
-        "design_name": "seq_detector_0011",
-        "platform": "sky130hd",
-        "report_paths": {
-          "clock_period": "/home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/clock_period.txt",
-          "synth_json": "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/1_synth.json",
-          "synth_stats": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt"
-        }
-      },
-      "metric_kind": null,
-      "metric_source_file": null,
-      "physical_area_um2": null,
-      "power": {
-        "mw": null,
-        "source": null
-      },
-      "power_mw": null,
-      "raw_reports": [
-        "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base/synth_stat.txt",
-        "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/seq_detector_0011/base/1_synth.json"
-      ],
-      "routability": {
-        "congestion": null,
-        "source": {},
-        "utilization": null,
-        "wirelength_um": null
-      },
-      "setup_violation_count": null,
-      "targets": {
-        "area": null,
-        "cell_count": null,
-        "logical_area": null,
-        "power": null,
-        "wns": 0.0
-      },
-      "timing": {
-        "hold_violation_count": null,
-        "setup_violation_count": null,
-        "source": null,
-        "tns_ns": null,
-        "wns_ns": null
-      },
-      "tns_ns": null,
-      "utilization": null,
-      "wirelength_um": null,
-      "wns_ns": null
-    },
-    "score": -18.51296,
-    "score_before": -18.51296,
-    "score_delta": 0.0,
-    "spec_name": "p1",
-    "targets_met": false
-  },
-  {
-    "beat_baseline": false,
     "behavior_match": false,
     "bottleneck_classification": "mixed",
     "candidate_family": null,
     "candidate_id": null,
     "candidate_knobs": [],
-    "design_kind": "counter",
+    "design_kind": "fsm",
     "improvement_amount": 0.0,
     "metric_kind": "logical_area",
     "metrics": {
       "area": {
-        "cell_count": 59,
-        "logical_um2": 701.9232,
+        "cell_count": 13,
+        "logical_um2": 113.8592,
         "physical_um2": null,
         "source": {
-          "cell_count": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt",
-          "logical_um2": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt"
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/reports/sky130hd/fsm_handshake/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/reports/sky130hd/fsm_handshake/base/synth_stat.txt"
         }
       },
       "bottleneck_classification": null,
-      "cell_count": 59,
+      "cell_count": 13,
       "congestion": null,
       "congestion_overflow": null,
       "hold_violation_count": null,
-      "logical_area_um2": 701.9232,
+      "logical_area_um2": 113.8592,
       "metadata": {
         "clock_period_ns": 10.0,
-        "design_name": "upcounter16",
+        "design_name": "fsm_handshake",
+        "missing_reports": [],
         "platform": "sky130hd",
         "report_paths": {
-          "clock_period": "/home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/upcounter16/base/clock_period.txt",
-          "synth_json": "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/upcounter16/base/1_synth.json",
-          "synth_stats": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt"
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/results/sky130hd/fsm_handshake/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/logs/sky130hd/fsm_handshake/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/reports/sky130hd/fsm_handshake/base/synth_stat.txt"
         }
       },
       "metric_kind": null,
@@ -456,8 +45,8 @@
       },
       "power_mw": null,
       "raw_reports": [
-        "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt",
-        "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/upcounter16/base/1_synth.json"
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/reports/sky130hd/fsm_handshake/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/logs/sky130hd/fsm_handshake/base/1_synth.json"
       ],
       "routability": {
         "congestion": null,
@@ -488,7 +77,250 @@
     "score": -1000000.0,
     "score_before": -1000000.0,
     "score_delta": 0.0,
-    "spec_name": "upcounter16",
+    "spec_name": "fsm_handshake",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": null,
+    "candidate_id": null,
+    "candidate_knobs": [],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 2,
+        "logical_um2": 11.2608,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/reports/sky130hd/seq_detector_0011/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/reports/sky130hd/seq_detector_0011/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 2,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 11.2608,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "seq_detector_0011",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/results/sky130hd/seq_detector_0011/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/logs/sky130hd/seq_detector_0011/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/reports/sky130hd/seq_detector_0011/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/reports/sky130hd/seq_detector_0011/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/logs/sky130hd/seq_detector_0011/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -56.351515901898836,
+    "score_before": -56.351515901898836,
+    "score_delta": 0.0,
+    "spec_name": "p1",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": null,
+    "candidate_id": null,
+    "candidate_knobs": [],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 63,
+        "logical_um2": 524.2528,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 63,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 524.2528,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "comb_adder8",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -173.98021648360745,
+    "score_before": -173.98021648360745,
+    "score_delta": 0.0,
+    "spec_name": "comb_adder8",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "logical_area",
+    "candidate_family": null,
+    "candidate_id": null,
+    "candidate_knobs": [],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": null,
+        "logical_um2": 1471.4112,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/alu8/reports/sky130hd/alu8/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/alu8/reports/sky130hd/alu8/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": null,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 1471.4112,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "alu8",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/alu8/results/sky130hd/alu8/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/alu8/logs/sky130hd/alu8/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/alu8/reports/sky130hd/alu8/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/alu8/reports/sky130hd/alu8/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/alu8/logs/sky130hd/alu8/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -120.0,
+    "score_before": -120.0,
+    "score_delta": 0.0,
+    "spec_name": "alu8",
     "targets_met": false
   },
   {
@@ -502,33 +334,34 @@
       "SYNTH_STRATEGY",
       "SYNTH_SHARE_RESOURCES"
     ],
-    "design_kind": "counter",
+    "design_kind": "fsm",
     "improvement_amount": 0.0,
     "metric_kind": "logical_area",
     "metrics": {
       "area": {
-        "cell_count": 59,
-        "logical_um2": 701.9232,
+        "cell_count": 13,
+        "logical_um2": 113.8592,
         "physical_um2": null,
         "source": {
-          "cell_count": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt",
-          "logical_um2": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt"
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/reports/sky130hd/fsm_handshake/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/reports/sky130hd/fsm_handshake/base/synth_stat.txt"
         }
       },
       "bottleneck_classification": null,
-      "cell_count": 59,
+      "cell_count": 13,
       "congestion": null,
       "congestion_overflow": null,
       "hold_violation_count": null,
-      "logical_area_um2": 701.9232,
+      "logical_area_um2": 113.8592,
       "metadata": {
         "clock_period_ns": 10.0,
-        "design_name": "upcounter16",
+        "design_name": "fsm_handshake",
+        "missing_reports": [],
         "platform": "sky130hd",
         "report_paths": {
-          "clock_period": "/home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/upcounter16/base/clock_period.txt",
-          "synth_json": "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/upcounter16/base/1_synth.json",
-          "synth_stats": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt"
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/results/sky130hd/fsm_handshake/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/logs/sky130hd/fsm_handshake/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/reports/sky130hd/fsm_handshake/base/synth_stat.txt"
         }
       },
       "metric_kind": null,
@@ -540,8 +373,8 @@
       },
       "power_mw": null,
       "raw_reports": [
-        "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt",
-        "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/upcounter16/base/1_synth.json"
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/reports/sky130hd/fsm_handshake/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/logs/sky130hd/fsm_handshake/base/1_synth.json"
       ],
       "routability": {
         "congestion": null,
@@ -572,7 +405,177 @@
     "score": -1000000.0,
     "score_before": -1000000.0,
     "score_delta": 0.0,
-    "spec_name": "upcounter16",
+    "spec_name": "fsm_handshake",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "area",
+    "candidate_id": "synth_area_flatten_compact",
+    "candidate_knobs": [
+      "SYNTH_NO_FLAT",
+      "SYNTH_STRATEGY",
+      "SYNTH_SHARE_RESOURCES"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 2,
+        "logical_um2": 11.2608,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/reports/sky130hd/seq_detector_0011/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/reports/sky130hd/seq_detector_0011/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 2,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 11.2608,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "seq_detector_0011",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/results/sky130hd/seq_detector_0011/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/logs/sky130hd/seq_detector_0011/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/reports/sky130hd/seq_detector_0011/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/reports/sky130hd/seq_detector_0011/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/logs/sky130hd/seq_detector_0011/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -56.351515901898836,
+    "score_before": -56.351515901898836,
+    "score_delta": 0.0,
+    "spec_name": "p1",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "area",
+    "candidate_id": "synth_area_flatten_compact",
+    "candidate_knobs": [
+      "SYNTH_NO_FLAT",
+      "SYNTH_STRATEGY",
+      "SYNTH_SHARE_RESOURCES"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 63,
+        "logical_um2": 524.2528,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 63,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 524.2528,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "comb_adder8",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -173.98021648360745,
+    "score_before": -173.98021648360745,
+    "score_delta": 0.0,
+    "spec_name": "comb_adder8",
     "targets_met": false
   },
   {
@@ -587,33 +590,34 @@
       "SYNTH_BUFFERING",
       "SYNTH_SHARE_RESOURCES"
     ],
-    "design_kind": "counter",
+    "design_kind": "fsm",
     "improvement_amount": 0.0,
     "metric_kind": "logical_area",
     "metrics": {
       "area": {
-        "cell_count": 59,
-        "logical_um2": 701.9232,
+        "cell_count": 13,
+        "logical_um2": 113.8592,
         "physical_um2": null,
         "source": {
-          "cell_count": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt",
-          "logical_um2": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt"
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/reports/sky130hd/fsm_handshake/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/reports/sky130hd/fsm_handshake/base/synth_stat.txt"
         }
       },
       "bottleneck_classification": null,
-      "cell_count": 59,
+      "cell_count": 13,
       "congestion": null,
       "congestion_overflow": null,
       "hold_violation_count": null,
-      "logical_area_um2": 701.9232,
+      "logical_area_um2": 113.8592,
       "metadata": {
         "clock_period_ns": 10.0,
-        "design_name": "upcounter16",
+        "design_name": "fsm_handshake",
+        "missing_reports": [],
         "platform": "sky130hd",
         "report_paths": {
-          "clock_period": "/home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/upcounter16/base/clock_period.txt",
-          "synth_json": "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/upcounter16/base/1_synth.json",
-          "synth_stats": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt"
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/results/sky130hd/fsm_handshake/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/logs/sky130hd/fsm_handshake/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/reports/sky130hd/fsm_handshake/base/synth_stat.txt"
         }
       },
       "metric_kind": null,
@@ -625,8 +629,8 @@
       },
       "power_mw": null,
       "raw_reports": [
-        "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt",
-        "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/upcounter16/base/1_synth.json"
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/reports/sky130hd/fsm_handshake/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/logs/sky130hd/fsm_handshake/base/1_synth.json"
       ],
       "routability": {
         "congestion": null,
@@ -657,47 +661,48 @@
     "score": -1000000.0,
     "score_before": -1000000.0,
     "score_delta": 0.0,
-    "spec_name": "upcounter16",
+    "spec_name": "fsm_handshake",
     "targets_met": false
   },
   {
     "beat_baseline": false,
-    "behavior_match": false,
-    "bottleneck_classification": "mixed",
-    "candidate_family": "power",
-    "candidate_id": "synth_power_area_strategy",
+    "behavior_match": true,
+    "bottleneck_classification": "logical_area",
+    "candidate_family": "area",
+    "candidate_id": "synth_area_flatten_compact",
     "candidate_knobs": [
+      "SYNTH_NO_FLAT",
       "SYNTH_STRATEGY",
-      "ABC_AREA",
       "SYNTH_SHARE_RESOURCES"
     ],
-    "design_kind": "counter",
+    "design_kind": "generic",
     "improvement_amount": 0.0,
     "metric_kind": "logical_area",
     "metrics": {
       "area": {
-        "cell_count": 59,
-        "logical_um2": 701.9232,
+        "cell_count": null,
+        "logical_um2": 1471.4112,
         "physical_um2": null,
         "source": {
-          "cell_count": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt",
-          "logical_um2": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt"
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/alu8/reports/sky130hd/alu8/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/alu8/reports/sky130hd/alu8/base/synth_stat.txt"
         }
       },
       "bottleneck_classification": null,
-      "cell_count": 59,
+      "cell_count": null,
       "congestion": null,
       "congestion_overflow": null,
       "hold_violation_count": null,
-      "logical_area_um2": 701.9232,
+      "logical_area_um2": 1471.4112,
       "metadata": {
         "clock_period_ns": 10.0,
-        "design_name": "upcounter16",
+        "design_name": "alu8",
+        "missing_reports": [],
         "platform": "sky130hd",
         "report_paths": {
-          "clock_period": "/home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/upcounter16/base/clock_period.txt",
-          "synth_json": "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/upcounter16/base/1_synth.json",
-          "synth_stats": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt"
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/alu8/results/sky130hd/alu8/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/alu8/logs/sky130hd/alu8/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/alu8/reports/sky130hd/alu8/base/synth_stat.txt"
         }
       },
       "metric_kind": null,
@@ -709,8 +714,8 @@
       },
       "power_mw": null,
       "raw_reports": [
-        "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt",
-        "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/upcounter16/base/1_synth.json"
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/alu8/reports/sky130hd/alu8/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/alu8/logs/sky130hd/alu8/base/1_synth.json"
       ],
       "routability": {
         "congestion": null,
@@ -738,50 +743,3151 @@
       "wirelength_um": null,
       "wns_ns": null
     },
-    "score": -1000000.0,
-    "score_before": -1000000.0,
+    "score": -120.0,
+    "score_before": -120.0,
+    "score_delta": 0.0,
+    "spec_name": "alu8",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "structural",
+    "candidate_id": "synth_struct_fanout_rebalance",
+    "candidate_knobs": [
+      "SYNTH_NO_FLAT",
+      "MAX_FANOUT_CONSTRAINT",
+      "SYNTH_BUFFERING",
+      "SYNTH_SHARE_RESOURCES"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 2,
+        "logical_um2": 11.2608,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/reports/sky130hd/seq_detector_0011/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/reports/sky130hd/seq_detector_0011/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 2,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 11.2608,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "seq_detector_0011",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/results/sky130hd/seq_detector_0011/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/logs/sky130hd/seq_detector_0011/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/reports/sky130hd/seq_detector_0011/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/reports/sky130hd/seq_detector_0011/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/logs/sky130hd/seq_detector_0011/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -56.351515901898836,
+    "score_before": -56.351515901898836,
+    "score_delta": 0.0,
+    "spec_name": "p1",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "structural",
+    "candidate_id": "synth_struct_fanout_rebalance",
+    "candidate_knobs": [
+      "SYNTH_NO_FLAT",
+      "MAX_FANOUT_CONSTRAINT",
+      "SYNTH_BUFFERING",
+      "SYNTH_SHARE_RESOURCES"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 63,
+        "logical_um2": 524.2528,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 63,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 524.2528,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "comb_adder8",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -173.98021648360745,
+    "score_before": -173.98021648360745,
+    "score_delta": 0.0,
+    "spec_name": "comb_adder8",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "logical_area",
+    "candidate_family": "structural",
+    "candidate_id": "synth_struct_fanout_rebalance",
+    "candidate_knobs": [
+      "SYNTH_NO_FLAT",
+      "MAX_FANOUT_CONSTRAINT",
+      "SYNTH_BUFFERING",
+      "SYNTH_SHARE_RESOURCES"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": null,
+        "logical_um2": 1471.4112,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/alu8/reports/sky130hd/alu8/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/alu8/reports/sky130hd/alu8/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": null,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 1471.4112,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "alu8",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/alu8/results/sky130hd/alu8/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/alu8/logs/sky130hd/alu8/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/alu8/reports/sky130hd/alu8/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/alu8/reports/sky130hd/alu8/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/alu8/logs/sky130hd/alu8/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -120.0,
+    "score_before": -120.0,
+    "score_delta": 0.0,
+    "spec_name": "alu8",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": null,
+    "candidate_id": null,
+    "candidate_knobs": [],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 3,
+        "logical_um2": 18.768,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 3,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 18.768,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "dot_product",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -71.61744740630532,
+    "score_before": -71.61744740630532,
+    "score_delta": 0.0,
+    "spec_name": "p5",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "area",
+    "candidate_id": "synth_area_reduce_buffers",
+    "candidate_knobs": [
+      "SYNTH_SIZING",
+      "SYNTH_BUFFERING",
+      "MAX_FANOUT_CONSTRAINT"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 3,
+        "logical_um2": 18.768,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 3,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 18.768,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "dot_product",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -71.61744740630532,
+    "score_before": -71.61744740630532,
+    "score_delta": 0.0,
+    "spec_name": "p5",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "structural",
+    "candidate_id": "synth_struct_flatten_area",
+    "candidate_knobs": [
+      "SYNTH_NO_FLAT",
+      "SYNTH_STRATEGY",
+      "ABC_AREA"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 3,
+        "logical_um2": 18.768,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 3,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 18.768,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "dot_product",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/results/sky130hd/dot_product/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/reports/sky130hd/dot_product/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/logs/sky130hd/dot_product/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -71.61744740630532,
+    "score_before": -71.61744740630532,
+    "score_delta": 0.0,
+    "spec_name": "p5",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": null,
+    "candidate_id": null,
+    "candidate_knobs": [],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 2,
+        "logical_um2": 11.2608,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/exp_fixed_point/reports/sky130hd/exp_fixed_point/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/exp_fixed_point/reports/sky130hd/exp_fixed_point/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 2,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 11.2608,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "exp_fixed_point",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/exp_fixed_point/results/sky130hd/exp_fixed_point/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/exp_fixed_point/logs/sky130hd/exp_fixed_point/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/exp_fixed_point/reports/sky130hd/exp_fixed_point/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/exp_fixed_point/reports/sky130hd/exp_fixed_point/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/exp_fixed_point/logs/sky130hd/exp_fixed_point/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -56.351515901898836,
+    "score_before": -56.351515901898836,
+    "score_delta": 0.0,
+    "spec_name": "p7",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": null,
+    "candidate_id": null,
+    "candidate_knobs": [],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 17,
+        "logical_um2": 123.8688,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fp16_multiplier/reports/sky130hd/fp16_multiplier/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fp16_multiplier/reports/sky130hd/fp16_multiplier/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 17,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 123.8688,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "fp16_multiplier",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fp16_multiplier/results/sky130hd/fp16_multiplier/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fp16_multiplier/logs/sky130hd/fp16_multiplier/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fp16_multiplier/reports/sky130hd/fp16_multiplier/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fp16_multiplier/reports/sky130hd/fp16_multiplier/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fp16_multiplier/logs/sky130hd/fp16_multiplier/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -131.09675450544773,
+    "score_before": -131.09675450544773,
+    "score_delta": 0.0,
+    "spec_name": "p8",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "area",
+    "candidate_id": "synth_area_reduce_buffers",
+    "candidate_knobs": [
+      "SYNTH_SIZING",
+      "SYNTH_BUFFERING",
+      "MAX_FANOUT_CONSTRAINT"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 2,
+        "logical_um2": 11.2608,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/exp_fixed_point/reports/sky130hd/exp_fixed_point/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/exp_fixed_point/reports/sky130hd/exp_fixed_point/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 2,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 11.2608,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "exp_fixed_point",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/exp_fixed_point/results/sky130hd/exp_fixed_point/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/exp_fixed_point/logs/sky130hd/exp_fixed_point/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/exp_fixed_point/reports/sky130hd/exp_fixed_point/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/exp_fixed_point/reports/sky130hd/exp_fixed_point/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/exp_fixed_point/logs/sky130hd/exp_fixed_point/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -56.351515901898836,
+    "score_before": -56.351515901898836,
+    "score_delta": 0.0,
+    "spec_name": "p7",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "area",
+    "candidate_id": "synth_area_reduce_buffers",
+    "candidate_knobs": [
+      "SYNTH_SIZING",
+      "SYNTH_BUFFERING",
+      "MAX_FANOUT_CONSTRAINT"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 17,
+        "logical_um2": 123.8688,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fp16_multiplier/reports/sky130hd/fp16_multiplier/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fp16_multiplier/reports/sky130hd/fp16_multiplier/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 17,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 123.8688,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "fp16_multiplier",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fp16_multiplier/results/sky130hd/fp16_multiplier/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fp16_multiplier/logs/sky130hd/fp16_multiplier/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fp16_multiplier/reports/sky130hd/fp16_multiplier/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fp16_multiplier/reports/sky130hd/fp16_multiplier/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fp16_multiplier/logs/sky130hd/fp16_multiplier/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -131.09675450544773,
+    "score_before": -131.09675450544773,
+    "score_delta": 0.0,
+    "spec_name": "p8",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "structural",
+    "candidate_id": "synth_struct_flatten_area",
+    "candidate_knobs": [
+      "SYNTH_NO_FLAT",
+      "SYNTH_STRATEGY",
+      "ABC_AREA"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 2,
+        "logical_um2": 11.2608,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/exp_fixed_point/reports/sky130hd/exp_fixed_point/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/exp_fixed_point/reports/sky130hd/exp_fixed_point/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 2,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 11.2608,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "exp_fixed_point",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/exp_fixed_point/results/sky130hd/exp_fixed_point/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/exp_fixed_point/logs/sky130hd/exp_fixed_point/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/exp_fixed_point/reports/sky130hd/exp_fixed_point/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/exp_fixed_point/reports/sky130hd/exp_fixed_point/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/exp_fixed_point/logs/sky130hd/exp_fixed_point/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -56.351515901898836,
+    "score_before": -56.351515901898836,
+    "score_delta": 0.0,
+    "spec_name": "p7",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "structural",
+    "candidate_id": "synth_struct_flatten_area",
+    "candidate_knobs": [
+      "SYNTH_NO_FLAT",
+      "SYNTH_STRATEGY",
+      "ABC_AREA"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 17,
+        "logical_um2": 123.8688,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fp16_multiplier/reports/sky130hd/fp16_multiplier/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fp16_multiplier/reports/sky130hd/fp16_multiplier/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 17,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 123.8688,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "fp16_multiplier",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fp16_multiplier/results/sky130hd/fp16_multiplier/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fp16_multiplier/logs/sky130hd/fp16_multiplier/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fp16_multiplier/reports/sky130hd/fp16_multiplier/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fp16_multiplier/reports/sky130hd/fp16_multiplier/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fp16_multiplier/logs/sky130hd/fp16_multiplier/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -131.09675450544773,
+    "score_before": -131.09675450544773,
+    "score_delta": 0.0,
+    "spec_name": "p8",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": null,
+    "candidate_id": null,
+    "candidate_knobs": [],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 2,
+        "logical_um2": 11.2608,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fir_filter/reports/sky130hd/fir_filter/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fir_filter/reports/sky130hd/fir_filter/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 2,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 11.2608,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "fir_filter",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fir_filter/results/sky130hd/fir_filter/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fir_filter/logs/sky130hd/fir_filter/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fir_filter/reports/sky130hd/fir_filter/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fir_filter/reports/sky130hd/fir_filter/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fir_filter/logs/sky130hd/fir_filter/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -56.351515901898836,
+    "score_before": -56.351515901898836,
+    "score_delta": 0.0,
+    "spec_name": "p9",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "area",
+    "candidate_id": "synth_area_reduce_buffers",
+    "candidate_knobs": [
+      "SYNTH_SIZING",
+      "SYNTH_BUFFERING",
+      "MAX_FANOUT_CONSTRAINT"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 2,
+        "logical_um2": 11.2608,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fir_filter/reports/sky130hd/fir_filter/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fir_filter/reports/sky130hd/fir_filter/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 2,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 11.2608,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "fir_filter",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fir_filter/results/sky130hd/fir_filter/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fir_filter/logs/sky130hd/fir_filter/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fir_filter/reports/sky130hd/fir_filter/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fir_filter/reports/sky130hd/fir_filter/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fir_filter/logs/sky130hd/fir_filter/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -56.351515901898836,
+    "score_before": -56.351515901898836,
+    "score_delta": 0.0,
+    "spec_name": "p9",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "structural",
+    "candidate_id": "synth_struct_flatten_area",
+    "candidate_knobs": [
+      "SYNTH_NO_FLAT",
+      "SYNTH_STRATEGY",
+      "ABC_AREA"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 2,
+        "logical_um2": 11.2608,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fir_filter/reports/sky130hd/fir_filter/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fir_filter/reports/sky130hd/fir_filter/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 2,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 11.2608,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "fir_filter",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fir_filter/results/sky130hd/fir_filter/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fir_filter/logs/sky130hd/fir_filter/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fir_filter/reports/sky130hd/fir_filter/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fir_filter/reports/sky130hd/fir_filter/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/fir_filter/logs/sky130hd/fir_filter/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -56.351515901898836,
+    "score_before": -56.351515901898836,
+    "score_delta": 0.0,
+    "spec_name": "p9",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "logical_area",
+    "candidate_family": null,
+    "candidate_id": null,
+    "candidate_knobs": [],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": null,
+        "logical_um2": 2549.9456,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pipelined_adder/reports/sky130hd/pipelined_adder/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pipelined_adder/reports/sky130hd/pipelined_adder/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": null,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 2549.9456,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "pipelined_adder",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pipelined_adder/results/sky130hd/pipelined_adder/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pipelined_adder/logs/sky130hd/pipelined_adder/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pipelined_adder/reports/sky130hd/pipelined_adder/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pipelined_adder/reports/sky130hd/pipelined_adder/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pipelined_adder/logs/sky130hd/pipelined_adder/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -120.0,
+    "score_before": -120.0,
+    "score_delta": 0.0,
+    "spec_name": "pipelined_adder",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "logical_area",
+    "candidate_family": "area",
+    "candidate_id": "synth_area_reduce_buffers",
+    "candidate_knobs": [
+      "SYNTH_SIZING",
+      "SYNTH_BUFFERING",
+      "MAX_FANOUT_CONSTRAINT"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": null,
+        "logical_um2": 2549.9456,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pipelined_adder/reports/sky130hd/pipelined_adder/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pipelined_adder/reports/sky130hd/pipelined_adder/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": null,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 2549.9456,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "pipelined_adder",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pipelined_adder/results/sky130hd/pipelined_adder/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pipelined_adder/logs/sky130hd/pipelined_adder/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pipelined_adder/reports/sky130hd/pipelined_adder/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pipelined_adder/reports/sky130hd/pipelined_adder/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pipelined_adder/logs/sky130hd/pipelined_adder/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -120.0,
+    "score_before": -120.0,
+    "score_delta": 0.0,
+    "spec_name": "pipelined_adder",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "logical_area",
+    "candidate_family": "structural",
+    "candidate_id": "synth_struct_flatten_area",
+    "candidate_knobs": [
+      "SYNTH_NO_FLAT",
+      "SYNTH_STRATEGY",
+      "ABC_AREA"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": null,
+        "logical_um2": 2549.9456,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pipelined_adder/reports/sky130hd/pipelined_adder/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pipelined_adder/reports/sky130hd/pipelined_adder/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": null,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 2549.9456,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "pipelined_adder",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pipelined_adder/results/sky130hd/pipelined_adder/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pipelined_adder/logs/sky130hd/pipelined_adder/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pipelined_adder/reports/sky130hd/pipelined_adder/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pipelined_adder/reports/sky130hd/pipelined_adder/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pipelined_adder/logs/sky130hd/pipelined_adder/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -120.0,
+    "score_before": -120.0,
+    "score_delta": 0.0,
+    "spec_name": "pipelined_adder",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": null,
+    "candidate_id": null,
+    "candidate_knobs": [],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 4,
+        "logical_um2": 36.2848,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pulse_latch/reports/sky130hd/pulse_latch/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pulse_latch/reports/sky130hd/pulse_latch/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 4,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 36.2848,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "pulse_latch",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pulse_latch/results/sky130hd/pulse_latch/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pulse_latch/logs/sky130hd/pulse_latch/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pulse_latch/reports/sky130hd/pulse_latch/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pulse_latch/reports/sky130hd/pulse_latch/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pulse_latch/logs/sky130hd/pulse_latch/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -88.24941275250167,
+    "score_before": -88.24941275250167,
+    "score_delta": 0.0,
+    "spec_name": "pulse_latch",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "area",
+    "candidate_id": "synth_area_reduce_buffers",
+    "candidate_knobs": [
+      "SYNTH_SIZING",
+      "SYNTH_BUFFERING",
+      "MAX_FANOUT_CONSTRAINT"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 4,
+        "logical_um2": 36.2848,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pulse_latch/reports/sky130hd/pulse_latch/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pulse_latch/reports/sky130hd/pulse_latch/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 4,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 36.2848,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "pulse_latch",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pulse_latch/results/sky130hd/pulse_latch/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pulse_latch/logs/sky130hd/pulse_latch/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pulse_latch/reports/sky130hd/pulse_latch/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pulse_latch/reports/sky130hd/pulse_latch/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pulse_latch/logs/sky130hd/pulse_latch/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -88.24941275250167,
+    "score_before": -88.24941275250167,
+    "score_delta": 0.0,
+    "spec_name": "pulse_latch",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "structural",
+    "candidate_id": "synth_struct_flatten_area",
+    "candidate_knobs": [
+      "SYNTH_NO_FLAT",
+      "SYNTH_STRATEGY",
+      "ABC_AREA"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 4,
+        "logical_um2": 36.2848,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pulse_latch/reports/sky130hd/pulse_latch/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pulse_latch/reports/sky130hd/pulse_latch/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 4,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 36.2848,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "pulse_latch",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pulse_latch/results/sky130hd/pulse_latch/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pulse_latch/logs/sky130hd/pulse_latch/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pulse_latch/reports/sky130hd/pulse_latch/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pulse_latch/reports/sky130hd/pulse_latch/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/pulse_latch/logs/sky130hd/pulse_latch/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -88.24941275250167,
+    "score_before": -88.24941275250167,
+    "score_delta": 0.0,
+    "spec_name": "pulse_latch",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": null,
+    "candidate_id": null,
+    "candidate_knobs": [],
+    "design_kind": "register",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 34,
+        "logical_um2": 305.2928,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/register8/reports/sky130hd/register8/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/register8/reports/sky130hd/register8/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 34,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 305.2928,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "register8",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/register8/results/sky130hd/register8/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/register8/logs/sky130hd/register8/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/register8/reports/sky130hd/register8/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/register8/reports/sky130hd/register8/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/register8/logs/sky130hd/register8/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -157.75661280372026,
+    "score_before": -157.75661280372026,
+    "score_delta": 0.0,
+    "spec_name": "register8",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "area",
+    "candidate_id": "synth_area_reduce_buffers",
+    "candidate_knobs": [
+      "SYNTH_SIZING",
+      "SYNTH_BUFFERING",
+      "MAX_FANOUT_CONSTRAINT"
+    ],
+    "design_kind": "register",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 34,
+        "logical_um2": 305.2928,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/register8/reports/sky130hd/register8/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/register8/reports/sky130hd/register8/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 34,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 305.2928,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "register8",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/register8/results/sky130hd/register8/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/register8/logs/sky130hd/register8/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/register8/reports/sky130hd/register8/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/register8/reports/sky130hd/register8/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/register8/logs/sky130hd/register8/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -157.75661280372026,
+    "score_before": -157.75661280372026,
+    "score_delta": 0.0,
+    "spec_name": "register8",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "structural",
+    "candidate_id": "synth_struct_flatten_area",
+    "candidate_knobs": [
+      "SYNTH_NO_FLAT",
+      "SYNTH_STRATEGY",
+      "ABC_AREA"
+    ],
+    "design_kind": "register",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 34,
+        "logical_um2": 305.2928,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/register8/reports/sky130hd/register8/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/register8/reports/sky130hd/register8/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 34,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 305.2928,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "register8",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/register8/results/sky130hd/register8/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/register8/logs/sky130hd/register8/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/register8/reports/sky130hd/register8/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/register8/reports/sky130hd/register8/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/register8/logs/sky130hd/register8/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -157.75661280372026,
+    "score_before": -157.75661280372026,
+    "score_delta": 0.0,
+    "spec_name": "register8",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": null,
+    "candidate_id": null,
+    "candidate_knobs": [],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 21,
+        "logical_um2": 211.4528,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_1011/reports/sky130hd/seq_1011/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_1011/reports/sky130hd/seq_1011/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 21,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 211.4528,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "seq_1011",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_1011/results/sky130hd/seq_1011/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_1011/logs/sky130hd/seq_1011/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_1011/reports/sky130hd/seq_1011/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_1011/reports/sky130hd/seq_1011/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_1011/logs/sky130hd/seq_1011/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -144.30118365684268,
+    "score_before": -144.30118365684268,
+    "score_delta": 0.0,
+    "spec_name": "seq_1011",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "area",
+    "candidate_id": "synth_area_reduce_buffers",
+    "candidate_knobs": [
+      "SYNTH_SIZING",
+      "SYNTH_BUFFERING",
+      "MAX_FANOUT_CONSTRAINT"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 21,
+        "logical_um2": 211.4528,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_1011/reports/sky130hd/seq_1011/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_1011/reports/sky130hd/seq_1011/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 21,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 211.4528,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "seq_1011",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_1011/results/sky130hd/seq_1011/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_1011/logs/sky130hd/seq_1011/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_1011/reports/sky130hd/seq_1011/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_1011/reports/sky130hd/seq_1011/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_1011/logs/sky130hd/seq_1011/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -144.30118365684268,
+    "score_before": -144.30118365684268,
+    "score_delta": 0.0,
+    "spec_name": "seq_1011",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "structural",
+    "candidate_id": "synth_struct_flatten_area",
+    "candidate_knobs": [
+      "SYNTH_NO_FLAT",
+      "SYNTH_STRATEGY",
+      "ABC_AREA"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 21,
+        "logical_um2": 211.4528,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_1011/reports/sky130hd/seq_1011/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_1011/reports/sky130hd/seq_1011/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 21,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 211.4528,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "seq_1011",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_1011/results/sky130hd/seq_1011/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_1011/logs/sky130hd/seq_1011/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_1011/reports/sky130hd/seq_1011/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_1011/reports/sky130hd/seq_1011/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_1011/logs/sky130hd/seq_1011/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -144.30118365684268,
+    "score_before": -144.30118365684268,
+    "score_delta": 0.0,
+    "spec_name": "seq_1011",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": null,
+    "candidate_id": null,
+    "candidate_knobs": [],
+    "design_kind": "shift_register",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 17,
+        "logical_um2": 148.8928,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/shift_left4/reports/sky130hd/shift_left4/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/shift_left4/reports/sky130hd/shift_left4/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 17,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 148.8928,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "shift_left4",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/shift_left4/results/sky130hd/shift_left4/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/shift_left4/logs/sky130hd/shift_left4/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/shift_left4/reports/sky130hd/shift_left4/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/shift_left4/reports/sky130hd/shift_left4/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/shift_left4/logs/sky130hd/shift_left4/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -134.69278401122187,
+    "score_before": -134.69278401122187,
+    "score_delta": 0.0,
+    "spec_name": "shift_left4",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "area",
+    "candidate_id": "synth_area_reduce_buffers",
+    "candidate_knobs": [
+      "SYNTH_SIZING",
+      "SYNTH_BUFFERING",
+      "MAX_FANOUT_CONSTRAINT"
+    ],
+    "design_kind": "shift_register",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 17,
+        "logical_um2": 148.8928,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/shift_left4/reports/sky130hd/shift_left4/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/shift_left4/reports/sky130hd/shift_left4/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 17,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 148.8928,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "shift_left4",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/shift_left4/results/sky130hd/shift_left4/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/shift_left4/logs/sky130hd/shift_left4/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/shift_left4/reports/sky130hd/shift_left4/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/shift_left4/reports/sky130hd/shift_left4/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/shift_left4/logs/sky130hd/shift_left4/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -134.69278401122187,
+    "score_before": -134.69278401122187,
+    "score_delta": 0.0,
+    "spec_name": "shift_left4",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "structural",
+    "candidate_id": "synth_struct_flatten_area",
+    "candidate_knobs": [
+      "SYNTH_NO_FLAT",
+      "SYNTH_STRATEGY",
+      "ABC_AREA"
+    ],
+    "design_kind": "shift_register",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 17,
+        "logical_um2": 148.8928,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/shift_left4/reports/sky130hd/shift_left4/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/shift_left4/reports/sky130hd/shift_left4/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 17,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 148.8928,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "shift_left4",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/shift_left4/results/sky130hd/shift_left4/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/shift_left4/logs/sky130hd/shift_left4/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/shift_left4/reports/sky130hd/shift_left4/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/shift_left4/reports/sky130hd/shift_left4/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/shift_left4/logs/sky130hd/shift_left4/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -134.69278401122187,
+    "score_before": -134.69278401122187,
+    "score_delta": 0.0,
+    "spec_name": "shift_left4",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": null,
+    "candidate_id": null,
+    "candidate_knobs": [],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 69,
+        "logical_um2": 589.3152,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/sum_stage/reports/sky130hd/sum_stage/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/sum_stage/reports/sky130hd/sum_stage/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 69,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 589.3152,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "sum_stage",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/sum_stage/results/sky130hd/sum_stage/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/sum_stage/logs/sky130hd/sum_stage/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/sum_stage/reports/sky130hd/sum_stage/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/sum_stage/reports/sky130hd/sum_stage/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/sum_stage/logs/sky130hd/sum_stage/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -175.16547272211767,
+    "score_before": -175.16547272211767,
+    "score_delta": 0.0,
+    "spec_name": "sum_stage",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "area",
+    "candidate_id": "synth_area_reduce_buffers",
+    "candidate_knobs": [
+      "SYNTH_SIZING",
+      "SYNTH_BUFFERING",
+      "MAX_FANOUT_CONSTRAINT"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 69,
+        "logical_um2": 589.3152,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/sum_stage/reports/sky130hd/sum_stage/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/sum_stage/reports/sky130hd/sum_stage/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 69,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 589.3152,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "sum_stage",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/sum_stage/results/sky130hd/sum_stage/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/sum_stage/logs/sky130hd/sum_stage/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/sum_stage/reports/sky130hd/sum_stage/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/sum_stage/reports/sky130hd/sum_stage/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/sum_stage/logs/sky130hd/sum_stage/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -175.16547272211767,
+    "score_before": -175.16547272211767,
+    "score_delta": 0.0,
+    "spec_name": "sum_stage",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "structural",
+    "candidate_id": "synth_struct_flatten_area",
+    "candidate_knobs": [
+      "SYNTH_NO_FLAT",
+      "SYNTH_STRATEGY",
+      "ABC_AREA"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 69,
+        "logical_um2": 589.3152,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/sum_stage/reports/sky130hd/sum_stage/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/sum_stage/reports/sky130hd/sum_stage/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 69,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 589.3152,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "sum_stage",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/sum_stage/results/sky130hd/sum_stage/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/sum_stage/logs/sky130hd/sum_stage/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/sum_stage/reports/sky130hd/sum_stage/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/sum_stage/reports/sky130hd/sum_stage/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/sum_stage/logs/sky130hd/sum_stage/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -175.16547272211767,
+    "score_before": -175.16547272211767,
+    "score_delta": 0.0,
+    "spec_name": "sum_stage",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": null,
+    "candidate_id": null,
+    "candidate_knobs": [],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 42,
+        "logical_um2": 392.8768,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/text_counter/reports/sky130hd/text_counter/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/text_counter/reports/sky130hd/text_counter/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 42,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 392.8768,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "text_counter",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/text_counter/results/sky130hd/text_counter/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/text_counter/logs/sky130hd/text_counter/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/text_counter/reports/sky130hd/text_counter/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/text_counter/reports/sky130hd/text_counter/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/text_counter/logs/sky130hd/text_counter/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -165.43901598244148,
+    "score_before": -165.43901598244148,
+    "score_delta": 0.0,
+    "spec_name": "text_counter",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "area",
+    "candidate_id": "synth_area_reduce_buffers",
+    "candidate_knobs": [
+      "SYNTH_SIZING",
+      "SYNTH_BUFFERING",
+      "MAX_FANOUT_CONSTRAINT"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 42,
+        "logical_um2": 392.8768,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/text_counter/reports/sky130hd/text_counter/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/text_counter/reports/sky130hd/text_counter/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 42,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 392.8768,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "text_counter",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/text_counter/results/sky130hd/text_counter/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/text_counter/logs/sky130hd/text_counter/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/text_counter/reports/sky130hd/text_counter/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/text_counter/reports/sky130hd/text_counter/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/text_counter/logs/sky130hd/text_counter/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -165.43901598244148,
+    "score_before": -165.43901598244148,
+    "score_delta": 0.0,
+    "spec_name": "text_counter",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "structural",
+    "candidate_id": "synth_struct_flatten_area",
+    "candidate_knobs": [
+      "SYNTH_NO_FLAT",
+      "SYNTH_STRATEGY",
+      "ABC_AREA"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 42,
+        "logical_um2": 392.8768,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/text_counter/reports/sky130hd/text_counter/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/text_counter/reports/sky130hd/text_counter/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 42,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 392.8768,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "text_counter",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/text_counter/results/sky130hd/text_counter/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/text_counter/logs/sky130hd/text_counter/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/text_counter/reports/sky130hd/text_counter/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/text_counter/reports/sky130hd/text_counter/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/text_counter/logs/sky130hd/text_counter/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -165.43901598244148,
+    "score_before": -165.43901598244148,
+    "score_delta": 0.0,
+    "spec_name": "text_counter",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": null,
+    "candidate_id": null,
+    "candidate_knobs": [],
+    "design_kind": "counter",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 88,
+        "logical_um2": 838.304,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/upcounter16/reports/sky130hd/upcounter16/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/upcounter16/reports/sky130hd/upcounter16/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 88,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 838.304,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "upcounter16",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/upcounter16/results/sky130hd/upcounter16/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/upcounter16/logs/sky130hd/upcounter16/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/upcounter16/reports/sky130hd/upcounter16/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/upcounter16/reports/sky130hd/upcounter16/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/upcounter16/logs/sky130hd/upcounter16/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -178.33448016450507,
+    "score_before": -178.33448016450507,
     "score_delta": 0.0,
     "spec_name": "upcounter16",
     "targets_met": false
   },
   {
     "beat_baseline": false,
-    "behavior_match": false,
+    "behavior_match": true,
     "bottleneck_classification": "mixed",
     "candidate_family": "area",
-    "candidate_id": "synth_area_map_area2",
+    "candidate_id": "synth_area_reduce_buffers",
     "candidate_knobs": [
-      "SYNTH_STRATEGY",
-      "ABC_AREA",
-      "SYNTH_BUFFERING"
+      "SYNTH_SIZING",
+      "SYNTH_BUFFERING",
+      "MAX_FANOUT_CONSTRAINT"
     ],
     "design_kind": "counter",
     "improvement_amount": 0.0,
     "metric_kind": "logical_area",
     "metrics": {
       "area": {
-        "cell_count": 59,
-        "logical_um2": 701.9232,
+        "cell_count": 88,
+        "logical_um2": 838.304,
         "physical_um2": null,
         "source": {
-          "cell_count": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt",
-          "logical_um2": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt"
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/upcounter16/reports/sky130hd/upcounter16/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/upcounter16/reports/sky130hd/upcounter16/base/synth_stat.txt"
         }
       },
       "bottleneck_classification": null,
-      "cell_count": 59,
+      "cell_count": 88,
       "congestion": null,
       "congestion_overflow": null,
       "hold_violation_count": null,
-      "logical_area_um2": 701.9232,
+      "logical_area_um2": 838.304,
       "metadata": {
         "clock_period_ns": 10.0,
         "design_name": "upcounter16",
+        "missing_reports": [],
         "platform": "sky130hd",
         "report_paths": {
-          "clock_period": "/home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/upcounter16/base/clock_period.txt",
-          "synth_json": "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/upcounter16/base/1_synth.json",
-          "synth_stats": "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt"
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/upcounter16/results/sky130hd/upcounter16/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/upcounter16/logs/sky130hd/upcounter16/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/upcounter16/reports/sky130hd/upcounter16/base/synth_stat.txt"
         }
       },
       "metric_kind": null,
@@ -793,8 +3899,8 @@
       },
       "power_mw": null,
       "raw_reports": [
-        "/home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/upcounter16/base/synth_stat.txt",
-        "/home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/upcounter16/base/1_synth.json"
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/upcounter16/reports/sky130hd/upcounter16/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/upcounter16/logs/sky130hd/upcounter16/base/1_synth.json"
       ],
       "routability": {
         "congestion": null,
@@ -822,10 +3928,346 @@
       "wirelength_um": null,
       "wns_ns": null
     },
-    "score": -1000000.0,
-    "score_before": -1000000.0,
+    "score": -178.33448016450507,
+    "score_before": -178.33448016450507,
     "score_delta": 0.0,
     "spec_name": "upcounter16",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "mixed",
+    "candidate_family": "structural",
+    "candidate_id": "synth_struct_flatten_area",
+    "candidate_knobs": [
+      "SYNTH_NO_FLAT",
+      "SYNTH_STRATEGY",
+      "ABC_AREA"
+    ],
+    "design_kind": "counter",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": 88,
+        "logical_um2": 838.304,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/upcounter16/reports/sky130hd/upcounter16/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/upcounter16/reports/sky130hd/upcounter16/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": 88,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 838.304,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "upcounter16",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/upcounter16/results/sky130hd/upcounter16/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/upcounter16/logs/sky130hd/upcounter16/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/upcounter16/reports/sky130hd/upcounter16/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/upcounter16/reports/sky130hd/upcounter16/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/upcounter16/logs/sky130hd/upcounter16/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -178.33448016450507,
+    "score_before": -178.33448016450507,
+    "score_delta": 0.0,
+    "spec_name": "upcounter16",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "logical_area",
+    "candidate_family": null,
+    "candidate_id": null,
+    "candidate_knobs": [],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": null,
+        "logical_um2": 1326.272,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/updown_counter16/reports/sky130hd/updown_counter16/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/updown_counter16/reports/sky130hd/updown_counter16/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": null,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 1326.272,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "updown_counter16",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/updown_counter16/results/sky130hd/updown_counter16/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/updown_counter16/logs/sky130hd/updown_counter16/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/updown_counter16/reports/sky130hd/updown_counter16/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/updown_counter16/reports/sky130hd/updown_counter16/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/updown_counter16/logs/sky130hd/updown_counter16/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -120.0,
+    "score_before": -120.0,
+    "score_delta": 0.0,
+    "spec_name": "updown_counter16",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "logical_area",
+    "candidate_family": "area",
+    "candidate_id": "synth_area_reduce_buffers",
+    "candidate_knobs": [
+      "SYNTH_SIZING",
+      "SYNTH_BUFFERING",
+      "MAX_FANOUT_CONSTRAINT"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": null,
+        "logical_um2": 1326.272,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/updown_counter16/reports/sky130hd/updown_counter16/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/updown_counter16/reports/sky130hd/updown_counter16/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": null,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 1326.272,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "updown_counter16",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/updown_counter16/results/sky130hd/updown_counter16/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/updown_counter16/logs/sky130hd/updown_counter16/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/updown_counter16/reports/sky130hd/updown_counter16/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/updown_counter16/reports/sky130hd/updown_counter16/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/updown_counter16/logs/sky130hd/updown_counter16/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -120.0,
+    "score_before": -120.0,
+    "score_delta": 0.0,
+    "spec_name": "updown_counter16",
+    "targets_met": false
+  },
+  {
+    "beat_baseline": false,
+    "behavior_match": true,
+    "bottleneck_classification": "logical_area",
+    "candidate_family": "structural",
+    "candidate_id": "synth_struct_flatten_area",
+    "candidate_knobs": [
+      "SYNTH_NO_FLAT",
+      "SYNTH_STRATEGY",
+      "ABC_AREA"
+    ],
+    "design_kind": "generic",
+    "improvement_amount": 0.0,
+    "metric_kind": "logical_area",
+    "metrics": {
+      "area": {
+        "cell_count": null,
+        "logical_um2": 1326.272,
+        "physical_um2": null,
+        "source": {
+          "cell_count": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/updown_counter16/reports/sky130hd/updown_counter16/base/synth_stat.txt",
+          "logical_um2": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/updown_counter16/reports/sky130hd/updown_counter16/base/synth_stat.txt"
+        }
+      },
+      "bottleneck_classification": null,
+      "cell_count": null,
+      "congestion": null,
+      "congestion_overflow": null,
+      "hold_violation_count": null,
+      "logical_area_um2": 1326.272,
+      "metadata": {
+        "clock_period_ns": 10.0,
+        "design_name": "updown_counter16",
+        "missing_reports": [],
+        "platform": "sky130hd",
+        "report_paths": {
+          "clock_period": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/updown_counter16/results/sky130hd/updown_counter16/base/clock_period.txt",
+          "synth_json": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/updown_counter16/logs/sky130hd/updown_counter16/base/1_synth.json",
+          "synth_stats": "/home/sudar762/projects/spec-to-rtl-agent/build/flow/updown_counter16/reports/sky130hd/updown_counter16/base/synth_stat.txt"
+        }
+      },
+      "metric_kind": null,
+      "metric_source_file": null,
+      "physical_area_um2": null,
+      "power": {
+        "mw": null,
+        "source": null
+      },
+      "power_mw": null,
+      "raw_reports": [
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/updown_counter16/reports/sky130hd/updown_counter16/base/synth_stat.txt",
+        "/home/sudar762/projects/spec-to-rtl-agent/build/flow/updown_counter16/logs/sky130hd/updown_counter16/base/1_synth.json"
+      ],
+      "routability": {
+        "congestion": null,
+        "source": {},
+        "utilization": null,
+        "wirelength_um": null
+      },
+      "setup_violation_count": null,
+      "targets": {
+        "area": null,
+        "cell_count": null,
+        "logical_area": null,
+        "power": null,
+        "wns": 0.0
+      },
+      "timing": {
+        "hold_violation_count": null,
+        "setup_violation_count": null,
+        "source": null,
+        "tns_ns": null,
+        "wns_ns": null
+      },
+      "tns_ns": null,
+      "utilization": null,
+      "wirelength_um": null,
+      "wns_ns": null
+    },
+    "score": -120.0,
+    "score_before": -120.0,
+    "score_delta": 0.0,
+    "spec_name": "updown_counter16",
     "targets_met": false
   }
 ]

@@ -1,0 +1,233 @@
+spec_source_type: text
+spec_source: examples\specs\text_counter.txt
+top_module: text_counter
+design_kind: generic
+parsed_design_class: generic
+selected_candidate: cand_1
+final_classification: functionally_verified
+ambiguity_findings:
+  -
+    code: reset_polarity_inferred
+    severity: warning
+    message: reset polarity was not explicit in the prose; inferred from naming conventions
+    inferred_value: low
+  -
+    code: reset_mode_inferred
+    severity: warning
+    message: reset timing mode was not explicit in the prose; defaulted to synchronous reset
+    inferred_value: sync
+unsupported_findings:
+extracted_semantics:
+  module_name: text_counter
+  clock: clk
+  reset:
+    signal: rst_n
+    active: low
+    mode: sync
+    polarity_explicit: false
+    mode_explicit: false
+  ports:
+    -
+      name: clk
+      dir: input
+      width: 1
+      kind: wire
+    -
+      name: rst_n
+      dir: input
+      width: 1
+      kind: wire
+    -
+      name: enable
+      dir: input
+      width: 1
+      kind: wire
+    -
+      name: count
+      dir: output
+      width: 8
+      kind: reg
+  state_variables:
+    -
+      name: count
+      width: 8
+      reset: 0
+  behavior_summary:
+    - normalized 1 process(es)
+candidate_analysis:
+  candidate_count: 2
+  selected_candidate: cand_1
+  candidates:
+    -
+      candidate_id: cand_1
+      title: text_normalized_primary
+      score: 9.350000000000001
+      classification: functionally_verified
+      assumptions:
+      ambiguity_count: 2
+      unsupported_count: 0
+      internal_checks:
+        - module name present
+        - port list present
+        - clock semantics present
+      compile_ok: true
+      simulation_ok: true
+      evidence_level: functional
+      oracle_independent: true
+      attempts_used: 1
+      extracted_semantics:
+        module_name: text_counter
+        clock: clk
+        reset:
+          signal: rst_n
+          active: low
+          mode: sync
+          polarity_explicit: false
+          mode_explicit: false
+        ports:
+          -
+            name: clk
+            dir: input
+            width: 1
+            kind: wire
+          -
+            name: rst_n
+            dir: input
+            width: 1
+            kind: wire
+          -
+            name: enable
+            dir: input
+            width: 1
+            kind: wire
+          -
+            name: count
+            dir: output
+            width: 8
+            kind: reg
+        state_variables:
+          -
+            name: count
+            width: 8
+            reset: 0
+        behavior_summary:
+          - normalized 1 process(es)
+    -
+      candidate_id: cand_2
+      title: text_alternate_reset_polarity
+      score: 0.4000000000000002
+      classification: unsupported_or_ambiguous
+      assumptions:
+        - alternate candidate flips reset polarity because the prose could be read ambiguously
+      ambiguity_count: 3
+      unsupported_count: 0
+      internal_checks:
+        - module name present
+        - port list present
+        - clock semantics present
+      compile_ok: false
+      simulation_ok: false
+      evidence_level: functional
+      oracle_independent: true
+      attempts_used: 3
+      extracted_semantics:
+        module_name: text_counter
+        clock: clk
+        reset:
+          signal: rst_n
+          active: low
+          mode: sync
+          polarity_explicit: false
+          mode_explicit: false
+        ports:
+          -
+            name: clk
+            dir: input
+            width: 1
+            kind: wire
+          -
+            name: rst_n
+            dir: input
+            width: 1
+            kind: wire
+          -
+            name: enable
+            dir: input
+            width: 1
+            kind: wire
+          -
+            name: count
+            dir: output
+            width: 8
+            kind: reg
+        state_variables:
+          -
+            name: count
+            width: 8
+            reset: 0
+        behavior_summary:
+          - normalized 1 process(es)
+        alternate_reset_active: high
+artifacts:
+  rtl: rtl\text_counter.v
+  testbench: tb\tb_text_counter.sv
+generation_status:
+  rtl_generation_status: pass
+  testbench_generation_status: pass
+repair_loop:
+  enabled: true
+  max_attempts: 3
+  attempts_used: 1
+  injected_fault: null
+  repaired_after_feedback: false
+  unrepaired_after_retry_limit: false
+  attempts:
+    -
+      attempt: 1
+      strategy: direct
+      rtl_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\text_counter\cand_1\attempt_1\text_counter.v"
+      testbench_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\text_counter\cand_1\attempt_1\tb_text_counter.sv"
+      compile_command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\text_counter\cand_1\text_counter.v"
+      simulation_command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\text_counter_sim.out"
+      compile_status: pass
+      simulation_status: pass
+      compile_stdout: ""
+      compile_stderr: ""
+      simulation_stdout: |-
+        PASS tb_text_counter
+        D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\text_counter\cand_1\tb_text_counter.sv:48: $finish called at 16000 (1ps)
+      simulation_stderr: ""
+      diagnosis_summary: simulation passed on the current RTL/testbench pair
+      next_regeneration_changes:
+verification:
+  support_status: supported
+  requested_mode: sim
+  requested_level: functional
+  generated_testbench_kind: verification_steps_functional
+  oracle_independent: true
+  compile_pass: true
+  smoke_sim_pass: false
+  functional_sim_pass: true
+  overall_pass: true
+  covered_checks:
+    - user sequence step reset_assert
+    - user sequence step increment_step
+    - user sequence step hold_step
+  limitations:
+  notes:
+  partial_verification_reasons:
+  assumptions:
+  conclusion: functional verification passed with independent evidence
+  compile:
+    attempt: 1
+    ok: true
+    message: compile ok
+    command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\text_counter\cand_1\text_counter.v"
+  simulation:
+    attempt: 1
+    ok: true
+    message: |-
+      PASS tb_text_counter
+      D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\text_counter\cand_1\tb_text_counter.sv:48: $finish called at 16000 (1ps)
+    command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\text_counter_sim.out"
+  retry_history:

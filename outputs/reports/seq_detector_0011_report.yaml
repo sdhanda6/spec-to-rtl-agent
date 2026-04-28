@@ -1,0 +1,185 @@
+spec_source_type: yaml
+spec_source: examples/specs/p1.yaml
+top_module: seq_detector_0011
+design_kind: generic
+parsed_design_class: generic
+selected_candidate: cand_1
+final_classification: compile_and_smoke_verified
+ambiguity_findings:
+unsupported_findings:
+extracted_semantics:
+  module_name: seq_detector_0011
+  ports:
+    -
+      name: clk
+      dir: input
+      width: 1
+      kind: wire
+      description: Clock input
+    -
+      name: reset
+      dir: input
+      width: 1
+      kind: wire
+      description: Synchronous reset (active high)
+    -
+      name: data_in
+      dir: input
+      width: 1
+      kind: wire
+      description: Serial data input
+    -
+      name: detected
+      dir: output
+      width: 1
+      kind: wire
+      description: Asserted high for one cycle when '0011' is detected.
+  clock: clk
+  reset:
+    signal: reset
+    active: high
+    mode: sync
+  state:
+  behavior_keys:
+  design_kind_hint: generic
+  flow:
+    tech_node: SkyWater 130HD
+    platform: sky130hd
+    clock_period: 1.1ns
+    module_signature: |-
+      module seq_detector_0011(
+          input clk,
+          input reset,
+          input data_in,
+          output reg detected
+      );
+candidate_analysis:
+  candidate_count: 1
+  selected_candidate: cand_1
+  candidates:
+    -
+      candidate_id: cand_1
+      title: structured_document
+      score: 7.75
+      classification: compile_and_smoke_verified
+      assumptions:
+      ambiguity_count: 0
+      unsupported_count: 0
+      internal_checks:
+        - module name present
+        - port list present
+        - clock semantics present
+      compile_ok: true
+      simulation_ok: true
+      evidence_level: smoke
+      oracle_independent: false
+      attempts_used: 1
+      extracted_semantics:
+        module_name: seq_detector_0011
+        ports:
+          -
+            name: clk
+            dir: input
+            width: 1
+            kind: wire
+            description: Clock input
+          -
+            name: reset
+            dir: input
+            width: 1
+            kind: wire
+            description: Synchronous reset (active high)
+          -
+            name: data_in
+            dir: input
+            width: 1
+            kind: wire
+            description: Serial data input
+          -
+            name: detected
+            dir: output
+            width: 1
+            kind: wire
+            description: Asserted high for one cycle when '0011' is detected.
+        clock: clk
+        reset:
+          signal: reset
+          active: high
+          mode: sync
+        state:
+        behavior_keys:
+        design_kind_hint: generic
+        flow:
+          tech_node: SkyWater 130HD
+          platform: sky130hd
+          clock_period: 1.1ns
+          module_signature: |-
+            module seq_detector_0011(
+                input clk,
+                input reset,
+                input data_in,
+                output reg detected
+            );
+artifacts:
+  rtl: rtl/seq_detector_0011.v
+  testbench: tb/tb_seq_detector_0011.sv
+generation_status:
+  rtl_generation_status: pass
+  testbench_generation_status: pass
+repair_loop:
+  enabled: true
+  max_attempts: 3
+  attempts_used: 1
+  injected_fault: null
+  repaired_after_feedback: false
+  unrepaired_after_retry_limit: false
+  attempts:
+    -
+      attempt: 1
+      strategy: direct
+      rtl_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/seq_detector_0011/cand_1/attempt_1/seq_detector_0011.v
+      testbench_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/seq_detector_0011/cand_1/attempt_1/tb_seq_detector_0011.sv
+      compile_command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/seq_detector_0011/cand_1/seq_detector_0011.v
+      simulation_command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/seq_detector_0011_sim.out
+      compile_status: pass
+      simulation_status: pass
+      compile_stdout: ""
+      compile_stderr: ""
+      simulation_stdout: |-
+        PASS tb_seq_detector_0011
+        /home/sudar762/projects/spec-to-rtl-agent/build/candidates/seq_detector_0011/cand_1/tb_seq_detector_0011.sv:22: $finish called at 10000 (1ps)
+      simulation_stderr: ""
+      diagnosis_summary: simulation passed on the current RTL/testbench pair
+      next_regeneration_changes:
+verification:
+  support_status: partially_supported
+  requested_mode: sim
+  requested_level: smoke
+  generated_testbench_kind: generic_smoke
+  oracle_independent: false
+  compile_pass: true
+  smoke_sim_pass: true
+  functional_sim_pass: false
+  overall_pass: true
+  covered_checks:
+  limitations:
+    - no independent functional oracle for this design kind
+  notes:
+  partial_verification_reasons:
+    - no independent functional oracle for this design kind
+    - simulation did not meet the requested functional evidence threshold
+  assumptions:
+  conclusion: simulation passed, but only smoke-level evidence is available
+  compile:
+    attempt: 1
+    ok: true
+    message: compile ok
+    command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/seq_detector_0011/cand_1/seq_detector_0011.v
+  simulation:
+    attempt: 1
+    ok: true
+    message: |-
+      PASS tb_seq_detector_0011
+      /home/sudar762/projects/spec-to-rtl-agent/build/candidates/seq_detector_0011/cand_1/tb_seq_detector_0011.sv:22: $finish called at 10000 (1ps)
+    command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/seq_detector_0011_sim.out
+  retry_history:

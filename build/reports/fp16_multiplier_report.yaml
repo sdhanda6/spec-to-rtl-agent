@@ -123,11 +123,10 @@ repair_loop:
       compile_status: pass
       simulation_status: pass
       compile_stdout: ""
-      compile_stderr: |-
-        /home/sudar762/projects/spec-to-rtl-agent/build/candidates/fp16_multiplier/cand_1/fp16_multiplier.v:10: warning: @* found no sensitivities so it will never trigger.
+      compile_stderr: ""
       simulation_stdout: |-
         PASS tb_fp16_multiplier
-        /home/sudar762/projects/spec-to-rtl-agent/build/candidates/fp16_multiplier/cand_1/tb_fp16_multiplier.sv:19: $finish called at 10000 (1ps)
+        /home/sudar762/projects/spec-to-rtl-agent/build/candidates/fp16_multiplier/cand_1/tb_fp16_multiplier.sv:25: $finish called at 10000 (1ps)
       simulation_stderr: ""
       diagnosis_summary: simulation passed on the current RTL/testbench pair
       next_regeneration_changes:
@@ -153,13 +152,13 @@ verification:
   compile:
     attempt: 1
     ok: true
-    message: "/home/sudar762/projects/spec-to-rtl-agent/build/candidates/fp16_multiplier/cand_1/fp16_multiplier.v:10: warning: @* found no sensitivities so it will never trigger."
+    message: compile ok
     command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/fp16_multiplier/cand_1/fp16_multiplier.v
   simulation:
     attempt: 1
     ok: true
     message: |-
       PASS tb_fp16_multiplier
-      /home/sudar762/projects/spec-to-rtl-agent/build/candidates/fp16_multiplier/cand_1/tb_fp16_multiplier.sv:19: $finish called at 10000 (1ps)
+      /home/sudar762/projects/spec-to-rtl-agent/build/candidates/fp16_multiplier/cand_1/tb_fp16_multiplier.sv:25: $finish called at 10000 (1ps)
     command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/fp16_multiplier_sim.out
   retry_history:

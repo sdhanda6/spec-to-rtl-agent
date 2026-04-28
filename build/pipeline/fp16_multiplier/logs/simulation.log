@@ -2,4 +2,4 @@
 command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/fp16_multiplier_sim.out
 status: pass
 PASS tb_fp16_multiplier
-/home/sudar762/projects/spec-to-rtl-agent/build/candidates/fp16_multiplier/cand_1/tb_fp16_multiplier.sv:19: $finish called at 10000 (1ps)
+/home/sudar762/projects/spec-to-rtl-agent/build/candidates/fp16_multiplier/cand_1/tb_fp16_multiplier.sv:25: $finish called at 10000 (1ps)

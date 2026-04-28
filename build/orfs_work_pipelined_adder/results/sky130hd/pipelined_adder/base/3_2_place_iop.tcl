@@ -1,0 +1,54 @@
+#Edge: BOTTOM
+place_pin -pin_name a[0] -layer met2 -location {74.75 0.242} -force_to_die_boundary
+place_pin -pin_name a[1] -layer met2 -location {99.59 0.242} -force_to_die_boundary
+place_pin -pin_name a[2] -layer met2 -location {90.39 0.242} -force_to_die_boundary
+place_pin -pin_name a[3] -layer met2 -location {88.55 0.242} -force_to_die_boundary
+place_pin -pin_name a[4] -layer met2 -location {87.63 0.242} -force_to_die_boundary
+place_pin -pin_name a[5] -layer met2 -location {78.43 0.242} -force_to_die_boundary
+place_pin -pin_name b[0] -layer met2 -location {73.83 0.242} -force_to_die_boundary
+place_pin -pin_name b[1] -layer met2 -location {98.67 0.242} -force_to_die_boundary
+place_pin -pin_name b[2] -layer met2 -location {89.47 0.242} -force_to_die_boundary
+place_pin -pin_name b[3] -layer met2 -location {86.71 0.242} -force_to_die_boundary
+place_pin -pin_name b[4] -layer met2 -location {85.79 0.242} -force_to_die_boundary
+place_pin -pin_name b[5] -layer met2 -location {77.51 0.242} -force_to_die_boundary
+place_pin -pin_name clk -layer met2 -location {75.67 0.242} -force_to_die_boundary
+place_pin -pin_name reset -layer met2 -location {126.27 0.242} -force_to_die_boundary
+place_pin -pin_name y[0] -layer met2 -location {93.15 0.242} -force_to_die_boundary
+place_pin -pin_name y[1] -layer met2 -location {128.11 0.242} -force_to_die_boundary
+place_pin -pin_name y[2] -layer met2 -location {127.19 0.242} -force_to_die_boundary
+#Edge: RIGHT
+place_pin -pin_name y[10] -layer met3 -location {199.6 111.86} -force_to_die_boundary
+place_pin -pin_name y[11] -layer met3 -location {199.6 120.02} -force_to_die_boundary
+place_pin -pin_name y[12] -layer met3 -location {199.6 98.26} -force_to_die_boundary
+place_pin -pin_name y[13] -layer met3 -location {199.6 110.5} -force_to_die_boundary
+place_pin -pin_name y[15] -layer met3 -location {199.6 128.18} -force_to_die_boundary
+place_pin -pin_name y[3] -layer met3 -location {199.6 71.06} -force_to_die_boundary
+place_pin -pin_name y[4] -layer met3 -location {199.6 72.42} -force_to_die_boundary
+place_pin -pin_name y[5] -layer met3 -location {199.6 80.58} -force_to_die_boundary
+place_pin -pin_name y[6] -layer met3 -location {199.6 83.3} -force_to_die_boundary
+place_pin -pin_name y[7] -layer met3 -location {199.6 90.1} -force_to_die_boundary
+place_pin -pin_name y[8] -layer met3 -location {199.6 92.82} -force_to_die_boundary
+place_pin -pin_name y[9] -layer met3 -location {199.6 102.34} -force_to_die_boundary
+#Edge: TOP
+place_pin -pin_name a[12] -layer met2 -location {83.95 199.757} -force_to_die_boundary
+place_pin -pin_name a[13] -layer met2 -location {83.03 199.757} -force_to_die_boundary
+place_pin -pin_name a[14] -layer met2 -location {93.15 199.757} -force_to_die_boundary
+place_pin -pin_name a[15] -layer met2 -location {110.63 199.757} -force_to_die_boundary
+place_pin -pin_name b[12] -layer met2 -location {81.19 199.757} -force_to_die_boundary
+place_pin -pin_name b[13] -layer met2 -location {82.11 199.757} -force_to_die_boundary
+place_pin -pin_name b[14] -layer met2 -location {92.23 199.757} -force_to_die_boundary
+place_pin -pin_name b[15] -layer met2 -location {111.55 199.757} -force_to_die_boundary
+place_pin -pin_name y[14] -layer met2 -location {114.31 199.757} -force_to_die_boundary
+#Edge: LEFT
+place_pin -pin_name a[10] -layer met3 -location {0.4 113.22} -force_to_die_boundary
+place_pin -pin_name a[11] -layer met3 -location {0.4 121.38} -force_to_die_boundary
+place_pin -pin_name a[6] -layer met3 -location {0.4 86.02} -force_to_die_boundary
+place_pin -pin_name a[7] -layer met3 -location {0.4 91.46} -force_to_die_boundary
+place_pin -pin_name a[8] -layer met3 -location {0.4 99.62} -force_to_die_boundary
+place_pin -pin_name a[9] -layer met3 -location {0.4 105.06} -force_to_die_boundary
+place_pin -pin_name b[10] -layer met3 -location {0.4 114.58} -force_to_die_boundary
+place_pin -pin_name b[11] -layer met3 -location {0.4 122.74} -force_to_die_boundary
+place_pin -pin_name b[6] -layer met3 -location {0.4 87.38} -force_to_die_boundary
+place_pin -pin_name b[7] -layer met3 -location {0.4 92.82} -force_to_die_boundary
+place_pin -pin_name b[8] -layer met3 -location {0.4 100.98} -force_to_die_boundary
+place_pin -pin_name b[9] -layer met3 -location {0.4 106.42} -force_to_die_boundary

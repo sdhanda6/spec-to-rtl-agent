@@ -2,24 +2,24 @@
 
 (* hdlname = "dot_product" *)
 (* top =  1  *)
-(* src = "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/src/dot_product.v:4.1-22.10" *)
+(* src = "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/src/dot_product.v:5.1-24.10" *)
 module dot_product(clk, rst, A, B, dot_out, valid);
-  (* src = "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/src/dot_product.v:5.11-5.14" *)
+  (* src = "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/src/dot_product.v:6.11-6.14" *)
   input clk;
   wire clk;
-  (* src = "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/src/dot_product.v:6.11-6.14" *)
+  (* src = "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/src/dot_product.v:7.11-7.14" *)
   input rst;
   wire rst;
-  (* src = "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/src/dot_product.v:7.11-7.12" *)
+  (* src = "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/src/dot_product.v:8.11-8.12" *)
   input A;
   wire A;
-  (* src = "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/src/dot_product.v:8.11-8.12" *)
+  (* src = "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/src/dot_product.v:9.11-9.12" *)
   input B;
   wire B;
-  (* src = "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/src/dot_product.v:9.16-9.23" *)
+  (* src = "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/src/dot_product.v:10.16-10.23" *)
   output dot_out;
   wire dot_out;
-  (* src = "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/src/dot_product.v:10.16-10.21" *)
+  (* src = "/home/sudar762/projects/spec-to-rtl-agent/build/flow/dot_product/design/src/dot_product.v:11.16-11.21" *)
   output valid;
   wire valid;
   wire _0_;

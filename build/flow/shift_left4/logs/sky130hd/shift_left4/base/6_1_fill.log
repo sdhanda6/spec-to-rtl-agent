@@ -1,0 +1,13 @@
+OpenROAD 26Q2-209-g0d9d73ffba 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 8 thread(s).
+read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_shift_left4/results/sky130hd/shift_left4/base/5_route.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_shift_left4/results/sky130hd/shift_left4/base/5_route.sdc
+source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+exec cp /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_shift_left4/results/sky130hd/shift_left4/base/5_route.odb /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_shift_left4/results/sky130hd/shift_left4/base/6_1_fill.odb
+Elapsed time: 0:00.60[h:]min:sec. CPU time: user 0.47 sys 0.10 (94%). Peak memory: 122496KB.
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+6_1_fill                           0            119 c9bd75bbb660375717d7

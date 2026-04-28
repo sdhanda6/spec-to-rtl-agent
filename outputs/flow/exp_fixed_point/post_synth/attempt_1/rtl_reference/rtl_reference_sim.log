@@ -1,0 +1,2 @@
+PASS tb_exp_fixed_point
+/home/sudar762/projects/spec-to-rtl-agent/tb/tb_exp_fixed_point.sv:25: $finish called at 10000 (1ps)

@@ -1,2 +1,3 @@
 # Auto-generated timing constraints
-# No clock was inferred; add clock constraints manually if the design is sequential.
+create_clock -period 10 [get_ports clk]
+set_false_path -from [get_ports reset]

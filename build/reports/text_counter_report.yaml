@@ -1,5 +1,5 @@
 spec_source_type: text
-spec_source: examples\specs\text_counter.txt
+spec_source: examples/specs/text_counter.txt
 top_module: text_counter
 design_kind: generic
 parsed_design_class: generic
@@ -169,8 +169,8 @@ candidate_analysis:
           - normalized 1 process(es)
         alternate_reset_active: high
 artifacts:
-  rtl: rtl\text_counter.v
-  testbench: tb\tb_text_counter.sv
+  rtl: rtl/text_counter.v
+  testbench: tb/tb_text_counter.sv
 generation_status:
   rtl_generation_status: pass
   testbench_generation_status: pass
@@ -185,17 +185,17 @@ repair_loop:
     -
       attempt: 1
       strategy: direct
-      rtl_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\text_counter\cand_1\attempt_1\text_counter.v"
-      testbench_file: "D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\attempts\text_counter\cand_1\attempt_1\tb_text_counter.sv"
-      compile_command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\text_counter\cand_1\text_counter.v"
-      simulation_command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\text_counter_sim.out"
+      rtl_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/text_counter/cand_1/attempt_1/text_counter.v
+      testbench_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/text_counter/cand_1/attempt_1/tb_text_counter.sv
+      compile_command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/text_counter/cand_1/text_counter.v
+      simulation_command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/text_counter_sim.out
       compile_status: pass
       simulation_status: pass
       compile_stdout: ""
       compile_stderr: ""
       simulation_stdout: |-
         PASS tb_text_counter
-        D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\text_counter\cand_1\tb_text_counter.sv:48: $finish called at 16000 (1ps)
+        /home/sudar762/projects/spec-to-rtl-agent/build/candidates/text_counter/cand_1/tb_text_counter.sv:48: $finish called at 16000 (1ps)
       simulation_stderr: ""
       diagnosis_summary: simulation passed on the current RTL/testbench pair
       next_regeneration_changes:
@@ -222,12 +222,12 @@ verification:
     attempt: 1
     ok: true
     message: compile ok
-    command: "C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\text_counter\cand_1\text_counter.v"
+    command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/text_counter/cand_1/text_counter.v
   simulation:
     attempt: 1
     ok: true
     message: |-
       PASS tb_text_counter
-      D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\text_counter\cand_1\tb_text_counter.sv:48: $finish called at 16000 (1ps)
-    command: "C:\iverilog\bin\vvp.EXE D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\text_counter_sim.out"
+      /home/sudar762/projects/spec-to-rtl-agent/build/candidates/text_counter/cand_1/tb_text_counter.sv:48: $finish called at 16000 (1ps)
+    command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/text_counter_sim.out
   retry_history:

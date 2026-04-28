@@ -1,0 +1,24 @@
+top: seq_1011
+design_kind: generic
+platform: sky130hd
+rtl: /home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_1011/design/src/seq_1011.v
+testbench: /home/sudar762/projects/spec-to-rtl-agent/tb/tb_seq_1011.sv
+clock_port: clk
+clock_period_ns: 10
+ports:
+  -
+    name: clk
+    dir: input
+    width: 1
+  -
+    name: reset
+    dir: input
+    width: 1
+  -
+    name: din
+    dir: input
+    width: 1
+  -
+    name: dout
+    dir: output
+    width: 1

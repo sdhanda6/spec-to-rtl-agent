@@ -1,0 +1,205 @@
+spec_source_type: yaml
+spec_source: examples/specs/p9.yaml
+top_module: fir_filter
+design_kind: generic
+parsed_design_class: generic
+selected_candidate: cand_1
+final_classification: compile_and_smoke_verified
+ambiguity_findings:
+unsupported_findings:
+extracted_semantics:
+  module_name: fir_filter
+  ports:
+    -
+      name: clk
+      dir: input
+      width: 1
+      kind: wire
+      description: Clock input
+    -
+      name: rst
+      dir: input
+      width: 1
+      kind: wire
+      description: Active-high synchronous reset
+    -
+      name: x_in
+      dir: input
+      width: 1
+      kind: wire
+      description: Input sample
+    -
+      name: h
+      dir: input
+      width: 1
+      kind: wire
+      description: FIR filter coefficients
+    -
+      name: y_out
+      dir: output
+      width: 1
+      kind: wire
+      description: Filtered output sample (with bit growth from accumulation)
+  clock: clk
+  reset:
+    signal: rst
+    active: high
+    mode: sync
+  state:
+  behavior_keys:
+  design_kind_hint: generic
+  flow:
+    tech_node: SkyWater 130HD
+    platform: sky130hd
+    clock_period: 8ns
+    module_signature: |-
+      module fir_filter
+        parameter WIDTH = 16,
+        parameter N = 8
+      ) (
+        input  logic                             clk,
+        input  logic                             rst,
+        input  logic signed [WIDTH-1:0]          x_in,
+        input  logic signed [N-1:0][WIDTH-1:0]   h,
+        output logic signed [2*WIDTH+$clog2(N):0] y_out
+      );
+candidate_analysis:
+  candidate_count: 1
+  selected_candidate: cand_1
+  candidates:
+    -
+      candidate_id: cand_1
+      title: structured_document
+      score: 7.75
+      classification: compile_and_smoke_verified
+      assumptions:
+      ambiguity_count: 0
+      unsupported_count: 0
+      internal_checks:
+        - module name present
+        - port list present
+        - clock semantics present
+      compile_ok: true
+      simulation_ok: true
+      evidence_level: smoke
+      oracle_independent: false
+      attempts_used: 1
+      extracted_semantics:
+        module_name: fir_filter
+        ports:
+          -
+            name: clk
+            dir: input
+            width: 1
+            kind: wire
+            description: Clock input
+          -
+            name: rst
+            dir: input
+            width: 1
+            kind: wire
+            description: Active-high synchronous reset
+          -
+            name: x_in
+            dir: input
+            width: 1
+            kind: wire
+            description: Input sample
+          -
+            name: h
+            dir: input
+            width: 1
+            kind: wire
+            description: FIR filter coefficients
+          -
+            name: y_out
+            dir: output
+            width: 1
+            kind: wire
+            description: Filtered output sample (with bit growth from accumulation)
+        clock: clk
+        reset:
+          signal: rst
+          active: high
+          mode: sync
+        state:
+        behavior_keys:
+        design_kind_hint: generic
+        flow:
+          tech_node: SkyWater 130HD
+          platform: sky130hd
+          clock_period: 8ns
+          module_signature: |-
+            module fir_filter
+              parameter WIDTH = 16,
+              parameter N = 8
+            ) (
+              input  logic                             clk,
+              input  logic                             rst,
+              input  logic signed [WIDTH-1:0]          x_in,
+              input  logic signed [N-1:0][WIDTH-1:0]   h,
+              output logic signed [2*WIDTH+$clog2(N):0] y_out
+            );
+artifacts:
+  rtl: rtl/fir_filter.v
+  testbench: tb/tb_fir_filter.sv
+generation_status:
+  rtl_generation_status: pass
+  testbench_generation_status: pass
+repair_loop:
+  enabled: true
+  max_attempts: 3
+  attempts_used: 1
+  injected_fault: null
+  repaired_after_feedback: false
+  unrepaired_after_retry_limit: false
+  attempts:
+    -
+      attempt: 1
+      strategy: direct
+      rtl_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/fir_filter/cand_1/attempt_1/fir_filter.v
+      testbench_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/fir_filter/cand_1/attempt_1/tb_fir_filter.sv
+      compile_command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/fir_filter/cand_1/fir_filter.v
+      simulation_command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/fir_filter_sim.out
+      compile_status: pass
+      simulation_status: pass
+      compile_stdout: ""
+      compile_stderr: ""
+      simulation_stdout: |-
+        PASS tb_fir_filter
+        /home/sudar762/projects/spec-to-rtl-agent/build/candidates/fir_filter/cand_1/tb_fir_filter.sv:25: $finish called at 10000 (1ps)
+      simulation_stderr: ""
+      diagnosis_summary: simulation passed on the current RTL/testbench pair
+      next_regeneration_changes:
+verification:
+  support_status: partially_supported
+  requested_mode: sim
+  requested_level: smoke
+  generated_testbench_kind: generic_smoke
+  oracle_independent: false
+  compile_pass: true
+  smoke_sim_pass: true
+  functional_sim_pass: false
+  overall_pass: true
+  covered_checks:
+  limitations:
+    - no independent functional oracle for this design kind
+  notes:
+  partial_verification_reasons:
+    - no independent functional oracle for this design kind
+    - simulation did not meet the requested functional evidence threshold
+  assumptions:
+  conclusion: simulation passed, but only smoke-level evidence is available
+  compile:
+    attempt: 1
+    ok: true
+    message: compile ok
+    command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/fir_filter/cand_1/fir_filter.v
+  simulation:
+    attempt: 1
+    ok: true
+    message: |-
+      PASS tb_fir_filter
+      /home/sudar762/projects/spec-to-rtl-agent/build/candidates/fir_filter/cand_1/tb_fir_filter.sv:25: $finish called at 10000 (1ps)
+    command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/fir_filter_sim.out
+  retry_history:

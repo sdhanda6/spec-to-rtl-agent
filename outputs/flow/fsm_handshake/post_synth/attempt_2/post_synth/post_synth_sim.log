@@ -1,0 +1,2 @@
+PASS tb_fsm_handshake
+/home/sudar762/projects/spec-to-rtl-agent/build/flow/fsm_handshake/post_synth/attempt_2/adapted_tb/tb_fsm_handshake.sv:80: $finish called at 46000 (1ps)

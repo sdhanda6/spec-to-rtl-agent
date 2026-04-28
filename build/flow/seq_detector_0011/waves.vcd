@@ -1,0 +1,70 @@
+$date
+	Mon Apr 27 10:59:08 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_seq_detector_0011 $end
+$var wire 1 ! detected $end
+$var reg 1 " clk $end
+$var reg 1 # data_in $end
+$var reg 1 $ reset $end
+$scope module dut $end
+$var wire 1 % _0_ $end
+$var wire 1 " clk $end
+$var wire 1 # data_in $end
+$var wire 1 $ reset $end
+$var wire 1 ! detected $end
+$scope module _1_ $end
+$var wire 1 & HI $end
+$var wire 1 % LO $end
+$var wire 1 ' VGND $end
+$var wire 1 ( VNB $end
+$var wire 1 ) VPB $end
+$var wire 1 * VPWR $end
+$scope module base $end
+$var wire 1 & HI $end
+$var wire 1 % LO $end
+$upscope $end
+$upscope $end
+$scope module _2_ $end
+$var wire 1 % A $end
+$var wire 1 + VGND $end
+$var wire 1 , VNB $end
+$var wire 1 - VPB $end
+$var wire 1 . VPWR $end
+$var wire 1 ! X $end
+$scope module base $end
+$var wire 1 % A $end
+$var wire 1 ! X $end
+$var wire 1 / buf0_out_X $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+0/
+1.
+1-
+0,
+0+
+1*
+1)
+0(
+0'
+1&
+0%
+0$
+0#
+0"
+0!
+$end
+#10000

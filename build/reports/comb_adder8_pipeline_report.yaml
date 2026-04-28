@@ -1,6 +1,6 @@
 input_spec_type: yaml
 input_spec_path: examples/specs/comb_adder8.yaml
-parsed_design_class: combinational
+parsed_design_class: generic
 top_module: comb_adder8
 selected_candidate: cand_1
 ambiguity_findings:
@@ -9,135 +9,1611 @@ rtl_generation_status: pass
 testbench_generation_status: pass
 compile_status: pass
 simulation_status: pass
+coverage_status: not_run
 synthesis_collateral_generation_status: pass
-openroad_execution_status: fail
+dft_status: not_run
+atpg_status: not_run
+lec_status: not_run
+sta_status: pass
+gds_generated: true
+signoff_status: partial
+openroad_execution_status: pass
+openroad_netlist_check:
+  valid: true
+  reason: null
+  path: build/flow/comb_adder8/results/sky130hd/comb_adder8/base/1_2_yosys.v
+  expected_top: comb_adder8
+  module_found: true
+  module_count: 1
+  mapped_cell_count: 55
+  assign_count: 0
+  always_count: 0
+  statement_count: 55
+  line_count: 461
+  size_bytes: 13100
 synthesis_stage:
-  status: fail
-  failure_kind: infrastructure
-  returncode: 2
+  status: pass
+  failure_kind: null
+  failure_reason: null
+  returncode: 0
   command: /usr/bin/make -C /home/sudar762/OpenROAD-flow-scripts/flow DESIGN_CONFIG=/home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/design/config.mk synth
-  synthesized_netlist_path: /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/1_2_yosys.v
+  synthesized_netlist_path: build/flow/comb_adder8/results/sky130hd/comb_adder8/base/1_2_yosys.v
+  netlist_check:
+    valid: true
+    reason: null
+    path: build/flow/comb_adder8/results/sky130hd/comb_adder8/base/1_2_yosys.v
+    expected_top: comb_adder8
+    module_found: true
+    module_count: 1
+    mapped_cell_count: 55
+    assign_count: 0
+    always_count: 0
+    statement_count: 55
+    line_count: 461
+    size_bytes: 13100
   retry_attempted: false
-  retry_reason: elevated retry is unavailable from pipeline runtime
-synth_optimization:
+  retry_reason: null
+coverage_analysis:
+  stage: coverage_analysis
   enabled: false
-  baseline_metrics:
-  attempts:
-  best_attempt_index: null
-  improvement_amount: null
-  targets_met: false
-  stop_reason: null
-  candidate_rankings:
-post_synth_verification:
-  enabled: false
-  behavior_match: false
-  mismatch_kind: not_run
-  primary_mismatch: not_run
-  ordered_mismatches:
-  returncode: 2
-  mismatch_count: 0
-  repair_attempts:
-  reference_source: /home/sudar762/projects/spec-to-rtl-agent/rtl/comb_adder8.v
-  post_synth_source: /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/1_2_yosys.v
+  status: not_run
+  reason: --run-coverage was not requested
+  tool: null
+  tool_path: null
+  command: null
+  returncode: null
+  log_path: build/pipeline/comb_adder8/logs/coverage_analysis.log
   evidence_paths:
+    - build/pipeline/comb_adder8/logs/coverage_analysis.log
+  artifacts:
+  bottleneck_classification:
+    primary_bottleneck: not_run
+    bottleneck_classification: not_run
+    metric_kind: unknown
+    metric_family_priority: 99
+    metric_source_file: null
+    reasons:
+      - --run-coverage was not requested
+    action_family_hint: none
+    ordered_bottlenecks:
+    failure_kind: not_run
+    repairable: false
+dft_insertion:
+  stage: dft_insertion
+  enabled: false
+  status: not_run
+  reason: --run-dft was not requested
+  tool: null
+  tool_path: null
+  command: null
+  returncode: null
+  log_path: null
+  evidence_paths:
+  artifacts:
+  bottleneck_classification:
+    primary_bottleneck: not_run
+    bottleneck_classification: not_run
+    metric_kind: unknown
+    metric_family_priority: 99
+    metric_source_file: null
+    reasons:
+      - --run-dft was not requested
+    action_family_hint: none
+    ordered_bottlenecks:
+    failure_kind: not_run
+    repairable: false
+atpg_generation:
+  stage: atpg_generation
+  enabled: false
+  status: not_run
+  reason: --run-atpg was not requested
+  tool: null
+  tool_path: null
+  command: null
+  returncode: null
+  log_path: null
+  evidence_paths:
+  artifacts:
+  bottleneck_classification:
+    primary_bottleneck: not_run
+    bottleneck_classification: not_run
+    metric_kind: unknown
+    metric_family_priority: 99
+    metric_source_file: null
+    reasons:
+      - --run-atpg was not requested
+    action_family_hint: none
+    ordered_bottlenecks:
+    failure_kind: not_run
+    repairable: false
+lec_check:
+  stage: lec_check
+  enabled: false
+  status: not_run
+  reason: --run-lec was not requested
+  tool: null
+  tool_path: null
+  command: null
+  returncode: null
+  log_path: null
+  evidence_paths:
+  artifacts:
+  bottleneck_classification:
+    primary_bottleneck: not_run
+    bottleneck_classification: not_run
+    metric_kind: unknown
+    metric_family_priority: 99
+    metric_source_file: null
+    reasons:
+      - --run-lec was not requested
+    action_family_hint: none
+    ordered_bottlenecks:
+    failure_kind: not_run
+    repairable: false
+synth_optimization:
+  enabled: true
+  targets:
+    logical_area: null
+    area: null
+    power: null
+    cell_count: null
+    wns: 0.0
+  baseline_metrics:
+    timing:
+      wns_ns: null
+      tns_ns: null
+      setup_violation_count: null
+      hold_violation_count: null
+      source: null
+    area:
+      logical_um2: 524.2528
+      physical_um2: null
+      cell_count: 63
+      source:
+        logical_um2: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+        cell_count: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+    power:
+      mw: null
+      source: null
+    routability:
+      congestion: null
+      utilization: null
+      wirelength_um: null
+      source:
+    metadata:
+      platform: sky130hd
+      design_name: comb_adder8
+      clock_period_ns: 10.0
+      report_paths:
+        synth_stats: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+        synth_json: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/1_synth.json
+        clock_period: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/clock_period.txt
+      missing_reports:
+    metric_kind: null
+    bottleneck_classification: null
+    metric_source_file: null
+    raw_reports:
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/1_synth.json
+    targets:
+      logical_area: null
+      area: null
+      power: null
+      cell_count: null
+      wns: 0.0
+    wns_ns: null
+    tns_ns: null
+    setup_violation_count: null
+    hold_violation_count: null
+    logical_area_um2: 524.2528
+    physical_area_um2: null
+    power_mw: null
+    congestion: null
+    congestion_overflow: null
+    utilization: null
+    wirelength_um: null
+    cell_count: 63
   attempts:
     -
       attempt: 1
-      enabled: false
-      behavior_match: false
-      mismatch_kind: not_run
-      primary_mismatch: not_run
+      target: synth
+      status: pass
+      returncode: 0
+      command: /usr/bin/make -C /home/sudar762/OpenROAD-flow-scripts/flow DESIGN_CONFIG=/home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/design/config.mk synth
+      config_path: build/flow/comb_adder8/design/config.mk
+      metrics:
+        timing:
+          wns_ns: null
+          tns_ns: null
+          setup_violation_count: null
+          hold_violation_count: null
+          source: null
+        area:
+          logical_um2: 524.2528
+          physical_um2: null
+          cell_count: 63
+          source:
+            logical_um2: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+            cell_count: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+        power:
+          mw: null
+          source: null
+        routability:
+          congestion: null
+          utilization: null
+          wirelength_um: null
+          source:
+        metadata:
+          platform: sky130hd
+          design_name: comb_adder8
+          clock_period_ns: 10.0
+          report_paths:
+            synth_stats: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+            synth_json: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/1_synth.json
+            clock_period: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/clock_period.txt
+          missing_reports:
+        metric_kind: null
+        bottleneck_classification: null
+        metric_source_file: null
+        raw_reports:
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/1_synth.json
+        targets:
+          logical_area: null
+          area: null
+          power: null
+          cell_count: null
+          wns: 0.0
+        wns_ns: null
+        tns_ns: null
+        setup_violation_count: null
+        hold_violation_count: null
+        logical_area_um2: 524.2528
+        physical_area_um2: null
+        power_mw: null
+        congestion: null
+        congestion_overflow: null
+        utilization: null
+        wirelength_um: null
+        cell_count: 63
+      metric_kind: logical_area
+      bottleneck_classification:
+        primary_bottleneck: mixed
+        metric_kind: logical_area
+        bottleneck_classification: mixed
+        reasons:
+          - defaulting to logical area optimization with logical area 524.2528um^2
+          - defaulting to logical area optimization with cell count 63
+        metric_source_file: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+        action_family_hint: area
+        metric_family_priority: 4
+        ordered_bottlenecks:
+          - logical_area
+          - logical_area
+      chosen_action_family: baseline
+      chosen_knobs:
+      candidate_id: null
+      candidate_family: null
+      candidate_why: null
+      candidate_predicted_score: null
+      candidate_ranking_reason: null
+      behavior_match: true
+      score: -173.98021648360745
+      score_before: -173.98021648360745
+      score_delta: 0.0
+      score_reasons:
+        - logical area contribution -120.00
+        - cell count contribution -53.98
+      improvement_amount: 0.0
+      beat_baseline: false
+      targets_met: false
+      snapshot_paths:
+        synth_stat.txt: build/flow/comb_adder8/synth_attempts/attempt_1/synth_stat.txt
+        1_synth.json: build/flow/comb_adder8/synth_attempts/attempt_1/1_synth.json
+        1_2_yosys.v: build/flow/comb_adder8/synth_attempts/attempt_1/1_2_yosys.v
+        clock_period.txt: build/flow/comb_adder8/synth_attempts/attempt_1/clock_period.txt
+      synthesized_netlist_path: build/flow/comb_adder8/results/sky130hd/comb_adder8/base/1_2_yosys.v
+    -
+      attempt: 2
+      target: synth
+      status: pass
+      returncode: 0
+      command: /usr/bin/make -C /home/sudar762/OpenROAD-flow-scripts/flow DESIGN_CONFIG=/home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/design/config_synth_round_1_synth_area_flatten_compact.mk synth
+      config_path: build/flow/comb_adder8/design/config_synth_round_1_synth_area_flatten_compact.mk
+      metrics:
+        timing:
+          wns_ns: null
+          tns_ns: null
+          setup_violation_count: null
+          hold_violation_count: null
+          source: null
+        area:
+          logical_um2: 524.2528
+          physical_um2: null
+          cell_count: 63
+          source:
+            logical_um2: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+            cell_count: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+        power:
+          mw: null
+          source: null
+        routability:
+          congestion: null
+          utilization: null
+          wirelength_um: null
+          source:
+        metadata:
+          platform: sky130hd
+          design_name: comb_adder8
+          clock_period_ns: 10.0
+          report_paths:
+            synth_stats: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+            synth_json: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/1_synth.json
+            clock_period: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/clock_period.txt
+          missing_reports:
+        metric_kind: null
+        bottleneck_classification: null
+        metric_source_file: null
+        raw_reports:
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/1_synth.json
+        targets:
+          logical_area: null
+          area: null
+          power: null
+          cell_count: null
+          wns: 0.0
+        wns_ns: null
+        tns_ns: null
+        setup_violation_count: null
+        hold_violation_count: null
+        logical_area_um2: 524.2528
+        physical_area_um2: null
+        power_mw: null
+        congestion: null
+        congestion_overflow: null
+        utilization: null
+        wirelength_um: null
+        cell_count: 63
+      metric_kind: logical_area
+      bottleneck_classification:
+        primary_bottleneck: mixed
+        metric_kind: logical_area
+        bottleneck_classification: mixed
+        reasons:
+          - defaulting to logical area optimization with logical area 524.2528um^2
+          - defaulting to logical area optimization with cell count 63
+        metric_source_file: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+        action_family_hint: area
+        metric_family_priority: 4
+        ordered_bottlenecks:
+          - logical_area
+          - logical_area
+      chosen_action_family: area
+      chosen_knobs:
+        -
+          knob: SYNTH_NO_FLAT
+          action: set
+          value: 0
+          reason: enable flattening for global compaction
+          action_family: area
+          metric_kind: logical_area
+        -
+          knob: SYNTH_STRATEGY
+          action: set
+          value: AREA 2
+          reason: favor compact mapping after flattening
+          action_family: area
+          metric_kind: logical_area
+        -
+          knob: SYNTH_SHARE_RESOURCES
+          action: set
+          value: 1
+          reason: share duplicated structures
+          action_family: area
+          metric_kind: logical_area
+      candidate_id: synth_area_flatten_compact
+      candidate_family: area
+      candidate_why: flatten the design and remap with an area-biased strategy
+      candidate_predicted_score: 0.0
+      candidate_ranking_reason: exploration bonus for unseen area family; predicted score 0.00
+      behavior_match: true
+      score: -173.98021648360745
+      score_before: -173.98021648360745
+      score_delta: 0.0
+      score_reasons:
+        - logical area contribution -120.00
+        - cell count contribution -53.98
+      improvement_amount: 0.0
+      beat_baseline: false
+      targets_met: false
+      snapshot_paths:
+        synth_stat.txt: build/flow/comb_adder8/synth_attempts/attempt_2/synth_stat.txt
+        1_synth.json: build/flow/comb_adder8/synth_attempts/attempt_2/1_synth.json
+        1_2_yosys.v: build/flow/comb_adder8/synth_attempts/attempt_2/1_2_yosys.v
+        clock_period.txt: build/flow/comb_adder8/synth_attempts/attempt_2/clock_period.txt
+      synthesized_netlist_path: build/flow/comb_adder8/results/sky130hd/comb_adder8/base/1_2_yosys.v
+    -
+      attempt: 3
+      target: synth
+      status: pass
+      returncode: 0
+      command: /usr/bin/make -C /home/sudar762/OpenROAD-flow-scripts/flow DESIGN_CONFIG=/home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/design/config_synth_round_1_synth_struct_fanout_rebalance.mk synth
+      config_path: build/flow/comb_adder8/design/config_synth_round_1_synth_struct_fanout_rebalance.mk
+      metrics:
+        timing:
+          wns_ns: null
+          tns_ns: null
+          setup_violation_count: null
+          hold_violation_count: null
+          source: null
+        area:
+          logical_um2: 524.2528
+          physical_um2: null
+          cell_count: 63
+          source:
+            logical_um2: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+            cell_count: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+        power:
+          mw: null
+          source: null
+        routability:
+          congestion: null
+          utilization: null
+          wirelength_um: null
+          source:
+        metadata:
+          platform: sky130hd
+          design_name: comb_adder8
+          clock_period_ns: 10.0
+          report_paths:
+            synth_stats: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+            synth_json: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/1_synth.json
+            clock_period: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/clock_period.txt
+          missing_reports:
+        metric_kind: null
+        bottleneck_classification: null
+        metric_source_file: null
+        raw_reports:
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/1_synth.json
+        targets:
+          logical_area: null
+          area: null
+          power: null
+          cell_count: null
+          wns: 0.0
+        wns_ns: null
+        tns_ns: null
+        setup_violation_count: null
+        hold_violation_count: null
+        logical_area_um2: 524.2528
+        physical_area_um2: null
+        power_mw: null
+        congestion: null
+        congestion_overflow: null
+        utilization: null
+        wirelength_um: null
+        cell_count: 63
+      metric_kind: logical_area
+      bottleneck_classification:
+        primary_bottleneck: mixed
+        metric_kind: logical_area
+        bottleneck_classification: mixed
+        reasons:
+          - defaulting to logical area optimization with logical area 524.2528um^2
+          - defaulting to logical area optimization with cell count 63
+        metric_source_file: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+        action_family_hint: area
+        metric_family_priority: 4
+        ordered_bottlenecks:
+          - logical_area
+          - logical_area
+      chosen_action_family: structural
+      chosen_knobs:
+        -
+          knob: SYNTH_NO_FLAT
+          action: set
+          value: 0
+          reason: allow cross-hierarchy restructuring
+          action_family: structural
+          metric_kind: logical_area
+        -
+          knob: MAX_FANOUT_CONSTRAINT
+          action: set
+          value: 10
+          reason: push synthesis to rebalance high-fanout cones
+          action_family: structural
+          metric_kind: logical_area
+        -
+          knob: SYNTH_BUFFERING
+          action: set
+          value: 1
+          reason: allow controlled structural buffering
+          action_family: structural
+          metric_kind: logical_area
+        -
+          knob: SYNTH_SHARE_RESOURCES
+          action: set
+          value: 1
+          reason: merge structurally similar logic where possible
+          action_family: structural
+          metric_kind: logical_area
+      candidate_id: synth_struct_fanout_rebalance
+      candidate_family: structural
+      candidate_why: explore a structural rebalance point with moderate flattening pressure and tighter fanout control
+      candidate_predicted_score: 0.0
+      candidate_ranking_reason: exploration bonus for unseen structural family; predicted score 0.00
+      behavior_match: true
+      score: -173.98021648360745
+      score_before: -173.98021648360745
+      score_delta: 0.0
+      score_reasons:
+        - logical area contribution -120.00
+        - cell count contribution -53.98
+      improvement_amount: 0.0
+      beat_baseline: false
+      targets_met: false
+      snapshot_paths:
+        synth_stat.txt: build/flow/comb_adder8/synth_attempts/attempt_3/synth_stat.txt
+        1_synth.json: build/flow/comb_adder8/synth_attempts/attempt_3/1_synth.json
+        1_2_yosys.v: build/flow/comb_adder8/synth_attempts/attempt_3/1_2_yosys.v
+        clock_period.txt: build/flow/comb_adder8/synth_attempts/attempt_3/clock_period.txt
+      synthesized_netlist_path: build/flow/comb_adder8/results/sky130hd/comb_adder8/base/1_2_yosys.v
+  best_attempt_index: 1
+  best_score: -173.98021648360745
+  best_netlist_path: build/flow/comb_adder8/results/sky130hd/comb_adder8/base/1_2_yosys.v
+  selected_config_path: build/flow/comb_adder8/design/config.mk
+  improvement_amount: 0.0
+  targets_met: false
+  behavior_match: true
+  stop_reason: max_iters_reached
+  candidate_rankings:
+    -
+      round: 1
+      metric_kind: logical_area
+      bottleneck_classification: mixed
+      rankings:
+        -
+          rank: 1
+          candidate_id: synth_area_flatten_compact
+          candidate_family: area
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen area family; predicted score 0.00
+        -
+          rank: 2
+          candidate_id: synth_area_map_area2
+          candidate_family: area
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen area family; predicted score 0.00
+        -
+          rank: 3
+          candidate_id: synth_area_reduce_buffers
+          candidate_family: area
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen area family; predicted score 0.00
+        -
+          rank: 4
+          candidate_id: synth_area_relaxed_clock_13x
+          candidate_family: area
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen area family; predicted score 0.00
+        -
+          rank: 5
+          candidate_id: synth_area_share_resources
+          candidate_family: area
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen area family; predicted score 0.00
+        -
+          rank: 6
+          candidate_id: synth_struct_fanout_rebalance
+          candidate_family: structural
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen structural family; predicted score 0.00
+        -
+          rank: 7
+          candidate_id: synth_struct_flatten
+          candidate_family: structural
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen structural family; predicted score 0.00
+        -
+          rank: 8
+          candidate_id: synth_struct_flatten_area
+          candidate_family: structural
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen structural family; predicted score 0.00
+        -
+          rank: 9
+          candidate_id: synth_struct_flatten_timing
+          candidate_family: structural
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen structural family; predicted score 0.00
+        -
+          rank: 10
+          candidate_id: synth_struct_keep_hierarchy
+          candidate_family: structural
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen structural family; predicted score 0.00
+        -
+          rank: 11
+          candidate_id: synth_power_area_strategy
+          candidate_family: power
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen power family; predicted score 0.00
+        -
+          rank: 12
+          candidate_id: synth_power_keep_hierarchy
+          candidate_family: power
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen power family; predicted score 0.00
+        -
+          rank: 13
+          candidate_id: synth_power_reduce_buffers
+          candidate_family: power
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen power family; predicted score 0.00
+        -
+          rank: 14
+          candidate_id: synth_power_relax_clock
+          candidate_family: power
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen power family; predicted score 0.00
+        -
+          rank: 15
+          candidate_id: synth_power_relaxed_clock_13x
+          candidate_family: power
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen power family; predicted score 0.00
+        -
+          rank: 16
+          candidate_id: synth_timing_conservative_baseline
+          candidate_family: timing
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen timing family; predicted score 0.00
+        -
+          rank: 17
+          candidate_id: synth_timing_effort_high
+          candidate_family: timing
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen timing family; predicted score 0.00
+        -
+          rank: 18
+          candidate_id: synth_timing_flatten_retime
+          candidate_family: timing
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen timing family; predicted score 0.00
+        -
+          rank: 19
+          candidate_id: synth_timing_push_clock_07x
+          candidate_family: timing
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen timing family; predicted score 0.00
+        -
+          rank: 20
+          candidate_id: synth_timing_retime_fanout
+          candidate_family: timing
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen timing family; predicted score 0.00
+        -
+          rank: 21
+          candidate_id: synth_timing_retime_small
+          candidate_family: timing
+          predicted_score: 0.0
+          ranking_reason: exploration bonus for unseen timing family; predicted score 0.00
+  why_the_best_candidate_won: baseline synthesis remained best because no candidate improved the synthesized netlist score
+  why_the_loop_stopped: max_iters_reached
+post_synth_verification:
+  enabled: true
+  behavior_match: true
+  mismatch_kind: match
+  primary_mismatch: match
+  ordered_mismatches:
+  returncode: 0
+  mismatch_count: 0
+  repair_attempts:
+  reference_source: /home/sudar762/projects/spec-to-rtl-agent/rtl/comb_adder8.v
+  post_synth_source: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/1_2_yosys.v
+  evidence_paths:
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/post_synth/attempt_1/rtl_reference/rtl_reference_compile.log
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/post_synth/attempt_1/rtl_reference/rtl_reference_sim.log
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/waves.vcd
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/post_synth/attempt_1/post_synth/post_synth_compile.log
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/post_synth/attempt_1/post_synth/post_synth_sim.log
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/post_synth/attempt_1/adapted_tb/tb_comb_adder8.sv
+  attempts:
+    -
+      attempt: 1
+      enabled: true
+      behavior_match: true
+      mismatch_kind: match
+      primary_mismatch: match
       ordered_mismatches:
-      returncode: 2
+      returncode: 0
       mismatch_count: 0
       reference_source: /home/sudar762/projects/spec-to-rtl-agent/rtl/comb_adder8.v
-      post_synth_source: /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/1_2_yosys.v
+      post_synth_source: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/1_2_yosys.v
       evidence_paths:
-      testbench_used: null
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/post_synth/attempt_1/rtl_reference/rtl_reference_compile.log
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/post_synth/attempt_1/rtl_reference/rtl_reference_sim.log
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/waves.vcd
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/post_synth/attempt_1/post_synth/post_synth_compile.log
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/post_synth/attempt_1/post_synth/post_synth_sim.log
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/post_synth/attempt_1/adapted_tb/tb_comb_adder8.sv
+      testbench_used: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/post_synth/attempt_1/adapted_tb/tb_comb_adder8.sv
       testbench_adaptation:
-      reason: synthesis did not complete because the environment could not write ORFS outputs
-      failure_kind: infrastructure
+        path: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/post_synth/attempt_1/adapted_tb/tb_comb_adder8.sv
+        requested_modes:
+        applied_modes:
+          - vcd_dump
+        changes:
+          - added waves.vcd dumping for activity-based power estimation
+        generated_files:
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/post_synth/attempt_1/adapted_tb/tb_comb_adder8.sv
+        design_name: comb_adder8
+      reason: null
+      failure_kind: null
       bottleneck_classification:
-        primary_bottleneck: not_run
-        bottleneck_classification: not_run
-        primary_mismatch: not_run
+        primary_bottleneck: match
+        bottleneck_classification: match
+        primary_mismatch: match
         ordered_mismatches:
-          - not_run
+          - match
         metric_kind: unknown
         metric_family_priority: 99
         metric_source_file: null
         reasons:
-          - synthesis did not complete because the environment could not write ORFS outputs
+          - post-synthesis behavior matched the RTL reference on the shared testbench stimulus
         action_family_hint: none
         ordered_bottlenecks:
-          - not_run
-        failure_kind: not_run
-        repairable: true
+          - match
+        failure_kind: match
+        repairable: false
         artifact_to_regenerate: null
       chosen_action_family: none
       repair_suggestions:
   best_attempt_index: 1
-  final_classification: not_run
+  final_classification: pass
   reasons:
-    - synthesis did not complete because the environment could not write ORFS outputs
-  reason: synthesis did not complete because the environment could not write ORFS outputs
-  failure_kind: infrastructure
+    - post-synthesis behavior matched the RTL reference on the shared testbench stimulus
+  reason: null
+  failure_kind: null
+physical_design_flow:
+  order:
+    - floorplan
+    - power_planning
+    - placement
+    - cts
+    - routing
+    - sta
+    - finish
+  stages:
+    floorplan:
+      status: pass
+      evidence_paths:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/2_floorplan_final.rpt
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/2_1_floorplan.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/2_1_floorplan.sdc
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/2_2_floorplan_macro.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/2_2_floorplan_macro.tcl
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/2_3_floorplan_tapcell.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/2_floorplan.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/2_floorplan.sdc
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/2_1_floorplan.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/2_1_floorplan.log
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/2_2_floorplan_macro.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/2_2_floorplan_macro.log
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/2_3_floorplan_tapcell.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/2_3_floorplan_tapcell.log
+      message: stage evidence found
+    power_planning:
+      status: pass
+      evidence_paths:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/2_4_floorplan_pdn.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/2_4_floorplan_pdn.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/2_4_floorplan_pdn.log
+      message: stage evidence found
+    placement:
+      status: pass
+      evidence_paths:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/3_detailed_place.rpt
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/3_global_place.rpt
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/3_1_place_gp_skip_io.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/3_2_place_iop.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/3_2_place_iop.tcl
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/3_3_place_gp.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/3_4_place_resized.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/3_5_place_dp.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/3_place.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/3_place.sdc
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_1_place_gp_skip_io.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_1_place_gp_skip_io.log
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_2_place_iop.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_2_place_iop.log
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_3_place_gp.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_3_place_gp.log
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_4_place_resized.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_4_place_resized.log
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_5_place_dp.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_5_place_dp.log
+      message: stage evidence found
+    cts:
+      status: pass
+      evidence_paths:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/4_cts_final.rpt
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/cts_clk.webp
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/cts_default_clk_layout.webp
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/4_1_cts.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/4_cts.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/4_cts.sdc
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/4_1_cts.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/4_1_cts.log
+      message: stage evidence found
+    routing:
+      status: pass
+      evidence_paths:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/5_global_route.rpt
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/5_route_drc.rpt
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/final_routing.webp
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/5_1_grt.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/5_1_grt.sdc
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/5_2_route.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/5_3_fillcell.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/5_route.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/5_route.sdc
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/route.guide
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_1_grt.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_1_grt.log
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_2_route.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_2_route.log
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_3_fillcell.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_3_fillcell.log
+      message: stage evidence found
+    sta:
+      status: pass
+      evidence_paths:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/6_finish.rpt
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/final_clocks.webp
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/final_worst_path.webp
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.log
+      message: stage evidence found
+    finish:
+      status: pass
+      evidence_paths:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/final_all.webp
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/final_clocks.webp
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/final_congestion.webp
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/final_ir_drop.webp
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/final_placement.webp
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/final_resizer.webp
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/final_routing.webp
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/final_worst_path.webp
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_1_fill.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_1_fill.sdc
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_1_merged.gds
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_final.def
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_final.gds
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_final.odb
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_final.sdc
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_final.spef
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_final.v
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_1_fill.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_1_fill.log
+      message: stage evidence found
+  target: finish
+pipeline_stages:
+  -
+    stage: spec_ingest
+    status: pass
+  -
+    stage: rtl_generation
+    status: pass
+  -
+    stage: simulation
+    status: pass
+  -
+    stage: coverage_analysis
+    status: not_run
+  -
+    stage: synthesis
+    status: pass
+  -
+    stage: dft_insertion
+    status: not_run
+  -
+    stage: atpg_generation
+    status: not_run
+  -
+    stage: lec_check
+    status: not_run
+  -
+    stage: floorplan
+    status: pass
+  -
+    stage: power_planning
+    status: pass
+  -
+    stage: placement
+    status: pass
+  -
+    stage: cts
+    status: pass
+  -
+    stage: routing
+    status: pass
+  -
+    stage: sta
+    status: pass
+  -
+    stage: gate_level_simulation
+    status: pass
+  -
+    stage: gds
+    status: pass
+  -
+    stage: signoff
+    status: partial
 qor_summary:
   timing_wns_ns: 0.0
   timing_tns_ns: 0.0
   setup_violations: 0
   hold_violations: 0
-  logical_area_um2: 287.776
-  physical_area_um2: 1072.0
-  power_mw: 0.13699999999999998
+  logical_area_um2: 524.2528
+  physical_area_um2: 1398.84
+  power_mw: 0.097
   congestion_overflow: 0.0
-  cell_count: 35
+  cell_count: 63
   source_reports:
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/2_floorplan_final.rpt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/5_global_route.rpt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/6_finish.rpt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/synth_stat.txt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/5_1_grt.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/6_report.json
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/2_floorplan_final.rpt
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/5_global_route.rpt
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/6_finish.rpt
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_1_grt.log
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.json
 qor_optimization:
-  enabled: false
-  attempts:
-  best_attempt_index: null
-  final_selected_metrics:
-    timing_wns_ns: 0.0
-    timing_tns_ns: 0.0
+  enabled: true
+  targets:
+    wns: 0.0
+    tns: 0.0
     setup_violations: 0
     hold_violations: 0
-    logical_area_um2: 287.776
-    physical_area_um2: 1072.0
-    power_mw: 0.13699999999999998
+    logical_area: null
+    physical_area: null
+    area: null
+    power: null
+    routability: null
+    congestion: null
+  candidate_registry_used:
+    - setup
+    - timing
+    - hold
+    - logical_area
+    - physical_area
+    - power
+    - routability
+    - congestion
+    - correctness
+  baseline_metrics:
+    timing:
+      wns_ns: 0.0
+      tns_ns: 0.0
+      setup_violation_count: 0
+      hold_violation_count: 0
+      source: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/6_finish.rpt
+    area:
+      logical_um2: 524.2528
+      physical_um2: 1398.84
+      cell_count: 63
+      source:
+        logical_um2: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+        cell_count: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+        physical_um2: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.json
+    power:
+      mw: 0.097
+      source: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/6_finish.rpt
+    routability:
+      congestion: 0.0
+      utilization: 0.0439898
+      wirelength_um: 3291.0
+      source:
+        congestion: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.json
+        utilization: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.json
+        wirelength_um: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_1_grt.log
+    metadata:
+      platform: sky130hd
+      design_name: comb_adder8
+      clock_period_ns: 10.0
+      report_paths:
+        finish_report: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/6_finish.rpt
+        synth_stats: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+        floorplan_report: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/2_floorplan_final.rpt
+        route_report: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/5_global_route.rpt
+        finish_json: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.json
+        grt_log: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_1_grt.log
+        clock_period: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/clock_period.txt
+      missing_reports:
+        - congestion_report
+    metric_kind: null
+    bottleneck_classification: null
+    metric_source_file: null
+    raw_reports:
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/6_finish.rpt
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.json
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/2_floorplan_final.rpt
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/5_global_route.rpt
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_1_grt.log
+    targets:
+      wns: 0.0
+      tns: 0.0
+      setup_violations: 0
+      hold_violations: 0
+      logical_area: null
+      physical_area: null
+      area: null
+      power: null
+      routability: null
+      congestion: null
+    wns_ns: 0.0
+    tns_ns: 0.0
+    setup_violation_count: 0
+    hold_violation_count: 0
+    logical_area_um2: 524.2528
+    physical_area_um2: 1398.84
+    power_mw: 0.097
+    congestion: 0.0
     congestion_overflow: 0.0
-    cell_count: 35
-    source_reports:
-      - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/2_floorplan_final.rpt
-      - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/5_global_route.rpt
-      - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/6_finish.rpt
-      - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/synth_stat.txt
-      - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/5_1_grt.log
-      - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/6_report.json
+    utilization: 0.0439898
+    wirelength_um: 3291.0
+    cell_count: 63
+  attempts:
+    -
+      attempt: 1
+      spec_name: comb_adder8
+      design_kind: generic
+      target: finish
+      status: pass
+      returncode: 0
+      command: /usr/bin/make -C /home/sudar762/OpenROAD-flow-scripts/flow DESIGN_CONFIG=/home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/design/config.mk finish
+      config_path: build/flow/comb_adder8/design/config.mk
+      metrics:
+        timing:
+          wns_ns: 0.0
+          tns_ns: 0.0
+          setup_violation_count: 0
+          hold_violation_count: 0
+          source: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/6_finish.rpt
+        area:
+          logical_um2: 524.2528
+          physical_um2: 1398.84
+          cell_count: 63
+          source:
+            logical_um2: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+            cell_count: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+            physical_um2: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.json
+        power:
+          mw: 0.097
+          source: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/6_finish.rpt
+        routability:
+          congestion: 0.0
+          utilization: 0.0439898
+          wirelength_um: 3291.0
+          source:
+            congestion: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.json
+            utilization: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.json
+            wirelength_um: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_1_grt.log
+        metadata:
+          platform: sky130hd
+          design_name: comb_adder8
+          clock_period_ns: 10.0
+          report_paths:
+            finish_report: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/6_finish.rpt
+            synth_stats: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+            floorplan_report: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/2_floorplan_final.rpt
+            route_report: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/5_global_route.rpt
+            finish_json: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.json
+            grt_log: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_1_grt.log
+            clock_period: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/clock_period.txt
+          missing_reports:
+            - congestion_report
+        metric_kind: null
+        bottleneck_classification: null
+        metric_source_file: null
+        raw_reports:
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/6_finish.rpt
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.json
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/2_floorplan_final.rpt
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/5_global_route.rpt
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_1_grt.log
+        targets:
+          wns: 0.0
+          tns: 0.0
+          setup_violations: 0
+          hold_violations: 0
+          logical_area: null
+          physical_area: null
+          area: null
+          power: null
+          routability: null
+          congestion: null
+        wns_ns: 0.0
+        tns_ns: 0.0
+        setup_violation_count: 0
+        hold_violation_count: 0
+        logical_area_um2: 524.2528
+        physical_area_um2: 1398.84
+        power_mw: 0.097
+        congestion: 0.0
+        congestion_overflow: 0.0
+        utilization: 0.0439898
+        wirelength_um: 3291.0
+        cell_count: 63
+      signoff:
+        status: partial
+        drc_status: partial
+        lvs_status: partial
+        drc_violation_count: 0
+        lvs_mismatch_count: 0
+        signoff_tool_availability:
+          magic: true
+          netgen: true
+          magic_usable: true
+          netgen_usable: false
+          magic_path: /usr/bin/magic
+          netgen_path: /usr/bin/netgen
+        signoff_reports:
+          drc_report_paths:
+            - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/drc/magic_drc.rpt
+          lvs_report_paths:
+            - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/lvs/netgen_lvs.rpt
+        signoff_artifacts:
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/drc/magic_drc.tcl
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/drc/magic_drc.rpt
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/lvs/netgen_lvs.tcl
+          - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/lvs/netgen_lvs.rpt
+        magic_rcfile_used: null
+        netgen_env_used:
+          NETGENDIR: /usr/share/netgen
+          LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu/netgen
+          OMPI_MCA_plm: isolated
+          OMPI_MCA_btl: self
+        retry_attempts:
+          netgen: 0
+        failure_kind: unsupported
+        metric_kind: unknown
+        action_family_hint: none
+        ordered_bottlenecks:
+          - netgen
+        notes:
+          - could not find a Magic rcfile near /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef
+          - could not find a Netgen LVS setup file
+        enabled: true
+        drc:
+          command: null
+          returncode: null
+          stdout: ""
+          stderr: ""
+          drc_status: partial
+          lvs_status: not_run
+          drc_violation_count: 0
+          lvs_mismatch_count: 0
+          signoff_tool_availability:
+            magic: true
+            netgen: true
+            magic_usable: true
+            netgen_usable: false
+            magic_path: /usr/bin/magic
+            netgen_path: /usr/bin/netgen
+          signoff_reports:
+            - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/drc/magic_drc.rpt
+          signoff_artifacts:
+            - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/drc/magic_drc.tcl
+            - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/drc/magic_drc.rpt
+          magic_rcfile_used: null
+          netgen_env_used:
+          retry_attempts:
+            netgen: 0
+          notes:
+            - could not find a Magic rcfile near /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef
+          tool: magic
+          design_name: comb_adder8
+          gds_path: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_final.gds
+          tech_lef: /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef
+        lvs:
+          command: null
+          returncode: null
+          stdout: ""
+          stderr: ""
+          drc_status: not_run
+          lvs_status: partial
+          drc_violation_count: 0
+          lvs_mismatch_count: 0
+          signoff_tool_availability:
+            magic: true
+            netgen: true
+            magic_usable: true
+            netgen_usable: false
+            magic_path: /usr/bin/magic
+            netgen_path: /usr/bin/netgen
+          signoff_reports:
+            - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/lvs/netgen_lvs.rpt
+          signoff_artifacts:
+            - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/lvs/netgen_lvs.tcl
+            - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/lvs/netgen_lvs.rpt
+          magic_rcfile_used: null
+          netgen_env_used:
+            NETGENDIR: /usr/share/netgen
+            LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu/netgen
+            OMPI_MCA_plm: isolated
+            OMPI_MCA_btl: self
+          retry_attempts:
+            netgen: 0
+          notes:
+            - could not find a Netgen LVS setup file
+          tool: netgen
+          layout_netlist: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_final.v
+          schematic_netlist: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/design/src/comb_adder8.v
+      metric_kind: unknown
+      bottleneck_classification:
+        primary_bottleneck: unknown
+        metric_kind: unknown
+        bottleneck_classification: unknown
+        reasons:
+          - No target miss or dominant QoR hotspot detected.
+        metric_source_file: null
+        action_family_hint: none
+        metric_family_priority: 99
+      chosen_action_family: none
+      chosen_knobs:
+      candidate_id: null
+      candidate_family: null
+      candidate_why: null
+      candidate_ml_predicted_score: null
+      candidate_ml_ranking_reason: null
+      candidate_ml_features: null
+      metric_source_file: null
+      tuning_action:
+      score: -47.9642
+      score_before: -47.9642
+      score_delta: 0.0
+      score_reasons:
+        - WNS contribution 0.00
+        - TNS contribution 0.00
+        - setup violation contribution -0.00
+        - hold violation contribution -0.00
+        - logical area contribution -30.00
+        - physical area contribution -6.99
+        - power contribution -0.97
+        - routability contribution -0.00
+        - signoff penalty 5.00 because DRC is unsupported or partial
+        - signoff penalty 5.00 because LVS is unsupported or partial
+      targets_met: true
+      signoff_targets_met: true
+      improvement_amount: null
+      beat_baseline: false
+      behavior_match: true
+      post_synth_pass: true
+      action_family_matched_bottleneck: true
+      snapshot_paths:
+        6_finish.rpt: build/flow/comb_adder8/qor_attempts/attempt_1/6_finish.rpt
+        synth_stat.txt: build/flow/comb_adder8/qor_attempts/attempt_1/synth_stat.txt
+        5_1_grt.log: build/flow/comb_adder8/qor_attempts/attempt_1/5_1_grt.log
+        6_report.json: build/flow/comb_adder8/qor_attempts/attempt_1/6_report.json
+        clock_period.txt: build/flow/comb_adder8/qor_attempts/attempt_1/clock_period.txt
+        openroad_openroad_attempt_1.log: build/flow/comb_adder8/qor_attempts/attempt_1/openroad_openroad_attempt_1.log
+  attempt_metrics:
+    -
+      timing:
+        wns_ns: 0.0
+        tns_ns: 0.0
+        setup_violation_count: 0
+        hold_violation_count: 0
+        source: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/6_finish.rpt
+      area:
+        logical_um2: 524.2528
+        physical_um2: 1398.84
+        cell_count: 63
+        source:
+          logical_um2: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+          cell_count: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+          physical_um2: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.json
+      power:
+        mw: 0.097
+        source: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/6_finish.rpt
+      routability:
+        congestion: 0.0
+        utilization: 0.0439898
+        wirelength_um: 3291.0
+        source:
+          congestion: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.json
+          utilization: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.json
+          wirelength_um: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_1_grt.log
+      metadata:
+        platform: sky130hd
+        design_name: comb_adder8
+        clock_period_ns: 10.0
+        report_paths:
+          finish_report: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/6_finish.rpt
+          synth_stats: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+          floorplan_report: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/2_floorplan_final.rpt
+          route_report: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/5_global_route.rpt
+          finish_json: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.json
+          grt_log: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_1_grt.log
+          clock_period: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/clock_period.txt
+        missing_reports:
+          - congestion_report
+      metric_kind: null
+      bottleneck_classification: null
+      metric_source_file: null
+      raw_reports:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/6_finish.rpt
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.json
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/2_floorplan_final.rpt
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/5_global_route.rpt
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_1_grt.log
+      targets:
+        wns: 0.0
+        tns: 0.0
+        setup_violations: 0
+        hold_violations: 0
+        logical_area: null
+        physical_area: null
+        area: null
+        power: null
+        routability: null
+        congestion: null
+      wns_ns: 0.0
+      tns_ns: 0.0
+      setup_violation_count: 0
+      hold_violation_count: 0
+      logical_area_um2: 524.2528
+      physical_area_um2: 1398.84
+      power_mw: 0.097
+      congestion: 0.0
+      congestion_overflow: 0.0
+      utilization: 0.0439898
+      wirelength_um: 3291.0
+      cell_count: 63
+  score_per_attempt:
+    -
+      attempt: 1
+      score: -47.9642
+  best_attempt_index: 1
+  best_score: -47.9642
+  final_selected_metrics:
+    timing:
+      wns_ns: 0.0
+      tns_ns: 0.0
+      setup_violation_count: 0
+      hold_violation_count: 0
+      source: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/6_finish.rpt
+    area:
+      logical_um2: 524.2528
+      physical_um2: 1398.84
+      cell_count: 63
+      source:
+        logical_um2: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+        cell_count: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+        physical_um2: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.json
+    power:
+      mw: 0.097
+      source: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/6_finish.rpt
+    routability:
+      congestion: 0.0
+      utilization: 0.0439898
+      wirelength_um: 3291.0
+      source:
+        congestion: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.json
+        utilization: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.json
+        wirelength_um: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_1_grt.log
+    metadata:
+      platform: sky130hd
+      design_name: comb_adder8
+      clock_period_ns: 10.0
+      report_paths:
+        finish_report: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/6_finish.rpt
+        synth_stats: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+        floorplan_report: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/2_floorplan_final.rpt
+        route_report: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/5_global_route.rpt
+        finish_json: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.json
+        grt_log: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_1_grt.log
+        clock_period: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/clock_period.txt
+      missing_reports:
+        - congestion_report
+    metric_kind: null
+    bottleneck_classification: null
+    metric_source_file: null
+    raw_reports:
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/6_finish.rpt
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.json
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/2_floorplan_final.rpt
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/5_global_route.rpt
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_1_grt.log
+    targets:
+      wns: 0.0
+      tns: 0.0
+      setup_violations: 0
+      hold_violations: 0
+      logical_area: null
+      physical_area: null
+      area: null
+      power: null
+      routability: null
+      congestion: null
+    wns_ns: 0.0
+    tns_ns: 0.0
+    setup_violation_count: 0
+    hold_violation_count: 0
+    logical_area_um2: 524.2528
+    physical_area_um2: 1398.84
+    power_mw: 0.097
+    congestion: 0.0
+    congestion_overflow: 0.0
+    utilization: 0.0439898
+    wirelength_um: 3291.0
+    cell_count: 63
   final_signoff:
-    status: not_run
+    status: partial
+    drc_status: partial
+    lvs_status: partial
+    drc_violation_count: 0
+    lvs_mismatch_count: 0
+    signoff_tool_availability:
+      magic: true
+      netgen: true
+      magic_usable: true
+      netgen_usable: false
+      magic_path: /usr/bin/magic
+      netgen_path: /usr/bin/netgen
+    signoff_reports:
+      drc_report_paths:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/drc/magic_drc.rpt
+      lvs_report_paths:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/lvs/netgen_lvs.rpt
+    signoff_artifacts:
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/drc/magic_drc.tcl
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/drc/magic_drc.rpt
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/lvs/netgen_lvs.tcl
+      - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/lvs/netgen_lvs.rpt
+    magic_rcfile_used: null
+    netgen_env_used:
+      NETGENDIR: /usr/share/netgen
+      LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu/netgen
+      OMPI_MCA_plm: isolated
+      OMPI_MCA_btl: self
+    retry_attempts:
+      netgen: 0
+    failure_kind: unsupported
+    metric_kind: unknown
+    action_family_hint: none
+    ordered_bottlenecks:
+      - netgen
     notes:
-      - signoff disabled or not applicable
+      - could not find a Magic rcfile near /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef
+      - could not find a Netgen LVS setup file
+    enabled: true
+    drc:
+      command: null
+      returncode: null
+      stdout: ""
+      stderr: ""
+      drc_status: partial
+      lvs_status: not_run
+      drc_violation_count: 0
+      lvs_mismatch_count: 0
+      signoff_tool_availability:
+        magic: true
+        netgen: true
+        magic_usable: true
+        netgen_usable: false
+        magic_path: /usr/bin/magic
+        netgen_path: /usr/bin/netgen
+      signoff_reports:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/drc/magic_drc.rpt
+      signoff_artifacts:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/drc/magic_drc.tcl
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/drc/magic_drc.rpt
+      magic_rcfile_used: null
+      netgen_env_used:
+      retry_attempts:
+        netgen: 0
+      notes:
+        - could not find a Magic rcfile near /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef
+      tool: magic
+      design_name: comb_adder8
+      gds_path: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_final.gds
+      tech_lef: /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef
+    lvs:
+      command: null
+      returncode: null
+      stdout: ""
+      stderr: ""
+      drc_status: not_run
+      lvs_status: partial
+      drc_violation_count: 0
+      lvs_mismatch_count: 0
+      signoff_tool_availability:
+        magic: true
+        netgen: true
+        magic_usable: true
+        netgen_usable: false
+        magic_path: /usr/bin/magic
+        netgen_path: /usr/bin/netgen
+      signoff_reports:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/lvs/netgen_lvs.rpt
+      signoff_artifacts:
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/lvs/netgen_lvs.tcl
+        - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/lvs/netgen_lvs.rpt
+      magic_rcfile_used: null
+      netgen_env_used:
+        NETGENDIR: /usr/share/netgen
+        LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu/netgen
+        OMPI_MCA_plm: isolated
+        OMPI_MCA_btl: self
+      retry_attempts:
+        netgen: 0
+      notes:
+        - could not find a Netgen LVS setup file
+      tool: netgen
+      layout_netlist: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_final.v
+      schematic_netlist: /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/design/src/comb_adder8.v
   improved: false
-  targets_met: false
+  targets_met: true
+  selected_config_path: build/flow/comb_adder8/design/config.mk
+  chosen_action_family: none
+  metric_kind: unknown
+  bottleneck_classification:
+    primary_bottleneck: unknown
+    metric_kind: unknown
+    bottleneck_classification: unknown
+    reasons:
+      - No target miss or dominant QoR hotspot detected.
+    metric_source_file: null
+    action_family_hint: none
+    metric_family_priority: 99
+  action_family_matched_bottleneck: true
+  repairs_attempted:
+  signoff_enabled: true
+  signoff_only: false
+  rounds_executed: 0
+  stop_reason: targets_met
+  why_the_best_candidate_won: baseline remained best because no candidate improved the multi-objective score
+  why_the_loop_stopped: baseline already met all QoR targets
   ml_tuning:
     enabled: false
     history_path: build/ml_history.json
     features_used:
-    ranking_reason: ML tuning disabled
+      - spec_name
+      - design_kind
+      - metric_kind
+      - bottleneck_classification
+      - candidate_family
+      - candidate_knobs
+      - timing_pressure
+      - setup_violations
+      - hold_violations
+      - logical_area_um2
+      - physical_area_um2
+      - power_mw
+      - congestion
+      - utilization
+      - clock_period_ns
+    ranking_reason: baseline remained best after learned reranking
     candidate_rankings:
-    selected_candidate: null
-    score_before: null
-    score_after: null
-    improvement_amount: null
-    best_attempt_index: null
-    targets_met: false
+    selected_candidate:
+      attempt: 1
+      candidate_id: null
+      candidate_family: null
+      ranking_reason: null
+      predicted_score: null
+    score_before: -47.9642
+    score_after: -47.9642
+    improvement_amount: 0.0
+    best_attempt_index: 1
+    targets_met: true
 signoff:
   enabled: true
   tool_availability:
@@ -150,36 +1626,56 @@ signoff:
     netgen: /usr/bin/netgen
   magic_rcfile_used: null
   netgen_env_used:
+    NETGENDIR: /usr/share/netgen
+    LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu/netgen
+    OMPI_MCA_plm: isolated
+    OMPI_MCA_btl: self
   retry_attempts:
-  drc_status: not_run
-  lvs_status: not_run
+    netgen: 0
+  drc_status: partial
+  lvs_status: partial
   drc_violation_count: 0
   lvs_mismatch_count: 0
-  failure_kind: null
+  failure_kind: unsupported
   drc_report_paths:
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/drc/magic_drc.rpt
   lvs_report_paths:
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/lvs/netgen_lvs.rpt
   artifact_paths:
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/drc/magic_drc.tcl
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/drc/magic_drc.rpt
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/lvs/netgen_lvs.tcl
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/signoff/lvs/netgen_lvs.rpt
   bottleneck_classification:
-    primary_bottleneck: unknown
-    bottleneck_classification: unknown
+    primary_bottleneck: signoff_support
+    bottleneck_classification: unsupported
     metric_kind: unknown
     metric_family_priority: 99
     metric_source_file: null
     reasons:
-      - No actionable signoff bottleneck detected.
+      - "signoff partially supported: netgen"
+      - could not find a Magic rcfile near /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef
+      - could not find a Netgen LVS setup file
     action_family_hint: none
     ordered_bottlenecks:
-    failure_kind: clean
+      - netgen
+    failure_kind: unsupported
   repairs_attempted:
   targets_met: true
-  final_classification: not_run
+  final_classification: partial
   notes:
-    - signoff disabled or not applicable
+    - could not find a Magic rcfile near /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef
+    - could not find a Netgen LVS setup file
 artifacts:
   generated_rtl_path: rtl/comb_adder8.v
   generated_testbench_path: tb/tb_comb_adder8.sv
   compile_log: build/pipeline/comb_adder8/logs/compile.log
   simulation_log: build/pipeline/comb_adder8/logs/simulation.log
+  coverage_log: build/pipeline/comb_adder8/logs/coverage_analysis.log
+  dft_log: null
+  atpg_log: null
+  lec_log: null
+  final_gds: build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_final.gds
   synthesis_openroad_logs:
     - build/flow/comb_adder8/logs/openroad_openroad_attempt_1.log
   output_artifacts:
@@ -187,225 +1683,232 @@ artifacts:
     - build/flow/comb_adder8/design/filelist.f
     - build/flow/comb_adder8/design/filelist.tcl
     - build/flow/comb_adder8/design/config.mk
+    - build/flow/comb_adder8/design/power_activity.tcl
     - build/flow/comb_adder8/design/design_manifest.yaml
     - build/flow/comb_adder8/design/README.md
     - build/flow/comb_adder8/design/constraint.sdc
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/2_floorplan_final.rpt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/3_detailed_place.rpt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/3_global_place.rpt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/3_resizer.rpt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/4_cts_final.rpt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/5_global_route.rpt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/5_route_drc.rpt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/6_finish.rpt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/drt_antennas.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/final_all.webp
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/final_clocks.webp
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/final_congestion.webp
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/final_ir_drop.webp
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/final_placement.webp
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/final_resizer.webp
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/final_routing.webp
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/final_worst_path.webp
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/grt_antennas.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/synth_check.txt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/synth_stat.txt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/1_1_yosys_canonicalize.rtlil
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/1_2_yosys.sdc
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/1_2_yosys.v
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/1_synth.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/1_synth.sdc
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/2_1_floorplan.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/2_1_floorplan.sdc
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/2_2_floorplan_macro.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/2_2_floorplan_macro.tcl
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/2_3_floorplan_tapcell.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/2_4_floorplan_pdn.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/2_floorplan.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/2_floorplan.sdc
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/3_1_place_gp_skip_io.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/3_2_place_iop.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/3_2_place_iop.tcl
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/3_3_place_gp.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/3_4_place_resized.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/3_5_place_dp.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/3_place.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/3_place.sdc
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/4_1_cts.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/4_after_rsz_lec.v
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/4_before_rsz_lec.v
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/4_cts.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/4_cts.sdc
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/5_1_grt.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/5_1_grt.sdc
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/5_2_route.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/5_3_fillcell.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/5_route.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/5_route.sdc
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/6_1_fill.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/6_1_fill.sdc
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/6_1_merged.gds
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/6_final.def
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/6_final.gds
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/6_final.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/6_final.sdc
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/6_final.spef
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/6_final.v
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/clock_period.txt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/mem.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/route.guide
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/1_1_yosys_canonicalize.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/1_2_yosys.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/1_synth.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/1_synth.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/2_1_floorplan.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/2_1_floorplan.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/2_2_floorplan_macro.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/2_2_floorplan_macro.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/2_3_floorplan_tapcell.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/2_3_floorplan_tapcell.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/2_4_floorplan_pdn.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/2_4_floorplan_pdn.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/3_1_place_gp_skip_io.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/3_1_place_gp_skip_io.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/3_2_place_iop.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/3_2_place_iop.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/3_3_place_gp.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/3_3_place_gp.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/3_4_place_resized.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/3_4_place_resized.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/3_5_place_dp.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/3_5_place_dp.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/4_1_cts.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/4_1_cts.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/4_rsz_lec_check.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/5_1_grt.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/5_1_grt.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/5_2_route.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/5_2_route.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/5_3_fillcell.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/5_3_fillcell.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/6_1_fill.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/6_1_fill.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/6_1_merge.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/6_report.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/6_report.log
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/2_floorplan_final.rpt
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/3_detailed_place.rpt
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/3_global_place.rpt
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/3_resizer.rpt
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/4_cts_final.rpt
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/5_global_route.rpt
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/5_route_drc.rpt
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/6_finish.rpt
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/cts_clk.webp
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/cts_default_clk_layout.webp
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/drt_antennas.log
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/final_all.webp
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/final_clocks.webp
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/final_congestion.webp
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/final_ir_drop.webp
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/final_placement.webp
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/final_resizer.webp
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/final_routing.webp
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/final_worst_path.webp
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/grt_antennas.log
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_check.txt
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/1_1_yosys_canonicalize.rtlil
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/1_2_yosys.sdc
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/1_2_yosys.v
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/1_synth.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/1_synth.sdc
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/2_1_floorplan.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/2_1_floorplan.sdc
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/2_2_floorplan_macro.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/2_2_floorplan_macro.tcl
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/2_3_floorplan_tapcell.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/2_4_floorplan_pdn.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/2_floorplan.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/2_floorplan.sdc
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/3_1_place_gp_skip_io.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/3_2_place_iop.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/3_2_place_iop.tcl
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/3_3_place_gp.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/3_4_place_resized.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/3_5_place_dp.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/3_place.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/3_place.sdc
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/4_1_cts.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/4_after_rsz_lec.v
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/4_before_rsz_lec.v
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/4_cts.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/4_cts.sdc
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/5_1_grt.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/5_1_grt.sdc
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/5_2_route.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/5_3_fillcell.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/5_route.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/5_route.sdc
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_1_fill.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_1_fill.sdc
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_1_merged.gds
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_final.def
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_final.gds
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_final.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_final.sdc
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_final.spef
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_final.v
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/clock_period.txt
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/mem.json
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/route.guide
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/waves.vcd
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/1_1_yosys_canonicalize.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/1_2_yosys.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/1_synth.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/1_synth.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/2_1_floorplan.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/2_1_floorplan.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/2_2_floorplan_macro.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/2_2_floorplan_macro.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/2_3_floorplan_tapcell.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/2_3_floorplan_tapcell.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/2_4_floorplan_pdn.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/2_4_floorplan_pdn.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_1_place_gp_skip_io.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_1_place_gp_skip_io.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_2_place_iop.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_2_place_iop.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_3_place_gp.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_3_place_gp.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_4_place_resized.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_4_place_resized.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_5_place_dp.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_5_place_dp.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/4_1_cts.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/4_1_cts.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/4_rsz_lec_check.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_1_grt.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_1_grt.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_2_route.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_2_route.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_3_fillcell.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_3_fillcell.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_1_fill.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_1_fill.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_1_merge.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.log
     - /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef
     - /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd_merged.lef
     - build/flow/comb_adder8/logs/openroad_openroad_attempt_1.log
   openroad_reports:
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/2_floorplan_final.rpt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/3_detailed_place.rpt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/3_global_place.rpt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/3_resizer.rpt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/4_cts_final.rpt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/5_global_route.rpt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/5_route_drc.rpt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/6_finish.rpt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/drt_antennas.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/final_all.webp
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/final_clocks.webp
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/final_congestion.webp
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/final_ir_drop.webp
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/final_placement.webp
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/final_resizer.webp
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/final_routing.webp
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/final_worst_path.webp
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/grt_antennas.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/synth_check.txt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/synth_stat.txt
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/2_floorplan_final.rpt
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/3_detailed_place.rpt
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/3_global_place.rpt
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/3_resizer.rpt
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/4_cts_final.rpt
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/5_global_route.rpt
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/5_route_drc.rpt
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/6_finish.rpt
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/cts_clk.webp
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/cts_default_clk_layout.webp
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/drt_antennas.log
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/final_all.webp
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/final_clocks.webp
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/final_congestion.webp
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/final_ir_drop.webp
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/final_placement.webp
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/final_resizer.webp
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/final_routing.webp
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/final_worst_path.webp
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/grt_antennas.log
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_check.txt
+    - build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
   openroad_results:
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/1_1_yosys_canonicalize.rtlil
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/1_2_yosys.sdc
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/1_2_yosys.v
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/1_synth.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/1_synth.sdc
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/2_1_floorplan.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/2_1_floorplan.sdc
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/2_2_floorplan_macro.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/2_2_floorplan_macro.tcl
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/2_3_floorplan_tapcell.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/2_4_floorplan_pdn.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/2_floorplan.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/2_floorplan.sdc
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/3_1_place_gp_skip_io.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/3_2_place_iop.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/3_2_place_iop.tcl
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/3_3_place_gp.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/3_4_place_resized.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/3_5_place_dp.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/3_place.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/3_place.sdc
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/4_1_cts.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/4_after_rsz_lec.v
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/4_before_rsz_lec.v
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/4_cts.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/4_cts.sdc
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/5_1_grt.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/5_1_grt.sdc
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/5_2_route.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/5_3_fillcell.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/5_route.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/5_route.sdc
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/6_1_fill.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/6_1_fill.sdc
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/6_1_merged.gds
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/6_final.def
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/6_final.gds
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/6_final.odb
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/6_final.sdc
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/6_final.spef
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/6_final.v
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/clock_period.txt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/mem.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/results/sky130hd/comb_adder8/base/route.guide
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/1_1_yosys_canonicalize.rtlil
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/1_2_yosys.sdc
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/1_2_yosys.v
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/1_synth.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/1_synth.sdc
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/2_1_floorplan.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/2_1_floorplan.sdc
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/2_2_floorplan_macro.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/2_2_floorplan_macro.tcl
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/2_3_floorplan_tapcell.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/2_4_floorplan_pdn.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/2_floorplan.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/2_floorplan.sdc
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/3_1_place_gp_skip_io.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/3_2_place_iop.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/3_2_place_iop.tcl
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/3_3_place_gp.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/3_4_place_resized.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/3_5_place_dp.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/3_place.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/3_place.sdc
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/4_1_cts.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/4_after_rsz_lec.v
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/4_before_rsz_lec.v
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/4_cts.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/4_cts.sdc
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/5_1_grt.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/5_1_grt.sdc
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/5_2_route.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/5_3_fillcell.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/5_route.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/5_route.sdc
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_1_fill.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_1_fill.sdc
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_1_merged.gds
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_final.def
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_final.gds
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_final.odb
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_final.sdc
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_final.spef
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/6_final.v
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/clock_period.txt
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/mem.json
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/route.guide
+    - build/flow/comb_adder8/results/sky130hd/comb_adder8/base/waves.vcd
   openroad_logs:
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/1_1_yosys_canonicalize.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/1_2_yosys.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/1_synth.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/1_synth.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/2_1_floorplan.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/2_1_floorplan.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/2_2_floorplan_macro.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/2_2_floorplan_macro.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/2_3_floorplan_tapcell.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/2_3_floorplan_tapcell.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/2_4_floorplan_pdn.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/2_4_floorplan_pdn.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/3_1_place_gp_skip_io.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/3_1_place_gp_skip_io.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/3_2_place_iop.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/3_2_place_iop.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/3_3_place_gp.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/3_3_place_gp.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/3_4_place_resized.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/3_4_place_resized.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/3_5_place_dp.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/3_5_place_dp.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/4_1_cts.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/4_1_cts.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/4_rsz_lec_check.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/5_1_grt.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/5_1_grt.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/5_2_route.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/5_2_route.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/5_3_fillcell.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/5_3_fillcell.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/6_1_fill.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/6_1_fill.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/6_1_merge.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/6_report.json
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/6_report.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/1_1_yosys_canonicalize.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/1_2_yosys.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/1_synth.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/1_synth.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/2_1_floorplan.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/2_1_floorplan.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/2_2_floorplan_macro.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/2_2_floorplan_macro.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/2_3_floorplan_tapcell.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/2_3_floorplan_tapcell.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/2_4_floorplan_pdn.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/2_4_floorplan_pdn.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_1_place_gp_skip_io.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_1_place_gp_skip_io.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_2_place_iop.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_2_place_iop.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_3_place_gp.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_3_place_gp.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_4_place_resized.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_4_place_resized.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_5_place_dp.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/3_5_place_dp.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/4_1_cts.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/4_1_cts.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/4_rsz_lec_check.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_1_grt.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_1_grt.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_2_route.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_2_route.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_3_fillcell.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_3_fillcell.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_1_fill.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_1_fill.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_1_merge.log
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.json
+    - build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.log
   openroad_other_artifacts:
     - /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef
     - /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd_merged.lef
   qor_report_paths:
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/2_floorplan_final.rpt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/5_global_route.rpt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/6_finish.rpt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/reports/sky130hd/comb_adder8/base/synth_stat.txt
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/5_1_grt.log
-    - /home/sudar762/OpenROAD-flow-scripts/flow/logs/sky130hd/comb_adder8/base/6_report.json
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/2_floorplan_final.rpt
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/5_global_route.rpt
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/6_finish.rpt
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/reports/sky130hd/comb_adder8/base/synth_stat.txt
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/5_1_grt.log
+    - /home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/logs/sky130hd/comb_adder8/base/6_report.json
 commands:
   agent_command: python agent.py --spec /home/sudar762/projects/spec-to-rtl-agent/examples/specs/comb_adder8.yaml --verify sim --max-passes 3 --overwrite
   openroad_command: /usr/bin/make -C /home/sudar762/OpenROAD-flow-scripts/flow DESIGN_CONFIG=/home/sudar762/projects/spec-to-rtl-agent/build/flow/comb_adder8/design/config.mk finish
@@ -416,13 +1919,16 @@ downstream_validation:
   issues:
   environment_messages:
     - PDK_ROOT is not set
-final_classification: infra_failure
+final_classification: pass
 final_outcome:
   rtl_verified: true
   synthesis_collateral_generated: true
   synthesis_run_passed: false
-  openroad_run_passed: false
+  openroad_run_passed: true
   post_synth_behavior_match: true
+  logical_correctness: true
+  qor_ready: true
+  signoff_ready: true
   signoff_passed: true
   partially_supported: false
   unsupported: false

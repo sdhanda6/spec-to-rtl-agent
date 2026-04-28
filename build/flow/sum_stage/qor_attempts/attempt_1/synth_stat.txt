@@ -1,0 +1,36 @@
+
+20. Printing statistics.
+
+=== sum_stage ===
+
+        +----------------------------Count including submodules.
+        |        +-------------------Area including submodules.
+        |        |        +----------Local count, excluding submodules.
+        |        |        |        +-Local area, excluding submodules.
+        |        |        |        | 
+       75        -       75        - wires
+       97        -       97        - wire bits
+        7        -        7        - public wires
+       29        -       29        - public wire bits
+        7        -        7        - ports
+       29        -       29        - port bits
+        -        -        -        - memories
+        -        -        -        - memory bits
+        -        -        -        - processes
+       69  589.315       69  589.315 cells
+        3   15.014        3   15.014   sky130_fd_sc_hd__a21oi_1
+       10   250.24       10   250.24   sky130_fd_sc_hd__dfrtp_1
+        1   20.019        1   20.019   sky130_fd_sc_hd__fa_1
+        8  100.096        8  100.096   sky130_fd_sc_hd__ha_1
+       10   37.536       10   37.536   sky130_fd_sc_hd__inv_1
+       25    93.84       25    93.84   sky130_fd_sc_hd__nand2_1
+        5   25.024        5   25.024   sky130_fd_sc_hd__nand3_1
+        1    7.507        1    7.507   sky130_fd_sc_hd__nand3b_1
+        2    7.507        2    7.507   sky130_fd_sc_hd__nor2_1
+        1    6.256        1    6.256   sky130_fd_sc_hd__or2_1
+        1    8.758        1    8.758   sky130_fd_sc_hd__xnor2_1
+        2   17.517        2   17.517   sky130_fd_sc_hd__xor2_1
+
+   Chip area for module '\sum_stage': 589.315200
+     of which used for sequential elements: 250.240000 (42.46%)
+

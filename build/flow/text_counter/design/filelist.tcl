@@ -1,3 +1,3 @@
 set rtl_files [list \
-    D:/Spring 2026 courses/VLSI Automation/Project 2 Phase 2/build/flow/text_counter/design/src/text_counter.v \
+    /home/sudar762/projects/spec-to-rtl-agent/build/flow/text_counter/design/src/text_counter.v \
 ]

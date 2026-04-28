@@ -1,0 +1,165 @@
+spec_source_type: yaml
+spec_source: examples/specs/p8.yaml
+top_module: fp16_multiplier
+design_kind: generic
+parsed_design_class: generic
+selected_candidate: cand_1
+final_classification: compile_and_smoke_verified
+ambiguity_findings:
+unsupported_findings:
+extracted_semantics:
+  module_name: fp16_multiplier
+  ports:
+    -
+      name: a
+      dir: input
+      width: 16
+      kind: wire
+      description: FP16 input operand A
+    -
+      name: b
+      dir: input
+      width: 16
+      kind: wire
+      description: FP16 input operand B
+    -
+      name: result
+      dir: output
+      width: 16
+      kind: wire
+      description: FP16 product result of A * B
+  clock: null
+  reset: null
+  state:
+  behavior_keys:
+  design_kind_hint: generic
+  flow:
+    tech_node: SkyWater 130HD
+    platform: sky130hd
+    clock_period: 9ns
+    module_signature: |-
+      module fp16_multiplier(
+        input  logic [15:0] a,
+        input  logic [15:0] b,
+        output logic [15:0] result
+      );
+candidate_analysis:
+  candidate_count: 1
+  selected_candidate: cand_1
+  candidates:
+    -
+      candidate_id: cand_1
+      title: structured_document
+      score: 7.5
+      classification: compile_and_smoke_verified
+      assumptions:
+      ambiguity_count: 0
+      unsupported_count: 0
+      internal_checks:
+        - module name present
+        - port list present
+      compile_ok: true
+      simulation_ok: true
+      evidence_level: smoke
+      oracle_independent: false
+      attempts_used: 1
+      extracted_semantics:
+        module_name: fp16_multiplier
+        ports:
+          -
+            name: a
+            dir: input
+            width: 16
+            kind: wire
+            description: FP16 input operand A
+          -
+            name: b
+            dir: input
+            width: 16
+            kind: wire
+            description: FP16 input operand B
+          -
+            name: result
+            dir: output
+            width: 16
+            kind: wire
+            description: FP16 product result of A * B
+        clock: null
+        reset: null
+        state:
+        behavior_keys:
+        design_kind_hint: generic
+        flow:
+          tech_node: SkyWater 130HD
+          platform: sky130hd
+          clock_period: 9ns
+          module_signature: |-
+            module fp16_multiplier(
+              input  logic [15:0] a,
+              input  logic [15:0] b,
+              output logic [15:0] result
+            );
+artifacts:
+  rtl: rtl/fp16_multiplier.v
+  testbench: tb/tb_fp16_multiplier.sv
+generation_status:
+  rtl_generation_status: pass
+  testbench_generation_status: pass
+repair_loop:
+  enabled: true
+  max_attempts: 3
+  attempts_used: 1
+  injected_fault: null
+  repaired_after_feedback: false
+  unrepaired_after_retry_limit: false
+  attempts:
+    -
+      attempt: 1
+      strategy: direct
+      rtl_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/fp16_multiplier/cand_1/attempt_1/fp16_multiplier.v
+      testbench_file: /home/sudar762/projects/spec-to-rtl-agent/build/attempts/fp16_multiplier/cand_1/attempt_1/tb_fp16_multiplier.sv
+      compile_command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/fp16_multiplier/cand_1/fp16_multiplier.v
+      simulation_command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/fp16_multiplier_sim.out
+      compile_status: pass
+      simulation_status: pass
+      compile_stdout: ""
+      compile_stderr: |-
+        /home/sudar762/projects/spec-to-rtl-agent/build/candidates/fp16_multiplier/cand_1/fp16_multiplier.v:10: warning: @* found no sensitivities so it will never trigger.
+      simulation_stdout: |-
+        PASS tb_fp16_multiplier
+        /home/sudar762/projects/spec-to-rtl-agent/build/candidates/fp16_multiplier/cand_1/tb_fp16_multiplier.sv:19: $finish called at 10000 (1ps)
+      simulation_stderr: ""
+      diagnosis_summary: simulation passed on the current RTL/testbench pair
+      next_regeneration_changes:
+verification:
+  support_status: partially_supported
+  requested_mode: sim
+  requested_level: smoke
+  generated_testbench_kind: generic_smoke
+  oracle_independent: false
+  compile_pass: true
+  smoke_sim_pass: true
+  functional_sim_pass: false
+  overall_pass: true
+  covered_checks:
+  limitations:
+    - no independent functional oracle for this design kind
+  notes:
+  partial_verification_reasons:
+    - no independent functional oracle for this design kind
+    - simulation did not meet the requested functional evidence threshold
+  assumptions:
+  conclusion: simulation passed, but only smoke-level evidence is available
+  compile:
+    attempt: 1
+    ok: true
+    message: "/home/sudar762/projects/spec-to-rtl-agent/build/candidates/fp16_multiplier/cand_1/fp16_multiplier.v:10: warning: @* found no sensitivities so it will never trigger."
+    command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/fp16_multiplier/cand_1/fp16_multiplier.v
+  simulation:
+    attempt: 1
+    ok: true
+    message: |-
+      PASS tb_fp16_multiplier
+      /home/sudar762/projects/spec-to-rtl-agent/build/candidates/fp16_multiplier/cand_1/tb_fp16_multiplier.sv:19: $finish called at 10000 (1ps)
+    command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/fp16_multiplier_sim.out
+  retry_history:

@@ -1,0 +1,28 @@
+
+20. Printing statistics.
+
+=== register8 ===
+
+        +----------------------------Count including submodules.
+        |        +-------------------Area including submodules.
+        |        |        +----------Local count, excluding submodules.
+        |        |        |        +-Local area, excluding submodules.
+        |        |        |        | 
+       31        -       31        - wires
+       45        -       45        - wire bits
+        5        -        5        - public wires
+       19        -       19        - public wire bits
+        5        -        5        - ports
+       19        -       19        - port bits
+        -        -        -        - memories
+        -        -        -        - memory bits
+        -        -        -        - processes
+       34  305.293       34  305.293 cells
+        1   11.261        1   11.261   sky130_fd_sc_hd__buf_6
+        8  200.192        8  200.192   sky130_fd_sc_hd__dfrtp_1
+        1    3.754        1    3.754   sky130_fd_sc_hd__inv_2
+       24   90.086       24   90.086   sky130_fd_sc_hd__nand2_1
+
+   Chip area for module '\register8': 305.292800
+     of which used for sequential elements: 200.192000 (65.57%)
+

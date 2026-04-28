@@ -1,0 +1,28 @@
+top: pipelined_adder
+design_kind: generic
+platform: sky130hd
+rtl: /home/sudar762/projects/spec-to-rtl-agent/build/flow/pipelined_adder/design/src/pipelined_adder.v
+testbench: /home/sudar762/projects/spec-to-rtl-agent/tb/tb_pipelined_adder.sv
+clock_port: clk
+clock_period_ns: 10
+ports:
+  -
+    name: clk
+    dir: input
+    width: 1
+  -
+    name: reset
+    dir: input
+    width: 1
+  -
+    name: a
+    dir: input
+    width: 16
+  -
+    name: b
+    dir: input
+    width: 16
+  -
+    name: y
+    dir: output
+    width: 16

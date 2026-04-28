@@ -1,0 +1,5 @@
+## Simulation
+command: /home/sudar762/tools/oss-cad-suite/bin/vvp /home/sudar762/projects/spec-to-rtl-agent/build/alu8_sim.out
+status: pass
+PASS tb_alu8
+/home/sudar762/projects/spec-to-rtl-agent/build/candidates/alu8/cand_1/tb_alu8.sv:28: $finish called at 10000 (1ps)

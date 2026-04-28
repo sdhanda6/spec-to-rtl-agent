@@ -1,0 +1,36 @@
+top: sum_stage
+design_kind: generic
+platform: sky130hd
+rtl: /home/sudar762/projects/spec-to-rtl-agent/build/flow/sum_stage/design/src/sum_stage.v
+testbench: /home/sudar762/projects/spec-to-rtl-agent/tb/tb_sum_stage.sv
+clock_port: clk
+clock_period_ns: 10.0
+ports:
+  -
+    name: clk
+    dir: input
+    width: 1
+  -
+    name: rst_n
+    dir: input
+    width: 1
+  -
+    name: in_valid
+    dir: input
+    width: 1
+  -
+    name: a
+    dir: input
+    width: 8
+  -
+    name: b
+    dir: input
+    width: 8
+  -
+    name: sum_out
+    dir: output
+    width: 9
+  -
+    name: valid
+    dir: output
+    width: 1

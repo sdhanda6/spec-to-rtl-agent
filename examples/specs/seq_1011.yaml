@@ -1,0 +1,19 @@
+module:
+  name: seq_1011
+  ports:
+    - name: clk
+      dir: input
+    - name: reset
+      dir: input
+    - name: din
+      dir: input
+    - name: dout
+      dir: output
+      kind: reg
+behavior:
+  operations:
+    - if reset == 1: state = 0
+    - if state == 0 and din == 1: state = 1
+    - if state == 1 and din == 0: state = 2
+    - if state == 2 and din == 1: state = 3
+    - if state == 3 and din == 1: dout = 1

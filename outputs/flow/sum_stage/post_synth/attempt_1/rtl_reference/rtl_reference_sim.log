@@ -1,0 +1,2 @@
+PASS tb_sum_stage
+/home/sudar762/projects/spec-to-rtl-agent/tb/tb_sum_stage.sv:70: $finish called at 16000 (1ps)

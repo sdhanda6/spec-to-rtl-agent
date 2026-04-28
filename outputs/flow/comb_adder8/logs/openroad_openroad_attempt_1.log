@@ -1,0 +1,7 @@
+make: Entering directory '/home/sudar762/OpenROAD-flow-scripts/flow'
+mkdir -p results/sky130hd/comb_adder8/base/
+echo  > results/sky130hd/comb_adder8/base/clock_period.txt
+make: Leaving directory '/home/sudar762/OpenROAD-flow-scripts/flow'
+
+bash: line 1: results/sky130hd/comb_adder8/base/clock_period.txt: Read-only file system
+make: *** [Makefile:261: results/sky130hd/comb_adder8/base/clock_period.txt] Error 1

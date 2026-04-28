@@ -1,0 +1,60 @@
+[2026-04-27 11:02:00.296] [miter_logger] [info] MiterStrategy::run starting
+[2026-04-27 11:02:00.296] [miter_logger] [info] Collecting POs for design 0: fp16_multiplier
+
+[2026-04-27 11:02:00.297] [miter_logger] [info] Collected 66 PIs for design 0
+
+[2026-04-27 11:02:00.297] [miter_logger] [info] Collected 16 POs for design 0
+
+[2026-04-27 11:02:00.297] [miter_logger] [info] design 0 PI summary by model/term (66 total terminals, 6 unique rows):
+| Model                   | Term  | Count |
+|-------------------------|-------|-------|
+| fp16_multiplier         | a     |    16 |
+| fp16_multiplier         | b     |    16 |
+| sky130_fd_sc_hd__conb_1 | HI    |    16 |
+| sky130_fd_sc_hd__conb_1 | LO    |    16 |
+| fp16_multiplier         | clk   |     1 |
+| fp16_multiplier         | reset |     1 |
+
+[2026-04-27 11:02:00.297] [miter_logger] [info] design 0 PO summary by model/term (16 total terminals, 1 unique rows):
+| Model           | Term   | Count |
+|-----------------|--------|-------|
+| fp16_multiplier | result |    16 |
+
+[2026-04-27 11:02:00.297] [miter_logger] [info] Collecting POs for design 1: fp16_multiplier
+
+[2026-04-27 11:02:00.297] [miter_logger] [info] Collected 66 PIs for design 1
+
+[2026-04-27 11:02:00.297] [miter_logger] [info] Collected 16 POs for design 1
+
+[2026-04-27 11:02:00.297] [miter_logger] [info] design 1 PI summary by model/term (66 total terminals, 6 unique rows):
+| Model                   | Term  | Count |
+|-------------------------|-------|-------|
+| fp16_multiplier         | a     |    16 |
+| fp16_multiplier         | b     |    16 |
+| sky130_fd_sc_hd__conb_1 | HI    |    16 |
+| sky130_fd_sc_hd__conb_1 | LO    |    16 |
+| fp16_multiplier         | clk   |     1 |
+| fp16_multiplier         | reset |     1 |
+
+[2026-04-27 11:02:00.297] [miter_logger] [info] design 1 PO summary by model/term (16 total terminals, 1 unique rows):
+| Model           | Term   | Count |
+|-----------------|--------|-------|
+| fp16_multiplier | result |    16 |
+
+[2026-04-27 11:02:00.297] [miter_logger] [info] normalizeInputs: starting
+[2026-04-27 11:02:00.297] [miter_logger] [info] size of common inputs: 66
+[2026-04-27 11:02:00.297] [miter_logger] [info] size of diff0 inputs: 0
+[2026-04-27 11:02:00.297] [miter_logger] [info] size of diff1 inputs: 0
+[2026-04-27 11:02:00.297] [miter_logger] [info] normalizeOutputs: starting
+[2026-04-27 11:02:00.297] [miter_logger] [info] size of common outputs: 16
+[2026-04-27 11:02:00.297] [miter_logger] [info] size of diff0 outputs: 0
+[2026-04-27 11:02:00.297] [miter_logger] [info] size of diff1 outputs: 0
+[2026-04-27 11:02:00.297] [miter_logger] [info] size of PIs in circuit 0: 66
+[2026-04-27 11:02:00.297] [miter_logger] [info] size of PIs in circuit 1: 66
+[2026-04-27 11:02:00.297] [miter_logger] [info] size of POs in circuit 0: 16
+[2026-04-27 11:02:00.297] [miter_logger] [info] size of POs in circuit 1: 16
+[2026-04-27 11:02:00.298] [miter_logger] [info] Building miter expression
+[2026-04-27 11:02:00.298] [miter_logger] [info] Finished building miter expression
+[2026-04-27 11:02:00.298] [miter_logger] [info] SAT solver starting
+[2026-04-27 11:02:00.298] [miter_logger] [info] SAT solver finished: UNSAT
+[2026-04-27 11:02:00.298] [miter_logger] [info] Circuits are IDENTICAL

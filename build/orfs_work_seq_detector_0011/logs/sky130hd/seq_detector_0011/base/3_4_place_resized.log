@@ -1,0 +1,31 @@
+OpenROAD 26Q2-209-g0d9d73ffba 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 8 thread(s).
+read_liberty /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_seq_detector_0011/results/sky130hd/seq_detector_0011/base/3_3_place_gp.odb
+read_sdc /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_seq_detector_0011/results/sky130hd/seq_detector_0011/base/2_floorplan.sdc
+source /home/sudar762/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+estimate_parasitics -placement
+Perform buffer insertion and gate resizing...
+repair_design -verbose -match_cell_footprint
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |         5
+    final |     +0.0% |       0 |       0 |             0 |         0
+---------------------------------------------------------------------
+Floating nets: 
+Report metrics stage 3, resizer...
+No registers in design
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 548 um^2 2% utilization.
+Instance count before 436, after 436
+Pin count before 2, after 2
+write_db /home/sudar762/projects/spec-to-rtl-agent/build/orfs_work_seq_detector_0011/results/sky130hd/seq_detector_0011/base/3_4_place_resized.odb
+Elapsed time: 0:01.94[h:]min:sec. CPU time: user 0.49 sys 0.15 (32%). Peak memory: 140588KB.
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+3_4_place_resized                  1            137 996c00c0a85143c0c054

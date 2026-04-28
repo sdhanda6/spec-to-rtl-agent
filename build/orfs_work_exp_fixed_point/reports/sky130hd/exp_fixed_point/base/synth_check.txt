@@ -1,0 +1,4 @@
+
+19. Executing CHECK pass (checking for obvious problems).
+Checking module exp_fixed_point...
+Found and reported 0 problems.

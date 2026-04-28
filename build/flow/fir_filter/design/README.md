@@ -18,6 +18,6 @@ make DESIGN_CONFIG=build/flow/fir_filter/design/config.mk
 
 Platform hint: `sky130hd`
 Clock port: `clk`
-Clock period: `8 ns`
+Clock period: `10 ns`
 
 Visible and hidden-case note: unsupported or ambiguous physical-design requirements should be treated as partial support, not tapeout-ready success.

@@ -1,3 +1,3 @@
 ## Compile
-command: C:\iverilog\bin\iverilog.EXE -g2012 -t null D:\Spring 2026 courses\VLSI Automation\Project 2 Phase 2\build\candidates\text_counter\cand_1\text_counter.v
+command: /home/sudar762/tools/oss-cad-suite/bin/iverilog -g2012 -t null /home/sudar762/projects/spec-to-rtl-agent/build/candidates/text_counter/cand_1/text_counter.v
 status: pass

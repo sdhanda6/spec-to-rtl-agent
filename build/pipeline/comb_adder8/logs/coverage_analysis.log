@@ -1,0 +1,3 @@
+## Coverage analysis
+status: not_run
+reason: --run-coverage was not requested

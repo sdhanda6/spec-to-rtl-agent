@@ -103,8 +103,9 @@ def render_testbench(ir: ModuleIR) -> GeneratedTestbench:
 
 def _render_port_block(ir: ModuleIR, strategy: RenderStrategy) -> list[str]:
     items: list[str] = []
-    for idx, port in enumerate(ir.ports):
-        suffix = "," if idx < len(ir.ports) - 1 else ""
+    ports = _rtl_ports(ir)
+    for idx, port in enumerate(ports):
+        suffix = "," if idx < len(ports) - 1 else ""
         items.append(f"    {_port_decl(port, ir, strategy)}{suffix}")
     return items
 
@@ -125,6 +126,15 @@ def _render_internal_declarations(ir: ModuleIR, strategy: RenderStrategy) -> lis
 
 def _render_processes(ir: ModuleIR) -> list[str]:
     lines: list[str] = []
+    if _registered_combinational(ir):
+        clk = _registered_comb_clock_name(ir)
+        lines.append(f"    always @(posedge {clk}) begin")
+        for process in ir.processes:
+            lines.extend(_render_statements(ir, process.body, indent="        ", blocking=False))
+        lines.append("    end")
+        lines.append("")
+        return lines
+
     for process in ir.processes:
         if process.kind == "comb":
             lines.append("    always @* begin")
@@ -158,7 +168,7 @@ def _render_statements(ir: ModuleIR, statements: list[AssignmentIR | IfIR], inde
     lines: list[str] = []
     for statement in statements:
         if isinstance(statement, AssignmentIR):
-            op = "=" if blocking or statement.blocking else "<="
+            op = "=" if blocking else "<="
             lines.append(f"{indent}{statement.target} {op} {_forced_expr(ir, statement.target, statement.expr)};")
             continue
         lines.append(f"{indent}if ({render_expr(statement.condition)}) begin")
@@ -281,11 +291,12 @@ def _render_shift_register(ir: ModuleIR, strategy: RenderStrategy) -> list[str]:
 
 
 def _render_combinational(ir: ModuleIR, strategy: RenderStrategy) -> list[str]:
-    lines = ["    always @* begin"]
+    clk = _registered_comb_clock_name(ir)
+    lines = [f"    always @(posedge {clk}) begin"]
     for operation in ir.combinational:
         target = _target_name(operation.target, strategy)
         expr = _literal(_signal_width(ir, operation.target), 0) if _force_zero(ir, operation.target) else _comb_expr(operation)
-        lines.append(f"        {target} = {expr};")
+        lines.append(f"        {target} <= {expr};")
     lines.append("    end")
     lines.append("")
     return lines
@@ -353,10 +364,11 @@ def _render_generic(ir: ModuleIR, strategy: RenderStrategy) -> list[str]:
         lines.append("    end")
         lines.append("")
         return lines
-    lines = ["    always @* begin"]
+    clk = _registered_comb_clock_name(ir)
+    lines = [f"    always @(posedge {clk}) begin"]
     for port in ir.ports:
         if port.direction == "output":
-            lines.append(f"        {_target_name(port.name, strategy)} = {_forced_or_default_literal(ir, port.name, port.width)};")
+            lines.append(f"        {_target_name(port.name, strategy)} <= {_forced_or_default_literal(ir, port.name, port.width)};")
     lines.append("    end")
     lines.append("")
     return lines
@@ -552,21 +564,27 @@ def _render_shift_register_tb(ir: ModuleIR) -> str:
 
 def _render_smoke_tb(ir: ModuleIR) -> str:
     lines = ["`timescale 1ns/1ps", "", f"module tb_{ir.name};"]
-    for port in ir.ports:
+    ports = _rtl_ports(ir)
+    clk = _registered_comb_clock_name(ir) if _registered_combinational(ir) else None
+    for port in ports:
         decl = "reg" if port.direction == "input" else "wire"
         lines.append(f"    {decl} {_verilog_range(port.width)}{port.name};")
+    if clk:
+        lines.extend(["", f"    initial {clk} = 1'b0;", f"    always #5 {clk} = ~{clk};"])
     lines.extend(
         [
             "",
             f"    {ir.name} dut (",
-            ",\n".join(f"        .{port.name}({port.name})" for port in ir.ports),
+            ",\n".join(f"        .{port.name}({port.name})" for port in ports),
             "    );",
             "",
             "    initial begin",
         ]
     )
-    for port in ir.ports:
+    for port in ports:
         if port.direction == "input":
+            if clk and port.name == clk:
+                continue
             lines.append(f"        {port.name} = {_literal(port.width, 0)};")
     lines.extend(["        #10;", f"        $display(\"PASS tb_{ir.name}\");", "        $finish;", "    end", "endmodule", ""])
     return "\n".join(lines)
@@ -670,27 +688,34 @@ def _render_combinational_tb(ir: ModuleIR) -> GeneratedTestbench:
             ),
         )
     lines = ["`timescale 1ns/1ps", "", f"module tb_{ir.name};"]
-    inputs = [port for port in ir.ports if port.direction == "input"]
+    ports = _rtl_ports(ir)
+    inputs = [port for port in ports if port.direction == "input"]
+    data_inputs = _comb_data_inputs(ir)
     outputs = [port for port in ir.ports if port.direction == "output"]
+    clk = _registered_comb_clock_name(ir)
     for port in inputs:
         lines.append(f"    reg {_verilog_range(port.width)}{port.name};")
     for port in outputs:
         lines.append(f"    wire {_verilog_range(port.width)}{port.name};")
         lines.append(f"    reg {_verilog_range(port.width)}expected_{port.name};")
-    lines.extend(["", f"    {ir.name} dut (", ",\n".join(f"        .{port.name}({port.name})" for port in ir.ports), "    );", "", "    task check_outputs;", "        input [255:0] vector_name;", "        begin"])
+    lines.extend(["", f"    initial {clk} = 1'b0;", f"    always #5 {clk} = ~{clk};"])
+    lines.extend(["", f"    {ir.name} dut (", ",\n".join(f"        .{port.name}({port.name})" for port in ports), "    );", "", "    task check_outputs;", "        input [255:0] vector_name;", "        begin"])
     for port in outputs:
         lines.append(f"            if ({port.name} !== expected_{port.name}) begin")
         lines.append(f"                $display(\"FAIL %0s: expected {port.name}=%b got %b\", vector_name, expected_{port.name}, {port.name});")
         lines.append("                $fatal(1);")
         lines.append("            end")
     lines.extend(["        end", "    endtask", "", "    initial begin"])
-    for port in inputs:
+    for port in data_inputs:
         lines.append(f"        {port.name} = {_literal(port.width, 0)};")
 
     for vector_name, assignments in _combinational_vectors(ir):
         for name, value in assignments.items():
+            if name == clk:
+                continue
             lines.append(f"        {name} = {value};")
         lines.extend(_comb_expected_assignments(ir.combinational))
+        lines.append(f"        @(posedge {clk});")
         lines.append(f"        #1 check_outputs(\"{vector_name}\");")
     lines.extend([f"        $display(\"PASS tb_{ir.name}\");", "        $finish;", "    end", "endmodule", ""])
     vector_note = "exhaustive truth-table vectors" if _is_exhaustive_boolean(ir) else "directed input vectors"
@@ -707,28 +732,40 @@ def _render_combinational_tb(ir: ModuleIR) -> GeneratedTestbench:
 
 def _render_comb_vectors_tb(ir: ModuleIR) -> GeneratedTestbench:
     lines = ["`timescale 1ns/1ps", "", f"module tb_{ir.name};"]
-    inputs = [port for port in ir.ports if port.direction == "input"]
+    ports = _rtl_ports(ir)
+    inputs = [port for port in ports if port.direction == "input"]
+    data_inputs = _comb_data_inputs(ir)
     outputs = [port for port in ir.ports if port.direction == "output"]
+    clk = _registered_comb_clock_name(ir) if _registered_combinational(ir) else None
     for port in inputs:
         lines.append(f"    reg {_verilog_range(port.width)}{port.name};")
     for port in outputs:
         lines.append(f"    wire {_verilog_range(port.width)}{port.name};")
         lines.append(f"    reg {_verilog_range(port.width)}expected_{port.name};")
-    lines.extend(["", f"    {ir.name} dut (", ",\n".join(f"        .{port.name}({port.name})" for port in ir.ports), "    );", "", "    task check_outputs;", "        input [255:0] vector_name;", "        begin"])
+    if clk:
+        lines.extend(["", f"    initial {clk} = 1'b0;", f"    always #5 {clk} = ~{clk};"])
+    lines.extend(["", f"    {ir.name} dut (", ",\n".join(f"        .{port.name}({port.name})" for port in ports), "    );", "", "    task check_outputs;", "        input [255:0] vector_name;", "        begin"])
     for port in outputs:
         lines.append(f"            if ({port.name} !== expected_{port.name}) begin")
         lines.append(f"                $display(\"FAIL %0s: expected {port.name}=%b got %b\", vector_name, expected_{port.name}, {port.name});")
         lines.append("                $fatal(1);")
         lines.append("            end")
     lines.extend(["        end", "    endtask", "", "    initial begin"])
-    for port in inputs:
+    init_inputs = data_inputs if clk else inputs
+    for port in init_inputs:
         lines.append(f"        {port.name} = {_literal(port.width, 0)};")
     for vector in ir.verification.comb_vectors:
         for name, expr in vector.drive.items():
+            if clk and name == clk:
+                continue
             lines.append(f"        {name} = {render_expr(expr)};")
         for target, expr in vector.expect.items():
             lines.append(f"        expected_{target} = {render_expr(expr)};")
-        lines.append(f"        #1 check_outputs(\"{vector.name}\");")
+        if clk:
+            lines.append(f"        @(posedge {clk});")
+            lines.append(f"        #1 check_outputs(\"{vector.name}\");")
+        else:
+            lines.append(f"        #1 check_outputs(\"{vector.name}\");")
     lines.extend([f"        $display(\"PASS tb_{ir.name}\");", "        $finish;", "    end", "endmodule", ""])
     return GeneratedTestbench(
         text="\n".join(lines),
@@ -864,12 +901,12 @@ def _oracle_supported(operation: CombBehaviorIR) -> bool:
 
 
 def _is_exhaustive_boolean(ir: ModuleIR) -> bool:
-    inputs = [port for port in ir.ports if port.direction == "input"]
+    inputs = _comb_data_inputs(ir)
     return len(inputs) <= 4 and all(port.width == 1 for port in inputs)
 
 
 def _combinational_vectors(ir: ModuleIR) -> list[tuple[str, dict[str, str]]]:
-    inputs = [port for port in ir.ports if port.direction == "input"]
+    inputs = _comb_data_inputs(ir)
     if _is_exhaustive_boolean(ir):
         vectors = []
         for value in range(1 << len(inputs)):
@@ -889,6 +926,39 @@ def _combinational_vectors(ir: ModuleIR) -> list[tuple[str, dict[str, str]]]:
         assignments[port.name] = _literal(port.width, 1)
         vectors.append((f"{port.name}_hot", assignments))
     return vectors
+
+
+def _rtl_ports(ir: ModuleIR) -> list[PortIR]:
+    if not _registered_combinational(ir):
+        return ir.ports
+    clk = _registered_comb_clock_name(ir)
+    if any(port.name == clk for port in ir.ports):
+        return ir.ports
+    return [PortIR(name=clk, direction="input", width=1)] + ir.ports
+
+
+def _registered_combinational(ir: ModuleIR) -> bool:
+    if ir.clock or ir.reset or ir.counter or ir.register or ir.shift_register or ir.fsm:
+        return False
+    if ir.processes:
+        return all(process.kind == "comb" for process in ir.processes)
+    return ir.design_kind in {"combinational", "generic"}
+
+
+def _registered_comb_clock_name(ir: ModuleIR) -> str:
+    if ir.clock:
+        return ir.clock
+    for port in ir.ports:
+        if port.direction == "input" and port.name.lower() in {"clk", "clock"}:
+            return port.name
+    return "clk"
+
+
+def _comb_data_inputs(ir: ModuleIR) -> list[PortIR]:
+    if not _registered_combinational(ir):
+        return [port for port in ir.ports if port.direction == "input"]
+    clk = _registered_comb_clock_name(ir)
+    return [port for port in ir.ports if port.direction == "input" and port.name != clk]
 
 
 def _port_decl(port: PortIR, ir: ModuleIR, strategy: RenderStrategy) -> str:

@@ -2,18 +2,18 @@
 
 (* hdlname = "seq_detector_0011" *)
 (* top =  1  *)
-(* src = "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/design/src/seq_detector_0011.v:4.1-19.10" *)
+(* src = "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/design/src/seq_detector_0011.v:5.1-20.10" *)
 module seq_detector_0011(clk, reset, data_in, detected);
-  (* src = "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/design/src/seq_detector_0011.v:5.11-5.14" *)
+  (* src = "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/design/src/seq_detector_0011.v:6.11-6.14" *)
   input clk;
   wire clk;
-  (* src = "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/design/src/seq_detector_0011.v:6.11-6.16" *)
+  (* src = "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/design/src/seq_detector_0011.v:7.11-7.16" *)
   input reset;
   wire reset;
-  (* src = "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/design/src/seq_detector_0011.v:7.11-7.18" *)
+  (* src = "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/design/src/seq_detector_0011.v:8.11-8.18" *)
   input data_in;
   wire data_in;
-  (* src = "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/design/src/seq_detector_0011.v:8.16-8.24" *)
+  (* src = "/home/sudar762/projects/spec-to-rtl-agent/build/flow/seq_detector_0011/design/src/seq_detector_0011.v:9.16-9.24" *)
   output detected;
   wire detected;
   wire _0_;

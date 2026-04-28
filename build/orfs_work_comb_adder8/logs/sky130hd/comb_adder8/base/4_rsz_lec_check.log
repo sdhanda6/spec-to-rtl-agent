@@ -1,0 +1,62 @@
+[2026-04-27 11:01:05.226] [miter_logger] [info] MiterStrategy::run starting
+[2026-04-27 11:01:05.226] [miter_logger] [info] Collecting POs for design 0: comb_adder8
+
+[2026-04-27 11:01:05.227] [miter_logger] [info] Collected 26 PIs for design 0
+
+[2026-04-27 11:01:05.227] [miter_logger] [info] Collected 24 POs for design 0
+
+[2026-04-27 11:01:05.227] [miter_logger] [info] design 0 PI summary by model/term (26 total terminals, 5 unique rows):
+| Model                    | Term  | Count |
+|--------------------------|-------|-------|
+| comb_adder8              | a     |     8 |
+| comb_adder8              | b     |     8 |
+| sky130_fd_sc_hd__dfrtp_1 | Q     |     8 |
+| comb_adder8              | clk   |     1 |
+| comb_adder8              | reset |     1 |
+
+[2026-04-27 11:01:05.227] [miter_logger] [info] design 0 PO summary by model/term (24 total terminals, 3 unique rows):
+| Model                    | Term | Count |
+|--------------------------|------|-------|
+| comb_adder8              | y    |     8 |
+| sky130_fd_sc_hd__dfrtp_1 | CLK  |     8 |
+| sky130_fd_sc_hd__dfrtp_1 | D    |     8 |
+
+[2026-04-27 11:01:05.227] [miter_logger] [info] Collecting POs for design 1: comb_adder8
+
+[2026-04-27 11:01:05.228] [miter_logger] [info] Collected 26 PIs for design 1
+
+[2026-04-27 11:01:05.228] [miter_logger] [info] Collected 24 POs for design 1
+
+[2026-04-27 11:01:05.228] [miter_logger] [info] design 1 PI summary by model/term (26 total terminals, 5 unique rows):
+| Model                    | Term  | Count |
+|--------------------------|-------|-------|
+| comb_adder8              | a     |     8 |
+| comb_adder8              | b     |     8 |
+| sky130_fd_sc_hd__dfrtp_1 | Q     |     8 |
+| comb_adder8              | clk   |     1 |
+| comb_adder8              | reset |     1 |
+
+[2026-04-27 11:01:05.228] [miter_logger] [info] design 1 PO summary by model/term (24 total terminals, 3 unique rows):
+| Model                    | Term | Count |
+|--------------------------|------|-------|
+| comb_adder8              | y    |     8 |
+| sky130_fd_sc_hd__dfrtp_1 | CLK  |     8 |
+| sky130_fd_sc_hd__dfrtp_1 | D    |     8 |
+
+[2026-04-27 11:01:05.228] [miter_logger] [info] normalizeInputs: starting
+[2026-04-27 11:01:05.228] [miter_logger] [info] size of common inputs: 26
+[2026-04-27 11:01:05.228] [miter_logger] [info] size of diff0 inputs: 0
+[2026-04-27 11:01:05.228] [miter_logger] [info] size of diff1 inputs: 0
+[2026-04-27 11:01:05.228] [miter_logger] [info] normalizeOutputs: starting
+[2026-04-27 11:01:05.228] [miter_logger] [info] size of common outputs: 24
+[2026-04-27 11:01:05.228] [miter_logger] [info] size of diff0 outputs: 0
+[2026-04-27 11:01:05.228] [miter_logger] [info] size of diff1 outputs: 0
+[2026-04-27 11:01:05.228] [miter_logger] [info] size of PIs in circuit 0: 26
+[2026-04-27 11:01:05.228] [miter_logger] [info] size of PIs in circuit 1: 26
+[2026-04-27 11:01:05.228] [miter_logger] [info] size of POs in circuit 0: 24
+[2026-04-27 11:01:05.228] [miter_logger] [info] size of POs in circuit 1: 24
+[2026-04-27 11:01:05.230] [miter_logger] [info] Building miter expression
+[2026-04-27 11:01:05.230] [miter_logger] [info] Finished building miter expression
+[2026-04-27 11:01:05.230] [miter_logger] [info] SAT solver starting
+[2026-04-27 11:01:05.230] [miter_logger] [info] SAT solver finished: UNSAT
+[2026-04-27 11:01:05.230] [miter_logger] [info] Circuits are IDENTICAL

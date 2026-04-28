@@ -1,0 +1,2 @@
+PASS tb_comb_adder8
+/home/sudar762/projects/spec-to-rtl-agent/tb/tb_comb_adder8.sv:45: $finish called at 4000 (1ps)
