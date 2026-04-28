@@ -95,12 +95,3 @@ source venv/bin/activate
 
 ---
 
-# 🟢 FINAL RESULT
-
-After these exact insertions:
-
-```text
-✔ Reproducibility → perfect
-✔ Clarity → excellent
-✔ Grader checklist → fully satisfied
-✔ README → A+ level
