@@ -43,11 +43,10 @@ cd spec-to-rtl-agent
 
 Run the entire pipeline with a single command:
 
+## ⚡ One-Command Execution
+
 ```bash
 python3 run_all_specs.py
-
-
----
 
 # 🔴 3. Add “Sample Output”
 
@@ -81,7 +80,8 @@ python3 run_pipeline.py --spec <your_spec.yaml> --mode full --overwrite
 
 All outputs are organized per design in:
 
-outputs/<design_name>/
+Design outputs → outputs/<design_name>/
+Plots → outputs/plots/
 
 Each design folder contains:
 - logs  
@@ -89,9 +89,7 @@ Each design folder contains:
 - QoR metrics  
 - intermediate flow outputs  
 
-Global artifacts:
 
-- QoR plots → outputs/plots/
 
 # 🔴 5. Add Environment Fix (VERY IMPORTANT)
 
