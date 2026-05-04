@@ -1,32 +1,34 @@
-# 🚀 Spec-to-Tapeout AI Agent  
+# Spec-to-Tapeout AI Agent  
 ### End-to-End RTL-to-GDSII ASIC Design Automation with QoR Optimization
 
 ---
 
-## 📌 Overview
+## Overview
 This project implements an AI-driven Spec-to-Tapeout agent that converts high-level YAML design specifications into manufacturable GDSII layouts.
 
 The system automates the complete ASIC design flow:
 
-Spec → RTL → Simulation → Synthesis → OpenROAD → QoR → Signoff → GDSII
+**Spec → RTL → Simulation → Synthesis → OpenROAD → QoR → Signoff → GDSII**
 
 ---
 
-## What Makes This Project Unique
-- AI-driven design optimization  
-- Pareto tradeoff analysis  
-- Self-explaining agent decisions  
-- Fully automated RTL → GDS pipeline  
+## Key Contributions
+- End-to-end ASIC design automation  
+- QoR-driven optimization (Area, Power, Timing)  
+- Post-synthesis equivalence verification  
+- Failure-aware self-repair pipeline  
+- Pareto-based design space exploration  
+- Automated QoR visualization and reporting  
 
 ---
 
 ## Key Features
 - Fully automated pipeline (single-command execution)  
-- QoR optimization (Area, Power, Timing)  
-- Post-synthesis equivalence checking  
-- Failure-aware repair loops  
-- Pareto design exploration  
-- QoR visualization (plots and reports)  
+- Iterative QoR optimization  
+- Functional verification and equivalence checking  
+- Robust failure detection and recovery  
+- Pareto tradeoff analysis  
+- Performance visualization (plots and reports)  
 
 ---
 
@@ -35,9 +37,9 @@ Spec → RTL → Simulation → Synthesis → Equivalence → P&R → QoR → Si
 
 ---
 
-## One-Command Execution
+## Quick Start (Recommended)
 
-Run the entire pipeline:
+Run the complete pipeline:
 
 ```bash
 python3 run_all_specs.py
@@ -49,7 +51,7 @@ Generates QoR reports
 Produces plots
 Prints final summary
 ⚙️ Setup Instructions
-1. Clone repository
+1. Clone the repository
 git clone https://github.com/sdhanda6/spec-to-rtl-agent.git
 cd spec-to-rtl-agent
 2. Create virtual environment
@@ -62,7 +64,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 Usage
-Run single design
+Run a single design
 python3 run_pipeline.py --spec examples/specs/p1.yaml --mode full --overwrite
 Run optimized flow
 python3 run_pipeline.py \
@@ -76,14 +78,14 @@ python3 run_pipeline.py \
 
 Input
 
-Design specifications are located in:
+All design specifications are located in:
 
 examples/specs/
 
 Each YAML file defines:
 
 Module behavior
-Inputs/outputs
+Inputs and outputs
 Functional logic
 
 Output
@@ -110,16 +112,14 @@ Includes:
 area.png
 power.png
 pareto.png
-📊 Expected Results
 
-After execution:
+Expected Results after execution:
 
-All designs PASS
-RTL generation successful
-Simulation passes
-OpenROAD completes flow
+All designs complete successfully
+RTL generation and simulation pass
+OpenROAD completes full flow
 Timing closure achieved (WNS ≈ 0)
-QoR metrics generated
+QoR metrics generated (Area, Power, WNS, TNS)
 Pareto-optimal designs identified
 
 Workflow
@@ -131,26 +131,18 @@ Extract QoR metrics
 Apply optimization loops
 Generate reports and plots
 
-Hidden Testcases
-
-To run custom specifications:
-
+Running Custom / Hidden Testcases
 python3 run_pipeline.py --spec <your_spec.yaml> --mode full --overwrite
 
-Ensure the YAML format matches the examples.
+Ensure:
+
+YAML format matches examples
+Includes module definition and behavior
 
 Limitations
 Full DRC/LVS requires complete Sky130 PDK
-Open-source tools provide limited optimization compared to commercial tools
-Parallel execution may require careful resource handling
-
-Contributions
-End-to-end ASIC automation
-QoR-driven optimization
-Post-synthesis equivalence verification
-Failure-aware self-repair pipeline
-Pareto-based design exploration
-Automated visualization and insights
+Open-source tools provide limited optimization compared to commercial EDA tools
+Parallel execution requires careful resource handling
 
 Authors
 Sudarshan Dhandapani
