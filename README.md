@@ -146,7 +146,6 @@ Parallel execution requires careful resource handling
 
 Authors
 Sudarshan Dhandapani
-Lakshminarayanaa Rajamanar
 
 Summary
 
